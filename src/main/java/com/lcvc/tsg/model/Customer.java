@@ -1,4 +1,4 @@
-package com.lcvc.tsg.mold;
+package com.lcvc.tsg.model;
 
 public class Customer {
     private  int id;
