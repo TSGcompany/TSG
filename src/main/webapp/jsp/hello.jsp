@@ -12,6 +12,5 @@
 </head>
 <body>
 hello~~~~~~~~~~~~~~~ad
-c
 </body>
 </html>
