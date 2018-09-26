@@ -9,6 +9,7 @@ public class Customer {
     private  String customer_Email;//用户邮箱
     private  boolean customer_sex;//用户性别
 
+
     public int getId() {
         return id;
     }
@@ -57,7 +58,7 @@ public class Customer {
         this.customer_Email = customer_Email;
     }
 
-    public boolean isCustomer_sex() {
+    public boolean getCustomer_sex() {
         return customer_sex;
     }
 
