@@ -9,6 +9,8 @@ public class Admin {
     private String admin_passwod; //管理员密码
     private String admin_head; //管理员头像
     private String admin_phone; //管理员手机
+
+
     private String admin_Email; //管理员邮箱
     private boolean admin_sex; //管理员性别
     public Integer getId() {
