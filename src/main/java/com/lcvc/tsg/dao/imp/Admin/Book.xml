@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
+<mapper namespace="com.lcvc.tsg.dao.AdminDao.BookDao">
+    <!--=============================== 搜索书（通过书名）==================================-->
+    <select id="SearchBook" parameterType="String" resultType="Book">
+        SELECT * from book where book_name like concat('%',#{searchs},'%')
+    </select>
+
+    <!--========================== 展示书（分页,下面表关联的部分）==============================-->
+    <resultMap id="book" type="Book">
+        <!--关联BOOK类型表-->
+        <association property="book_type" javaType="Book_Type" column="book_type" select="com.lcvc.tsg.dao.AdminDao.BookDao.getBook_Type"></association>
+        <!--关联管理员表-->
+        <association property="book_creatorID" javaType="Admin" column="book_creatorID" select="com.lcvc.tsg.dao.AdminDao.AdminDao.getAdmin"></association>
+        <association property="book_editorsID" javaType="Admin" column="book_editorsID" select="com.lcvc.tsg.dao.AdminDao.AdminDao.getAdmin"></association>
+    </resultMap>
+
+    <select id="BookShow" resultMap="book" parameterType="int">
+        SELECT * FROM book order by id asc limit #{index},10
+    </select>
+
+    <!--========================== 查看书的总数用于分页==============================-->
+    <select id="BookCount" resultType="int">
+
+        SELECT COUNT(id) FROM book
+    </select>
+
+    <!--=============================== 获取书的类型==================================-->
+    <select id="getBook_Type" resultType="Book_Type" parameterType="int">
+        SELECT * FROM  book_type  WHERE id=#{id}
+    </select>
+
+</mapper>

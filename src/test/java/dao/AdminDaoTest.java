@@ -2,6 +2,8 @@ package dao;
 
 
 import com.lcvc.tsg.dao.AdminDao.AdminDao;
+import com.lcvc.tsg.dao.AdminDao.BookDao;
+import com.lcvc.tsg.dao.AdminDao.CustomerDao;
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.test.SpringJunitTest;
@@ -20,6 +22,10 @@ import java.util.List;
 public class AdminDaoTest extends SpringJunitTest {
     @Resource
     private AdminDao adminDao;
+    @Resource
+    private CustomerDao customerDao;
+    @Resource
+    private BookDao bookDao;
 
     /**
      * @Author Anle
@@ -27,7 +33,7 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public void CustomerShowAllTest() {//展示所有用户，带分页
-        List<Customer> list = adminDao.CustomerShow(0);
+        List<Customer> list = customerDao.CustomerShow(0);
         for (Customer cu : list) {
             System.out.println(cu.getCustomer_name());
         }
@@ -39,7 +45,7 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public void getCustomerTest() { //获取某个用户
-        Customer customer = adminDao.getCustomer(6);
+        Customer customer = customerDao.getCustomer(6);
         System.out.println(customer.getCustomer_name());
     }
 
@@ -50,7 +56,7 @@ public class AdminDaoTest extends SpringJunitTest {
     @Test
     public void SearchBook() {//搜索相关的书
 
-        System.out.println(adminDao.SearchBook("西").get(1).getBook_author());
+        System.out.println(bookDao.SearchBook("西").get(1).getBook_author());
 
 
     }
@@ -60,7 +66,7 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public  void  BookShow_Test(){//展示书
-        List<Book> list = adminDao.BookShow(0);
+        List<Book> list = bookDao.BookShow(0);
         for (Book book:list) {
             System.out.println(book.getBook_editorsID().getAdmin_name());
 
@@ -74,7 +80,7 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public void getBook_Type_Test() {//获取分类
-    System.out.println(adminDao.getBook_Type(2).getBook_type_name());
+    System.out.println(bookDao.getBook_Type(2).getBook_type_name());
 
     }
     /**
@@ -92,6 +98,6 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public  void BookCount(){
-        System.out.println(adminDao.BookCount());
+        System.out.println(bookDao.BookCount());
     }
 }

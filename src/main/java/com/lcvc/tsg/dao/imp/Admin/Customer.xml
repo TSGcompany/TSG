@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
+<mapper namespace="com.lcvc.tsg.dao.AdminDao.CustomerDao">
+    <!--=============================== 查看客户（分页）==================================-->
+    <select id="CustomerShow" resultType="Customer" parameterType="int">
+        SELECT * FROM  customer  order by id asc limit #{index},10
+    </select>
+
+    <!--=============================== 查看客户总数==================================-->
+    <select id="CustomerCount" resultType="int">
+
+        select COUNT(id)  from customer
+    </select>
+    <!--=============================== 查看客户详情==================================-->
+    <select id="getCustomer" parameterType="int" resultType="Customer">
+        SELECT * FROM customer where id=#{id}
+    </select>
+
+
+</mapper>
