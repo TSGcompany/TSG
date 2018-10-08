@@ -10,10 +10,13 @@
     <!--========================== 展示书（分页,下面表关联的部分）==============================-->
     <resultMap id="book" type="Book">
         <!--关联BOOK类型表-->
-        <association property="book_type" javaType="Book_Type" column="book_type" select="com.lcvc.tsg.dao.AdminDao.BookDao.getBook_Type"></association>
+        <association property="book_type" javaType="Book_Type" column="book_type"
+                     select="com.lcvc.tsg.dao.AdminDao.BookDao.getBook_Type"></association>
         <!--关联管理员表-->
-        <association property="book_creatorID" javaType="Admin" column="book_creatorID" select="com.lcvc.tsg.dao.AdminDao.AdminDao.getAdmin"></association>
-        <association property="book_editorsID" javaType="Admin" column="book_editorsID" select="com.lcvc.tsg.dao.AdminDao.AdminDao.getAdmin"></association>
+        <association property="book_creatorID" javaType="Admin" column="book_creatorID"
+                     select="com.lcvc.tsg.dao.AdminDao.AdminDao.getAdmin"></association>
+        <association property="book_editorsID" javaType="Admin" column="book_editorsID"
+                     select="com.lcvc.tsg.dao.AdminDao.AdminDao.getAdmin"></association>
     </resultMap>
 
     <select id="BookShow" resultMap="book" parameterType="int">
