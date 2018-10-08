@@ -1,0 +1,209 @@
+/*详情页面最上部分的大框*/
+.tsg_details{
+	width: 1200px;
+	height:450px;
+    border: 1px solid #000000;
+	margin: 0 0 0 339px;
+	position: relative;
+}
+/*详情图片边框*/
+.tsg_picture{
+	width: 375px;
+	height:400px;
+	border: 1px solid #00A4AC;
+	background-color: #AFC5D2;
+	position:fixed;
+    display: flex;
+    justify-content: center;  
+    margin: 20px 0 0 -520px;
+    overflow:hidden;
+    position: absolute;
+}
+/*详情图片设置*/
+.tsg_picture img{
+	display:block;
+    margin: 25px 0 0 8px;
+    position:relative; 
+    transition:all 3s;
+	}
+.tsg_picture:hover img{-webkit-transform:scale(1.5,1.5);}
+
+/*简介灰色边框*/
+.synopsis{
+	width: 550px;
+	height:250px;
+	border: 1px solid #DCDCDC;
+	background-color: #f0eeef;
+    margin:20px 0 0 620px;
+    position: absolute;
+}
+/*简介字体设置 愿你的青春不负梦想*/
+.synopsis p{
+	font-size: 16px;
+	font-family: 'Roboto Slab', serif;
+	list-style: none;/*去掉圆点*/	
+	margin: 10px 0 0 10px;
+	
+	
+	}
+/*借阅按钮*/
+#borrow{
+	width: 90px;
+	height: 50px;
+	border: 1px solid #DCDCDC;
+	background-color:orange;
+	position:fixed;
+    display: flex;
+    justify-content: center;  
+    margin: 330px 0 0 950px;
+    position:absolute;
+}	
+/*预约按钮*/
+#make{
+	width: 90px;
+	height: 50px;
+	border: 1px solid #DCDCDC;
+	background-color:orange;
+	position:fixed;
+    display: flex;
+    justify-content: center;  
+    margin:330px 0 0 740px;
+position: absolute;
+}
+/*字体设置*/
+a{
+	font-size: 16px;
+	font-weight: 200;
+	font-family: 'Roboto Slab', serif;
+	color: #000000;
+	text-decoration: none;
+	line-height:50px;
+	margin-left: 5px;
+
+}
+/*最底下的大矩形框*/
+.rectan{
+	width: 1200px;
+	height: 870px;
+	border: 1px solid #000000;
+	margin: 20px 0 0 339px;
+	position: absolute;
+}
+/*左边长条框*/
+.list{
+	width: 298px;
+	height: 813px;
+	border: 1px solid #108CE9;
+	margin: 55px 0 0 5px;
+	position: absolute;
+}
+/*图书排行榜小框*/
+.kanle{
+	width: 300px;
+	height: 50px;
+	border: 1px solid #DCDCDC;
+	background-color:#DCDCDC;
+	margin: 2px 0 0 5px;
+	position: absolute;
+	
+}
+/*图书排行榜*/
+h3{
+    color: #000000;
+    font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+	font-weight:bold;
+	position: absolute;
+	margin: 15px 0 0 95px;
+	position: absolute;
+	
+}
+/*第一部分*/
+/*书本包围的大框*/
+.book1{
+	width: 280px;
+	height: 260px;
+	border: 1px solid #DCDCDC;
+	margin-left:8px;
+	margin-top: 5px;
+}
+/*书本的图片*/
+.book1  img{
+	width: 160px;
+	height:200px;
+	position:fixed;
+    display: flex;
+    justify-content: center;  
+    margin: 8px 0 0 60px;
+	position: absolute;
+}
+/*书本整块小边框*/
+.make1{
+	width: 279px;
+	height: 40px;
+	border: 1px solid #DCDCDC;
+	margin: 218px 0 0 -1px;
+	position: absolute;
+}
+/*第一块小边框*/
+.make1_fex1{
+	width: 138px;
+	height: 40px;
+	border: 1px solid #DCDCDC;
+    background-color: #FF0000;
+	margin: 0 0 0 -1px;
+	position: absolute;
+}
+/*林清玄*/
+.make1_fex1 p{
+	color: #F0EEEF;
+    font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+	margin: 0 auto;
+	margin: 10px 0 0 45px;
+	position: absolute;
+}
+/*第二块小边框*/
+.make2_fex2{
+	width: 138px;
+	height: 40px;
+	border: 1px solid #DCDCDC;
+	background-color: #00CED1;
+	position:fixed;
+    display: flex;
+    justify-content: center;  
+	margin-left: 128px;
+	margin: 0 0 0 139px;
+	position: absolute;
+	
+}
+/*从容的底气*/
+.make2_fex2 p{ 
+	color: #F0EEEF;
+    font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+	margin-top: 10px;
+	margin: 9px 0 0 10px;
+	position: absolute;
+}
+
+
+
+
+/*中间的大框*/
+ *{margin: 0;padding: 0;list-style: none;}
+            #box{margin: -3px 0 0 320px;}
+            #box li{width: 100px;height: 50px;line-height: 40px;text-align: center;background-color: #d8d8d8;margin-right: 2px;float: left;}
+            #box .active{background: red;}
+            #content{clear: both;}
+            #content div{width: 875px;height: 815px;border: 1px solid #d8d8d8;display: none;}
+
+/*右边的目录与评价底下的大框*/
+.ts_evaluate{
+	width:870px;
+	height:800px;
+	border: 1px solid #00CED1;
+	margin: 65px 0 0 1px;
+	position: absolute;
+}
+

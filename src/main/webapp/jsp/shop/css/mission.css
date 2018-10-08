@@ -1,0 +1,294 @@
+﻿.main{
+	width: 75%;
+	height: 529px;
+	margin: 0 0 0 218px;
+	position: absolute;
+	}
+/*左边大边框*/	
+.main-left{
+	width:350px;
+	height: 526px;
+	border: 1px solid #DCDCDC;
+	float: left;
+    margin: 18px 0 5px 2px;
+    position: relative;
+}
+/*第一个小边框1*/
+.mis1{
+	width:173px;
+	height: 130px;
+	border: 1px solid #DCDCDC;
+	background-color: #99E0F2;
+	position:fixed;
+	float: left;
+    display: flex; 
+    justify-content: center;  
+    left:230px;
+    top: 27px;
+}
+.mis1 img{
+	width:65px;
+	height: 65px; 
+	margin-top:15px;
+}
+h3{
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: 'Roboto Slab', serif;
+	font-weight:bold;
+	position: absolute;
+	margin-top: 90px;
+	
+}
+/*第二个小边框2*/
+.mis2{
+	width:173px;
+	height: 130px;
+	border: 1px solid #DCDCDC;
+	background-color: #9DD9FB;
+	position:fixed;
+    float: right;
+    margin-left: 1px;
+    display: flex;
+    justify-content: center;
+    top: 26px;
+    left:403px;
+}
+.mis2 img{
+	width:65px;
+	height: 65px; 
+	margin-top:15px;
+}
+/*第三个小边框3*/
+.mis3{
+	width:173px;
+	height: 130px;
+	border: 1px solid #DCDCDC;
+	background-color: #B3C2F9;
+	position:fixed;
+    float: right;
+    margin-left: 1px;
+    display: flex;
+    justify-content: center;
+    top:158px;
+    left:229px;
+}
+.mis3 img{
+	width:65px;
+	height: 65px; 
+	margin-top:15px;
+}
+/*第四个小边框4*/
+.mis4{
+	width:173px;
+	height: 130px;
+	border: 1px solid #DCDCDC;
+	background-color: #99BCE2;
+	position:fixed;
+    float: left;
+    display: flex;
+    justify-content: center;
+    top: 158px;
+    left:404px;
+}
+.mis4 img{
+	width:65px;
+	height: 65px; 
+	margin-top:15px;
+}
+
+/*第五个小边框5*/
+.mis5{
+	width:173px;
+	height: 130px;
+	border: 1px solid #DCDCDC;
+	background-color: #9DD9FB;
+	position:fixed;
+    float: left;
+    display: flex;
+    justify-content: center;
+    top: 290px;
+    left:230px;
+}
+.mis5 img{
+	width:65px;
+	height: 65px; 
+	margin-top:15px;
+}
+/*第六个小边框6*/
+.mis6{
+	width:173px;
+	height: 130px;
+	border: 1px solid #DCDCDC;
+	background-color: #99E0F2;
+	position:fixed;
+    float: right;
+    margin-left: 1px;
+    display: flex;
+    justify-content: center;
+    top: 289px;
+    left:402px;
+}
+.mis6 img{
+	width:65px;
+	height: 65px; 
+	margin-top:15px;
+}
+/*第七个小边框7*/
+.mis7{
+	width:173px;
+	height: 130px;
+	border: 1px solid #DCDCDC;
+	background-color: #99BCE2;
+	position:fixed;
+    float: right;
+    margin-left: 1px;
+    display: flex;
+    justify-content: center;
+    top: 420px;
+    left:229px;
+}
+.mis7 img{
+	width:65px;
+	height: 65px; 
+	margin-top:15px;
+}
+/*第八个小边框8*/
+.mis8{
+	width:173px;
+	height: 130px;
+	border: 1px solid #DCDCDC;
+	background-color: #B3C2F9;
+	position:fixed;
+    float: right;
+    margin-left: 1px;
+    display: flex;
+    justify-content: center;
+    top: 420px;
+    left:403px;
+}
+.mis8 img{
+	width:65px;
+	height: 65px; 
+	margin-top:15px;
+}
+/*右边大边框*/
+.main-right{
+	width:1025px;
+	height: 526px;
+	float: right;
+	margin: 0 auto;
+	position:fixed;
+    display: flex; 
+    justify-content: center;  
+    margin: 20px 0 0px 393px ;
+    
+   
+	}
+/*右边图片的大边框*/
+.maer-right{
+	width:480px;
+	height: 450px;
+	border: 1px solid #00A4AC;
+	margin-top: 10px;
+	position:fixed;
+	float: left;
+    display: flex; 
+    justify-content: center;  
+    left:620px;
+    top: 20px;
+    
+}
+/*右边框图片*/
+.maer-right img{
+	width:435px;
+	height: 400px; 
+	margin:20px 0;	
+}
+/*右边文字*/
+.t_notice1 ul{
+   color: #000;
+   width: 6em;
+   height: 1em;
+   font-size: 16px;
+   font-weight: 300;
+   font-family: 'Roboto Slab', serif;
+   position: absolute;
+   margin-top: 15px;
+   left:540px;
+   
+   
+}
+ul li{
+	border-bottom: 1px dashed #CCCCCC;
+	width: 6em;
+	margin-top: 5px;
+}
+.t_notice2 ul{
+   color: #000;
+   width: 6em;
+   height: 1em;
+   font-size: 16px;
+   font-weight: 300;
+   font-family: 'Roboto Slab', serif;
+   position: absolute;
+   margin-top: 15px;
+   left:540px;
+   display:none;/*隐藏*/
+}
+/*切换字体设置*/
+.information{
+	 font-weight: 200;
+	 font-size: 18px;	
+     font-family: 'Roboto Slab', serif;
+     position: absolute;
+     text-align: center;  
+     line-height: 50px;
+
+}
+/*重图动态*/
+.information-nav{
+	width:510px;
+	height: 50px;	
+	border: 1px solid #DCDCDC;
+	background-color: #99E0F2;
+	position:fixed;
+    display: flex; 
+    justify-content: center;  
+    margin: 470px 0 0 50px;
+    position: absolute;
+       
+   
+}
+/*业界动态*/
+.middle-nav{
+	width:510px;
+	height: 50px; 
+	border: 1px solid #DCDCDC;
+	background-color: #CCCCCC;
+	position:fixed;
+    display: flex;
+    justify-content: center;  
+    margin: 470px 0 0 -459px;
+    position: absolute;
+}
+
+/*详情页面*/
+.tsg_details{
+	width: 1100px;
+	height:500px;
+	border: 1px solid #CCCCCC;
+	margin: 0 auto;
+}
+/*图片设置*/
+.tsg_picture{
+	width: 350px;
+	height:350px;
+	border: 1px solid #CCCCCC;
+	position:fixed;
+    display: flex;
+    justify-content: center;  
+    left:550px;
+    margin-top: 50px;
+		
+}

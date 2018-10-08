@@ -6,12 +6,19 @@
     <!-- 实体类,简称 -设置别名 -->
     <typeAliases>
         <!-- 将com.lcvc.ebuytest3.model.Admin类重新起一个名字Admin，供mybatis的映射文件使用 -->
-     <!--   <typeAlias alias="Admin" type="com.ljy.maven_github_ssm.model.Admin"/>-->
+
+        <typeAlias alias="Book" type="com.lcvc.tsg.model.Book"/>
+        <typeAlias alias="Customer" type="com.lcvc.tsg.model.Customer"/>
+        <typeAlias alias="Book_Type" type="com.lcvc.tsg.model.Book_Type"></typeAlias>
+        <typeAlias  alias="Admin" type="com.lcvc.tsg.model.Admin"></typeAlias>
+
     </typeAliases>
 
     <mappers>
         <!--注册adminMappe.xml文件 -->
-        <mapper resource="com/lcvc/tsg/dao/imp/book.xml"/>
+
+        <mapper resource="com/lcvc/tsg/dao/imp/Admin.xml"/>
+
     </mappers>
 
 

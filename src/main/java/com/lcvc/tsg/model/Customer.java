@@ -1,20 +1,21 @@
 package com.lcvc.tsg.model;
 
 public class Customer {
-    private  int id;
-    private  String customer_name;//用户名字
-    private  String customer_passwod;//用户密码
-    private  String customer_head;//头像
+    private Integer id;
+    private String customer_name;//用户名字
+    private String customer_passwod;//用户密码
+    private String customer_head;//头像
     private String customer_phone;//用户手机号
-    private  String customer_Email;//用户邮箱
-    private  boolean customer_sex;//用户性别
+    private String customer_Email;//用户邮箱
+    private boolean customer_sex;//用户性别
+    private boolean customer_prohibit_Login;//禁止登陆
+    private boolean Customer_prohibit_Borrowing;//禁止借书
 
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -66,8 +67,21 @@ public class Customer {
         this.customer_sex = customer_sex;
     }
 
+    public boolean getCustomer_prohibit_Login() {
+        return customer_prohibit_Login;
+    }
 
+    public void setCustomer_prohibit_Login(boolean customer_prohibit_Login) {
+        this.customer_prohibit_Login = customer_prohibit_Login;
+    }
 
+    public boolean getCustomer_prohibit_Borrowing() {
+        return Customer_prohibit_Borrowing;
+    }
+
+    public void setCustomer_prohibit_Borrowing(boolean customer_prohibit_Borrowing) {
+        Customer_prohibit_Borrowing = customer_prohibit_Borrowing;
+    }
 
 
 }
