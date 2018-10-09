@@ -1,0 +1,66 @@
+/*分页*/
+*{padding:0;margin:0}
+   ul,li{
+   	list-style:none;
+   	}
+   .left{
+   	float:left;
+   	}
+   .right{
+   	float:left;
+   	}
+   .page_container{
+   	height: 30px; 
+   	line-height: 30px;
+   	width: 510px;
+   	overflow: hidden;
+   	text-align: center;
+    padding: 660px 0 10px 669px;
+   	color: #757575;
+   	position: absolute;
+   	}
+   .page_num_container{
+   	width: 301px;
+   	margin:0 10px;
+   	border:1px solid #ccc;
+   	 border-right:0;
+   	 box-sizing: border-box;
+   	 overflow: hidden;
+   	 
+   	 height: 32px;
+   	 }
+   .page_num_container ul{
+    position: relative;
+   	top: 0;
+   	}
+   .page_num_container ul li{
+   	float: left;
+   	width: 30px;
+   	border-right:1px solid #ccc ;
+   	box-sizing: border-box;
+   	text-align: center;
+   	cursor: pointer;
+   	}
+   .page_num_container ul li:hover,.page_num_container ul li.active{ 
+   	background: #f4a100;
+   	color: #fff;
+   	position: relative;
+   	}
+   .page_btn{
+   	width: 60px;
+   	border:1px solid #ccc;
+   	box-sizing: border-box;
+   	cursor: pointer;
+   	}
+   .page_btn:hover{
+   	 background: #f4a100;
+   	 color: #fff;
+   	 }
+   .all_page:hover{
+   	background:none;
+   	color: #757575;
+   	}
+   .prev_btn{
+   	margin-right: 10px;
+
+   	}

@@ -35,12 +35,12 @@
 </div>
 
 <ul class="nav">
-    <li><a href="default.html" target="rightFrame" class="selected"><img src="images/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
-    <li><a href="imgtable.html" target="rightFrame"><img src="images/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li>
-    <li><a href="imglist.html"  target="rightFrame"><img src="images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>
-    <li><a href="tools.html"  target="rightFrame"><img src="images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
-    <li><a href="computer.html" target="rightFrame"><img src="images/icon05.png" title="文件管理" /><h2>文件管理</h2></a></li>
-    <li><a href="tab.html"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
+    <li><a href="default.html" target="rightFrame" class="selected"><img src="images/ico01.png" title="书籍管理" /><h2>书籍管理</h2></a></li>
+    <li><a href="imgtable.html" target="rightFrame"><img src="images/ico02.png" title="图书查询" /><h2>图书查询</h2></a></li>
+    <li><a href="imglist.html"  target="rightFrame"><img src="images/ico03.png" title="模块设计" /><h2>读者挂失</h2></a></li>
+    <li><a href="tools.html"  target="rightFrame"><img src="images/ico04.png" title="常用工具" /><h2>书标打印</h2></a></li>
+    <li><a href="computer.html" target="rightFrame"><img src="images/ico05.png" title="文件管理" /><h2>读者管理</h2></a></li>
+    <li><a href="tab.html"  target="rightFrame"><img src="images/ico06.png" title="系统设置" /><h2>系统设置</h2></a></li>
 </ul>
 
 <div class="topright">
@@ -51,10 +51,15 @@
     </ul>
 
     <div class="user">
+
+        <div class="img_head"><img src="images/tx1.jpeg"/></div>
+
+
         <span>欢迎xxx</span>
         <i>消息</i>
         <b>5</b>
     </div>
+
 
 </div>
 </body>
