@@ -176,3 +176,30 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+.contact_form{
+	width:70%;/*设置该元素宽度为整个浏览器的70%*/
+	position:absolute;/*绝对定位*/
+	top:20%;
+	left:35%;
+}
+
+.contact_form li{
+	padding:12px;
+	border-bottom:1px solid #eee;
+	position:relative;
+}
+/*给类名为contact_form的元素的第一个子元素li和最后一个字元素li加底部边框*/
+.contact_form li:first-child,.contact_form li:last-child{
+	border-bottom:1px solid #777;
+}
+
+.special input{
+	height:15px;
+	width:40px;
+	padding:5px 8px;
+	float:left;
+}
+.special{
+	list-style: none;
+	color: #1ab188;
+}

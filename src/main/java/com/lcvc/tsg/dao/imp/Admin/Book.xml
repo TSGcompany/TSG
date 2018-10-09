@@ -29,9 +29,20 @@
         SELECT COUNT(id) FROM book
     </select>
 
+    <!--=============================== 添加书籍 ==================================-->
+    <insert id="AddBook" parameterType="Book">
+   INSERT  INTO  book()
+
+
+    </insert>
+
+
+
     <!--=============================== 获取书的类型==================================-->
     <select id="getBook_Type" resultType="Book_Type" parameterType="int">
         SELECT * FROM  book_type  WHERE id=#{id}
     </select>
+
+
 
 </mapper>

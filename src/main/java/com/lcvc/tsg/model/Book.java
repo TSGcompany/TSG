@@ -17,6 +17,7 @@ public class Book {
     private Book_Type book_type; //书的类型
     private Integer book_hotID; //书的热度
     private Admin book_creatorID; //书的发布者
+    private String book_description;// 书描述
     private Admin book_editorsID; //书的最后编辑者
     private java.util.Date book_release_Date; //书的添加时间
 /**
@@ -110,4 +111,13 @@ public class Book {
     public void setBook_release_Date(Date book_release_Date) {
         this.book_release_Date = book_release_Date;
     }
+
+    public String getBook_description() {
+        return book_description;
+    }
+
+    public void setBook_description(String book_description) {
+        this.book_description = book_description;
+    }
+
 }

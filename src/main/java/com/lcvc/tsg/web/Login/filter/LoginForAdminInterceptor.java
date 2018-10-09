@@ -1,4 +1,4 @@
-package com.lcvc.tsg.web.filter;
+package com.lcvc.tsg.web.Login.filter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,15 +17,15 @@ public class LoginForAdminInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
 		boolean c = true;
-//		HttpSession session = request.getSession();
-//		if(session.getAttribute("admin")!=null){//判断session中有没有值 如果 有值表示已经登录
-//			c=true;
-//		}else{
-//			String path = request.getContextPath();
-//			String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-//            response.sendRedirect(basePath+"jsp/admin/login.jsp");
-//            response.setHeader("Refresh",basePath+"jsp/admin/login.jsp");
-//		}
+		HttpSession session = request.getSession();
+		if(session.getAttribute("admin")!=null){//判断session中有没有值 如果 有值表示已经登录
+			c=true;
+		}else{
+			String path = request.getContextPath();
+			String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+            response.sendRedirect(basePath+"jsp/shop/login/login.jsp");
+
+		}
 		return c;
 	}
 

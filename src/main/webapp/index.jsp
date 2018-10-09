@@ -5,7 +5,7 @@
 %>
 
 <html>
-<meta http-equiv=refresh content="0.01;url=<%=basePath%>jsp/admin/index.jsp">
+<meta http-equiv=refresh content="0.01;url=<%=basePath%>jsp/shop/index.jsp">
 <body>
 
 </body>

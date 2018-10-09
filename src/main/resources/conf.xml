@@ -21,6 +21,7 @@
         <mapper resource="com/lcvc/tsg/dao/imp/Admin/Book.xml"/>
         <mapper resource="com/lcvc/tsg/dao/imp/Admin/Customer.xml"/>
         <mapper resource="com/lcvc/tsg/dao/imp/Admin/Personal.xml"/>
+        <mapper resource="com/lcvc/tsg/dao/imp/Login/Login.xml"/>
 
     </mappers>
 

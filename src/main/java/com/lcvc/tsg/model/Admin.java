@@ -7,7 +7,20 @@ package com.lcvc.tsg.model;
 public class Admin {
     private Integer id; //
     private String admin_name;//管理员名字
+    private String admin_password; //管理员密码
+    private String admin_head; //管理员头像
+    private String admin_phone; //管理员手机
+    private String admin_Email; //管理员邮箱
+    private boolean admin_sex; //管理员性别
+    private String admin_nickname;//管理员昵称
 
+    public String getAdmin_nickname() {
+        return admin_nickname;
+    }
+
+    public void setAdmin_nickname(String admin_nickname) {
+        this.admin_nickname = admin_nickname;
+    }
     public Integer getId() {
         return id;
     }
@@ -25,11 +38,11 @@ public class Admin {
     }
 
     public String getAdmin_passwod() {
-        return admin_passwod;
+        return admin_password;
     }
 
     public void setAdmin_passwod(String admin_passwod) {
-        this.admin_passwod = admin_passwod;
+        this.admin_password = admin_passwod;
     }
 
     public String getAdmin_head() {
@@ -63,11 +76,5 @@ public class Admin {
     public void setAdmin_sex(boolean admin_sex) {
         this.admin_sex = admin_sex;
     }
-
-    private String admin_passwod; //管理员密码
-    private String admin_head; //管理员头像
-    private String admin_phone; //管理员手机
-    private String admin_Email; //管理员邮箱
-    private boolean admin_sex; //管理员性别
 
 }

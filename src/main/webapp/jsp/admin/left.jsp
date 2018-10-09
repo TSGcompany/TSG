@@ -10,8 +10,8 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel='stylesheet' href='css/left.css'>
     <title>Title</title>
@@ -27,29 +27,29 @@
                 <a href="javascript:void(0);"><i class="fa fa-cogs"></i><span>个人信息</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
 
-                    <li><a href="admin/passupdate.jsp" target="rightFrame">修改密码</a>
+                    <li><a href="<%=basePath%>jsp/admin/admin/passupdate.jsp" target="rightFrame">修改密码</a>
                     </li>
-                    <li><a href="admin/update.jsp" target="rightFrame">修改基本信息</a>
+                    <li><a href="<%=basePath%>jsp/admin/admin/update.jsp" target="rightFrame">修改基本信息</a>
                     </li>
                 </ul>
             </li>
             <li class="sub-menu">
                 <a href="javascript:void(0);"><i class="fa fa-table"></i><span>书籍类别管理</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
-                    <li><a href="book/books.jsp" target="rightFrame">所有书籍</a>
+                    <li><a href="<%=basePath%>jsp/admin/book/books.jsp" target="rightFrame">所有书籍</a>
                     </li>
-                    <li><a href="book/Addbooks.jsp" target="rightFrame">添加书籍</a>
+                    <li><a href="<%=basePath%>jsp/admin/book/Addbooks.jsp" target="rightFrame">添加书籍</a>
                     </li>
-                    <li><a href="book/return.jsp" target="rightFrame">归还书籍</a>
+                    <li><a href="<%=basePath%>jsp/admin/book/return.jsp" target="rightFrame">归还书籍</a>
                     </li>
                 </ul>
             </li>
             <li class="sub-menu">
                 <a href="javascript:void(0);"><i class="fa fa fa-tasks"></i><span>管理员模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
-                    <li><a href="Manag/manags.jsp" target="rightFrame">管理员管理</a>
+                    <li><a href="<%=basePath%>jsp/admin/Manag/manags.jsp" target="rightFrame">管理员管理</a>
                     </li>
-                    <li><a href="Manag/Addmanag.jsp" target="rightFrame">添加管理员</a>
+                    <li><a href="<%=basePath%>jsp/admin/Manag/Addmanag.jsp" target="rightFrame">添加管理员</a>
                     </li>
                 </ul>
             <li class="sub-menu">
@@ -63,10 +63,10 @@
         </ul>
     </div>
 </aside>
-<script src='js/jquery.js'></script>
-<script src='js/jquery.js'></script>
 
-<script  src="js/left.js"></script>
+<script src='<%=basePath%>jsp/admin/js/jquery.js'></script>
+
+<script  src="<%=basePath%>jsp/admin/js/left.js"></script>
 
 </body>
 </html>
