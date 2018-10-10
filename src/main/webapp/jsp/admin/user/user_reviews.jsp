@@ -73,12 +73,10 @@
     <table class="tablelist">
         <thead>
         <tr>
-            <th style="width:20%;">头像</th>
-            <th style="width:15%;">用户名</th>
-            <th style="width:10%;">性别</th>
-            <th style="width:20%;">手机号</th>
-            <th style="width:20%;">邮箱</th>
 
+            <th style="width:5%;">头像</th>
+            <th style="width:20%;">用户名</th>
+            <th style="width:65%;">用户评论</th>
 
             <th>操作</th>
         </tr>
@@ -89,14 +87,12 @@
             <tr>
                 <td class="img_td">
                     <c:choose>
-                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                        <img src="../images/tx.jpeg" style="width:40px;height:40px;margin-top: 8px;margin-left: 8px;border-radius: 50px;" />
                     </c:choose>
                 </td>
                 <td>2</td>
                 <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+                <td><a href="" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
 
