@@ -19,12 +19,12 @@
     position: absolute;
 }
 /*详情图片设置*/
-.tsg_picture img{
-	display:block;
-    margin: 25px 0 0 8px;
-    position:relative; 
-    transition:all 3s;
-	}
+.tsg_picture img {
+	display: block;
+	margin: 25px 0 0 8px;
+	position: relative;
+	transition: all 3s;
+}
 .tsg_picture:hover img{-webkit-transform:scale(1.5,1.5);}
 
 /*简介灰色边框*/
