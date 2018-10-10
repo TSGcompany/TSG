@@ -16,9 +16,9 @@
 <head>
     <meta charset="UTF-8">
     <title>添加书籍</title>
-    <link href="../css/stylee.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../js/jquery.js""></script>
-    <link href="../css/fenye.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <link href="<%=basePath%>jsp/admin/css/fenye.css" rel="stylesheet" type="text/css" />
 
 
 
@@ -152,7 +152,7 @@
     </div>
     <div class="page_btn next_page left">下一页</div>
     <div class="page_btn all_page right">共21页</div>
-    <script type="text/javascript" src="../js/fenye.js""></script>
+    <script type="text/javascript" src="<%=basePath%>jsp/admin/js/fenye.js"></script>
     </div>
     <script type="text/javascript">
         $('.tablelist tbody tr:odd').addClass('odd');

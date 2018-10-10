@@ -104,12 +104,12 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public  void BookCount(){//获取书的数量
-      //  System.out.println(bookDao.BookCount());
-        SimpleDateFormat sdf=new SimpleDateFormat("mmssSSS");
-
-        String str=sdf.format(new Date());
-        System.out.println("当前时间是："+str);
-        System.out.println("当前时间是："+str.length());
+       System.out.println(bookDao.BookCount());
+//        SimpleDateFormat sdf=new SimpleDateFormat("mmssSSS");
+//
+//        String str=sdf.format(new Date());
+//        System.out.println("当前时间是："+str);
+//        System.out.println("当前时间是："+str.length());
     }
     /**
      * @Author Anle

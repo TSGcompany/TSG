@@ -16,15 +16,15 @@
 <head>
     <meta charset="UTF-8">
     <title>添加书籍</title>
-    <link href="../css/stylee.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../js/jquery.js""></script>
-    <link href="../css/fenye.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=basePath %>jsp/admin/js/jquery.js"></script>
+    <link href="<%=basePath%>jsp/admin/css/fenye.css" rel="stylesheet" type="text/css" />
 
 
 
-        <!-- 导入kindEditor所需插件 -->
-        <link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css" />
-        <script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor.js"></script>
+    <!-- 导入kindEditor所需插件 -->
+    <link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css" />
+    <script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor.js"></script>
     <script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
 
     <script>
@@ -98,6 +98,102 @@
                 <td>5</td>
                 <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
             </tr>
+            <tr>
+                <td class="img_td">
+                    <c:choose>
+                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    </c:choose>
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+            </tr>
+            <tr>
+                <td class="img_td">
+                    <c:choose>
+                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    </c:choose>
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+            </tr>
+            <tr>
+                <td class="img_td">
+                    <c:choose>
+                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    </c:choose>
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+            </tr>
+            <tr>
+                <td class="img_td">
+                    <c:choose>
+                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    </c:choose>
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+            </tr>
+            <tr>
+                <td class="img_td">
+                    <c:choose>
+                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    </c:choose>
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+            </tr>
+            <tr>
+                <td class="img_td">
+                    <c:choose>
+                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    </c:choose>
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+            </tr>
+            <tr>
+                <td class="img_td">
+                    <c:choose>
+                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    </c:choose>
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+            </tr>
+            <tr>
+                <td class="img_td">
+                    <c:choose>
+                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    </c:choose>
+                </td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
+            </tr>
         </c:forEach>
 
         </tbody>
@@ -156,10 +252,10 @@
     </div>
     <div class="page_btn next_page left">下一页</div>
     <div class="page_btn all_page right">共21页</div>
-    <script type="text/javascript" src="../js/fenye.js""></script>
-    </div>
-    <script type="text/javascript">
-        $('.tablelist tbody tr:odd').addClass('odd');
-    </script>
+    <script type="text/javascript" src="<%=basePath %>jsp/admin/js/fenye.js"></script>
+</div>
+<script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+</script>
 </body>
 </html>
