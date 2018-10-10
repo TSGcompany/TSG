@@ -26,12 +26,10 @@
 	transition: all 3s;
 }
 .tsg_picture:hover img{-webkit-transform:scale(1.5,1.5);}
-
 /*简介灰色边框*/
 .synopsis{
 	width: 550px;
 	height:250px;
-
     margin:50px 0 0 500px;
     position: absolute;
 }
