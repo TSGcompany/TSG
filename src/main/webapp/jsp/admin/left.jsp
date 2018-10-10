@@ -36,9 +36,9 @@
             <li class="sub-menu">
                 <a href="javascript:void(0);"><i class="fa fa-table"></i><span>书籍类别管理</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
-                    <li><a href="<%=basePath%>jsp/admin/book/books.jsp" target="rightFrame">所有书籍</a>
+                    <li><a href="<%=basePath%>admin/BookShow?index=0" target="rightFrame">所有书籍</a>
                     </li>
-                    <li><a href="<%=basePath%>jsp/admin/book/Addbooks.jsp" target="rightFrame">添加书籍</a>
+                    <li><a href="<%=basePath%>admin/getBook_TypeAll" target="rightFrame">添加书籍</a>
                     </li>
                     <li><a href="<%=basePath%>jsp/admin/book/return.jsp" target="rightFrame">归还书籍</a>
                     </li>

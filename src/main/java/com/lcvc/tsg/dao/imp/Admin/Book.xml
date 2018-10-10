@@ -31,18 +31,30 @@
 
     <!--=============================== 添加书籍 ==================================-->
     <insert id="AddBook" parameterType="Book">
-   INSERT  INTO  book()
+   INSERT  INTO  book(id,book_id,book_type,book_name,book_author,book_icon,book_number,book_description,book_creatorID,book_editorsID,book_release_Date)
+   VALUE (#{id},#{book_id},#{book_type.id},#{book_name},#{book_author},#{book_icon},#{book_number},#{book_description},#{book_creatorID.id},#{book_editorsID.id},#{book_release_Date})
 
 
     </insert>
 
 
-
-    <!--=============================== 获取书的类型==================================-->
+    <!--=============================== 获取单个书的类型==================================-->
     <select id="getBook_Type" resultType="Book_Type" parameterType="int">
         SELECT * FROM  book_type  WHERE id=#{id}
     </select>
 
+    <!--=============================== 获取所有书的类型==================================-->
+    <select id="getBook_TypeAll" resultType="Book_Type">
+
+  SELECT  * FROM book_type
+
+    </select>
+
+    <!--=============================== 查看书有没有重名 ==================================-->
+    <select id="BookRename" parameterType="String" resultType="int">
+        SELECT COUNT(id) FROM book WHERE  book_name=#{BookName}
+
+    </select>
 
 
 </mapper>

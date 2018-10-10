@@ -9,7 +9,7 @@ import java.util.Date;
  **/
 public class Book {
     private Integer id; //id
-    private Integer book_id; //书的编号
+    private String book_id; //书的编号
     private String book_name; //书名
     private String book_icon; //书的图片
     private Integer book_number; //书的数量
@@ -32,11 +32,13 @@ public class Book {
         this.id = id;
     }
 
-    public Integer getBook_id() {
+
+
+    public String getBook_id() {
         return book_id;
     }
 
-    public void setBook_id(Integer book_id) {
+    public void setBook_id(String book_id) {
         this.book_id = book_id;
     }
 

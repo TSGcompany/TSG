@@ -4,13 +4,19 @@ package dao;
 import com.lcvc.tsg.dao.AdminDao.AdminDao;
 import com.lcvc.tsg.dao.AdminDao.BookDao;
 import com.lcvc.tsg.dao.AdminDao.CustomerDao;
+import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Book;
+import com.lcvc.tsg.model.Book_Type;
 import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
 import javax.annotation.Resource;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -97,7 +103,34 @@ public class AdminDaoTest extends SpringJunitTest {
      * @Date 下午 6:00 2018/10/7 0007
      **/
     @Test
-    public  void BookCount(){
-        System.out.println(bookDao.BookCount());
+    public  void BookCount(){//获取书的数量
+      //  System.out.println(bookDao.BookCount());
+        SimpleDateFormat sdf=new SimpleDateFormat("mmssSSS");
+
+        String str=sdf.format(new Date());
+        System.out.println("当前时间是："+str);
+        System.out.println("当前时间是："+str.length());
     }
+    /**
+     * @Author Anle
+     * @Date 下午 7:09 2018/10/9 0009
+     **/
+    @Test
+    public void getBook_TypeAll_Test(){//获取所有书类型
+        for (Book_Type type:bookDao.getBook_TypeAll()) {
+            System.out.println(type.getBook_type_name());
+        }
+
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 8:10 2018/10/9 0009
+     **/
+    //=============================== 查看书有没有重名 ==================================
+    @Test
+    public  void BookRename_Test (){
+        System.out.println(bookDao.BookRename("西游记"));
+    }
+
+
 }

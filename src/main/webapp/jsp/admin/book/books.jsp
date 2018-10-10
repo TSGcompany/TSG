@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -8,10 +12,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-	<link href="../css/stylee.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="../css/fenye.css" />
+	<link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css" />
        <!-- <script type="text/javascript" src="js/jquery.js""></script>-->
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="<%=basePath %>jsp/admin/js/jquery.js"></script>
 
 
 </head>
@@ -46,19 +50,16 @@
             </thead>
 
             <tbody>
-            <c:forEach var="producttype" items="${requestScope.list}">
+            <c:forEach var="i" items="${BookShow}">
                 <tr>
-                    <td class="img_td">
-                        <c:choose>
-                            <img src="../images/tx2.jpeg" style="width:60px;height:60px;margin-top: 8px;margin-left: 8px;" />
-                        </c:choose>
-                    </td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>6</td>
-                    <td><fmt:formatDate value="" pattern="yyyy年MM月dd日 HH:mm"/></td>
+
+                    <td>${i.book_icon}</td>
+                    <td>${i.book_type.book_type_name}</td>
+                    <td>${i.book_id}</td>
+                    <td>${i.book_name}</td>
+                    <td>${i.book_author}</td>
+                    <td>${i.book_number}</td>
+                    <td><fmt:formatDate value="${i.book_release_Date}" pattern="yyyy年MM月dd日 HH:mm"/></td>
                     <td><a href="UpdateBook.html" class="tablelink">修改</a>     <a href="" class="tablelink"> 删除</a></td>
                 </tr>
             </c:forEach>
@@ -96,21 +97,9 @@
         <div class="page_btn prev_page left">上一页</div>
         <div class="page_num_container left" id="page_num_container">
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li>13</li>
-                <li>14</li>
-                <li>15</li>
+                <c:forEach  var="i" items="${PageCount}">
+                    <li>1</li>
+                </c:forEach>
             </ul>
         </div>
         <div class="page_btn next_page left">下一页</div>
@@ -118,6 +107,6 @@
 
 
     </div>
-    <script src="../js/fenye.js"></script>
+    <script src="<%=basePath %>jsp/admin/js/fenye.js"></script>
 </body>
 </html>
