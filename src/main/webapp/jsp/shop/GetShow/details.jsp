@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -23,8 +27,11 @@
         	时间：2018-09-25
         	描述：左边简介
        -->
-		<div class="synopsis">	
-				<p>愿你的青春不负梦想</p>
+		<div class="synopsis">
+			<p>书名：愿你的青春不负梦想</p></br>
+			    <p>作者：俞敏洪</p></br>
+			    <p>可借册数：15</p></br>
+			    <p>评分：（已有0条评论）</p>
 		</div>
 		<!--
         	作者：offline
@@ -71,13 +78,13 @@
         <div id="box">
             <!--这个ul为选项卡的菜单，提供选择项，并且设置其中一个li为默认样式-->
             <ul>
-                <li class="active">新闻</li>
+                <li class="active">目录</li>
                 <li>社会</li>
             </ul>
             <!--这个div为选项卡的内容，显示不同菜单的不同内容，并且设置其中一个div为可见，其他隐藏-->
             <div id="content">
-                <div style="display: block;">新闻</div>
-                <div>社会</div>
+                <div style="display: block;">目录</div>
+                <div>评论</div>
             </div>
         </div>
         </div>
