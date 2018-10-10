@@ -2,7 +2,7 @@
 .tsg_details{
 	width: 1200px;
 	height:450px;
-    border: 1px solid #000000;
+    border: none;
 	margin: 0 0 0 339px;
 	position: relative;
 }
@@ -10,8 +10,7 @@
 .tsg_picture{
 	width: 375px;
 	height:400px;
-	border: 1px solid #00A4AC;
-	background-color: #AFC5D2;
+	border: 1px solid #CCCCCC;
 	position:fixed;
     display: flex;
     justify-content: center;  
@@ -32,15 +31,16 @@
 .synopsis{
 	width: 550px;
 	height:250px;
-	border: 1px solid #DCDCDC;
-	background-color: #f0eeef;
-    margin:20px 0 0 620px;
+
+    margin:50px 0 0 500px;
     position: absolute;
 }
 /*简介字体设置 愿你的青春不负梦想*/
 .synopsis p{
 	font-size: 16px;
 	font-family: 'Roboto Slab', serif;
+	font-weight: bold;
+	color: #000000;
 	list-style: none;/*去掉圆点*/	
 	margin: 10px 0 0 10px;
 	
@@ -51,31 +51,33 @@
 	width: 90px;
 	height: 50px;
 	border: 1px solid #DCDCDC;
-	background-color:orange;
+	background-color:#5cd053;
 	position:fixed;
     display: flex;
     justify-content: center;  
-    margin: 330px 0 0 950px;
+    margin: 330px 0 0 500px;
     position:absolute;
+	border-radius: 10px;
 }	
 /*预约按钮*/
 #make{
 	width: 90px;
 	height: 50px;
 	border: 1px solid #DCDCDC;
-	background-color:orange;
+	background-color:#5cd053;
 	position:fixed;
     display: flex;
     justify-content: center;  
-    margin:330px 0 0 740px;
-position: absolute;
+    margin:330px 0 0 650px;
+    position: absolute;
+	border-radius: 10px;
 }
 /*字体设置*/
 a{
 	font-size: 16px;
-	font-weight: 200;
+	font-weight: bold;
 	font-family: 'Roboto Slab', serif;
-	color: #000000;
+	color: #FEFEFE;
 	text-decoration: none;
 	line-height:50px;
 	margin-left: 5px;
@@ -193,8 +195,8 @@ h3{
 /*中间的大框*/
  *{margin: 0;padding: 0;list-style: none;}
             #box{margin: -3px 0 0 320px;}
-            #box li{width: 100px;height: 50px;line-height: 40px;text-align: center;background-color: #d8d8d8;margin-right: 2px;float: left;}
-            #box .active{background: red;}
+            #box li{width: 100px;height: 50px;line-height: 40px; font-weight:bold;text-align: center;background-color: #d8d8d8;margin-right: 2px;float: left;}
+            #box .active{background:#f4a100;}
             #content{clear: both;}
             #content div{width: 875px;height: 815px;border: 1px solid #d8d8d8;display: none;}
 
