@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -27,7 +31,7 @@
     <li><a href="#">所有书籍</a></li>
     </ul>
     </div>
-    
+
     <div class="rightinfo">
 
 
@@ -49,7 +53,10 @@
             <c:forEach var="i" items="${BookShow}">
                 <tr>
 
-                    <td>${i.book_icon}</td>
+                    <td >
+                        <img src="${i.book_icon}" style="width:80px;height:60px;" />
+
+                    </td>
                     <td>${i.book_type.book_type_name}</td>
                     <td>${i.book_id}</td>
                     <td>${i.book_name}</td>
@@ -90,16 +97,21 @@
     </script>
     <!--分页-->
     <div class="page_container center">
-        <div class="page_btn prev_page left">上一页</div>
+        <div class="page_btn prev_page left"><a class="page_btn prev_page left" href="<%=basePath%>admin/BookShow?index=${indexPage-1}">上一页</a></div>
         <div class="page_num_container left" id="page_num_container">
             <ul>
-                <c:forEach  var="i" items="${PageCount}">
-                    <li>1</li>
+
+
+                <c:forEach var="i" begin="1" end="${PageCount}" step="1">
+                    <li><a href="<%=basePath%>admin/BookShow?index=${i-1}">${i}</a></li>
                 </c:forEach>
+
+
             </ul>
         </div>
-        <div class="page_btn next_page left">下一页</div>
-        <div class="page_btn all_page right">共15页</div>
+        <div class="page_btn next_page left"><a href="<%=basePath%>admin/BookShow?index=${indexPage+1}">下一页</a></div>
+
+        <div class="page_btn all_page right">共${PageCount}页</div>
 
 
     </div>
