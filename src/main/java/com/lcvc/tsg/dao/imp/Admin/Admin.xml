@@ -8,5 +8,32 @@
         SELECT * FROM admin WHERE id=#{id}
 
     </select>
+    <!--=============================== 修改管理员密码==================================-->
+    <update id="updatePassword" parameterType="Admin">
+    update
+    admin
+    set
+    admin_password=#{admin_password}
+    where id=#{id}
+    </update>
 
+    <!--=============================== 修改基本信息==================================-->
+    <update id="updateubase" parameterType="Admin">
+        update
+        admin
+        set
+        admin_nickname=#{admin_nickname},admin_phone=#{admin_phone},admin_head=#{admin_head},admin_Email=#{admin_Email}
+        where id=#{id}
+    </update>
+
+    <!--=============================== 查看管理员有没有重名 ==================================-->
+    <select id="AdminRename" parameterType="String" resultType="int">
+        SELECT COUNT(id) FROM admin WHERE  admin_nickname=#{AdminNickName}
+
+    </select>
+
+    <!--=============================== 查看客户==================================-->
+    <select id="AdminShow" resultType="Admin" parameterType="int">
+        SELECT * FROM  admin  order by id asc limit #{index},10
+    </select>
 </mapper>

@@ -13,7 +13,56 @@
         <link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css"/>
         <script src="<%=basePath %>plugins/kindeditor-4.1.10/kindeditor-min.js"></script>
         <script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
+        <script src='<%=basePath%>jsp/admin/js/jquery.min.js'></script>
+        <script>
+            $(document).ready(function() {
 
+                $("#updatebase").click(function () {  //点击登录按钮
+                    var admin_nickname = $("#admin_nickname").val();
+                    var admin_phone = $("#admin_phone").val();
+                    var admin_head = $("#admin_head").val();
+                    var admin_Email = $("#admin_Email").val();
+                    var status = false;
+
+                    if (admin_nickname.length == 0 || admin_nickname == '') {
+                        alert("昵称不能为空");
+                        status = false;
+                    } else if (admin_phone.length == 0 || admin_phone == '') {
+                        alert("电话不能为空")
+                        status = false;
+                    } else if (admin_head.length == 0 || admin_head == '') {
+                        alert("头像不能为空")
+                        status = false;
+                    } else if (admin_Email.length == 0 || admin_Email == '') {
+                        alert("邮箱不能为空")
+                        status = false;
+                        } else {
+                            status = true;
+                        }
+
+                        if (status) {
+
+
+                            $.post("<%=basePath%>admin/updateubase", $("#baseupdateform").serialize(), function (data) {
+                                if (data.massage == 1) {
+                                    location.href = "<%=basePath%>jsp/admin/admin/update.jsp";
+                                    alert("1");
+                                } else {
+                                    alert(data.mssage);
+                                    alert("2");
+                                }
+
+                            });
+
+                        } else {
+
+
+                        }
+                });
+
+            });
+
+        </script>
         <script>
             //实现kindeditor弹出图片上传窗口
             KindEditor.ready(function (K) {
@@ -31,9 +80,9 @@
                             showLocal: true,//是否显示本地图片上传窗口
                             showRemote: true,//是否显示网络图片窗口
                             fillDescAfterUploadImage: false,//个人建议只在文本编辑器中使用true，true时图片上传成功后切换到图片编辑标签，false时插入图片后关闭弹出框。
-                            imageUrl: K('#url1').val(),
-                            clickFn: function (url, title, width, height, border, align) {
-                                K('#url1').val(url);
+                            imageUrl: K('#admin_head').val(),
+                            clickFn: function (admin_head, title, width, height, border, align) {
+                                K('#admin_head').val(admin_head);
                                 editor.hideDialog();
                             }
                         });
@@ -57,18 +106,18 @@
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-    <form action="" method="post">
+    <form id="baseupdateform" method="post">
     <ul class="forminfo">
-    <li><label>*名字</label><input name="" type="text" class="dfinput" value="" /></li>
-     <li><label>*手机号</label><input name="" type="text" class="dfinput" value=""/></li>
+    <li><label>*昵称</label><input name="admin_nickname" id="admin_nickname" type="text" class="dfinput" value="${sessionScope.admin.admin_nickname}" /></li>
+     <li><label>*手机号</label><input name="admin_phone"id="admin_phone" type="text" class="dfinput" value="${sessionScope.admin.admin_phone}"/></li>
      <li><label>*头像</label>
-    <input id="url1" name="" type="text" class="dfinput" value="" />
+    <input id="admin_head" name="admin_head" type="text" class="dfinput" value="${sessionScope.admin.admin_head}" />
         <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />	
         <a href="#" id="clearImagePath1">清除选择图片路径</a>	
         <i></i>
     </li>
-    <li><label>*邮箱</label><input name="" type="email" class="dfinput" value=""/></li>
-    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认修改"/></li>
+    <li><label>*邮箱</label><input name="admin_Email" id="admin_Email" type="email" class="dfinput" value="${sessionScope.admin.admin_Email}"/></li>
+    <li><label>&nbsp;</label><input name="updatebase" id="updatebase" type="submit" class="btn" value="确认修改"/></li>
     </ul>
     
     </form>
