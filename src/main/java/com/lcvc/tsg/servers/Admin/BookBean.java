@@ -103,4 +103,33 @@ public class BookBean {
         book.setBook_release_Date(new Timestamp(Calendar.getInstance().getTimeInMillis()));//将系统当前时间作为创建时间
         return  bookDao.AddBook(book);
     }
+    /**
+     * @Author Anle
+     * @Date 下午 5:04 2018/10/11 0011
+     **/
+    //===============================获取某本书===========================================
+    public Book getBook(int id){
+        return bookDao.getBook(id);
+    }
+
+    /**
+     * @Author Anle
+     * @Date 下午 5:41 2018/10/11 0011
+     **/
+    //===============================获取某本书===========================================
+   public Book getBook_whereBook_id(String book_id){
+
+       return bookDao.getBook_whereBook_id(book_id);
+   }
+
+    /**
+     * @Author Anle
+     * @Date 下午 4:28 2018/10/12 0012
+     **/
+    //=================================== 还书 =============================================
+   public int Return_Book (Book book){
+
+       return bookDao.Return_Book(book);
+   }
+
 }
