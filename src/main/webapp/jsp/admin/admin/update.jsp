@@ -25,7 +25,7 @@
                     var status = false;
 
                     if (admin_nickname.length == 0 || admin_nickname == '') {
-                        alert("昵称不能为空");
+                        alert("名字不能为空");
                         status = false;
                     } else if (admin_phone.length == 0 || admin_phone == '') {
                         alert("电话不能为空")
@@ -45,11 +45,10 @@
 
                             $.post("<%=basePath%>admin/updateubase", $("#baseupdateform").serialize(), function (data) {
                                 if (data.massage == 1) {
-                                    location.href = "<%=basePath%>jsp/admin/admin/update.jsp";
-                                    alert("1");
+                                    alert("修改成功");
                                 } else {
-                                    alert(data.mssage);
-                                    alert("2");
+                                    alert(data.massage);
+                                    alert("修改失败");
                                 }
 
                             });
