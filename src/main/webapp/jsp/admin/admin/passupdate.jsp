@@ -44,11 +44,11 @@
 
 
                             $.post("<%=basePath%>admin/AdminUpdatePassWord", $("#passupdateform").serialize(), function (data) {
-                                if (data.message == 1)
+                                if (data.massage == 1)
                                 {
 
                                 } else {
-                                    alert(data.message);
+                                    alert(data.massage);
                                 }
 
                             });

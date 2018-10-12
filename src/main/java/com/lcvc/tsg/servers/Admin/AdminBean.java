@@ -36,30 +36,51 @@ public class AdminBean {
      * @Author JunJi
      * @Date 2018/10/9 14:56
      **/
-   public Boolean updatePassword(Integer id, String admin_password) {
-       Boolean status = false;
-      int i = adminDao.updatePassword(id, admin_password);
-      if (i > 0) {
-          status = true;
-      }
-       return status;
+    public Boolean updatePassword(Integer id, String admin_password) {
+        Boolean status = false;
+        int i = adminDao.updatePassword(id, admin_password);
+        if (i > 0) {
+            status = true;
+        }
+        return status;
     }
     //=============================== 修改基本信息=============================
 
-    public int  updateubase(Admin admin){
+    public int updateubase(Admin admin) {
 
-       return adminDao.updateubase(admin);
+        return adminDao.updateubase(admin);
     }
 
-    //=============================== 查看管理员有没有重名 ==================================
-    public  int AdminRename (String AdminName){
+    //=============================== 查看管理员昵称有没有重名 ==================================
+    public int AdminRename(String AdminName) {
 
         return adminDao.AdminRename(AdminName);
     }
 
+    //=============================== 查看管理员有没有重名 ==================================
+    public int Rename(String AdminName) {
+
+        return adminDao.Rename(AdminName);
+    }
+
     //=============================== 查看管理员==============================
-    public List<Admin> AdminShow(int index) {//展示客户
+    public List<Admin> AdminShow(int index) {//展示管理员
         index = index * 10;  //按10个
         return adminDao.AdminShow(index);
+    }
+    public int AdminCount() {
+        return adminDao.AdminCount();
+    }
+
+    //=============================== 添加管理员==============================
+    public int AddAdmin(Admin admin) {
+       return adminDao.AddAdmin(admin);
+
+    }
+    //=============================== 删除管理员==============================
+
+    public int deleteAdmin(Integer adminId) {
+
+          return  adminDao.deleteAdmin(adminId.intValue());
     }
 }

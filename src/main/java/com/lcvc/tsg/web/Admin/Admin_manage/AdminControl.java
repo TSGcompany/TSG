@@ -1,6 +1,7 @@
 package com.lcvc.tsg.web.Admin.Admin_manage;
 
 import com.lcvc.tsg.model.Admin;
+import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.servers.Admin.AdminBean;
 import com.lcvc.tsg.servers.LoginBean.LoginBean;
 import org.springframework.stereotype.Controller;
@@ -40,12 +41,12 @@ public class AdminControl {
         if (loginBean.AdminLogin(admin.getAdmin_name(), oldpass) != null) {
             if (newpass.equals(confirmpass)){
                 adminBean.updatePassword(admin.getId(), newpass);
-                map.put("message", 1);//返回信息给
+                map.put("massage", 1);//返回信息给
             }else{
-                map.put("message", "确认密码不相同");
+                map.put("massage", "确认密码不相同");
             }
         } else {
-            map.put("message", "旧密码错误");//返回信息给页面
+            map.put("massage", "旧密码错误");//返回信息给页面
         }
         return map;
     }
@@ -63,10 +64,10 @@ public class AdminControl {
         } else {
             if (adminBean.updateubase(admin) > 0) {
                 session.setAttribute("admin", adminBean.getAdmin(admin_id.getId()));
-                map.put("massage", 1);
+                map.put("message", 1);
 
             } else {
-                map.put("massage", "修改失败！");
+                map.put("message", "修改失败！");
             }
         }
         return map;
@@ -75,7 +76,52 @@ public class AdminControl {
     //----------------------------用户管理模块的控制层----------------------
     @RequestMapping(value = "/admin/AdminShow", method = RequestMethod.GET)
     public String AdminShow(HttpServletRequest request, Integer index) {
-        request.setAttribute("adminShow", adminBean.AdminShow(index.intValue()));//传客户信息数据
+        if (index < 0) {
+            index = 0;
+        }
+        int c = 0;
+        if (adminBean.AdminCount() % 10 == 0) {//计算页码
+            c = adminBean.AdminCount() / 10;
+        } else {
+            c = (adminBean.AdminCount() % 10) + 1;
+        }
+        if(index>c){
+            index=c;
+        }
+        request.setAttribute("indexPage", index);
+        request.setAttribute("PageCount", c);
+        request.setAttribute("AdminShow", adminBean.AdminShow(index));
         return "admin/Manag/manags.jsp";
     }
+
+    //----------------------------添加管理员----------------------
+
+    @ResponseBody
+    @RequestMapping(value = "/admin/AddAdmin", method = RequestMethod.POST)
+    public Map<String, Object> AddAdmin(Admin admin, HttpSession session) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        Admin admin_id= (Admin) session.getAttribute("admin");
+       if (adminBean.Rename(admin.getAdmin_name()) > 0) {//验证有没有重名
+            map.put("massage", "添加失败！该名称已经被使用！");
+       } else {
+           map.put("massage", 1);
+           adminBean.AddAdmin(admin);
+       }
+        return map;
+    }
+    //----------------------------删除管理员----------------------
+    @ResponseBody
+    @RequestMapping(value = "/admin/deleteAdmin", method = RequestMethod.GET)
+    public Map<String, Object> deleteAdmin(Integer id, HttpSession session) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        Admin admin=(Admin)session.getAttribute("admin");
+        if(admin.getId()==id.intValue()){
+            map.put("massage", "删除失败！不能删除自己");
+        } else {
+            map.put("massage", 1);
+            adminBean.deleteAdmin(id);
+        }
+        return map;
+    }
+
 }
