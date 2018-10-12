@@ -13,32 +13,95 @@
 <html>
 <head>
     <title>头部</title>
+    <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/jquery.hiSlider.min.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/top.css">
-    <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
-    <script src="<%=basePath%>jsp/shop/js/top.js"></script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font: 18px/2 'Microsoft YaHei', 'Arial';
+        }
+        li{
+            list-style: none;
+        }
+        li img{
+            display: block;
+            margin: 0 auto;
+        }
+        #wrap{
+            width: 80%;
+            min-width: 300px;
+            margin: 10px auto 80px;
+            background: #fefefe;
+        }
+        .hiSlider{
+            overflow: hidden;
+            height: 350px;
+            width: 100%;
+            background-image: url(img/zuo.jpg);
+        }
+        .hiSlider-item img{
+            text-align: center;
+            width: 1427px;
+            height: 350px;
+        }
+    </style>
+
 </head>
 <body>
 <div class="nav">
 
     <div class="navbar">
         <ul>
-            <li><a href="top.html">首页</a></li>
-            <li><a href="#">网上借阅</a></li>
-            <li><a href="#">读者服务</a></li>
-            <li><a href="#">资源动态</a></li>
-            <li><a href="#">讲座/活动</a></li>
+            <li class="nav_1"><a href="top.html">首页</a></li>
+            <li class="nav_1"><a href="#">网上借阅</a></li>
+            <li class="nav_1"><a href="#">读者服务</a></li>
+            <li class="nav_1"><a href="#">资源动态</a></li>
+            <li class="nav_1"><a href="#">讲座/活动</a></li>
             <li class="nav_img"><a href="<%=basePath%>jsp/shop/login/login.jsp" target="rightFrame"><img src="<%=basePath%>jsp/shop/img/登录.png"></a></li>
         </ul>
     </div>
-    <div class="slider">
-        <ul class="slider-list">
-            <li class="slider-item slider-item1"></li>
-            <li class="slider-item slider-item2"></li>
-            <li class="slider-item slider-item3"></li>
-        </ul>
-    </div>
-    <div class="middle">
+    <ul class="hiSlider hiSlider3">
+        <li class="hiSlider-item"><img src="img/01b99b58704e66a801219c77a3a2cd.jpg"></li>
+        <li class="hiSlider-item"><img src="img/300000764046129766419739238_950.jpg"></li>
+        <li class="hiSlider-item"><img src="img/111_1.jpg"></li>
+        <li class="hiSlider-item"><img src="img/ac7ba124478f169ff3762c.JPG"></li>
+        <li class="hiSlider-item"><img src="img/banner5.jpg"></li>
+        <li class="hiSlider-item"><img src="img/lb3_0.jpg"></li>
+    </ul>
+    <div style="text-align:center;clear:both">
+        <script src="/gg_bd_ad_720x90-2.js" type="text/javascript"></script>
     </div>
 </div>
+
+<script src="<%=basePath%>jsp/shop/js/jquery.1.9.1.js"></script>
+<script src="<%=basePath%>jsp/shop/js/jquery.hiSlider.min.js"></script>
+<script>
+    $('.hiSlider1').hiSlider();
+    $('.hiSlider2').hiSlider({
+        isFlexible: true,
+        mode: 'fade',
+        isSupportTouch: false,
+        isShowTitle: false,
+        isShowPage: false,
+        titleAttr: function(curIdx){
+            return $('img', this).attr('alt');
+        }
+    });
+    $('.hiSlider3').hiSlider({
+        isFlexible: true,
+        isSupportTouch: true,
+        titleAttr: function(curIdx){
+            return $('img', this).attr('alt');
+        }
+    });
+    $('.hiSlider4').hiSlider({
+        startSlide: 2,
+        direction: 'top'
+    });
+</script>
+
 </body>
 </html>
