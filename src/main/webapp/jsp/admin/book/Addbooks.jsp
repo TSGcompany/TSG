@@ -77,11 +77,11 @@
 
                 if (status == true) { //如果表单验证通过
                    $.post("<%=basePath%>admin/AddBook",$("#AddBookForm").serialize(),function (data) {
-                       if(data.message==1){
-                          location.href = "<%=basePath%>admin/CustomerShow";
+                       if(data.massage==1){
+                          location.href = "<%=basePath%>admin/CustomerShow?index=0";
 
                        }else{
-                           alert(data.message);
+                           alert(data.massage);
                        }
                    });
                 }
@@ -114,6 +114,7 @@
                             imageUrl: K('#book_icon').val(),
                             clickFn: function (url, title, width, height, border, align) {
                                 K('#book_icon').val(url);
+                                $('#book_image').attr("src", url);
                                 editor.hideDialog();
                             }
                         });
@@ -142,6 +143,12 @@
     <div class="formtitle"><span>添加书籍</span></div>
     <form id="AddBookForm" method="post ">
         <ul class="forminfo">
+            <li> <img  id="book_image" style="margin-left: 90px" border="1"  width="180px"  height="180px" src="<%=basePath %>jsp/admin/images/Book_default_img.jpg">
+
+                     <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
+                    <input  type="button"class="btn"  id="clearImagePath1" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
+
+            </li>
             <li>
                 <label>*书的类型</label>
                 <select name="book_type.id" class="dfinput" id="book_type">
@@ -152,23 +159,19 @@
                 </select>
                 <i id="book_type_message"></i>
             </li>
+
             </li>
 
             <li><label>*书名</label><input id="book_name" name="book_name" type="text" class="dfinput"/><i
                     id="name_message"></i></li>
             <li><label>*作者</label><input id="book_author" name="book_author" type="text" class="dfinput"/><i
                     id="author_message"></i></li>
-            <li><label>*图片</label>
-                <input id="book_icon" name="book_icon" type="text" class="dfinput" value=""/>
-                <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
-                <input  type="button"class="btn"  id="clearImagePath1" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
+                <input id="book_icon" name="book_icon" type="text" class="dfinput" value="" readonly="readonly" style="display:none" />
 
-                <i></i>
-            </li>
             <li><label>*书的数量</label><input id="book_number" name="book_number" type="text" class="dfinput"/><i
                     id="number_message"></i></li>
             <li><label>书本评论</label>
-                <textarea id="book_commentID" name="book_commentID" cols="" rows="" class="textinput"></textarea><i></i>
+                <textarea id="book_description" name="book_description" cols="" rows="" class="textinput"></textarea><i></i>
             </li>
             <li><label>&nbsp;</label><input id="submit_button" type="button" class="btn" value="添加书籍"/></li>
         </ul>

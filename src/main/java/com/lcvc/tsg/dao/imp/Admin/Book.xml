@@ -55,6 +55,22 @@
         SELECT COUNT(id) FROM book WHERE  book_name=#{BookName}
 
     </select>
+    <!--=============================== 通过id获取某本书 ==================================-->
+    <select id="getBook"  resultMap="book" parameterType="int">
+      SELECT  * FROM book WHERE id=#{id}
 
+    </select>
+
+    <!--=============================== 通过书编号获取某本书 ==================================-->
+    <select id="getBook_whereBook_id"  resultMap="book" parameterType="String">
+        SELECT  * FROM book WHERE book_id=#{book_id}
+
+    </select>
+    <!--================================= 还书 ===========================================-->
+    <update id="Return_Book" parameterType="Book">
+
+          UPDATE  book SET book_number=#{book_number} WHERE id=#{id}
+
+    </update>
 
 </mapper>

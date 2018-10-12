@@ -1,70 +1,82 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/10/10 0010
-  Time: 上午 9:47
-  To change this template use File | Settings | File Templates.
---%>
 <!DOCTYPE html>
 <html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    <%
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
+<%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<html>
+<script src='<%=basePath%>jsp/admin/js/jquery.min.js'></script>
+
 <head>
     <meta charset="UTF-8">
-    <title>添加书籍</title>
-    <link href="../css/stylee.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../js/jquery.js"></script>
-    <link href="../css/fenye.css" rel="stylesheet" type="text/css" />
-
-
-
-        <!-- 导入kindEditor所需插件 -->
-        <link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css" />
-        <script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor.js"></script>
-    <script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
-
+    <title></title>
+    <link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css" />
+    <!-- <script type="text/javascript" src="js/jquery.js""></script>-->
+    <script type="text/javascript" src="<%=basePath %>jsp/admin/js/jquery.js"></script>
+    <script src='<%=basePath%>jsp/admin/js/jquery.min.js'></script>
     <script>
-        //实现kindeditor弹出图片上传窗口
-        KindEditor.ready(function(K) {
-            var editor = K.editor({//图片上传
-                //指定上传文件的服务器端程序。
-                uploadJson:  '<%=basePath%>plugins/kindeditor-4.1.10/jsp/upload_json.jsp',
-                //指定浏览远程图片的服务器端程序
-                fileManagerJson: '<%=basePath%>plugins/kindeditor-4.1.10/jsp/file_manager_json.jsp',
-                //是否允许进行文件管理
-                allowFileManager : true
-            });
-            K('#image1').click(function() {
-                editor.loadPlugin('image', function() {//动态加载插件，image为插件名
-                    editor.plugin.imageDialog({
-                        showLocal : true,//是否显示本地图片上传窗口
-                        showRemote : true,//是否显示网络图片窗口
-                        fillDescAfterUploadImage:false,//个人建议只在文本编辑器中使用true，true时图片上传成功后切换到图片编辑标签，false时插入图片后关闭弹出框。
-                        imageUrl : K('#url1').val(),
-                        clickFn : function(url, title, width, height, border, align) {
-                            K('#url1').val(url);
-                            editor.hideDialog();
+        $(document).ready(function() {
+
+            $("#updatebase").click(function () {  //点击登录按钮
+                var admin_nickname = $("#admin_nickname").val();
+                var admin_phone = $("#admin_phone").val();
+                var admin_head = $("#admin_head").val();
+                var admin_Email = $("#admin_Email").val();
+                var status = false;
+
+                if (admin_nickname.length == 0 || admin_nickname == '') {
+                    alert("名字不能为空");
+                    status = false;
+                } else if (admin_phone.length == 0 || admin_phone == '') {
+                    alert("电话不能为空")
+                    status = false;
+                } else if (admin_head.length == 0 || admin_head == '') {
+                    alert("头像不能为空")
+                    status = false;
+                } else if (admin_Email.length == 0 || admin_Email == '') {
+                    alert("邮箱不能为空")
+                    status = false;
+                } else {
+                    status = true;
+                }
+
+                if (status) {
+
+
+                    $.post("<%=basePath%>admin/updateubase", $("#baseupdateform").serialize(), function (data) {
+                        if (data.massage == 1) {
+                            alert("修改成功");
+                        } else {
+                            alert(data.massage);
+                            alert("修改失败");
                         }
+
                     });
-                });
+
+                } else {
+
+
+                }
             });
+
         });
 
     </script>
 </head>
 
-<body>
 
+<body>
 
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
         <li><a href="#">首页</a></li>
-        <li><a href="#">用户评论</a></li>
+        <li><a href="#">所有书籍</a></li>
     </ul>
 </div>
 
@@ -73,37 +85,38 @@
     <table class="tablelist">
         <thead>
         <tr>
-            <th style="width:25%;">头像</th>
-            <th style="width:15%;">名字</th>
+            <th style="width:20%;">头像</th>
+            <th style="width:15%;">用户名</th>
             <th style="width:20%;">手机号</th>
-            <th style="width:25%;">邮箱</th>
+            <th style="width:20%;">邮箱</th>
+
 
             <th>操作</th>
         </tr>
         </thead>
 
         <tbody>
-        <c:forEach var="" items="">
+        <c:forEach var="i" items="${AdminShow}">
             <tr>
                 <td class="img_td">
-                    <c:choose>
-                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
-                    </c:choose>
+
+                        <img src="${i.admin_head}" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+
                 </td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td><a href="../admin/update.html" class="tablelink">修改</a>     <a href="" class="tablelink"> 删除</a></td>
+                <td>${i.admin_nickname}</td>
+                <td>${i.admin_phone}</td>
+                <td>${i.admin_Email}</td>
+                <td><a href="<%=basePath %>admin/updateubase?id=${i.id}" class="tablelink">修改</a>     <a href="<%=basePath %>admin/deleteAdmin?id=${i.id}"  class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
+
         </tbody>
     </table>
-
     <div class="tip">
         <div class="tiptop"><span>提示信息</span><a></a></div>
 
         <div class="tipinfo">
-            <span><img src="images/ticon.png" /></span>
+            <span><img src="<%=basePath %>admin/images/ticon.png" /></span>
             <div class="tipright">
                 <p>是否确认对信息的修改 ？</p>
                 <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
@@ -121,41 +134,30 @@
 
 
 </div>
+
+<script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+</script>
 <!--分页-->
 <div class="page_container center">
-    <div class="page_btn prev_page left">上一页</div>
+    <div class="page_btn prev_page left"><a class="page_btn prev_page left" href="<%=basePath%>admin/AdminShow?index=${indexPage-1}">上一页</a></div>
     <div class="page_num_container left" id="page_num_container">
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-            <li>13</li>
-            <li>14</li>
-            <li>15</li>
-            <li>16</li>
-            <li>17</li>
-            <li>18</li>
-            <li>19</li>
-            <li>20</li>
-            <li>21</li>
+
+
+            <c:forEach var="i" begin="1" end="${PageCount}" step="1">
+                <li><a href="<%=basePath%>admin/AdminShow?index=${i-1}">${i}</a></li>
+            </c:forEach>
+
 
         </ul>
     </div>
-    <div class="page_btn next_page left">下一页</div>
-    <div class="page_btn all_page right">共21页</div>
-    <script type="text/javascript" src="../js/fenye.js"></script>
-    </div>
-    <script type="text/javascript">
-        $('.tablelist tbody tr:odd').addClass('odd');
-    </script>
+    <div class="page_btn next_page left"><a href="<%=basePath%>admin/AdminShow?index=${indexPage+1}">下一页</a></div>
+
+    <div class="page_btn all_page right">共${PageCount}页</div>
+
+
+</div>
+<script src="<%=basePath %>jsp/admin/js/fenye.js"></script>
 </body>
 </html>

@@ -7,15 +7,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	<link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css" />
-       <!-- <script type="text/javascript" src="js/jquery.js""></script>-->
-<script type="text/javascript" src="<%=basePath %>jsp/admin/js/jquery.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css"/>
+    <!-- <script type="text/javascript" src="js/jquery.js""></script>-->
+    <script type="text/javascript" src="<%=basePath %>jsp/admin/js/jquery.js"></script>
 
 
 </head>
@@ -24,97 +24,125 @@
 <body>
 
 
-	<div class="place">
+<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">所有书籍</a></li>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">所有书籍</a></li>
     </ul>
-    </div>
+</div>
 
-    <div class="rightinfo">
+<div class="rightinfo">
 
 
-        <table class="tablelist">
-            <thead>
+    <table class="tablelist">
+        <thead>
+        <tr>
+            <th style="width:10%;">图片</th>
+            <th style="width:15%;">书的类型</th>
+            <th style="width:12%;">书的编号</th>
+            <th style="width:15%;">书名</th>
+            <th style="width:15%;">作者</th>
+            <th style="width:10%;">书的数量</th>
+            <th style="width:15%;">创建时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <c:forEach var="i" items="${BookShow}">
             <tr>
-                <th style="width:10%;">图片</th>
-                <th style="width:15%;">书的类型</th>
-                <th style="width:12%;">书的编号</th>
-                <th style="width:15%;">书名</th>
-                <th style="width:15%;">作者</th>
-                <th style="width:10%;">书的数量</th>
-                <th style="width:15%;">创建时间</th>
-                <th>操作</th>
+
+                <td>
+                    <img src="${i.book_icon}" style="width:80px;height:60px;"/>
+
+                </td>
+                <td>${i.book_type.book_type_name}</td>
+                <td>${i.book_id}</td>
+                <td>${i.book_name}</td>
+                <td>${i.book_author}</td>
+                <td>${i.book_number}</td>
+                <td><fmt:formatDate value="${i.book_release_Date}" pattern="yyyy年MM月dd日 HH:mm"/></td>
+                <td><a href="UpdateBook.html" class="tablelink">修改</a> <a href="" class="tablelink"> 删除</a></td>
             </tr>
-            </thead>
+        </c:forEach>
+        </tbody>
+    </table>
 
-            <tbody>
-            <c:forEach var="i" items="${BookShow}">
-                <tr>
+    <div class="tip">
+        <div class="tiptop"><span>提示信息</span><a></a></div>
 
-                    <td >
-                        <img src="${i.book_icon}" style="width:80px;height:60px;" />
+        <div class="tipinfo">
+            <span><img src="images/ticon.png"/></span>
+            <div class="tipright">
+                <p>是否确认对信息的修改 ？</p>
+                <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
+        </div>
 
-                    </td>
-                    <td>${i.book_type.book_type_name}</td>
-                    <td>${i.book_id}</td>
-                    <td>${i.book_name}</td>
-                    <td>${i.book_author}</td>
-                    <td>${i.book_number}</td>
-                    <td><fmt:formatDate value="${i.book_release_Date}" pattern="yyyy年MM月dd日 HH:mm"/></td>
-                    <td><a href="UpdateBook.html" class="tablelink">修改</a>     <a href="" class="tablelink"> 删除</a></td>
-                </tr>
+        <div class="tipbtn">
+            <input name="" type="button" class="sure" value="确定"/>&nbsp;
+            <input name="" type="button" class="cancel" value="取消"/>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+</script>
+<!--分页-->
+<div class="page_container center">
+    <c:choose>
+        <c:when test="${indexPage==0} ||${indexPage<0}">
+
+            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>admin/BookShow?index=0">上一页</a></div>
+
+        </c:when>
+
+       <c:when test="${indexPage>0}">
+           <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>admin/BookShow?index=${indexPage-1}">上一页</a></div>
+
+       </c:when>
+
+    </c:choose>
+
+
+
+    <div class="page_num_container left" id="page_num_container">
+        <ul>
+            <c:forEach var="i" begin="1" end="${PageCount}" step="1">
+                <li><a href="<%=basePath%>admin/BookShow?index=${i-1}">
+                <li>${i}</li>
+                </a></li>
             </c:forEach>
-            </tbody>
-        </table>
-
-        <div class="tip">
-            <div class="tiptop"><span>提示信息</span><a></a></div>
-
-            <div class="tipinfo">
-                <span><img src="images/ticon.png" /></span>
-                <div class="tipright">
-                    <p>是否确认对信息的修改 ？</p>
-                    <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-                </div>
-            </div>
-
-            <div class="tipbtn">
-                <input name="" type="button"  class="sure" value="确定" />&nbsp;
-                <input name="" type="button"  class="cancel" value="取消" />
-            </div>
-
-        </div>
 
 
 
 
+        </ul>
     </div>
+    <c:choose>
+        <c:when test="${indexPage==PageCount-1}">
+            <div class="page_btn next_page left"><a href="<%=basePath%>admin/BookShow?index=${PageCount-1}">下一页</a></div>
 
-    <script type="text/javascript">
-        $('.tablelist tbody tr:odd').addClass('odd');
-    </script>
-    <!--分页-->
-    <div class="page_container center">
-        <div class="page_btn prev_page left"><a class="page_btn prev_page left" href="<%=basePath%>admin/BookShow?index=${indexPage-1}">上一页</a></div>
-        <div class="page_num_container left" id="page_num_container">
-            <ul>
+        </c:when>
+        <c:when test="${indexPage<PageCount-1}">
+           <div class="page_btn next_page left"><a href="<%=basePath%>admin/BookShow?index=${indexPage+1}">下一页</a></div>
 
-
-                <c:forEach var="i" begin="1" end="${PageCount}" step="1">
-                    <li><a href="<%=basePath%>admin/BookShow?index=${i-1}">${i}</a></li>
-                </c:forEach>
+        </c:when>
 
 
-            </ul>
-        </div>
-        <div class="page_btn next_page left"><a href="<%=basePath%>admin/BookShow?index=${indexPage+1}">下一页</a></div>
 
-        <div class="page_btn all_page right">共${PageCount}页</div>
+    </c:choose>
 
+    <div class="page_btn all_page right" >共${PageCount}页</div>
 
-    </div>
-    <script src="<%=basePath %>jsp/admin/js/fenye.js"></script>
+</div>
+<span>当前页为${indexPage+1}</span>
+
+<script src="<%=basePath %>jsp/admin/js/fenye.js"></script>
 </body>
 </html>

@@ -132,5 +132,41 @@ public class AdminDaoTest extends SpringJunitTest {
         System.out.println(bookDao.BookRename("西游记"));
     }
 
+    /**
+     * @Author Anle
+     * @Date 下午 5:07 2018/10/11 0011
+     **/
+    //===============================通过id获取某本书===========================================
+    @Test
+    public void  getBook(){
+       System.out.println( bookDao.getBook(3).getBook_number());
 
+    }
+
+    /**
+     * @Author Anle
+     * @Date 下午 5:07 2018/10/11 0011
+     **/
+    //===============================通过书名获取某本书===========================================
+    @Test
+    public void  getBook_whereName(){
+        System.out.println( bookDao.getBook_whereBook_id("TSG292927057019").getBook_number());
+
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 4:29 2018/10/12 0012
+     **/
+    //=================================== 还书 =============================================
+    @Test
+    public  void  Return_Book_Test(){
+
+        Book book = new Book();
+        book.setId(21);
+        book.setBook_number(107);
+       System.out.println( bookDao.Return_Book(book));
+
+
+
+    }
 }

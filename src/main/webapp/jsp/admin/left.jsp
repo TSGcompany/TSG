@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel='stylesheet' href='css/left.css'>
+    <link rel='stylesheet' href='<%=basePath %>jsp/admin/css/left.css'>
     <title>Title</title>
 </head>
 <body>
@@ -47,7 +47,7 @@
             <li class="sub-menu">
                 <a href="javascript:void(0);"><i class="fa fa fa-tasks"></i><span>管理员模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
-                    <li><a href="<%=basePath%>jsp/admin/Manag/manags.jsp" target="rightFrame">管理员管理</a>
+                    <li><a href="<%=basePath%>admin/AdminShow?index=0" target="rightFrame">管理员管理</a>
                     </li>
                     <li><a href="<%=basePath%>jsp/admin/Manag/Addmanag.jsp" target="rightFrame">添加管理员</a>
                     </li>
