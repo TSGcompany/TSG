@@ -17,7 +17,52 @@
     <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/normalize.min.css">
     <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/style.css">
     <script src='<%=basePath%>jsp/shop/js/jquery.min.js'></script>
-
+    <style type="text/css">
+        .checkCode {
+            cursor: pointer;
+            border: 1px solid #FFFFFF;
+            float: right;
+            margin: -41px 0 0 0;
+            line-height: 26px;
+            width: 180px;
+            height: 40px;
+        }
+    </style>
+    <script type="text/javascript">
+        var sleep = 30, interval = null;
+        window.onload = function ()
+        {
+            var btn = document.getElementById ('btn');
+            btn.onclick = function ()
+            {
+                if (!interval)
+                {
+                    this.style.backgroundColor = 'rgb(243, 182, 182)';
+                    this.disabled = "disabled";
+                    this.style.cursor = "wait";
+                    this.value = "重新发送 (" + sleep-- + ")";
+                    interval = setInterval (function ()
+                    {
+                        if (sleep == 0)
+                        {
+                            if (!!interval)
+                            {
+                                clearInterval (interval);
+                                interval = null;
+                                sleep = 30;
+                                btn.style.cursor = "pointer";
+                                btn.removeAttribute ('disabled');
+                                btn.value = "免费获取验证码";
+                                btn.style.backgroundColor = '';
+                            }
+                            return false;
+                        }
+                        btn.value = "重新发送 (" + sleep-- + ")";
+                    }, 1000);
+                }
+            }
+        }
+    </script>
     <script>
         //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
 
@@ -147,6 +192,13 @@
                         邮箱<span class="req">*</span>
                     </label>
                     <input type="email" required autocomplete="off" style="height: 40px"/>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        获取邮箱验证码<span class="req">*</span>
+                    </label>
+                    <input type="email" required autocomplete="off" style="height: 40px"/><input class="checkCode" type="button" id="btn" value="免费获取验证码" />
                 </div>
 
                 <div class="field-wrap">
