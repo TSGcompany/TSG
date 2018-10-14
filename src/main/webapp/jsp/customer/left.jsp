@@ -43,7 +43,7 @@
             <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </div>
         <ul class="submenuItems">
-            <li><a href="#" target="rightFrame">我借的书</a></li>
+            <li><a href="<%=basePath%>jsp/customer/Book/borrwbooks.jsp" target="rightFrame">图书借阅</a></li>
             <li><a href="<%=basePath%>jsp/customer/Book/record.jsp" target="rightFrame">查看历史记录</a></li>
         </ul>
     </li>

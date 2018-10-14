@@ -54,7 +54,7 @@ header,.items{
 	height:100px;
 	background-color:#58A6F0;
 	transition:all 0.5s;
-	background-color:rgba(88,166,240,0.8);
+	background-color:rgba(190,166,240,0.8);
 }
 /*当鼠标悬停在该元素上时，该元素绝对定位在父元素顶部-5px的位置，并且盒阴影为模糊度15px的#AAA色*/
 .item:hover{
@@ -73,8 +73,9 @@ header,.items{
 .detail i{
 	font-size: 18px;
 	font-family: 'Roboto Slab', serif;
-	font-weight: 200;
+	font-weight:bold;
 	color:#D70101;
+	font-style:normal;/*文字正体*/
 
 }
 

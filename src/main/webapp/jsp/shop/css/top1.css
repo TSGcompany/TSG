@@ -23,10 +23,35 @@ a{
 	color: #FFFFFF;
 	text-decoration: none;
 }
+a:hover{
+	color: #1ab188;
+}
 /*登录设置*/
 .nav_img{
 	float:right;
 	position: absolute;
 	margin: -7px 0 0 1600px;
+}
+/*退出设置*/
+.nav_2{
+	list-style: none;
+	float:right;
+	margin: -2px 50px;
+	color: #FFFFFF;
+	size: 20px;
+}
+/*头像设置*/
+.img_head{
+	width: 30px;
+	height: 30px;
+	float: left;
+	border-radius: 50px;
+	margin: -5px 1700px;
+	position: absolute;
+}
+.img_head img{
+	width: 30px;
+	height: 30px;
+	border-radius:50px;
 }
 
