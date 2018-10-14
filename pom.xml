@@ -209,6 +209,14 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/javamail/javamail -->
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.7</version>
+    </dependency>
+
+
     <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -267,6 +275,8 @@
       <version>${jjwt.version}</version>
     </dependency>
   </dependencies>
+
+
 
   <build>
     <finalName>TSG</finalName>
