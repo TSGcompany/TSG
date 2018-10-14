@@ -40,7 +40,7 @@ public class BookControl {
         if (bookBean.BookCount() % 10 == 0) {//计算页码
             c = bookBean.BookCount() / 10;
         } else {
-            c = (bookBean.BookCount() % 10) + 1;
+            c = (bookBean.BookCount() / 10) + 1;
         }
         if (index > c) {
             index = c;

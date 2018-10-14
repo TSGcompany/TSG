@@ -41,4 +41,10 @@ public class AdminLogin {
         }
         return map;
     }
+    //=======================================管理员退出登陆======================================
+    @RequestMapping(value = "/admin/logout", method = RequestMethod.GET)
+    public String logout(HttpSession session){
+        session.removeAttribute("admin");
+        return "redirect:/index.jsp";
+    }
 }
