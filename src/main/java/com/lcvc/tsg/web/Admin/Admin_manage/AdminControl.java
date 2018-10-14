@@ -39,11 +39,11 @@ public class AdminControl {
         Map<String, Object> map = new HashMap<String, Object>();
         Admin admin = (Admin) session.getAttribute("admin");
         if (loginBean.AdminLogin(admin.getAdmin_name(), oldpass) != null) {
-            if (newpass.equals(confirmpass)){
+            if (newpass.equals(confirmpass)) {
                 adminBean.updatePassword(admin.getId(), newpass);
                 map.put("massage", 1);//返回信息给
-            }else{
-                map.put("massage", "确认密码不相同");
+            } else {
+                map.put("massage", "两次密码不相同");
             }
         } else {
             map.put("massage", "旧密码错误");//返回信息给页面
@@ -59,17 +59,31 @@ public class AdminControl {
         Admin admin_id = (Admin) session.getAttribute("admin");
         admin.setId(admin_id.getId());
 
-        if (adminBean.AdminRename(admin.getAdmin_nickname()) > 0) {
-            map.put("massage", "修改失败,该用户名已经被使用！");
-        } else {
+
+        if (admin.getAdmin_nickname().equals(admin_id.getAdmin_nickname())) {
             if (adminBean.updateubase(admin) > 0) {
                 session.setAttribute("admin", adminBean.getAdmin(admin_id.getId()));
-                map.put("message", 1);
+                map.put("massage", 1);
 
             } else {
-                map.put("message", "修改失败！");
+                map.put("massage", "修改失败！");
             }
+        } else {
+            if (adminBean.AdminRename(admin.getAdmin_nickname()) > 0) {
+                map.put("massage", "修改失败,该用户名已经被使用！");
+            } else {
+                if (adminBean.updateubase(admin) > 0) {
+                    session.setAttribute("admin", adminBean.getAdmin(admin_id.getId()));
+                    map.put("massage", 1);
+
+                } else {
+                    map.put("massage", "修改失败！");
+                }
+            }
+
+
         }
+
         return map;
     }
 
@@ -85,8 +99,8 @@ public class AdminControl {
         } else {
             c = (adminBean.AdminCount() % 10) + 1;
         }
-        if(index>c){
-            index=c;
+        if (index > c) {
+            index = c;
         }
         request.setAttribute("indexPage", index);
         request.setAttribute("PageCount", c);
@@ -100,28 +114,28 @@ public class AdminControl {
     @RequestMapping(value = "/admin/AddAdmin", method = RequestMethod.POST)
     public Map<String, Object> AddAdmin(Admin admin, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
-        Admin admin_id= (Admin) session.getAttribute("admin");
-       if (adminBean.Rename(admin.getAdmin_name()) > 0) {//验证有没有重名
+        Admin admin_id = (Admin) session.getAttribute("admin");
+        if (adminBean.Rename(admin.getAdmin_name()) > 0) {//验证有没有重名
             map.put("massage", "添加失败！该名称已经被使用！");
-       } else {
-           map.put("massage", 1);
-           adminBean.AddAdmin(admin);
-       }
-        return map;
-    }
-    //----------------------------删除管理员----------------------
-    @ResponseBody
-    @RequestMapping(value = "/admin/deleteAdmin", method = RequestMethod.GET)
-    public Map<String, Object> deleteAdmin(Integer id, HttpSession session) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        Admin admin=(Admin)session.getAttribute("admin");
-        if(admin.getId()==id.intValue()){
-            map.put("massage", "删除失败！不能删除自己");
         } else {
             map.put("massage", 1);
-            adminBean.deleteAdmin(id);
+            adminBean.AddAdmin(admin);
         }
         return map;
+    }
+
+    //----------------------------删除管理员----------------------
+    @RequestMapping(value = "/admin/deleteAdmin", method = RequestMethod.GET)
+    public String deleteAdmin(Integer id, HttpServletRequest request, HttpSession session) {
+        Admin admin = (Admin) session.getAttribute("admin");
+        if (admin.getId() == id.intValue()) {
+            String message = "";
+            message = "删除失败,不能删除自己！";
+            request.getSession().setAttribute("mes", message);
+        } else {
+            adminBean.deleteAdmin(id);
+        }
+        return "redirect:AdminShow?index=0";
     }
 
 }

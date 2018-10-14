@@ -21,9 +21,12 @@
     <update id="updateubase" parameterType="Admin">
         update
         admin
-        set
-        admin_nickname=#{admin_nickname},admin_phone=#{admin_phone},admin_head=#{admin_head},admin_Email=#{admin_Email}
-        where id=#{id}
+        <set>
+            <if test="admin_nickname!=null">admin_nickname=#{admin_nickname},</if>
+            <if test="admin_phone!=null">admin_phone=#{admin_phone},</if>
+            <if test="admin_head!=null">admin_head=#{admin_head},</if>
+            <if test="admin_Email!=null ">admin_Email=#{admin_Email}</if>
+        </set> where id=#{id}
     </update>
 
     <!--=============================== 查看管理员昵称有没有重名 ==================================-->

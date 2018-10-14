@@ -48,7 +48,7 @@
                                     alert("修改成功");
                                 } else {
                                     alert(data.massage);
-                                    alert("修改失败");
+                                    //alert("修改失败");
                                 }
 
                             });
@@ -111,8 +111,8 @@
      <li><label>*手机号</label><input name="admin_phone"id="admin_phone" type="text" class="dfinput" value="${sessionScope.admin.admin_phone}"/></li>
      <li><label>*头像</label>
     <input id="admin_head" name="admin_head" type="text" class="dfinput" value="${sessionScope.admin.admin_head}" />
-        <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />	
-        <a href="#" id="clearImagePath1">清除选择图片路径</a>	
+        <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />
+        <a href="#" id="clearImagePath1">清除选择图片路径</a>
         <i></i>
     </li>
     <li><label>*邮箱</label><input name="admin_Email" id="admin_Email" type="email" class="dfinput" value="${sessionScope.admin.admin_Email}"/></li>

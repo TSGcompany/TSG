@@ -1,32 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/10/10 0010
-  Time: 上午 9:47
-  To change this template use File | Settings | File Templates.
---%>
 <!DOCTYPE html>
 <html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    <%
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
+<%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<html>
+
 <head>
     <meta charset="UTF-8">
-    <title>添加书籍</title>
+    <title></title>
     <link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css" />
+    <!-- <script type="text/javascript" src="js/jquery.js""></script>-->
     <script type="text/javascript" src="<%=basePath %>jsp/admin/js/jquery.js"></script>
-    <link href="<%=basePath%>jsp/admin/css/fenye.css" rel="stylesheet" type="text/css" />
-
-
-
-    <!-- 导入kindEditor所需插件 -->
-    <link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css" />
-    <script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor.js"></script>
-    <script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
-
+    <script src='<%=basePath%>jsp/admin/js/jquery.min.js'></script>
     <script>
         //实现kindeditor弹出图片上传窗口
         KindEditor.ready(function(K) {
@@ -75,7 +66,6 @@
         <tr>
             <th style="width:20%;">头像</th>
             <th style="width:15%;">用户名</th>
-            <th style="width:10%;">性别</th>
             <th style="width:20%;">手机号</th>
             <th style="width:20%;">邮箱</th>
 
@@ -85,17 +75,16 @@
         </thead>
 
         <tbody>
-        <c:forEach var="" items="">
+        <c:forEach var="i" items="${CustomerShow}">
             <tr>
                 <td class="img_td">
-                    <c:choose>
-                        <img src="../images/tx1.jpeg" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
-                    </c:choose>
+
+                        <img src="${i.customer_head}" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+
                 </td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
+                <td>${i.customer_name}</td>
+                <td>${i.customer_phone}</td>
+                <td>${i.customer_Email}</td>
                 <td><a href="" class="tablelink">禁止借书</a>     <a href="" class="tablelink">他的评论</a>     <a href="" class="tablelink">历史借阅</a>     <a href="" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
@@ -127,39 +116,28 @@
 </div>
 <!--分页-->
 <div class="page_container center">
-    <div class="page_btn prev_page left">上一页</div>
+    <div class="page_btn prev_page left"><a class="page_btn prev_page left" href="<%=basePath%>admin/CustomerShow?index=${indexPage-1}">上一页</a></div>
     <div class="page_num_container left" id="page_num_container">
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-            <li>13</li>
-            <li>14</li>
-            <li>15</li>
-            <li>16</li>
-            <li>17</li>
-            <li>18</li>
-            <li>19</li>
-            <li>20</li>
-            <li>21</li>
+
+
+            <c:forEach var="i" begin="1" end="${PageCount}" step="1">
+                <li><a href="<%=basePath%>admin/CustomerShow?index=${i-1}">${i}</a></li>
+            </c:forEach>
+
 
         </ul>
     </div>
-    <div class="page_btn next_page left">下一页</div>
-    <div class="page_btn all_page right">共21页</div>
-    <script type="text/javascript" src="<%=basePath %>jsp/admin/js/fenye.js"></script>
+    <div class="page_btn next_page left"><a href="<%=basePath%>admin/CustomerShow?index=${indexPage+1}">下一页</a></div>
+
+    <div class="page_btn all_page right">共${PageCount}页</div>
+
+
 </div>
 <script type="text/javascript">
     $('.tablelist tbody tr:odd').addClass('odd');
 </script>
+
+
 </body>
 </html>
