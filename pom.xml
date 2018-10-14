@@ -209,7 +209,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/javamail/javamail -->
+    <!-- https://mvnrepository.com/artifact/javamail/javamail  -->
     <dependency>
       <groupId>javax.mail</groupId>
       <artifactId>mail</artifactId>
