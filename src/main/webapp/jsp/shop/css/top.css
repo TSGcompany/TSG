@@ -11,24 +11,34 @@
 	background: #393d49;
 	size: 20px;
 	margin: 0 0 7px 0;
-	}
+}
 /*导航内容*/
 .nav_1{
 	list-style: none;
 	float:left;
-	margin: 5px 30px;
+	margin: 6px 30px;
+	color: #FFFFFF;
+	size: 20px;
+}
+.nav_2{
+	list-style: none;
+	float:right;
+	margin: 6px 30px;
 	color: #FFFFFF;
 	size: 20px;
 }
 /*a标签设置*/
-.nav_1 a{
+a{
 	color: #FFFFFF;
 	text-decoration: none;
+}
+a:hover{
+	color: #1ab188;
 }
 /*登录设置*/
 .nav_img{
 	list-style: none;
 	float:right;
 	position: absolute;
-	margin: 10px 0 0 1600px;
+	margin: 10px 0 0 1780px;
 }
