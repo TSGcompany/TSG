@@ -16,7 +16,7 @@
     <title>Title</title>
 </head>
 <frameset rows="88,*" cols="*" frameborder="no" border="0" framespacing="0">
-    <frame src="<%=basePath%>jsp/admin/top.html" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+    <frame src="<%=basePath%>jsp/admin/top.jsp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
     <frameset cols="250,*" frameborder="no" border="0" framespacing="0">
         <frame src="<%=basePath%>jsp/admin/left.jsp" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame"  />
         <frame src="<%=basePath%>jsp/admin/admin/update.jsp" name="rightFrame" id="rightFrame" title="rightFrame" />

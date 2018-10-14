@@ -95,7 +95,7 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public void getAdmin_Test(){//获取用户
-    System.out.println(adminDao.getAdmin(1).getAdmin_name());
+    System.out.println(adminDao.getAdmin(1).getAdmin_phone());
 
     }
     /**
@@ -105,6 +105,14 @@ public class AdminDaoTest extends SpringJunitTest {
     @Test
     public  void BookCount(){//获取书的数量
        System.out.println(bookDao.BookCount());
+
+        int c = 0;
+        if (bookDao.BookCount() % 10 == 0) {//计算页码
+            c = bookDao.BookCount() / 10;
+        } else {
+            c = (bookDao.BookCount() /10) + 1;
+        }
+        System.out.println(c);
 //        SimpleDateFormat sdf=new SimpleDateFormat("mmssSSS");
 //
 //        String str=sdf.format(new Date());

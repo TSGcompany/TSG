@@ -14,8 +14,6 @@
     <meta charset="UTF-8">
     <title>添加书籍</title>
     <link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css"/>
-
-
     <!-- 导入kindEditor所需插件 -->
     <link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css"/>
     <script src="<%=basePath %>plugins/kindeditor-4.1.10/kindeditor-min.js"></script>
@@ -90,8 +88,9 @@
             //当点击“清除图片路径”时，将清除图片路径信息
 
             //当点击“清除图片路径”时，将清除图片路径信息
-            $("#clearImagePath1").click(function() {
-                $("input[id='book_icon']").attr('value', '');
+            $("#clearIconPath").click(function() {
+                $("#book_icon").attr('value', ' ');
+                $('#book_image').attr("src", "<%=basePath %>jsp/admin/images/Book_default_img.jpg");
             });
         });
 
@@ -146,7 +145,7 @@
             <li> <img  id="book_image" style="margin-left: 90px" border="1"  width="180px"  height="180px" src="<%=basePath %>jsp/admin/images/Book_default_img.jpg">
 
                      <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
-                    <input  type="button"class="btn"  id="clearImagePath1" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
+                     <input  type="button"class="btn"  id="clearIconPath" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
 
             </li>
             <li>
