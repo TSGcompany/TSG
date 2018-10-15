@@ -1,4 +1,4 @@
-package com.lcvc.tsg.servers;
+package com.lcvc.tsg.OtherPackage;
 
 import java.security.MessageDigest;
 //-----------------------------------用于密码加密功能----------------------------------
