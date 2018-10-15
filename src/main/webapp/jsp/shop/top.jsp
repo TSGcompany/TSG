@@ -60,7 +60,6 @@
             <li class="nav_1"><a href="#">读者服务</a></li>
             <li class="nav_1"><a href="#">资源动态</a></li>
             <li class="nav_1"><a href="#">讲座/活动</a></li>
-            <li class="nav_img"><a href="<%=basePath%>jsp/shop/login/login.jsp" target="rightFrame"><img src="<%=basePath%>jsp/shop/img/登录.png"></a></li>
             <li class="nav_2"><a href="#" target="_parent">退出</a></li>
             <iframe allowtransparency="true" frameborder="0" width="180" height="36" style="margin: 5px 50px 0 0; float: right;" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=3&bd=0&k=000000&f=ffffff&ltf=ffff00&htf=ff8000&q=1&e=1&a=1&c=54511&w=180&h=36&align=center"></iframe>
         </ul>

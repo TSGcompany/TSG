@@ -49,7 +49,7 @@
             </div>
 
             <div id="make">
-                <a href="#">预约</a>
+            <a href="#"> 预约</a>
             </div>
 
         </div>

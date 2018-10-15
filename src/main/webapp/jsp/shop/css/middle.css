@@ -27,6 +27,7 @@
 	margin: -2px 0 0 -30px;
 	position: absolute;
 }
+
 /*热门推荐字体设置*/
 .topit1{
 	color: #108ce9;
@@ -38,8 +39,10 @@
 }
 .topit1 h3{
 	margin: 3px 0 0 -3px;
+	color: #108ce9;
 	position: absolute;
 }
+
 /*图书推荐图标*/
 .topit2 img{
 	width:37px;
@@ -81,16 +84,6 @@
 .topit3 h3{
 	margin: 4px 0 0 113px;
 	position: absolute;
-}
-/*热门书籍字体设置*/
-a{
-	color: #000;
-	text-decoration:none;
-	padding-bottom: 8px;
-	
-}
-.tsg_input{
-	
 }
 /*下拉框*/
 #u_input{
@@ -227,11 +220,12 @@ a{
 	font-family: 'Roboto Slab', serif;
 	font-weight: bold;
 	color: #FEFEFE;
+	text-decoration: none;
 	line-height:45px;
 	margin-left: 1px;
 }
 a:hover {
-color: #d98c1d;
+	color: #d98c1d;
 }
 
 /*分页*/

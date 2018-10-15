@@ -76,7 +76,7 @@
                 if (status == true) { //如果表单验证通过
                    $.post("<%=basePath%>admin/AddBook",$("#AddBookForm").serialize(),function (data) {
                        if(data.massage==1){
-                          location.href = "<%=basePath%>admin/CustomerShow?index=0";
+                          location.href = "<%=basePath%>admin/BookShow?index=0";
 
                        }else{
                            alert(data.massage);

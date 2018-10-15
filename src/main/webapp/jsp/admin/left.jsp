@@ -45,7 +45,7 @@
                 </ul>
             </li>
             <li class="sub-menu">
-                <a href="javascript:void(0);"><i class="fa fa fa-tasks"></i><span>管理员模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa fa-desktop"></i><span>管理员模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
                     <li><a href="<%=basePath%>admin/AdminShow?index=0" target="rightFrame">管理员管理</a>
                     </li>
@@ -53,7 +53,7 @@
                     </li>
                 </ul>
             <li class="sub-menu">
-                <a href="javascript:void(0);"><i class="fa fa fa-tasks"></i><span>用户模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa fa-user"></i><span>用户模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
                     <li><a href="<%=basePath%>admin/CustomerShow?index=0" target="rightFrame">用户管理</a></li>
                     <li><a href="<%=basePath%>jsp/admin/user/user_reviews.jsp" target="rightFrame">用户评论</a></li>

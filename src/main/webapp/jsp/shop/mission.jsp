@@ -110,11 +110,11 @@
                     <li>哈哈哈哈</li>
                 </ul>
                 </a>
-                <a href="#">
-                    <div class="col-xs-1 information middle-nav">业界动态</div>
+                <div class="col-xs-12 information-nav-bg">
                     <div class="col-xs-1 information information-nav">重图动态</div>
+                    <div class="col-xs-1 information middle-nav">业界动态</div>
+                </div>
 
-                </a>
             </div>
         </div>
     </div>

@@ -44,11 +44,14 @@ public class MyEmail {
         }
     }
     //调这个就可以发送邮件（地址，验证码）
-    public void chooseOperation(String EmailTo,String Code) throws Exception{
 
-        MysendEmail("731118710@qq.com", "wjvbmiiiueypbdfi", EmailTo, "TST注册验证", "验证码为：       "+Code);
-        System.out.println("邮件发送成功!");
-
+    public void chooseOperation(String EmailTo,String Code) {
+        try {
+            MysendEmail("731118710@qq.com", "wjvbmiiiueypbdfi", EmailTo, "TST注册验证", "验证码为：       "+Code);
+            System.out.println("邮件发送成功!");
+        }catch (Exception e){
+            System.out.println("出错啦!");
+        }
     }
 
 

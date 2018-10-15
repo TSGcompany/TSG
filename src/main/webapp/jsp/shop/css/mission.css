@@ -221,7 +221,7 @@ ul li{
 	line-height: 50px;
 }
 /*业界动态*/
-.middle-nav{
+.information-nav{
 	width:510px;
 	height: 50px;
 	background-color: #99E0F2;
@@ -233,7 +233,7 @@ ul li{
 }
 
 /*重图动态*/
-.information-nav{
+.middle-nav{
 	width:510px;
 	height: 50px;
 	background-color: #DCDCDC;
@@ -244,18 +244,6 @@ ul li{
 	position: absolute;
 
 }
-
-/*
-.divOver1{
-	background:#99E0F2;
-	border:solid 1px #d2dce3;
-}
-
-.divOver{
-	background:#99E0F2;
-	border:solid 1px #d2dce3;
-}
-*/
 /*详情页面*/
 .tsg_details{
 	width: 1100px;

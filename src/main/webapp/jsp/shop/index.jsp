@@ -122,6 +122,65 @@
             });
 
         });
+
+
+
+    </script>
+    <script>
+        //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
+
+        function isNumber(value) { //验证是否为数字
+            if(value != "") {
+                var patrn = /^(-)?\d+(\.\d+)?$/;
+                if(patrn.exec(value) == null || value == "") {
+                    return false
+                } else {
+                    return true
+                }
+            } else {
+                return false;
+            }
+        }
+
+        $(document).ready(function() {
+
+            $("#LoginBtn").click(function () {  //点击登录按钮
+                var UserPass = $("#UserPass").val();
+                var UserName = $("#UserName").val();
+                var status = false;
+
+                if (UserName.length ==0||UserName=='') {
+                    alert("用户名不能为空");
+                    status = false;
+                }else if(UserPass.length ==0||UserPass==''){
+                    alert("密码不能为空")
+                    status = false;
+                }else{
+                    status  =true;
+                }
+
+                if (status) {
+                }
+                if ($("#check").is(':checked')) {//看看单选框有没有选中 如果选中返回true 如果没选中返回false
+                    $.post("<%=basePath%>admin/login", $("#Loginform").serialize(), function (data) {
+                        if (data.AdminLogin== 1) {
+                            location.href = "<%=basePath%>admin/ToIndex";
+                        } else {
+                            alert(data.AdminLogin);
+                        }
+
+                    });
+
+                } else {
+
+
+                }
+
+
+
+            });
+
+        });
     </script>
 </head>
 <!--<frameset rows="900,900,900," cols="*" frameborder="no" border="0" framespacing="0">
@@ -133,10 +192,12 @@
 </frameset>
 <noframes>-->
 <body>
-<li class="nav_img"><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><img src="img/登录.png"></a></li>
+<li class="nav_img"><a   data-toggle="modal" data-target="#myModal"><img src="<%=basePath%>jsp/shop/img/登录.png"></a></li>
 <iframe  src="top.jsp" width="100%" height="400px"   frameborder="0"  name="top"     scrolling="no">
 </iframe>
 <iframe  src="mission.jsp" width="100%" height="580px"   frameborder="0"  name="mission"     scrolling="no">
+</iframe>
+<iframe  src="mid_hot.jsp" width="100%" height="50px"   frameborder="0"  oname="mid_ht"     scrolling="no">
 </iframe>
 <iframe  src="middle.jsp" width="100%" height="1109px"   frameborder="0"  name="middle"     scrolling="no">
 </iframe>
