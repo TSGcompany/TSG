@@ -80,11 +80,11 @@
             //当点击“清除图片路径”时，将清除图片路径信息
 
             //当点击“清除图片路径”时，将清除图片路径信息
-            $("#clearImagePath1").click(function() {
-                $("input[id='book_icon']").attr('value', '');
+            $("#clearIconPath").click(function() {
+                $("#admin_head").attr('value', ' ');
+                $('#admin_head1').attr("src", "");
             });
         });
-
         //实现kindeditor弹出图片上传窗口
         KindEditor.ready(function (K) {
             var editor = K.editor({//图片上传
@@ -101,9 +101,10 @@
                         showLocal: true,//是否显示本地图片上传窗口
                         showRemote: true,//是否显示网络图片窗口
                         fillDescAfterUploadImage: false,//个人建议只在文本编辑器中使用true，true时图片上传成功后切换到图片编辑标签，false时插入图片后关闭弹出框。
-                        imageUrl: K('#book_icon').val(),
+                        imageUrl: K('#admin_head').val(),
                         clickFn: function (url, title, width, height, border, align) {
-                            K('#book_icon').val(url);
+                            K('#admin_head').val(url);
+                            $('#admin_head1').attr("src", url);
                             editor.hideDialog();
                         }
                     });
@@ -131,20 +132,20 @@
     <div class="formtitle"><span>添加管理员</span></div>
     <form id="AddAdminForm" method="post">
         <ul class="forminfo">
+            <li><label>*头像</label>
+            <li> <img  id="admin_head1" style="margin-left: 90px" border="1"  width="180px"  height="180px" src="">
+                <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
+                <input  type="button"class="btn"  id="clearImagePath1" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
 
+                <i></i>
+            </li>
+            <input id="admin_head" name="admin_head" type="text" class="dfinput" value="" readonly="readonly" style="display:none" />
             <li><label>*名字</label><input id="admin_name" name="admin_name" type="text" class="dfinput"/><i
                     ></i></li>
             <li><label>*密码</label><input id="admin_password" name="admin_password" type="text" class="dfinput"/><i
             ></i></li>
             <li><label>*电话</label><input id="admin_phone" name="admin_phone" type="text" class="dfinput"/><i
                    ></i></li>
-            <li><label>*头像</label>
-                <input id="admin_head" name="admin_head" type="text" class="dfinput" value=""/>
-                <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
-                <input  type="button"class="btn"  id="clearImagePath1" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
-
-                <i></i>
-            </li>
             <li><label>*邮箱</label><input id="admin_Email" name="admin_Email" type="text" class="dfinput"/><i
                     ></i></li>
             <li><label>&nbsp;</label><input id="admin_button" type="button" class="btn" value="添加管理员"/></li>

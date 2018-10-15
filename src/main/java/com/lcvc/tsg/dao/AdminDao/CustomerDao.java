@@ -21,4 +21,6 @@ public interface CustomerDao {
      **/
     // <!--=============================== 查看客户详情=========================
     Customer getCustomer(int Customer_id);
+
+
 }

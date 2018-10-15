@@ -30,9 +30,6 @@
                     } else if (admin_phone.length == 0 || admin_phone == '') {
                         alert("电话不能为空")
                         status = false;
-                    } else if (admin_head.length == 0 || admin_head == '') {
-                        alert("头像不能为空")
-                        status = false;
                     } else if (admin_Email.length == 0 || admin_Email == '') {
                         alert("邮箱不能为空")
                         status = false;
@@ -61,8 +58,14 @@
 
             });
 
-        </script>
-        <script>
+            //当点击“清除图片路径”时，将清除图片路径信息
+
+            //当点击“清除图片路径”时，将清除图片路径信息
+            $("#clearIconPath").click(function() {
+                $("#admin_head").attr('value', ' ');
+                $('#admin_head1').attr("src", "${sessionScope.admin.admin_head}");
+            });
+
             //实现kindeditor弹出图片上传窗口
             KindEditor.ready(function (K) {
                 var editor = K.editor({//图片上传
@@ -80,18 +83,19 @@
                             showRemote: true,//是否显示网络图片窗口
                             fillDescAfterUploadImage: false,//个人建议只在文本编辑器中使用true，true时图片上传成功后切换到图片编辑标签，false时插入图片后关闭弹出框。
                             imageUrl: K('#admin_head').val(),
-                            clickFn: function (admin_head, title, width, height, border, align) {
-                                K('#admin_head').val(admin_head);
+                            clickFn: function (url, title, width, height, border, align) {
+                                K('#admin_head').val(url);
+                                $('#admin_head1').attr("src", url);
                                 editor.hideDialog();
                             }
                         });
                     });
                 });
             });
-
         </script>
+
 </head>
- 
+
 <body>
 <div class="ane">
 	<div class="place">
@@ -107,14 +111,17 @@
     <div class="formtitle"><span>基本信息</span></div>
     <form id="baseupdateform" method="post">
     <ul class="forminfo">
+        <li><label>*头像</label>
+        <li> <img  id="admin_head1" style="margin-left: 90px" border="1"  width="180px"  height="180px" src="${sessionScope.admin.admin_head}">
+            <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
+            <input  type="button"class="btn"  id="clearImagePath1" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
+
+            <i></i>
+        </li>
+        <input id="admin_head" name="admin_head" type="text" class="dfinput" value="${sessionScope.admin.admin_head}" readonly="readonly" style="display:none" />
     <li><label>*昵称</label><input name="admin_nickname" id="admin_nickname" type="text" class="dfinput" value="${sessionScope.admin.admin_nickname}" /></li>
      <li><label>*手机号</label><input name="admin_phone"id="admin_phone" type="text" class="dfinput" value="${sessionScope.admin.admin_phone}"/></li>
-     <li><label>*头像</label>
-    <input id="admin_head" name="admin_head" type="text" class="dfinput" value="${sessionScope.admin.admin_head}" />
-        <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />
-        <a href="#" id="clearImagePath1">清除选择图片路径</a>
-        <i></i>
-    </li>
+
     <li><label>*邮箱</label><input name="admin_Email" id="admin_Email" type="email" class="dfinput" value="${sessionScope.admin.admin_Email}"/></li>
     <li><label>&nbsp;</label><input name="updatebase" id="updatebase" type="submit" class="btn" value="确认修改"/></li>
     </ul>
