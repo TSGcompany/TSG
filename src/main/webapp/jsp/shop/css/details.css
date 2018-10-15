@@ -81,6 +81,9 @@ a{
 	margin-left: 5px;
 
 }
+a:hover {
+	color: #d98c1d;
+}
 /*最底下的大矩形框*/
 .rectan{
 	width: 1200px;
@@ -93,7 +96,6 @@ a{
 .list{
 	width: 298px;
 	height: 813px;
-
 	margin: 55px 0 0 5px;
 	position: absolute;
 }

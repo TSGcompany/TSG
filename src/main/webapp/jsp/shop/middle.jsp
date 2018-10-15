@@ -15,9 +15,6 @@
     <title>图书馆借阅系统</title>
 
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/middle.css" />
-
-
-    <script src="<%=basePath%>jsp/shop/js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/main.css">
 </head>
 <!--
@@ -31,42 +28,7 @@
 时间：2018-09-19
 描述：上面
 -->
-
-    <div class="ts_cones">
-        <div class="topit1">
-            <h3>热门推荐</h3>
-            <img src="img/rd1.png"/>
-        </div>
-        <div class="topit2">
-            <h3>图书推荐</h3>
-            <img src="img/rd2.png"/>
-        </div>
-        <div class="topit3">
-            <h3>阅读荐书</h3>
-            <img src="img/rd3.png"/>
-        </div>
-        <div class="tsg_input">
-            <select id="u_input">
-                <option selected value="请选择图书分类">请选择图书分类</option>
-                <option value="青春文学">青春文学</option>
-                <option value="小说">小说</option>
-                <option value="励志与成功">励志与成功</option>
-                <option value="心理学">心理学</option>
-                <option value="科学与自然">科学与自然</option>
-                <option value="历史">历史</option>
-                <option value="社会科学">社会科学</option>
-            </select>
-
-            <div id="tsg_mane">
-                <input type="text" name="search" placeholder="请输入关键字">
-                <div id="search">搜索</div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!--图书展示大框-->
+<!--图书展示大框-->
     <div class="tsg_classify">
         <!--书本灰色边框 -->
         <div id="tsg_among">
@@ -75,19 +37,24 @@
             <p>《愿你的青春不负梦想》</p>
             <!--五星评分-->
             <ul class="comment">
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
-                <li>☆</li>
+                <li>★</li>
+                <li>★</li>
+                <li>★</li>
+                <li>★</li>
+                <li>★</li>
             </ul>
-            <div class="borrow">
-                <h2 class="card-title tsg_Name">借阅</h2>
+
+            <div id="borrow">
+                <a href="#">借阅</a>
             </div>
-            <div class="subscribe">
-                <h2 class="card-title tsg_Name">预约</h2>
+
+            <div id="make">
+                <a href="#">预约</a>
             </div>
+
         </div>
+
+
 
         <!--
         作者：offline
