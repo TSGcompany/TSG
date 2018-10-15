@@ -2,7 +2,6 @@ package com.lcvc.tsg.web.Admin.book_manage;
 
 import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Book;
-import com.lcvc.tsg.servers.Admin.AdminBean;
 import com.lcvc.tsg.servers.Admin.BookBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

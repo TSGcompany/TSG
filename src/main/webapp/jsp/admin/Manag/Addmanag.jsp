@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
+<%@ page language="java" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -133,7 +133,7 @@
     <form id="AddAdminForm" method="post">
         <ul class="forminfo">
             <li><label>*头像</label>
-            <li> <img  id="admin_head1" style="margin-left: 90px" border="1"  width="180px"  height="180px" src="">
+            <li> <img  id="admin_head1" style="margin-left:  90px" border="1"  width="180px"  height="180px" src="<%=basePath %>jsp/admin/images/Book_default_img.jpg">
                 <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
                 <input  type="button"class="btn"  id="clearImagePath1" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
 

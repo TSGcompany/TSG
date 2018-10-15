@@ -4,7 +4,6 @@ package dao;
 import com.lcvc.tsg.dao.AdminDao.AdminDao;
 import com.lcvc.tsg.dao.AdminDao.BookDao;
 import com.lcvc.tsg.dao.AdminDao.CustomerDao;
-import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Book_Type;
 import com.lcvc.tsg.model.Customer;
@@ -12,11 +11,6 @@ import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
 import javax.annotation.Resource;
-
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**

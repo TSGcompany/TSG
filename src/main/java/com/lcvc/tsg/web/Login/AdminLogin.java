@@ -1,6 +1,5 @@
 package com.lcvc.tsg.web.Login;
 
-import com.lcvc.tsg.dao.LoginDao.LoginDao;
 import com.lcvc.tsg.servers.LoginBean.LoginBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

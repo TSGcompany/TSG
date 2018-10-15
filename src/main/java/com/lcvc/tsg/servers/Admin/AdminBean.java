@@ -2,9 +2,6 @@ package com.lcvc.tsg.servers.Admin;
 
 import com.lcvc.tsg.dao.AdminDao.AdminDao;
 import com.lcvc.tsg.model.Admin;
-import com.lcvc.tsg.model.Book;
-import com.lcvc.tsg.model.Book_Type;
-import com.lcvc.tsg.model.Customer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

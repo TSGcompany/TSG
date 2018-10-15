@@ -1,9 +1,7 @@
 package com.lcvc.tsg.dao.AdminDao;
-import org.apache.ibatis.annotations.Param;
+
 import com.lcvc.tsg.model.Admin;
-import com.lcvc.tsg.model.Book;
-import com.lcvc.tsg.model.Book_Type;
-import com.lcvc.tsg.model.Customer;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
