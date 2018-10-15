@@ -18,7 +18,7 @@
 }else{
 %>
 <script type="text/javascript">
-    alert("<%=message %>");
+    alert("<%=message%>");
 </script>
 <%
         sess.setAttribute("mes", "");

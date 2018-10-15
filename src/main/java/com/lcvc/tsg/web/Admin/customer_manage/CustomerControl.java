@@ -25,15 +25,22 @@ public class CustomerControl {
      **/
    //----------------------------用户管理模块的控制层----------------------
     @RequestMapping(value = "/admin/CustomerShow", method = RequestMethod.GET)
-    public String CustomerShow(HttpServletRequest request,Integer index) {
-        int c=0;//用来记录总页码
-        if(customerBean.CustomerCount()%10!=0){//计算页码
-            c=(customerBean.CustomerCount()/10)+1;
-        }else{
-            c=(customerBean.CustomerCount()/10);
+    public String CustomerShow(HttpServletRequest request, Integer index) {
+        if (index < 0) {
+            index = 0;
         }
-        request.setAttribute("customerShow", customerBean.CustomerShow(index.intValue()));//传客户信息数据
-        request.setAttribute("customerCount",c);//传总页码
+        int c = 0;
+        if (customerBean.CustomerCount() % 10 == 0) {//计算页码
+            c = customerBean.CustomerCount() / 10;
+        } else {
+            c = (customerBean.CustomerCount() % 10) + 1;
+        }
+        if(index>c){
+            index=c;
+        }
+        request.setAttribute("indexPage", index);
+        request.setAttribute("PageCount", c);
+        request.setAttribute("CustomerShow", customerBean.CustomerShow(index));
         return "admin/user/usermanagement.jsp";
     }
 
