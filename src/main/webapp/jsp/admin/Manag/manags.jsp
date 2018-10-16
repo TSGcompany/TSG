@@ -7,15 +7,15 @@
 <%@ page language="java" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <%
     HttpSession sess = request.getSession();
-    String message = (String)sess.getAttribute("mes");
-    if(message == ""){
+    String message = (String) sess.getAttribute("mes");
+    if (message == "") {
 %>
 <%
-}else{
+} else {
 %>
 <script type="text/javascript">
     alert("<%=message%>");
@@ -33,8 +33,8 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css" />
+    <link href="<%=basePath %>jsp/admin/css/stylee.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css"/>
     <!-- <script type="text/javascript" src="js/jquery.js""></script>-->
     <script type="text/javascript" src="<%=basePath %>jsp/admin/js/jquery.js"></script>
     <script src='<%=basePath%>jsp/admin/js/jquery.min.js'></script>
@@ -72,14 +72,16 @@
             <tr>
                 <td class="img_td">
 
-                        <img src="${i.admin_head}" style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;" />
+                    <img src="${i.admin_head}"
+                         style="width:35px;height:35px;margin-top: 8px;margin-left: 8px; border-radius: 50px;"/>
 
                 </td>
                 <td>${i.admin_nickname}</td>
                 <td>${i.admin_phone}</td>
                 <td>${i.admin_Email}</td>
                 <td><a href="<%=basePath %>admin/updateubase?id=${i.id}" class="tablelink">修改</a>
-                    <a href="<%=basePath %>admin/deleteAdmin?id=${i.id}" onclick="del_confirm()" class="tablelink"> 删除</a></td>
+                    <a href="<%=basePath %>admin/deleteAdmin?id=${i.id}" onclick="del_confirm()" class="tablelink">
+                        删除</a></td>
             </tr>
         </c:forEach>
 
@@ -92,7 +94,8 @@
 </script>
 <!--分页-->
 <div class="page_container center">
-    <div class="page_btn prev_page left"><a class="page_btn prev_page left" href="<%=basePath%>admin/AdminShow?index=${indexPage-1}">上一页</a></div>
+    <div class="page_btn prev_page left"><a class="page_btn prev_page left"
+                                            href="<%=basePath%>admin/AdminShow?index=${indexPage-1}">上一页</a></div>
     <div class="page_num_container left" id="page_num_container">
         <ul>
 

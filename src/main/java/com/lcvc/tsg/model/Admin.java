@@ -5,22 +5,6 @@ package com.lcvc.tsg.model;
  * @Date 2018/9/26 11:34
  **/
 public class Admin {
-    private Integer id; //
-    private String admin_name;//管理员名字
-    private String admin_password; //管理员密码
-    private String admin_head; //管理员头像
-    private String admin_phone; //管理员手机
-    private String admin_Email; //管理员邮箱
-    private boolean admin_sex; //管理员性别
-    private String admin_nickname;//管理员昵称
-
-    public String getAdmin_nickname() {
-        return admin_nickname;
-    }
-
-    public void setAdmin_nickname(String admin_nickname) {
-        this.admin_nickname = admin_nickname;
-    }
     public Integer getId() {
         return id;
     }
@@ -37,12 +21,12 @@ public class Admin {
         this.admin_name = admin_name;
     }
 
-    public String getAdmin_passwod() {
+    public String getAdmin_password() {
         return admin_password;
     }
 
-    public void setAdmin_passwod(String admin_passwod) {
-        this.admin_password = admin_passwod;
+    public void setAdmin_password(String admin_password) {
+        this.admin_password = admin_password;
     }
 
     public String getAdmin_head() {
@@ -69,12 +53,31 @@ public class Admin {
         this.admin_Email = admin_Email;
     }
 
-    public boolean getAdmin_sex() {
+    public boolean isAdmin_sex() {
         return admin_sex;
     }
 
     public void setAdmin_sex(boolean admin_sex) {
         this.admin_sex = admin_sex;
     }
+
+    public String getAdmin_nickname() {
+        return admin_nickname;
+    }
+
+    public void setAdmin_nickname(String admin_nickname) {
+        this.admin_nickname = admin_nickname;
+    }
+
+    private Integer id; //
+    private String admin_name;//管理员名字
+    private String admin_password; //管理员密码
+    private String admin_head; //管理员头像
+    private String admin_phone; //管理员手机
+    private String admin_Email; //管理员邮箱
+    private boolean admin_sex; //管理员性别
+    private String admin_nickname;//管理员昵称
+
+
 
 }

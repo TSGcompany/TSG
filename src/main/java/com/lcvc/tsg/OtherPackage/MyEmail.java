@@ -17,7 +17,7 @@ public class MyEmail {
     private static String server = "smtp.qq.com";
     private static int port = 25;
     private String pop3 = "pop.qq.com";
-    public void MysendEmail(String emailFrom, String emailFromPassword, String emailTo, String emailSubject, String body)
+    public int  MysendEmail(String emailFrom, String emailFromPassword, String emailTo, String emailSubject, String body)
     {
         try{
             Properties props = new Properties();
@@ -38,20 +38,19 @@ public class MyEmail {
             msg.setSubject(emailSubject, "UTF-8");
             msg.setText(body);
             transport.sendMessage(msg, msg.getAllRecipients());
+            return 1;
         }
         catch(Exception e){
-            e.printStackTrace();
+            return  2;
+            //e.printStackTrace();
         }
     }
     //调这个就可以发送邮件（地址，验证码）
 
-    public void chooseOperation(String EmailTo,String Code) {
-        try {
-            MysendEmail("731118710@qq.com", "wjvbmiiiueypbdfi", EmailTo, "TST注册验证", "验证码为：       "+Code);
-            System.out.println("邮件发送成功!");
-        }catch (Exception e){
-            System.out.println("出错啦!");
-        }
+    public int  chooseOperation(String EmailTo,String Code) {
+
+            return MysendEmail("731118710@qq.com", "wjvbmiiiueypbdfi", EmailTo, "TST注册验证", "验证码为：       "+Code);
+
     }
 
 

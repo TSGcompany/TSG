@@ -63,7 +63,6 @@ public class AdminControl {
             if (adminBean.updateubase(admin) > 0) {
                 session.setAttribute("admin", adminBean.getAdmin(admin_id.getId()));
                 map.put("massage", 1);
-
             } else {
                 map.put("massage", "修改失败！");
             }
