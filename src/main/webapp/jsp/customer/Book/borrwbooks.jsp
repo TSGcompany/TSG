@@ -14,23 +14,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>图书借阅</title>
+    <title>我的预约</title>
     <link href="../css/record.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 <div class="formbody">
 
-    <div class="formtitle"><span>图书借阅</span></div>
+    <div class="formtitle"><span>我的预约</span></div>
 
     <table class="tablelist">
         <thead>
         <tr>
-            <th style="width:10%;">借书证号</th>
-            <th style="width:15%;">借书日期</th>
-            <th style="width:25%;">图书名称</th>
-            <th style="width:10%;">书价</th>
-            <th style="width:15%;">还书时间</th>
+            <th style="width:10%;">预约图书</th>
+            <th style="width:15%;">预约编号</th>
+            <th style="width:25%;">预约日期</th>
+            <th style="width:15%;">预约操作</th>
         </tr>
         </thead>
 
@@ -39,11 +38,10 @@
             <tr>
 
                 </td>
-                <td>10205</td>
+                <td>1</td>
+                <td>2</td>
                 <td><fmt:formatDate value="" pattern="yyyy年MM月dd日 HH:mm"/></td>
-                <td>3</td>
-                <td><fmt:formatDate value="" pattern="yyyy年MM月dd日 HH:mm"/></td>
-                <td><fmt:formatDate value="" pattern="yyyy年MM月dd日 HH:mm"/></td>
+                <td><a href="#" class="tablelink">预约</a> <a href="" class="tablelink"> 取消</a></td>
             </tr>
         </c:forEach>
         </tbody>

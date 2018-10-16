@@ -43,12 +43,12 @@
             <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </div>
         <ul class="submenuItems">
-            <li><a href="<%=basePath%>jsp/customer/Book/borrwbooks.jsp" target="rightFrame">图书借阅</a></li>
+            <li><a href="<%=basePath%>jsp/customer/Book/borrwbooks.jsp" target="rightFrame">我的预约</a></li>
             <li><a href="<%=basePath%>jsp/customer/Book/record.jsp" target="rightFrame">查看历史记录</a></li>
         </ul>
     </li>
     <li>
-        <a href="contact/Telephone.html" target="rightFrame"><div class="dropdownlink"><i class="fa fa-motorcycle" aria-hidden="true"></i>联系管理员
+        <a href="<%=basePath%>jsp/customer/contact/Telephone.jsp" target="rightFrame"><div class="dropdownlink"><i class="fa fa-motorcycle" aria-hidden="true"></i>联系管理员
         </div></a>
 
     </li>

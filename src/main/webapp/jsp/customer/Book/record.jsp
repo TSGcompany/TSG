@@ -20,7 +20,6 @@
 
 <body>
 <div class="formbody">
-
     <div class="formtitle"><span>查看历史记录</span></div>
 
     <table class="tablelist">
@@ -31,7 +30,7 @@
             <th style="width:15%;">书名</th>
             <th style="width:20%;">借出时间</th>
             <th style="width:20%;">归还时间</th>
-            <th style="width:15%;">借阅次数</th>
+            <th style="width:15%;">图书评论</th>
         </tr>
         </thead>
 

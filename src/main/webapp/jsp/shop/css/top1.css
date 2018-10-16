@@ -1,22 +1,21 @@
-/**/
-.nav{
-	width: 100%;
-	height: 380px;
-}
 /*导航条*/
-.navbar{
-	width: 100%;
-	height: 50px;
-	border: 1px solid #cccc;
-	background: #393d49;
-	}
+.key_top{
+	width:100%;
+	height: 70px;
+	background-color: #393d49;
+	margin: -8px 0 0px -9px;
+	position: absolute;
+}
+.heg{
+	margin:30px 0 0 35px;
+}
 /*导航内容*/
 li{
 	list-style: none;
 	float:left;
 	margin: 0 30px;
 	color: #FFFFFF;
-	size: 16px;
+	font-size: 18px;
 }
 /*a标签设置*/
 a{
@@ -30,15 +29,22 @@ a:hover{
 .nav_img{
 	float:right;
 	position: absolute;
-	margin: -7px 0 0 1600px;
+	margin: -6px 0 0 1600px;
 }
 /*退出设置*/
 .nav_2{
 	list-style: none;
 	float:right;
-	margin: -2px 50px;
+	margin: -2px 55px;
 	color: #FFFFFF;
 	size: 20px;
+}
+/*logo设置*/
+.nav_img2{
+	list-style: none;
+	float:left;
+	margin:-28px 20px 0 -40px;
+	color: #FFFFFF;
 }
 /*头像设置*/
 .img_head{
@@ -46,7 +52,7 @@ a:hover{
 	height: 30px;
 	float: left;
 	border-radius: 50px;
-	margin: -5px 1700px;
+	margin: -5px 1600px;
 	position: absolute;
 }
 .img_head img{
@@ -54,4 +60,3 @@ a:hover{
 	height: 30px;
 	border-radius:50px;
 }
-
