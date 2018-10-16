@@ -3,23 +3,7 @@ package com.lcvc.tsg.model;
 public class Customer {
     private Integer id;
     private String customer_name;//用户名字
-    private String customer_passwod;//用户密码
-    private String customer_head;//头像
-    private String customer_phone;//用户手机号
-    private String customer_Email;//用户邮箱
-    private boolean customer_sex;//用户性别
-    private boolean customer_prohibit_Login;//禁止登陆
-    private boolean customer_prohibit_Borrowing;//禁止借书
-    private String customer_nickname;//用户昵称
-
-
-    public String getCustomer_nickname() {
-        return customer_nickname;
-    }
-
-    public void setCustomer_nickname(String customer_nickname) {
-        this.customer_nickname = customer_nickname;
-    }
+    private String customer_password;//用户密码
 
     public Integer getId() {
         return id;
@@ -37,12 +21,12 @@ public class Customer {
         this.customer_name = customer_name;
     }
 
-    public String getCustomer_passwod() {
-        return customer_passwod;
+    public String getCustomer_password() {
+        return customer_password;
     }
 
-    public void setCustomer_passwod(String customer_passwod) {
-        this.customer_passwod = customer_passwod;
+    public void setCustomer_password(String customer_password) {
+        this.customer_password = customer_password;
     }
 
     public String getCustomer_head() {
@@ -69,7 +53,7 @@ public class Customer {
         this.customer_Email = customer_Email;
     }
 
-    public boolean getCustomer_sex() {
+    public boolean isCustomer_sex() {
         return customer_sex;
     }
 
@@ -77,7 +61,7 @@ public class Customer {
         this.customer_sex = customer_sex;
     }
 
-    public boolean getCustomer_prohibit_Login() {
+    public boolean isCustomer_prohibit_Login() {
         return customer_prohibit_Login;
     }
 
@@ -85,13 +69,30 @@ public class Customer {
         this.customer_prohibit_Login = customer_prohibit_Login;
     }
 
-    public boolean getCustomer_prohibit_Borrowing() {
+    public boolean isCustomer_prohibit_Borrowing() {
         return customer_prohibit_Borrowing;
     }
 
     public void setCustomer_prohibit_Borrowing(boolean customer_prohibit_Borrowing) {
-        customer_prohibit_Borrowing = customer_prohibit_Borrowing;
+        this.customer_prohibit_Borrowing = customer_prohibit_Borrowing;
     }
+
+    public String getCustomer_nickname() {
+        return customer_nickname;
+    }
+
+    public void setCustomer_nickname(String customer_nickname) {
+        this.customer_nickname = customer_nickname;
+    }
+
+    private String customer_head;//头像
+    private String customer_phone;//用户手机号
+    private String customer_Email;//用户邮箱
+    private boolean customer_sex;//用户性别
+    private boolean customer_prohibit_Login;//禁止登陆
+    private boolean customer_prohibit_Borrowing;//禁止借书
+    private String customer_nickname;//用户昵称
+
 
 
 }

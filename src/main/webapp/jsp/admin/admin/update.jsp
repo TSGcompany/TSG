@@ -39,10 +39,10 @@
 
                         if (status) {
 
-
                             $.post("<%=basePath%>admin/updateubase", $("#baseupdateform").serialize(), function (data) {
                                 if (data.massage == 1) {
                                     alert("修改成功");
+                                    location.href = "<%=basePath%>admin/ToIndex";
                                 } else {
                                     alert(data.massage);
                                     //alert("修改失败");

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
+<mapper namespace="com.lcvc.tsg.dao.CustomerDao.CustomerRegisterDao">
+    <!--=============================== 查看某个用户名有没有被使用过于 ==================================-->
+    <select id="VerificationUserName" parameterType="String" resultType="int">
+  SELECT COUNT(id) FROM customer WHERE  customer_name=#{UserName}
+    </select>
+    <!--==================================== 用户注册 =================================================-->
+    <insert id="Customer_register" parameterType="Customer" >
+         INSERT  INTO  customer(id,customer_name,customer_password,customer_head,customer_Email,customer_sex,customer_prohibit_Login,customer_nickname,customer_prohibit_Borrowing)
+          VALUE (#{id},#{customer_name},#{customer_password},#{customer_head},#{customer_Email},#{customer_sex},#{customer_prohibit_Login},#{customer_nickname},#{customer_prohibit_Borrowing})
+    </insert>
+</mapper>
