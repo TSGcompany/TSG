@@ -96,20 +96,16 @@
         <div class="maer-right">
             <img src="img/tsg.jpg" />
             <div class="t_notice1">
-                <a href="#">
                 <ul id="dayTask">
                     <li>价格很高</li>
                     <li>价格很高</li>
                 </ul>
-                </a>
             </div>
             <div class="t_notice2">
-                <a href="#">
                 <ul id="growTask">
                     <li>哈哈哈哈</li>
                     <li>哈哈哈哈</li>
                 </ul>
-                </a>
                 <div class="col-xs-12 information-nav-bg">
                     <div class="col-xs-1 information information-nav">重图动态</div>
                     <div class="col-xs-1 information middle-nav">业界动态</div>
