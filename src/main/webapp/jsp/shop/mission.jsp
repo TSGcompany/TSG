@@ -114,8 +114,16 @@
         <img src="img/tsg.jpg" />
         <div class="nTab">
             <div class="TabContent">
-                <div id="myTab_Content0">1、滑动门选项卡</div>
-                <div id="myTab_Content1" class="none">2、兼容性好</div>
+                <div id="myTab_Content0">
+                    <ul class="disc">
+                        <li><a href="#">滑动门选项卡</a></li>
+                    </ul>
+                </div>
+                <div id="myTab_Content1" class="none">
+                    <ul class="disc">
+                    <li><a href="#">兼容性好</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="TabTitle">
                 <ul id="myTab">

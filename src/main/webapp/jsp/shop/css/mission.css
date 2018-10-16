@@ -8,7 +8,7 @@
 .main-left{
 	width:350px;
 	height: 526px;
-	border: 1px solid #DCDCDC;
+	border: 1px solid #CCCCCC;
 	float: left;
 	margin: 18px 0 5px 2px;
 	position: relative;
@@ -107,7 +107,7 @@
 	margin-left: 1px;
 	display: flex;
 	justify-content: center;
-	margin: 263px 176px;
+	margin: 263px 175px;
 	position: absolute;
 }
 /*第七个小边框7*/
@@ -135,7 +135,7 @@
 	margin-left: 1px;
 	display: flex;
 	justify-content: center;
-	margin: 395px 176px;
+	margin: 394px 175px;
 	position: absolute;
 }
 /*右边大边框*/
@@ -183,13 +183,17 @@
 }
 /*外边框的大框*/
 .nTab{
-	width:1025px;
+	width:1030px;
 	height: 525px;
 	margin:20px auto;
-	border:1px solid #00A4AC;
+	border:1px solid #CCCCCC;
 	overflow:hidden;
 	margin: -2px 45px;
 	position: absolute;
+}
+/*圆点*/
+ul.disc li{
+	list-style-type: disc;
 }
 .none {
 	display:none;
@@ -203,28 +207,49 @@
 	text-align:center;
 
 }
-.nTab .TabTitle li a{
-	text-decoration:none;
+/*滑动门选项卡、兼容性好文字设置*/
+#myTab_Content0{
+    margin: -210px -100px;
+	position: absolute;
 }
+.disc li a{
+	border-bottom: 1px dashed #CCCCCC;
+	width: 8em;
+	font-size: 18px;
+	color: #000000;
+	text-decoration: none;
+}
+.disc li a:hover{
+	color: #28921f;
+}
+#myTab_Content1{;
+	margin: -210px -100px;
+	position: absolute;
+}
+
 /*重图动态*/
 .nTab .TabTitle .active{
-	width:512px;
+	width:515px;
 	height:50px;
+	font-size: 18px;
+	font-weight:100;
 	background:#99E0F2;
-	color:#336699;
+	color:#000000;
 }
 /*业界动态*/
 .nTab .TabTitle .normal{
-	width:513px;
+	width:515px;
 	height:50px;
+	font-size: 18px;
+	font-weight:100;
 	background:#ccc;
-	color:#fff;
+	color:#000000;
 }
-/*重图动态、业界动态选项卡框。同一页面、兼容性好文字样式*/
+/*重图动态、业界动态选项卡框*/
 .nTab .TabContent{
 	clear:both;
 	overflow:hidden;
-	padding:95px;
+	padding:102px;
 	display:block;
 	float: right;
 	margin:136px 220px;
