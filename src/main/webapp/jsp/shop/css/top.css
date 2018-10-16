@@ -6,24 +6,31 @@
 /*导航条*/
 .navbar{
 	width: 100%;
-	height: 50px;
+	height: 70px;
 	border: 1px solid #cccc;
 	background: #393d49;
 	size: 20px;
 	margin: 0 0 7px 0;
 }
+/*logo设置*/
+.nav_img2{
+	list-style: none;
+	float:left;
+	margin: -2px 30px;
+	color: #FFFFFF;
+}
 /*导航内容*/
 .nav_1{
 	list-style: none;
 	float:left;
-	margin: 6px 30px;
+	margin: 20px 30px;
 	color: #FFFFFF;
 	size: 20px;
 }
 .nav_2{
 	list-style: none;
 	float:right;
-	margin: 6px 30px;
+	margin: 20px 30px;
 	color: #FFFFFF;
 	size: 20px;
 }
@@ -40,5 +47,5 @@ a:hover{
 	list-style: none;
 	float:right;
 	position: absolute;
-	margin: 10px 0 0 1780px;
+	margin: 20px 0 0 1680px;
 }
