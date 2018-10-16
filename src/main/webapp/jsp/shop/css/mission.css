@@ -23,8 +23,8 @@
 	float: left;
 	display: flex;
 	justify-content: center;
-	left:230px;
-	top: 27px;
+	margin: 1px 1px;
+	position: absolute;
 }
 .service-pic img{
 	width:65px;
@@ -51,8 +51,8 @@
 	margin-left: 1px;
 	display: flex;
 	justify-content: center;
-	top: 26px;
-	left:403px;
+	margin: 1px 175px;
+	position: absolute;
 }
 
 /*第三个小边框3*/
@@ -66,8 +66,8 @@
 	margin-left: 1px;
 	display: flex;
 	justify-content: center;
-	top:158px;
-	left:229px;
+	margin: 132px 1px;
+	position: absolute;
 }
 
 /*第四个小边框4*/
@@ -80,8 +80,8 @@
 	float: left;
 	display: flex;
 	justify-content: center;
-	top: 158px;
-	left:404px;
+	margin: 132px 175px;
+	position: absolute;
 }
 /*第五个小边框5*/
 .service-box5{
@@ -93,8 +93,8 @@
 	float: left;
 	display: flex;
 	justify-content: center;
-	top: 290px;
-	left:230px;
+	margin: 262px 1px;
+	position: absolute;
 }
 /*第六个小边框6*/
 .service-box6{
@@ -107,8 +107,8 @@
 	margin-left: 1px;
 	display: flex;
 	justify-content: center;
-	top: 289px;
-	left:402px;
+	margin: 263px 176px;
+	position: absolute;
 }
 /*第七个小边框7*/
 .service-box7{
@@ -121,8 +121,8 @@
 	margin-left: 1px;
 	display: flex;
 	justify-content: center;
-	top: 420px;
-	left:229px;
+	margin: 394px 1px;
+	position: absolute;
 }
 /*第八个小边框8*/
 .service-box8{
@@ -135,112 +135,101 @@
 	margin-left: 1px;
 	display: flex;
 	justify-content: center;
-	top: 420px;
-	left:403px;
+	margin: 395px 176px;
+	position: absolute;
 }
 /*右边大边框*/
-.main-right{
-	width:1025px;
-	height: 526px;
-	float: right;
-	margin: 0 auto;
+.maer-right{
+	width:480px;
+	height: 300px;
+
 	position:fixed;
+	float: left;
 	display: flex;
 	justify-content: center;
-	margin: 20px 0 0px 393px ;
-
-
+	left:500px;
+	top: 20px;
+	position: absolute;
 }
+
 /*右边图片的大边框*/
 .maer-right{
 	width:480px;
 	height: 450px;
-	border: 1px solid #00A4AC;
-	margin-top: 10px;
 	position:fixed;
 	float: left;
 	display: flex;
 	justify-content: center;
 	left:620px;
 	top: 20px;
-
+	position: absolute;
 }
+
 /*右边框图片*/
 .maer-right img{
-	width:435px;
-	height: 400px;
-	margin:20px 0;
+	width:450px;
+	height: 420px;
+	border: 1px solid #00a4ac;
+	float: left;
+	margin:23px -220px;
 	position: absolute;
 }
 
-/*右边文字*/
-.t_notice1 ul{
-	color: #000;
-	width: 6em;
-	height: 1em;
-	font-size: 16px;
-	font-weight: 300;
-	font-family: 'Roboto Slab', serif;
+*{
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-size:14px;
+}
+/*外边框的大框*/
+.nTab{
+	width:1025px;
+	height: 525px;
+	margin:20px auto;
+	border:1px solid #00A4AC;
+	overflow:hidden;
+	margin: -2px 45px;
 	position: absolute;
-	margin-top: 15px;
-	left:540px;
 }
-.t_notice1 li:hover {
-	color: #1ab188;
+.none {
+	display:none;
 }
-ul li{
-	border-bottom: 1px dashed #CCCCCC;
-	width: 6em;
-	margin-top: 5px;
+/*重图动态、业界动态文字设置*/
+.nTab .TabTitle li{
+	float:left;
+	cursor:pointer;
+	line-height:50px;
+	font-weight:bold;
+	text-align:center;
+
 }
-.t_notice2 ul{
-	color: #000;
-	width: 6em;
-	height: 1em;
-	font-size: 16px;
-	font-weight: 300;
-	font-family: 'Roboto Slab', serif;
-	position: absolute;
-	margin-top: 15px;
-	left:540px;
-	display:none;/*隐藏*/
+.nTab .TabTitle li a{
+	text-decoration:none;
 }
-.t_notice2 li:hover {
-	color: #1ab188;
-}
-/*切换字体设置*/
-.information {
-	font-weight: 200;
-	font-size: 18px;
-	font-family: 'Roboto Slab', serif;
-	position: absolute;
-	text-align: center;
-	line-height: 50px;
+/*重图动态*/
+.nTab .TabTitle .active{
+	width:512px;
+	height:50px;
+	background:#99E0F2;
+	color:#336699;
 }
 /*业界动态*/
-.information-nav{
-	width:510px;
-	height: 50px;
-	background-color: #99E0F2;
-	position:fixed;
-	display: flex;
-	justify-content: center;
-	margin: 470px 0 0 -240px;
-	position: absolute;
+.nTab .TabTitle .normal{
+	width:513px;
+	height:50px;
+	background:#ccc;
+	color:#fff;
+}
+/*重图动态、业界动态选项卡框。同一页面、兼容性好文字样式*/
+.nTab .TabContent{
+	clear:both;
+	overflow:hidden;
+	padding:95px;
+	display:block;
+	float: right;
+	margin:136px 220px;
 }
 
-/*重图动态*/
-.middle-nav{
-	width:510px;
-	height: 50px;
-	background-color: #DCDCDC;
-	position:fixed;
-	display: flex;
-	justify-content: center;
-	margin: 470px 0 0 270px;
-	position: absolute;
-
-}
 /*详情页面*/
 .tsg_details{
 	width: 1100px;

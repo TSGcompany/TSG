@@ -14,6 +14,24 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/mission.css" />
+    <script type="text/javascript">
+        function nTabs(thisObj,Num){
+            if(thisObj.className == "active")return;
+            var tabObj = thisObj.parentNode.id;
+            var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+            for(i=0; i <tabList.length; i++)
+            {
+                if (i == Num)
+                {
+                    thisObj.className = "active";
+                    document.getElementById(tabObj+"_Content"+i).style.display = "block";
+                }else{
+                    tabList[i].className = "normal";
+                    document.getElementById(tabObj+"_Content"+i).style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="main">
@@ -92,24 +110,23 @@
 
     </div>
     <!--右边大边框-->
-    <div class="main-right">
-        <div class="maer-right">
-            <img src="img/tsg.jpg" />
-            <div class="t_notice1">
-                <ul id="dayTask">
-                    <li>价格很高</li>
-                    <li>价格很高</li>
+    <div class="maer-right">
+        <img src="img/tsg.jpg" />
+        <div class="nTab">
+            <div class="TabContent">
+                <div id="myTab_Content0">1、滑动门选项卡</div>
+                <div id="myTab_Content1" class="none">2、兼容性好</div>
+            </div>
+            <div class="TabTitle">
+                <ul id="myTab">
+                    <li class="active" onmouseover="nTabs(this,0);">重图动态</li>
+                    <li class="normal" onmouseover="nTabs(this,1);">业界动态</li>
                 </ul>
             </div>
-            <div class="t_notice2">
-                <ul id="growTask">
-                    <li>哈哈哈哈</li>
-                    <li>哈哈哈哈</li>
-                </ul>
-                <div class="col-xs-12 information-nav-bg">
-                    <div class="col-xs-1 information information-nav">重图动态</div>
-                    <div class="col-xs-1 information middle-nav">业界动态</div>
-                </div>
+
+        </div>
+
+    </div>
 
             </div>
         </div>
