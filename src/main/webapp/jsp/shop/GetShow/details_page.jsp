@@ -5,7 +5,7 @@
 		<title></title>
 	</head>
 	<body>
-	<iframe src="../top1.jsp" width="100%" height="60px" frameborder="0" name="top" scrolling="no">
+	<iframe src="../top1.jsp" width="100%" height="70px" frameborder="0" name="top" scrolling="no">
       </iframe>
       <iframe src="details.jsp" width="100%" height="1350px" frameborder="0" name="details" scrolling="no">
 </iframe>

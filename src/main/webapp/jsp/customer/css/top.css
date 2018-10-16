@@ -1,7 +1,7 @@
 /*导航条*/
 .key_top{
 	width:100%;
-	height: 78px;
+	height: 70px;
 	background-color: #393d49;
 	margin: -8px 0 0px -9px;
 	position: absolute;
@@ -15,7 +15,7 @@ li{
 	float:left;
 	margin: 0 30px;
 	color: #FFFFFF;
-	size: 16px;
+	font-size: 18px;
 }
 /*a标签设置*/
 a{
@@ -35,9 +35,16 @@ a:hover{
 .nav_2{
 	list-style: none;
 	float:right;
-	margin: -2px 50px;
+	margin: -2px 55px;
 	color: #FFFFFF;
 	size: 20px;
+}
+/*logo设置*/
+.nav_img2{
+	list-style: none;
+	float:left;
+	margin:-28px 20px 0 -40px;
+	color: #FFFFFF;
 }
 /*头像设置*/
 .img_head{
@@ -45,7 +52,7 @@ a:hover{
 	height: 30px;
 	float: left;
 	border-radius: 50px;
-	margin: -5px 1720px;
+	margin: -5px 1600px;
 	position: absolute;
 }
 .img_head img{
