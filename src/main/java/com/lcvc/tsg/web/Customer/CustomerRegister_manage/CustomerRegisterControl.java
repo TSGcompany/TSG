@@ -5,6 +5,7 @@ import com.lcvc.tsg.OtherPackage.MyCheckEmail;
 import com.lcvc.tsg.OtherPackage.MyEmail;
 import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.servers.Customer.CustomerRegisterBean;
+import com.lcvc.tsg.servers.LoginBean.LoginBean;
 import org.junit.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -28,7 +30,8 @@ public class CustomerRegisterControl {
     private static String VerificationCode=null;
     @Resource
     private CustomerRegisterBean customerRegisterBean;
-
+    @Resource
+    private LoginBean loginBean;
     /**
      * @Author Anle
      * @Date 上午 11:37 2018/10/16 0016
@@ -89,13 +92,6 @@ public class CustomerRegisterControl {
                     VerificationCode = null;//验证之后将值刷新
                 }
 
-
-//                myEmail.chooseOperation(customerEmain, sb.toString());
-//                map.put("CodeMessage",1);
-//                map.put("VerificationCode",sb.toString());//如果发送成功就将验证码发送到前台
-//                VerificationCode = sb.toString();//保存验证码 用于前端验证
-//                System.out.println(sb.toString());
-
             } catch (Exception e) {
                 //发送失败时
                 map.put("CodeMessage", 3);
@@ -115,9 +111,8 @@ public class CustomerRegisterControl {
     //=========================================用户注册==========================================
     @ResponseBody
     @RequestMapping(value = "/register/AddCustomer", method = RequestMethod.POST)
-    public Map<String, Object> AddCustomer(CustomerRegForm customerRegForm) {
-        Map<String, Object> map = new HashMap<>();
-
+    public Map<String, Object> AddCustomer(CustomerRegForm customerRegForm, HttpSession session) {
+        Map<String, Object> map = new HashMap<String, Object>();
         if (customerRegisterBean.VerificationUserName(customerRegForm.getCustomerName()) == 0) {//判断用户名是被使用过
             if (VerificationCode.equals(customerRegForm.getInputVerificationCode())) {//判断验证码是否正确
                 if (customerRegForm.getPassword().equals(customerRegForm.getRepassword())) {//判断两个密码是否全等
@@ -128,6 +123,8 @@ public class CustomerRegisterControl {
                     customer.setCustomer_Email(customerRegForm.getUserEmail());
                     customerRegisterBean.Customer_register(customer);
                     map.put("RegAdd_User", 1);
+                    //一切正常之后就session保存值 完成自动登录
+                session.setAttribute("Customer",loginBean.CustomerLogin(customer.getCustomer_name(),customerRegForm.getPassword()));
                 } else {
                     map.put("RegAdd_User", 3);
                 }
@@ -137,6 +134,7 @@ public class CustomerRegisterControl {
         } else {
             map.put("RegAdd_User", 4);
         }
+     //   map.put("RegAdd_User", 4);
         System.out.println(map.get("RegAdd_User"));
         VerificationCode = null;//验证之后将值刷新
         return map;
