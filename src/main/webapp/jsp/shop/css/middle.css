@@ -90,7 +90,7 @@
 	width: 250px;
 	height: 32px;
 	float:left;
-    margin: -2px 0 0 665px;
+    margin: -2px 0 0 685px;
     position: relative;
 	
 }
@@ -100,7 +100,7 @@
     height: 32px;
     font-family: 'Microsoft YaHei';   
     float:left;  
-    margin: -32px 0 0 920px;
+    margin: -32px 0 0 940px;
     position: relative;
     }    
     input{
@@ -111,7 +111,7 @@
         background-image: url(images/search.jpg);
         background-repeat: no-repeat;
         background-size: 25px;
-        background-position:px center;
+        background-position:20px center;
         padding:0 0 0 40px;
        
     }
@@ -131,7 +131,7 @@
 	width:1420px;
 	height: 1050px;
 	border: 1px solid #E5ECF0;
-	margin: 5px 0 0 221px ;
+	margin: 5px 0 0 240px ;
 	position: absolute;
 	
 }
@@ -140,7 +140,6 @@
 	width: 250px;
 	height:295px;
 	border: 1px solid #ccc;
-
 	margin: 18px 0 0  27px;
 	float:left;
 	position: relative;
@@ -188,7 +187,7 @@ ul{
 }
 
 /*借阅按钮*/
-#borrow{
+#button{
 	width: 90px;
 	height: 45px;
 	border: 1px solid #DCDCDC;
@@ -200,7 +199,9 @@ ul{
 	position:absolute;
 	border-radius: 10px;
 }
-
+a:hover{
+	color: #d98c1d;
+}
 /*预约按钮*/
 #make{
 	width: 90px;
@@ -224,9 +225,7 @@ a{
 	line-height:45px;
 	margin-left: 1px;
 }
-a:hover {
-	color: #d98c1d;
-}
+
 
 /*分页*/
 *{padding:0;margin:0}
