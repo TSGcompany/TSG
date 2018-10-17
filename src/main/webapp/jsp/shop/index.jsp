@@ -83,34 +83,42 @@
                 var UserName = $("#UserName").val();
                 var status = false;
 
-                if (UserName.length == 0 || UserName == '') {
+                if (UserName.length ==0||UserName=='') {
                     alert("用户名不能为空");
                     status = false;
-                } else if (UserPass.length == 0 || UserPass == '') {
+                }else if(UserPass.length ==0||UserPass==''){
                     alert("密码不能为空")
                     status = false;
-                } else {
-                    status = true;
+                }else{
+                    status  =true;
                 }
 
                 if (status) {
+
+                    if ($("#check").is(':checked')) {//看看单选框有没有选中 如果选中返回true 如果没选中返回false
+                        $.post("<%=basePath%>admin/login", $("#Loginform").serialize(), function (data) {
+                            if (data.AdminLogin== 1) {
+                                location.href = "<%=basePath%>admin/ToIndex";
+                            } else {
+                                alert(data.AdminLogin);
+                            }
+
+                        });
+
+                    } else {
+                        $.post("<%=basePath%>user/CustomerLogin", $("#Loginform").serialize(), function (data) {
+                            if (data.CustomerLogin== 1) {
+                                location.href = "<%=basePath%>user/ToIndex";
+                            } else {
+                                alert(data.CustomerLogin);
+                            }
+
+                        });
+
+                    }
+
+
                 }
-                if ($("#check").is(':checked')) {//看看单选框有没有选中 如果选中返回true 如果没选中返回false
-                    $.post("<%=basePath%>admin/login", $("#Loginform").serialize(), function (data) {
-                        if (data.AdminLogin == 1) {
-                            location.href = "<%=basePath%>admin/ToIndex";
-                        } else {
-                            alert(data.AdminLogin);
-                        }
-
-                    });
-
-                } else {
-
-
-                }
-
-
             });
 
         });
