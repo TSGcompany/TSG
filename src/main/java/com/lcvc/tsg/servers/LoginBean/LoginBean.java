@@ -1,5 +1,6 @@
 package com.lcvc.tsg.servers.LoginBean;
 
+import com.lcvc.tsg.OtherPackage.MyMD5;
 import com.lcvc.tsg.dao.LoginDao.LoginDao;
 import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Customer;
@@ -25,6 +26,6 @@ public class LoginBean {
     //-------------------------用户登录-----------------------
     public Customer CustomerLogin(String customer_name, String customer_password){
         //加密
-        return loginDao.CustomerLogin(customer_name,customer_password);
+        return loginDao.CustomerLogin(customer_name, MyMD5.MD5(customer_password));
     }
 }

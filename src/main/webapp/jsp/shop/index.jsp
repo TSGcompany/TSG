@@ -266,15 +266,15 @@
 <noframes>-->
 <body>
 <li class="nav_img"><a data-toggle="modal" data-target="#myModal"><img src="<%=basePath%>jsp/shop/img/登录.png"></a></li>
-<iframe src="top.jsp" width="100%" height="400px" frameborder="0" name="top" scrolling="no">
+<iframe src="<%=basePath%>jsp/shop/top.jsp" width="100%" height="400px" frameborder="0" name="top" scrolling="no">
 </iframe>
-<iframe src="mission.jsp" width="100%" height="580px" frameborder="0" name="mission" scrolling="no">
+<iframe src="<%=basePath%>jsp/shop/mission.jsp" width="100%" height="580px" frameborder="0" name="mission" scrolling="no">
 </iframe>
-<iframe src="mid_hot.jsp" width="100%" height="50px" frameborder="0" oname="mid_ht" scrolling="no">
+<iframe src="<%=basePath%>jsp/shop/mid_hot.jsp" width="100%" height="50px" frameborder="0" oname="mid_ht" scrolling="no">
 </iframe>
-<iframe src="middle.jsp" width="100%" height="1109px" frameborder="0" name="middle" scrolling="no">
+<iframe src="<%=basePath%>jsp/shop/middle.jsp" width="100%" height="1109px" frameborder="0" name="middle" scrolling="no">
 </iframe>
-<iframe src="foot.jsp" width="100%" height="100px" frameborder="0" name="foot" scrolling="no">
+<iframe src="<%=basePath%>jsp/shop/foot.jsp" width="100%" height="100px" frameborder="0" name="foot" scrolling="no">
 </iframe>
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
