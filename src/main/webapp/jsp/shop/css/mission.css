@@ -10,7 +10,7 @@
 	height: 526px;
 	border: 1px solid #CCCCCC;
 	float: left;
-	margin: 18px 0 5px 2px;
+	margin: 18px 0 5px 20px;
 	position: relative;
 }
 /*第一个小边框1*/
@@ -138,20 +138,6 @@
 	margin: 394px 175px;
 	position: absolute;
 }
-/*右边大边框*/
-.maer-right{
-	width:480px;
-	height: 300px;
-
-	position:fixed;
-	float: left;
-	display: flex;
-	justify-content: center;
-	left:500px;
-	top: 20px;
-	position: absolute;
-}
-
 /*右边图片的大边框*/
 .maer-right{
 	width:480px;
@@ -169,9 +155,8 @@
 .maer-right img{
 	width:450px;
 	height: 420px;
-	border: 1px solid #00a4ac;
 	float: left;
-	margin:23px -220px;
+	margin:23px -195px;
 	position: absolute;
 }
 
@@ -188,12 +173,15 @@
 	margin:20px auto;
 	border:1px solid #CCCCCC;
 	overflow:hidden;
-	margin: -2px 45px;
+	margin: -2px 70px;
 	position: absolute;
 }
-/*圆点*/
+/*小圆点*/
 ul.disc li{
 	list-style-type: disc;
+}
+ul.disc li:hover{
+	color: #28921f;
 }
 .none {
 	display:none;
@@ -209,7 +197,7 @@ ul.disc li{
 }
 /*滑动门选项卡、兼容性好文字设置*/
 #myTab_Content0{
-    margin: -210px -100px;
+    margin: -219px -130px;
 	position: absolute;
 }
 .disc li a{
@@ -223,7 +211,7 @@ ul.disc li{
 	color: #28921f;
 }
 #myTab_Content1{;
-	margin: -210px -100px;
+	margin: -219px -130px;
 	position: absolute;
 }
 

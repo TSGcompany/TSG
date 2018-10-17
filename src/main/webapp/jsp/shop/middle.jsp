@@ -44,18 +44,16 @@
                 <li>★</li>
             </ul>
 
-            <div id="borrow">
+            <div id="button">
                 <a href="#">借阅</a>
             </div>
-
             <div id="make">
             <a href="#"> 预约</a>
             </div>
 
         </div>
-
-
-
+    </div>
+</div>
         <!--
         作者：offline
         时间：2018-09-20
