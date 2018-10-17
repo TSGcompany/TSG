@@ -24,6 +24,8 @@
         <mapper resource="com/lcvc/tsg/dao/imp/Login/Login.xml"/>
             <!--Customer模块-->
         <mapper resource="com/lcvc/tsg/dao/imp/Customer/CustomerRegister.xml"/>
+        <!-- Shop模块 -->
+        <mapper resource="com/lcvc/tsg/dao/imp/Shop/ShopIndex.xml"/>
     </mappers>
 
 

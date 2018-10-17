@@ -5,7 +5,11 @@
   Time: 下午 5:12
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -22,19 +26,22 @@
 时间：2018-09-19
 描述：整个
 -->
+
 <div class="middle">
     <!--
 作者：offline
 时间：2018-09-19
 描述：上面
 -->
+
 <!--图书展示大框-->
     <div class="tsg_classify">
         <!--书本灰色边框 -->
+        <c:forEach items="${getShopIndexBook}" var="i">
         <div id="tsg_among">
-            <img src="img/ts1.jpg" />
-            <h4>俞敏洪</h4>
-            <p>《愿你的青春不负梦想》</p>
+            <img src="<%=basePath%>jsp/shop/img/ts1.jpg" />
+            <h4>${i.book_author}</h4>
+            <p>《${i.book_name}》</p>
             <!--五星评分-->
             <ul class="comment">
                 <li>★</li>
@@ -52,8 +59,10 @@
             </div>
 
         </div>
+        </c:forEach>
     </div>
 </div>
+
         <!--
         作者：offline
         时间：2018-09-20
