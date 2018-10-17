@@ -9,14 +9,14 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="${ctx}/resources/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="${ctx}<%=basePath%>jsp/shop/css/my_error_404.css" type="text/css" />
     <title>404</title>
 </head>
 <body style="background:none;">
 <div class="ds_center">
     <img src="<%=basePath%>jsp/shop/img/404.jpg" />
-
-    <a href="${ctx}/userInfo/front_login.htm">返回登录页</a> <a href="javascript:history.go(-1);" style="margin-left:50px;">返回上一层</a>
+    <div class="error_404_1"><a href="javascript:history.go(-1);" >返回上一层</a></div>
+    <div class="error_404_2"><a href="<%=basePath%>shop/ToShopIndex">返回登录页</a></div>
 </div>
 </body>
 </html>

@@ -20,7 +20,7 @@
     <div class="key_top">
         <ul class="heg">
             <li class="nav_img2"><img src="<%=basePath%>jsp/customer/images/lcvclogo.png"></li>
-            <li><a href="#">网上借阅</a></li>
+            <li><a href="#">首页</a></li>
             <li><a href="#">读者服务</a></li>
             <li><a href="#">资源动态</a></li>
             <li><a href="#">讲座/活动</a></li>
