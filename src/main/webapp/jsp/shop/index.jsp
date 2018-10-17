@@ -329,8 +329,10 @@
                                 </form>
 
                             </div>
-
-
+                        </div>
+                       </div>
+                     </div>
+                   </div>
                             <div id="signup">
                                 <h1>免费注册</h1>
 
@@ -384,7 +386,7 @@
 
                     </div> <!-- /form -->
                     <script src='<%=basePath%>jsp/shop/js/jquery.min.js'></script>
-
                     <script src="<%=basePath%>jsp/shop/js/login.js"></script>
+
 </body>
 </html>
