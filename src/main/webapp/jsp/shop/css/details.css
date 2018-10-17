@@ -125,7 +125,6 @@ h3{
 .book1{
 	width: 280px;
 	height: 260px;
-
 	margin-left:8px;
 	margin-top: 5px;
 }
@@ -194,17 +193,10 @@ h3{
 
 /*中间的大框*/
 *{margin: 0;padding: 0;list-style: none;}
-#box{margin: -3px 0 0 320px;}
-#box li{width: 100px;height: 50px;line-height: 40px;text-align: center;background-color: #d8d8d8;margin-right: 2px;float: left;}
-#box .active{background: red;}
+#box{margin: 1px 0 0 320px;position: absolute;}
+#box li{width: 100px;height: 45px;line-height: 40px;text-align: center;background-color: #d8d8d8;margin-right: 2px;float: left;}
+#box .active{background:#d98c1d;}
 #content{clear: both;}
-#content div{width: 875px;height: 815px;border: 1px solid #d8d8d8;display: none;}
+#content div{width: 875px;height: 820px;border: 1px solid #d8d8d8;display: none;}
 
-/*右边的目录与评价底下的大框*/
-.ts_evaluate{
-	width:870px;
-	height:800px;
-	border: 1px solid #00CED1;
-	margin: 65px 0 0 1px;
-	position: absolute;
-}
+

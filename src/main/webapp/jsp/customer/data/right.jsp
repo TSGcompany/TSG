@@ -43,8 +43,7 @@
                     <label for="male">男</label>
                     <input type="radio" name="sex" id="female" />
                     <label for="female">女</label>
-                    <input type="radio" name="sex" id="secrecy" />
-                    <label for="secrecy">保密</label>
+
                 </li>
                 <li class="usually">
                     <span>年龄:</span>
