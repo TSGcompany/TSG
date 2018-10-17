@@ -31,7 +31,7 @@
 <body style="background:url(images/top.gif) repeat-x;">
 
 <div class="topleft">
-    <a href="main.html" target="_parent"><img src="images/lcvclogo.png" title="系统首页" /></a>
+    <a href="main.html" target="_parent"><img src="<%=basePath %>jsp/admin/images/lcvclogo.png" title="系统首页" /></a>
 </div>
 
 <ul class="nav">
@@ -53,8 +53,6 @@
     <div class="user">
 
         <div class="img_head"><img src="${sessionScope.admin.admin_head}"/></div>
-
-
         <span>欢迎${sessionScope.admin.admin_nickname}</span>
         <i>消息</i>
         <b>5</b>
