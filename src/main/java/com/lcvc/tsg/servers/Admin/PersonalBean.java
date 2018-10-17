@@ -1,6 +1,11 @@
 package com.lcvc.tsg.servers.Admin;
 
+import com.lcvc.tsg.dao.AdminDao.PersonalDao;
+import com.lcvc.tsg.model.Admin;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @ClassName PersonalBean
@@ -10,4 +15,32 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class PersonalBean {
+    @Resource
+    private PersonalDao personalDao;
+    //=============================== 查看管理员有没有重名 ==================================
+    public int Rename(String AdminName) {
+
+        return personalDao.Rename(AdminName);
+    }
+
+    //=============================== 查看管理员==============================
+    public List<Admin> AdminShow(int index) {//展示管理员
+        index = index * 10;  //按10个
+        return personalDao.AdminShow(index);
+    }
+    public int AdminCount() {
+        return personalDao.AdminCount();
+    }
+
+    //=============================== 添加管理员==============================
+    public int AddAdmin(Admin admin) {
+        return personalDao.AddAdmin(admin);
+
+    }
+    //=============================== 删除管理员==============================
+
+    public int deleteAdmin(Integer adminId) {
+
+        return  personalDao.deleteAdmin(adminId.intValue());
+    }
 }

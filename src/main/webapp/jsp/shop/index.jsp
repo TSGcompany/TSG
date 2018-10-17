@@ -83,34 +83,42 @@
                 var UserName = $("#UserName").val();
                 var status = false;
 
-                if (UserName.length == 0 || UserName == '') {
+                if (UserName.length ==0||UserName=='') {
                     alert("用户名不能为空");
                     status = false;
-                } else if (UserPass.length == 0 || UserPass == '') {
+                }else if(UserPass.length ==0||UserPass==''){
                     alert("密码不能为空")
                     status = false;
-                } else {
-                    status = true;
+                }else{
+                    status  =true;
                 }
 
                 if (status) {
+
+                    if ($("#check").is(':checked')) {//看看单选框有没有选中 如果选中返回true 如果没选中返回false
+                        $.post("<%=basePath%>admin/login", $("#Loginform").serialize(), function (data) {
+                            if (data.AdminLogin== 1) {
+                                location.href = "<%=basePath%>admin/ToIndex";
+                            } else {
+                                alert(data.AdminLogin);
+                            }
+
+                        });
+
+                    } else {
+                        $.post("<%=basePath%>user/CustomerLogin", $("#Loginform").serialize(), function (data) {
+                            if (data.CustomerLogin== 1) {
+                                location.href = "<%=basePath%>user/ToIndex";
+                            } else {
+                                alert(data.CustomerLogin);
+                            }
+
+                        });
+
+                    }
+
+
                 }
-                if ($("#check").is(':checked')) {//看看单选框有没有选中 如果选中返回true 如果没选中返回false
-                    $.post("<%=basePath%>admin/login", $("#Loginform").serialize(), function (data) {
-                        if (data.AdminLogin == 1) {
-                            location.href = "<%=basePath%>admin/ToIndex";
-                        } else {
-                            alert(data.AdminLogin);
-                        }
-
-                    });
-
-                } else {
-
-
-                }
-
-
             });
 
         });
@@ -159,7 +167,7 @@
                 $.get("<%=basePath%>register/SendVerificationCode?customerEmain="+UserEmail,function (data) {
                     if(data.CodeMessage==1){
                         alert("发送成功，请查收！");
-                        VerificationCode=  data.VerificationCode;
+                        VerificationCode= data.VerificationCode;
                         sleep = 0;
                      //  alert(VerificationCode);
                     }else if(data.CodeMessage==3){
@@ -170,7 +178,7 @@
                         sleep = 0;
                     }
                     if(data.CodeMessage==4){
-                        alert("该邮箱不正确");
+                        alert("该邮箱不正确或者不存在，请重新输入！");
                         sleep = 0;
                     }
                 });
@@ -224,13 +232,6 @@
                  });
 
             }
-
-
-
-
-
-
-
             });
 
         });
@@ -385,6 +386,10 @@
                         </div><!-- tab-content -->
 
                     </div> <!-- /form -->
+            </div>
+        </div>
+    </div>
+</div>
                     <script src='<%=basePath%>jsp/shop/js/jquery.min.js'></script>
                     <script src="<%=basePath%>jsp/shop/js/login.js"></script>
 

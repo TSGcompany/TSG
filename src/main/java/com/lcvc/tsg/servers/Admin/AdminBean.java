@@ -54,30 +54,5 @@ public class AdminBean {
         return adminDao.AdminRename(AdminName);
     }
 
-    //=============================== 查看管理员有没有重名 ==================================
-    public int Rename(String AdminName) {
 
-        return adminDao.Rename(AdminName);
-    }
-
-    //=============================== 查看管理员==============================
-    public List<Admin> AdminShow(int index) {//展示管理员
-        index = index * 10;  //按10个
-        return adminDao.AdminShow(index);
-    }
-    public int AdminCount() {
-        return adminDao.AdminCount();
-    }
-
-    //=============================== 添加管理员==============================
-    public int AddAdmin(Admin admin) {
-       return adminDao.AddAdmin(admin);
-
-    }
-    //=============================== 删除管理员==============================
-
-    public int deleteAdmin(Integer adminId) {
-
-          return  adminDao.deleteAdmin(adminId.intValue());
-    }
 }
