@@ -35,30 +35,5 @@
 
     </select>
 
-    <!--=============================== 查看管理员有没有重名 ==================================-->
-    <select id="Rename" parameterType="String" resultType="int">
-        SELECT COUNT(id) FROM admin WHERE  admin_name=#{AdminName}
 
-    </select>
-
-    <!--=============================== 查看管理员==================================-->
-    <select id="AdminShow" resultType="Admin" parameterType="int">
-        SELECT * FROM  admin  order by id asc limit #{index},10
-    </select>
-
-    <!--========================== 查管理员总数用于分页==============================-->
-    <select id="AdminCount" resultType="int">
-
-        SELECT COUNT(id) FROM admin
-    </select>
-
-    <!--=============================== 添加管理员 ==================================-->
-    <insert id="AddAdmin" parameterType="Admin">
-        INSERT  INTO  admin(id,admin_name,admin_password,admin_head,admin_phone,admin_Email,admin_sex,admin_nickname)
-        VALUE (#{id},#{admin_name},#{admin_password},#{admin_head},#{admin_phone},#{admin_Email},#{admin_sex},#{admin_nickname})
-    </insert>
-    <!--=============================== 删除管理员 ==================================-->
-    <update id="deleteAdmin" parameterType="Admin">
-        delete from admin where id=#{id}
-    </update>
 </mapper>

@@ -52,7 +52,7 @@ public class AdminControl {
 
     //----------------------------------修改基本信息--------------------------
     @ResponseBody
-    @RequestMapping(value = "/admin/updateubase", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/updateubase", method = RequestMethod.GET)
     public Map<String, Object> updateubase(Admin admin, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
         Admin admin_id = (Admin) session.getAttribute("admin");
@@ -83,57 +83,6 @@ public class AdminControl {
         }
 
         return map;
-    }
-
-    //----------------------------用户管理模块的控制层----------------------
-    @RequestMapping(value = "/admin/AdminShow", method = RequestMethod.GET)
-    public String AdminShow(HttpServletRequest request, Integer index) {
-        if (index < 0) {
-            index = 0;
-        }
-        int c = 0;
-        if (adminBean.AdminCount() % 10 == 0) {//计算页码
-            c = adminBean.AdminCount() / 10;
-        } else {
-            c = (adminBean.AdminCount() % 10) + 1;
-        }
-        if (index > c) {
-            index = c;
-        }
-        request.setAttribute("indexPage", index);
-        request.setAttribute("PageCount", c);
-        request.setAttribute("AdminShow", adminBean.AdminShow(index));
-        return "admin/Manag/manags.jsp";
-    }
-
-    //----------------------------添加管理员----------------------
-
-    @ResponseBody
-    @RequestMapping(value = "/admin/AddAdmin", method = RequestMethod.POST)
-    public Map<String, Object> AddAdmin(Admin admin, HttpSession session) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        Admin admin_id = (Admin) session.getAttribute("admin");
-        if (adminBean.Rename(admin.getAdmin_name()) > 0) {//验证有没有重名
-            map.put("massage", "添加失败！该名称已经被使用！");
-        } else {
-            map.put("massage", 1);
-            adminBean.AddAdmin(admin);
-        }
-        return map;
-    }
-
-    //----------------------------删除管理员----------------------
-    @RequestMapping(value = "/admin/deleteAdmin", method = RequestMethod.GET)
-    public String deleteAdmin(Integer id, HttpServletRequest request, HttpSession session) {
-        Admin admin = (Admin) session.getAttribute("admin");
-        if (admin.getId() == id.intValue()) {
-            String message = "";
-            message = "删除失败,不能删除自己！";
-            request.getSession().setAttribute("mes", message);
-        } else {
-            adminBean.deleteAdmin(id);
-        }
-        return "redirect:AdminShow?index=0";
     }
 
 }
