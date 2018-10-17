@@ -26,7 +26,6 @@ public class LoginBean {
     //-------------------------用户登录-----------------------
     public Customer CustomerLogin(String customer_name, String customer_password){
         //加密
-        System.out.println(customer_name+"-------------------------"+customer_password);
         return loginDao.CustomerLogin(customer_name, MyMD5.MD5(customer_password));
     }
 }
