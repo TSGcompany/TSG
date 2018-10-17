@@ -159,7 +159,7 @@
                 $.get("<%=basePath%>register/SendVerificationCode?customerEmain="+UserEmail,function (data) {
                     if(data.CodeMessage==1){
                         alert("发送成功，请查收！");
-                        VerificationCode=  data.VerificationCode;
+                        VerificationCode= data.VerificationCode;
                         sleep = 0;
                      //  alert(VerificationCode);
                     }else if(data.CodeMessage==3){
@@ -170,7 +170,7 @@
                         sleep = 0;
                     }
                     if(data.CodeMessage==4){
-                        alert("该邮箱不正确");
+                        alert("该邮箱不正确或者不存在，请重新输入！");
                         sleep = 0;
                     }
                 });
@@ -224,13 +224,6 @@
                  });
 
             }
-
-
-
-
-
-
-
             });
 
         });
