@@ -52,7 +52,7 @@ public class AdminControl {
 
     //----------------------------------修改基本信息--------------------------
     @ResponseBody
-    @RequestMapping(value = "/admin/updateubase", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/updateubase", method = RequestMethod.POST)
     public Map<String, Object> updateubase(Admin admin, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
         Admin admin_id = (Admin) session.getAttribute("admin");
@@ -78,10 +78,7 @@ public class AdminControl {
                     map.put("massage", "修改失败！");
                 }
             }
-
-
         }
-
         return map;
     }
 

@@ -330,10 +330,7 @@
                                 </form>
 
                             </div>
-                        </div>
-                       </div>
-                     </div>
-                   </div>
+
                             <div id="signup">
                                 <h1>免费注册</h1>
 
