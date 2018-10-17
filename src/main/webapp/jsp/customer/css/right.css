@@ -93,6 +93,9 @@ li{
 	width:40px;
 	padding:5px 8px;
 }
+#female{
+	margin-left: 70px;
+}
 /*给类名为usually的元素下的input和textarea标签设置背景颜色、背景图片、边框、外阴影、内阴影、边框圆角以及内边距地过渡效果*/
 .usually input,.usually textarea{
 	background:#fff url(../images/attention.png) no-repeat 98% center;

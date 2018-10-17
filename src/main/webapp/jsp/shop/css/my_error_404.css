@@ -1,0 +1,26 @@
+.error_404_1{
+    width:95px;
+    height:40px;
+    background-color: #f0ad4e;
+    margin: -200px 610px;
+    position: absolute;
+    border-radius: 15px;
+
+}
+.error_404_2{
+    width:95px;
+    height:40px;
+    background-color: #f0ad4e;
+    margin: -200px 780px;
+    position: absolute;
+    border-radius: 15px;
+}
+a{
+    font-size: 14px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    color:#8c8c8c;
+    text-decoration: none;
+    line-height:45px;
+    margin-left: 10px;
+}
