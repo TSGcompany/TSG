@@ -384,6 +384,10 @@
                         </div><!-- tab-content -->
 
                     </div> <!-- /form -->
+            </div>
+        </div>
+    </div>
+</div>
                     <script src='<%=basePath%>jsp/shop/js/jquery.min.js'></script>
 
                     <script src="<%=basePath%>jsp/shop/js/login.js"></script>
