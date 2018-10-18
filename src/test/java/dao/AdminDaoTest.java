@@ -11,6 +11,8 @@ import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -168,7 +170,17 @@ public class AdminDaoTest extends SpringJunitTest {
         book.setBook_number(107);
        System.out.println( bookDao.Return_Book(book));
 
-
-
     }
+
+    @Test
+    public  void CCD(){
+        List<Book> bookList =bookDao.BookShow(0);
+        List<Integer>list=new ArrayList<Integer>();
+        for(int i=0;i<5;i++){
+            list.add(i);
+        }
+        Collections.shuffle(list);
+        System.out.println(list.get(0));
+    }
+
 }

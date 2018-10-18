@@ -25,5 +25,13 @@ public class ShopTest extends SpringJunitTest {
         }
 
     }
+    //==============================获取所有的书名用于搜索框内的提示文字============================
+    @Test
+     public   void getBookNameAll(){
+        for (String str:shopIndexDao.getBookNameAll()) {
+            System.out.println(str);
+        }
+
+    }
 
 }

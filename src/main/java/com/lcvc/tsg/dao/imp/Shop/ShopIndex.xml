@@ -7,5 +7,8 @@
       SELECT  id,book_name,book_icon,book_author FROM book order by id asc limit #{index},15
     </select>
 
-
+    <!--================================获取所有的书名用于搜索框内的提示文字================================-->
+    <select id="getBookNameAll" resultType="String">
+        SELECT book_name FROM book
+    </select>
 </mapper>

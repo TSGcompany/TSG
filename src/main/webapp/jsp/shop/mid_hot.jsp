@@ -21,18 +21,19 @@
     <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/middle.css" />
     <script>
+
+
         $(document).ready(function () {
-            setInterval("startRequest()",1000);
-
-        function startRequest()
-        {
-            $("#date").text((new Date()).toString());
-        }
-
-
+            setInterval("startRequest()", 3000);//0.5s一次
         });
+        function startRequest() {
+           $.get("<%=basePath%>shop/RefreshInputValue",function (data) {
 
+               $("#searchInput").attr("placeholder",data.RefreshInputValue);
 
+           });
+          //  $("#searchInput").attr("placeholder","ccccd");
+        }
 
 
     </script>
@@ -62,7 +63,7 @@
         </select>
 
         <div id="tsg_mane">
-            <input type="text" name="search" value="" placeholder="请输入关键字">
+            <input type="text" name="search" id="searchInput" value="" placeholder="${getBookRandomName}">
             <div id="search">搜索</div>
         </div>
     </div>
