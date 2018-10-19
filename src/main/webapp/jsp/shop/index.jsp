@@ -5,7 +5,11 @@
   Time: 下午 5:11
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -224,7 +228,21 @@
 </head>
 
 <body>
-<li class="nav_img"><a data-toggle="modal" data-target="#myModal"><img src="<%=basePath%>jsp/shop/img/登录.png"></a></li>
+<c:choose>
+    <c:when test="${sessionScope.Customer!=null}">
+        <li ><a><img src="<%=basePath%>../${sessionScope.Customer.customer_head}" style="width: 50px;height: 50px"></a></li>
+
+    </c:when>
+    <c:otherwise>
+
+        <li class="nav_img"><a data-toggle="modal" data-target="#myModal"><img src="<%=basePath%>jsp/shop/img/登录.png"></a></li>
+    </c:otherwise>
+
+</c:choose>
+
+
+
+
 <iframe src="<%=basePath%>jsp/shop/top.jsp" width="100%" height="400px" frameborder="0" name="top" scrolling="no">
 </iframe>
 <iframe src="<%=basePath%>jsp/shop/mission.jsp" width="100%" height="580px" frameborder="0" name="mission"

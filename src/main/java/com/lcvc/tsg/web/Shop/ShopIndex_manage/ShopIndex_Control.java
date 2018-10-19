@@ -56,7 +56,7 @@ public class ShopIndex_Control {
     public Map<String, Object> RefreshInputValue(){
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("RefreshInputValue",shopIndexBean.getBookRandomName());
-           System.out.println(shopIndexBean.getBookRandomName());
+        //   System.out.println(shopIndexBean.getBookRandomName());
         return map;
     }
 
