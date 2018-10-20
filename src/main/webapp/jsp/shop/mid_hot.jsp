@@ -24,17 +24,17 @@
 
 
         $(document).ready(function () {
-            setInterval("startRequest()", 3000);//0.5s一次
+            setInterval("startRequest()", 10000);//10秒刷新一下书名字的内容
         });
+        //提示框随机提示书的内容
         function startRequest() {
            $.get("<%=basePath%>shop/RefreshInputValue",function (data) {
 
-               $("#searchInput").attr("placeholder",data.RefreshInputValue);
+               $("#searchInput").attr("placeholder",data.RefreshInputValue);//更新提示文字
 
            });
-          //  $("#searchInput").attr("placeholder","ccccd");
-        }
 
+        }
 
     </script>
 </head>

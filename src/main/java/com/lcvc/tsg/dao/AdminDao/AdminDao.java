@@ -29,5 +29,4 @@ public interface AdminDao {
     //=============================== 查看管理员昵称有没有重名 ==================================
     int AdminRename (String AdminName);
 
-
 }

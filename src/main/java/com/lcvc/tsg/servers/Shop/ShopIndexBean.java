@@ -5,9 +5,7 @@ import com.lcvc.tsg.model.Book;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * @ClassName ShopIndexBean
@@ -33,12 +31,16 @@ public class ShopIndexBean {
      **/
     //==============================随机获取书名用于搜索框中提示==================================
    public String getBookRandomName(){
-       List<Integer> list = new ArrayList<Integer>();
-       for (int i = 0; i < shopIndexDao.getBookNameAll().size(); i++) {
-           list.add(i);
+       Map map = new HashMap();
+       String str=null;
+       while (map.size() < 1) {
+           int random = (int) (Math.random() * shopIndexDao.getBookNameAll().size());
+           if (!map.containsKey(random)) {
+               map.put(random, "");
+               str=shopIndexDao.getBookNameAll().get(random).toString();
+           }
        }
-       Collections.shuffle(shopIndexDao.getBookNameAll());
-       return shopIndexDao.getBookNameAll().get(0);
+       return str;
 
    }
 }
