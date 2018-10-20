@@ -230,7 +230,7 @@
 <body>
 <c:choose>
     <c:when test="${sessionScope.Customer!=null}">
-        <li ><a><img src="<%=basePath%>../${sessionScope.Customer.customer_head}" style="width: 50px;height: 50px"></a></li>
+        <li ><a><img src="<%=basePath%>../${sessionScope.Customer.customer_head}" style="width: 40px;height: 40px;position: absolute;margin-top: 35px;margin-left:1700px;border-radius:30px "></a></li>
 
     </c:when>
     <c:otherwise>
