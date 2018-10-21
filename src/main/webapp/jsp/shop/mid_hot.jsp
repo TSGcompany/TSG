@@ -19,7 +19,7 @@
 <head>
     <title>热门部分</title>
     <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/middle.css" />
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/mid_hot.css" />
     <script>
 
 
@@ -40,21 +40,26 @@
 </head>
 <body>
 <div class="ts_cones">
+    <a href="#">
     <div class="topit1">
-        <h3>热门推荐</h3>
         <img src="<%=basePath%>jsp/shop/img/rd1.png"/>
+        <h3>热门推荐</h3>
     </div>
+    </a>
+    <a href="#">
     <div class="topit2">
         <h3>图书推荐</h3>
         <img src="<%=basePath%>jsp/shop/img/rd2.png"/>
     </div>
+    </a>
+    <a href="#">
     <div class="topit3">
         <h3>阅读荐书</h3>
         <img src="<%=basePath%>jsp/shop/img/rd3.png"/>
     </div>
+    </a>
+
     <div class="tsg_input">
-
-
         <select name="book_type.id" id="u_input">
             <option value="">请选择</option>
             <c:forEach var="i" items="${getBookType}">
