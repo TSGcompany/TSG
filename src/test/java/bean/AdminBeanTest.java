@@ -7,6 +7,7 @@ import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.servers.Admin.AdminBean;
 import com.lcvc.tsg.servers.Admin.BookBean;
 import com.lcvc.tsg.servers.Admin.CustomerBean;
+import com.lcvc.tsg.servers.User.UserBean;
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
@@ -24,7 +25,7 @@ import java.util.Random;
  **/
 public class AdminBeanTest extends SpringJunitTest{
     @Resource
-    private AdminBean adminBean;
+    private UserBean userBean;
     @Resource
     private CustomerBean customerBean;
 
@@ -88,5 +89,13 @@ public class AdminBeanTest extends SpringJunitTest{
         int c =bookBean.AddBook(book,admin);
         System.out.println(c);
     }
-
+    //修改用户密码
+//    @Test
+//    public void updateUserPassWord() {
+//        Customer customer = new Customer();
+//      customer.setId(1);
+//      customer.setCustomer_password("123");
+//        int c = userBean.updateUserPassWord(customer);
+//        System.out.println(c);
+//    }
 }

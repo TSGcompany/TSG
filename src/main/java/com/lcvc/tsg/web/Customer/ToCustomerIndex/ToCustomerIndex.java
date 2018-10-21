@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //----------------------------------这个页面只用来跳转到用户页面--------------------------
 @Controller
 public class ToCustomerIndex {
-    @RequestMapping(value = "/user/ToIndex")
+    @RequestMapping(value = "/user/ToIndex" ,method = RequestMethod.GET)
     public String ToIndex() {
         return "customer/index.jsp";
     }
