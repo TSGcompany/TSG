@@ -107,11 +107,11 @@
                         });
 
                     } else {
-                        $.post("<%=basePath%>user/CustomerLogin", $("#Loginform").serialize(), function (data) {
-                            if (data.CustomerLogin == 1) {
+                        $.post("<%=basePath%>user/login", $("#Loginform").serialize(), function (data) {
+                            if (data.customerLoginMessage == 1) {
                                 location.href = "<%=basePath%>user/ToIndex";
                             } else {
-                                alert(data.CustomerLogin);
+                                alert("登陆失败用户名或者密码错误！");
                             }
                         });
                     }

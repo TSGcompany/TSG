@@ -85,7 +85,7 @@
 
 <div class="formbody">
 
-    <div class="formtitle"><span>添加管理员</span></div>
+    <div class="formtitle"><span>修改密码</span></div>
     <form id="UpdatePassAdminForm" method="post">
         <ul class="forminfo">
 
@@ -95,7 +95,7 @@
             ></i></li>
             <li><label>*确认密码</label><input id="confirmpass" name="confirmpass" type="text" class="dfinput"/><i
             ></i></li>
-            <li><label>&nbsp;</label><input id="UpdatePass_button" name="UpdatePass_button" type="button" class="btn" value="添加管理员"/></li>
+            <li><label>&nbsp;</label><input id="UpdatePass_button" name="UpdatePass_button" type="button" class="btn" value="修改密码"/></li>
         </ul>
     </form>
 </div>
