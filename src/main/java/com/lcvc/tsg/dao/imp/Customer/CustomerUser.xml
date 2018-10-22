@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
+<mapper namespace="com.lcvc.tsg.dao.CustomerDao.CustomerUserDao">
+    <!--=============================== 查看用户详情==================================-->
+    <select id="getCustomer" resultType="Customer" parameterType="int">
+
+        SELECT * FROM customer WHERE id=#{id}
+
+    </select>
+    <!--=============================== 修改用户密码==================================-->
+    <update id="updatePassword" parameterType="Customer">
+        update customer set customer_password=#{customer_password} where id=#{id}
+    </update>
+    <!--=============================== 修改用户基本信息==================================-->
+    <update id="userupdateubase" parameterType="Customer">
+        update
+        customer
+        <set>
+            <if test="customer_name!=null">customer_name=#{customer_name},</if>
+            <if test="customer_phone!=null">customer_phone=#{customer_phone},</if>
+            <if test="customer_Email!=null">customer_Email=#{customer_Email},</if>
+            <if test="customer_nickname!=null ">customer_nickname=#{customer_nickname},</if>
+            <if test="customer_xingming!=null ">customer_xingming=#{customer_xingming},</if>
+            <if test="customer_sex!=null ">customer_sex=#{customer_sex},</if>
+            <if test="customer_age!=null ">customer_age=#{customer_age},</if>
+            <if test="customer_password!=null ">customer_password=#{customer_password}</if>
+        </set> where id=#{id}
+    </update>
+    <!--=============================== 查看用户昵称有没有重名 ==================================-->
+    <select id="UserRename" parameterType="String" resultType="int">
+        SELECT COUNT(id) FROM customer WHERE  customer_nickname=#{UserNickName}
+
+    </select>
+</mapper>
