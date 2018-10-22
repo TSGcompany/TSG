@@ -4,10 +4,10 @@ import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Book_Type;
 import com.lcvc.tsg.model.Customer;
-import com.lcvc.tsg.servers.Admin.AdminBean;
+
 import com.lcvc.tsg.servers.Admin.BookBean;
 import com.lcvc.tsg.servers.Admin.CustomerBean;
-import com.lcvc.tsg.servers.User.UserBean;
+
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
@@ -24,8 +24,7 @@ import java.util.Random;
  * @Version 1.0
  **/
 public class AdminBeanTest extends SpringJunitTest{
-    @Resource
-    private UserBean userBean;
+
     @Resource
     private CustomerBean customerBean;
 
