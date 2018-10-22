@@ -1,21 +1,75 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/10/9 0009
-  Time: 下午 8:56
-  To change this template use File | Settings | File Templates.
---%>
-
+<!DOCTYPE html>
+<html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<html>
+
 <head>
     <meta charset="UTF-8">
     <title>安全中心</title>
-    <link href="../css/stylee.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath %>jsp/customer/css/stylee.css" rel="stylesheet" type="text/css"/>
+    <!-- 导入kindEditor所需插件 -->
+    <link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css"/>
+    <script src="<%=basePath %>plugins/kindeditor-4.1.10/kindeditor-min.js"></script>
+    <script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
+    <script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor-all-min.js"></script>
+ <script src='<%=basePath%>jsp/customer/js/jquery.min.js'></script>
+    <script>
+
+        $(document).ready(function (){
+            //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
+
+            $("#UpdatePass_button").click(function () {
+                var status = false; //默认表单验证通过
+
+                //对书名名称进行验证
+                var name = $("input[name='oldpass']").val();
+                if (name == "") {
+                    status = false;
+                    $("input[name='oldpass']").next().html("旧密码不能为空");
+                } else {
+                    status = true;
+                }
+
+                //对书名名称进行验证
+                var name = $("input[name='newpass']").val();
+                if (name == "") {
+                    status = false;
+                    $("input[name='newpass']").next().html("新密码不能为空");
+                } else {
+                    status = true;
+                }
+
+                //对作者名称进行验证
+                var name = $("input[name='confirmpass']").val();
+                if (name == "") {
+                    status = false;
+                    $("input[name='confirmpass']").next().html("确认密码不能为空");
+                } else {
+                    status = true;
+                }
+
+                if (status == true) { //如果表单验证通过
+                    $.post("<%=basePath%>customer/UserUpdatePassWord",$("#UpdatePassUserForm").serialize(),function (data) {
+                        if(data.massage == 1){
+                            alert("修改成功")
+
+                        }else{
+                            alert(data.massage);
+                            alert("修改失败")
+                        }
+                    });
+                }
+
+            });
+        });
+    </script>
 
 </head>
 
@@ -24,12 +78,16 @@
 <div class="formbody">
 
     <div class="formtitle"><span>安全中心</span></div>
-    <form action="<%=basePath%>/admin/admin/updatePass" method="post">
+    <form id="UpdatePassUserForm" method="post">
         <ul class="forminfo">
-            <li><label>*旧密码</label><input name="lodpass" type="text" class="dfinput" /></li>
-            <li><label>*新密码</label><input name="newpass" type="text" class="dfinput" /></li>
-            <li><label>*确认密码</label><input name="okpass" type="text" class="dfinput" /></li>
-            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认修改"/></li>
+
+            <li><label>*旧密码</label><input id="oldpass" name="oldpass" type="text" class="dfinput"/><i
+            ></i></li>
+            <li><label>*新密码</label><input id="newpass" name="newpass" type="text" class="dfinput"/><i
+            ></i></li>
+            <li><label>*确认密码</label><input id="confirmpass" name="confirmpass" type="text" class="dfinput"/><i
+            ></i></li>
+            <li><label>&nbsp;</label><input id="UpdatePass_button" name="UpdatePass_button" type="button" class="btn" value="添加管理员"/></li>
         </ul>
     </form>
 

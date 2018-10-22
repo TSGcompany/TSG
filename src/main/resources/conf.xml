@@ -8,7 +8,7 @@
         <!-- 将com.lcvc.ebuytest3.model.Admin类重新起一个名字Admin，供mybatis的映射文件使用 -->
 
         <typeAlias alias="Book" type="com.lcvc.tsg.model.Book"/>
-        <typeAlias alias="Customer" type="com.lcvc.tsg.model.Customer"/>
+        <typeAlias alias="Customer" type="com.lcvc.tsg.model.Customer"></typeAlias>
         <typeAlias alias="Book_Type" type="com.lcvc.tsg.model.Book_Type"></typeAlias>
         <typeAlias  alias="Admin" type="com.lcvc.tsg.model.Admin"></typeAlias>
 
@@ -24,6 +24,7 @@
         <mapper resource="com/lcvc/tsg/dao/imp/Login/Login.xml"/>
             <!--Customer模块-->
         <mapper resource="com/lcvc/tsg/dao/imp/Customer/CustomerRegister.xml"/>
+        <mapper resource="com/lcvc/tsg/dao/imp/Customer/CustomerUser.xml"/>
         <!-- Shop模块 -->
         <mapper resource="com/lcvc/tsg/dao/imp/Shop/ShopIndex.xml"/>
     </mappers>
