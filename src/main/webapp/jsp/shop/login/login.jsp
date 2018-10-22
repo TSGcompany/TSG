@@ -130,7 +130,7 @@
     </script>
 
 </head>
-<body>
+<body style="background: url(<%=basePath%>jsp/shop/img/beijin.jpg)">
 <div style="text-align:center;clear:both">
     <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
     <script src="/follow.js" type="text/javascript"></script>
