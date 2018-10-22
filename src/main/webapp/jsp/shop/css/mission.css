@@ -197,7 +197,7 @@ ul.disc li:hover{
 }
 /*滑动门选项卡、兼容性好文字设置*/
 #myTab_Content0{
-    margin: -219px -130px;
+    margin: -219px -180px;
 	position: absolute;
 }
 .disc li a{
@@ -211,7 +211,7 @@ ul.disc li:hover{
 	color: #28921f;
 }
 #myTab_Content1{;
-	margin: -219px -130px;
+	margin: -219px -180px;
 	position: absolute;
 }
 

@@ -109,8 +109,14 @@
                     });
 
                 } else {
+                    $.post("<%=basePath%>user/Userlogin", $("#Loginform").serialize(), function (data) {
+                        if (data.CustomerLogin == 1) {
+                            location.href = "<%=basePath%>user/ToIndex";
+                        } else {
+                            alert(data.CustomerLogin);
+                        }
 
-
+                    });
                 }
 
 

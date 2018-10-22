@@ -25,7 +25,6 @@
                     var status = false;
 
                     if (admin_nickname.length == 0 || admin_nickname == '') {
-                        alert("名字不能为空");
                         status = false;
                     } else if (admin_phone.length == 0 || admin_phone == '') {
                         alert("电话不能为空")

@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/middle.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/main.css">
 </head>
+<body>
 <!--
 作者：offline
 时间：2018-09-19
@@ -50,6 +51,7 @@
                 <li>★</li>
                 <li>★</li>
             </ul>
+
 
             <div id="button">
                 <a href="#">借阅</a>
@@ -100,13 +102,6 @@
 
 
         </div>
-    </div>
-
-
-
-
-
-</div>
 
 <script src="<%=basePath%>jsp/shop/js/jquery-1.11.0.js"></script>
 <script src="<%=basePath%>jsp/shop/js/index.js"></script>
