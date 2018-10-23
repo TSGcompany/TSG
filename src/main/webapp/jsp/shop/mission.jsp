@@ -34,6 +34,37 @@
     </script>
 </head>
 <body>
+
+<style type="text/css">
+    #demo a {
+        width:100%;
+        overflow:hidden;
+        font-size: 16px;
+        display:block;
+        text-decoration:none;
+        margin:2px;
+        color:#4a551c;
+        padding-left:2px;
+        text-align:left;
+    }
+    #demo  a:hover {
+        color:#ff6600;
+    }
+    #demoe a {
+        width:100%;
+        overflow:hidden;
+        font-size: 16px;
+        display:block;
+        text-decoration:none;
+        margin:2px;
+        color:#4a551c;
+        padding-left:2px;
+        text-align:left;
+    }
+    #demoe  a:hover {
+        color:#ff6600;
+    }
+</style>
 <div class="main">
 
     <div class="main-left">
@@ -111,57 +142,67 @@
     </div>
     <!--右边大边框-->
     <div class="maer-right">
-        <img src="img/tsg.jpg" />
 
-
+        <img class='photo' src="img/tsg.jpg" alt=""/>
 
         <div class="nTab">
             <div class="TabContent">
-                <div id="myTab_Content0" style="height:500px;overflow:hidden;">
-                    <ul class="disc" style="height:250%;">
-                        <li id="hdemo1"><a href="#">●lcvc图书馆皮书数字资源中标结果公示</a></li>
-                        <li id="hdemo2"><a href="#">●lcvc图书馆报告厅舞台新增升降灯架设备中标公告</a></li>
-                        <li id="hdemo3"><a href="#">●lcvc图书馆连环画数字资源流标公告</a></li>
-                        <li id="hdemo4"><a href="#">●lcvc图书馆统一资源检索数字资源中标结果公示</a></li>
-                        <li id="hdemo5"><a href="#">●lcvc图书馆外语教学数字资源中标结果公示</a></li>
-                        <li id="hdemo6"><a href="#">●lcvc图书馆硕士论文数字资源中标结果公示</a></li>
-                        <li id="hdemo7"><a href="#">●lcvc图书馆少儿期刊数字资源中标结果公示</a></li>
-                        <li id="hdemo8"><a href="#">●刘天高板改造及车库围护桩施工监理采购流标公告</a></li>
-                        <li id="hdemo9"><a href="#">●lcvc图书馆2018年考核招聘专业技术人员拟聘公示</a></li>
-                        <li id="hdemo10"><a href="#">●lcvc图书馆统一资源检索数字资源 询价采购公告</a></li>
-                        <li id="hdemo11"><a href="#">●lcvc图书馆连环画数字资源 询价采购公告</a></li>
-                        <li id="hdemo12"><a href="#">●lcvc图书馆皮书数字资源 询价采购公告</a></li>
-                        <li id="hdemo13"><a href="#">●lcvc图书馆少儿期刊数字资源 询价采购公告</a></li>
-                        <li id="hdemo14"><a href="#">●lcvc图书馆硕士论文数字资源 询价采购公告</a></li>
-                        <li id="hdemo15"><a href="#">●lcvc图书馆外语教学数字资源 询价采购公告</a></li>
-                        <li id="hdemo16"><a href="#">●lcvc图书馆报告厅舞台新增升降灯架设备采购公告</a></li>
-                        <li id="hdemo17"><a href="#">●关于开展2018年10月“书记馆长接待日”活动的通知</a></li>
-                        <li id="hdemo18"><a href="#">●刘天高板改造及车库围护桩施工监理采购项目</a></li>
-                    </ul>
-                </div>
-                <div id="myTab_Content1" class="none" style="height:500px;overflow:hidden;">
-                    <ul class="disc" style="height:250%;">
-                    <li  id="hdemo19"><a href="#">【好书推荐】以文发声，以声扬情——那些被心诵图书</a></li>
-                    <li  id="hdemo20"><a href="#">【活动报道】“常青e路 幸福夕阳”数字阅读培训活动</a></li>
-                    <li id="hdemo21"><a href="#">【活动预告】“阅读之星”——民诵读大赛市级复赛</a></li>
-                    <li id="hdemo22"><a href="#">【通知公告】lcvc图书馆2018年考核招聘专业技术人员</a></li>
-                    <li id="hdemo23"><a href="#">【活动预告】书友会——鸣家·鸣声·为文字发声</a></li>
-                    <li id="hdemo24"><a href="#">【通知公告】关于开展2018年10月“书记馆长接待日”</a></li>
-                    <li id="hdemo25"><a href="#">【期刊推荐】2018年9月期刊推荐 欢迎读者到馆阅览</a></li>
-                    <li id="hdemo26"><a href="#">【活动报道】作家赵美萍读者俱乐部“书友会”感悟</a></li>
-                    <li id="hdemo27"><a href="#">【活动报道】国粹传承，为爱而行——图书馆笔礼</a></li>
-                    <li id="hdemo28"><a href="#">【活动预告】图书馆举办“庆国庆·讴歌改革开放40周年”活动</a></li>
-                    <li id="hdemo29"><a href="#">【活动预告】图书馆开展“文化帮扶 送书下乡”活动</a></li>
-                    <li id="hdemo30"><a href="#">【通知公告】书香渝北再添彩：图书馆新建两个阅读点</a></li>
-                    <li id="hdemo31"><a href="#">【活动报道】举办2018年“少年儿童爱心图书接力服务”活动</a></li>
-                    <li id="hdemo32"><a href="#">【期刊推荐】图书馆开展“读山水·看万盛”诗文诵读会</a></li>
-                    <li id="hdemo33"><a href="#">【期刊推荐】涪陵区图书馆举办中秋节图片展</a></li>
-                    <li id="hdemo34"><a href="#">【活动报道】“向上的力量·共绘魅力九龙坡”借阅活动</a></li>
-                    <li id="hdemo35"><a href="#">【期刊推荐】依法登记成立的图书馆，支持各类图书馆</a></li>
-                    <li id="hdemo36"><a href="#">【通知公告】为政府提供公益性服务的重大文化项目</a></li>
+                <div id="myTab_Content0">
+                    <div id="demo" style="overflow:hidden;height:420px;width:470px;margin-left:-5px; margin-top:5px;">
+                        <div id="demo1">
+                            <a href="#">●lcvc图书馆连环画数字资源 询价采购公告</a>
+                            <a href="#">●lcvc图书馆就业数字资源 询价采购公告</a>
+                            <a href="#">●lcvc图书馆博士论文数字资源 询价采购公告</a>
+                            <a href="#">●lcvc图书馆绘本数字资源 询价采购公告</a>
+                            <a href="#">●lcvc图书馆学术期刊数字资源 询价采购公告</a>
+                            <a href="#">●数字图书馆推广工程2018年度数字资源联合建设采购公告</a>
+                            <a href="#">●数字图书馆推广工程2018年度数字资源联合建设招标公告</a>
+                            <a href="#">●数字图书馆推广工程2018年度数字资源联合建设招标公告</a>
+                            <a href="#">●lcvc图书馆皮书数字资源中标结果公示</a>
+                            <a href="#">●lcvc图书馆报告厅舞台新增升降灯架设备中标公告</a>
+                        </div>
+                        <div id="demo2"></div>
+                        <a href="#">●lcvc图书馆连环画数字资源流标公告</a>
+                        <a href="#">●lcvc图书馆统一资源检索数字资源中标结果公示</a>
+                        <a href="#">●lcvc图书馆外语教学数字资源中标结果公示</a>
+                        <a href="#">●lcvc图书馆绘本数字资源 询价采购公告</a>
+                        <a href="#">●lcvc图书馆学术期刊数字资源 询价采购公告</a>
+                        <a href="#">●数字图书馆推广工程2018年度数字资源联合建设采购公告</a>
+                        <a href="#">●数字图书馆推广工程2018年度数字资源联合建设招标公告</a>
+                        <a href="#">●数字图书馆推广工程2018年度数字资源联合建设招标公告</a>
+                        <a href="#">●lcvc图书馆皮书数字资源中标结果公示</a>
+                        <a href="#">●lcvc图书馆报告厅舞台新增升降灯架设备中标公告</a>
+                        </div>
 
-                    </ul>
                 </div>
+                <div id="myTab_Content1" class="none">
+                    <div id="demoe" style="overflow:hidden;height:420px;width:470px;margin-left:-5px; margin-top:5px;">
+                        <div id="demo11">
+                            <a href="#">【活动报道】新闻主播做客“书友会”分享朗读技巧</a>
+                            <a href="#">【好书推荐】以文发声，以声扬情——那些被口唱心诵的图书</a>
+                            <a href="#">【活动报道】“常青e路 幸福夕阳”老年人数字阅读培训特别活动</a>
+                            <a href="#">【活动预告】“阅读之星”——民诵读大赛市级机关片区复赛</a>
+                            <a href="#">【通知公告】lcvc图书馆2018年考核招聘专业技术人员拟聘公示</a>
+                            <a href="#">【活动预告】书友会——鸣家·鸣声·为文字发声（10月20日）</a>
+                            <a href="#">【通知公告】关于开展“书记馆长接待日”活动的通知</a>
+                            <a href="#">【期刊推荐】2018年9月期刊推荐 欢迎读者阅览</a>
+                            <a href="#">【期刊推荐】国粹传承，为爱而行——图书馆开笔礼</a>
+                            <a href="#">【活动预告】lcvc图书馆举办“庆国庆·讴歌改革开放40周年”</a>
+                        </div>
+                        <div id="demo22"></div>
+                        <a href="#">【活动预告】图书馆开展“文化帮扶 送书下乡”活动</a>
+                        <a href="#">【通知公告】书香渝北再添彩：图书馆新建两个阅读点</a>
+                        <a href="#">【活动报道】举办2018年“少年儿童爱心图书接力服务”活动</a>
+                        <a href="#">【期刊推荐】图书馆开展“读山水·看万盛”诗文诵读会</a>
+                        <a href="#">【期刊推荐】涪陵区图书馆举办中秋节图片展</a>
+                        <a href="#">【活动报道】“向上的力量·共绘魅力九龙坡”借阅活动</a>
+                        <a href="#">【期刊推荐】依法登记成立的图书馆，支持各类图书馆</a>
+                        <a href="#">【通知公告】为政府提供公益性服务的重大文化项目</a>
+                        <a href="#">【期刊推荐】lcvc图书馆文献联合编目中心</a>
+                        <a href="#">【通知公告】lcvc图书馆借阅书籍公告</a>
+                    </div>
+                </div>
+
             </div>
             <div class="TabTitle">
                 <ul id="myTab">
@@ -178,24 +219,42 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    speed = 100; //数字越大滚得越慢
-    var htab = document.getElementById("myTab_Content1");
-    var htab19 = document.getElementById("hdemo19");
-    var htab36= document.getElementById("hdemo36");
-
-    htab36.innerHTML = htab19.innerHTML;
-    htab.scrollTop = htab19.offsetHeight;
-
-    function Marquee() {
-        if(htab.scrollTop >= htab19.offsetHeight) {
-            htab.scrollTop -= htab36.offsetHeight;
-        } else {
-            htab.scrollTop += 1;
+<!-- 文字滚动1-->
+<script>
+    var speed=40
+    var demo=document.getElementById("demo");
+    var demo2=document.getElementById("demo2");
+    var demo1=document.getElementById("demo1");
+    demo2.innerHTML=demo1.innerHTML
+    function Marquee(){
+        if(demo2.offsetTop-demo.scrollTop<=0)
+            demo.scrollTop-=demo1.offsetHeight
+        else{
+            demo.scrollTop++
         }
     }
-    var MyMar = setInterval(Marquee, speed);
+    var MyMar=setInterval(Marquee,speed)
+    demo.onmouseover=function() {clearInterval(MyMar)}
+    demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+</script>
+
+<!-- 文字滚动2-->
+<script>
+    var speed=40
+    var demoe=document.getElementById("demoe");
+    var demo22=document.getElementById("demo22");
+    var demo11=document.getElementById("demo11");
+    demo22.innerHTML=demo11.innerHTML
+    function Marquee(){
+        if(demo22.offsetTop-demoe.scrollTop<=0)
+            demoe.scrollTop-=demo11.offsetHeight
+        else{
+            demoe.scrollTop++
+        }
+    }
+    var MyMar=setInterval(Marquee,speed)
+    demoe.onmouseover=function() {clearInterval(MyMar)}
+    demoe.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 </script>
 <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
 <script src="<%=basePath%>jsp/shop/js/mission.js"></script>
