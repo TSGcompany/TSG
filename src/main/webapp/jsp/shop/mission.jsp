@@ -34,39 +34,7 @@
     </script>
 </head>
 <body>
-
-<style type="text/css">
-    #demo a {
-        width:100%;
-        overflow:hidden;
-        font-size: 16px;
-        display:block;
-        text-decoration:none;
-        margin:2px;
-        color:#4a551c;
-        padding-left:2px;
-        text-align:left;
-    }
-    #demo  a:hover {
-        color:#ff6600;
-    }
-    #demoe a {
-        width:100%;
-        overflow:hidden;
-        font-size: 16px;
-        display:block;
-        text-decoration:none;
-        margin:2px;
-        color:#4a551c;
-        padding-left:2px;
-        text-align:left;
-    }
-    #demoe  a:hover {
-        color:#ff6600;
-    }
-</style>
 <div class="main">
-
     <div class="main-left">
         <div class="col-xs-3">
             <div class="service-bg">
@@ -142,9 +110,13 @@
     </div>
     <!--右边大边框-->
     <div class="maer-right">
-
-        <img class='photo' src="img/tsg.jpg" alt=""/>
-
+        <div class="container">
+            <img class='photo'  src="img/tsg.jpg" alt=""/>
+            <img class='photo'  src="img/tsg.jpg" alt=""/>
+            <img class='photo'  src="img/tsg1.jpg" alt="" />
+            <img class='photo'  src="img/tsg2.jpg" alt="" />
+            <img class='photo'  src="img/tsg3.jpg" alt="" />
+        </div>
         <div class="nTab">
             <div class="TabContent">
                 <div id="myTab_Content0">
@@ -173,7 +145,6 @@
                         <a href="#">●lcvc图书馆皮书数字资源中标结果公示</a>
                         <a href="#">●lcvc图书馆报告厅舞台新增升降灯架设备中标公告</a>
                         </div>
-
                 </div>
                 <div id="myTab_Content1" class="none">
                     <div id="demoe" style="overflow:hidden;height:420px;width:470px;margin-left:-5px; margin-top:5px;">
@@ -216,12 +187,11 @@
     </div>
 
             </div>
-        </div>
-    </div>
-</div>
+
 <!-- 文字滚动1-->
 <script>
-    var speed=40
+    //文字移动速度
+    var speed=30
     var demo=document.getElementById("demo");
     var demo2=document.getElementById("demo2");
     var demo1=document.getElementById("demo1");
@@ -240,7 +210,7 @@
 
 <!-- 文字滚动2-->
 <script>
-    var speed=40
+    var speed=30
     var demoe=document.getElementById("demoe");
     var demo22=document.getElementById("demo22");
     var demo11=document.getElementById("demo11");
@@ -256,6 +226,7 @@
     demoe.onmouseover=function() {clearInterval(MyMar)}
     demoe.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 </script>
+<script src="<%=basePath%>jsp/shop/js/prefixfree.min.js"></script>
 <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
 <script src="<%=basePath%>jsp/shop/js/mission.js"></script>
 </body>
