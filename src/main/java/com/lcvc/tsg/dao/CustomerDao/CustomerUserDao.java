@@ -13,6 +13,7 @@ public interface CustomerUserDao {
     //=============================== 修改用户基本信息=============================
 
     int userupdateubase(Customer customer);
+
     //=============================== 查看用户昵称有没有重名 ==================================
     int UserRename(String UserName);
 }

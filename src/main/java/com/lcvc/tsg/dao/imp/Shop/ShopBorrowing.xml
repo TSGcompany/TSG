@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
+<mapper namespace="com.lcvc.tsg.dao.ShopDao.ShopBorrowingDao">
+    <!--=============================查看某个用户是否借阅过某本书========================-->
+    <select id="selectBorrowingforCustomer" resultType="int" parameterType="Borrowing">
+      SELECT COUNT(id) FROM borrowing WHERE customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
+    </select>
+    <!--================================添加一条借阅信息=================================-->
+    <insert id="addBorrowing" parameterType="Borrowing">
+    INSERT INTO borrowing(id,customer_Id,borrowing_Time,borrowing_Return,book_id)VALUE (#{id},#{customer_Id.id},#{borrowing_Time},#{borrowing_Return},#{book_id.book_id})
+
+    </insert>
+
+</mapper>

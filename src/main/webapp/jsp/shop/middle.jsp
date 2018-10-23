@@ -19,7 +19,39 @@
     <title>图书馆借阅系统</title>
 
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/middle.css" />
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/main.css">
+    <script src="<%=basePath%>jsp/shop/js/jquery.1.9.1.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            //=====================没登录时点击借阅按钮======================
+            $("div[name='NoLoginButton']").click(function () {
+
+                alert("请先登录！");
+            });
+
+            //====================登录之后点击借阅按钮========================
+            $("div[name='BorrowingBookBtn']").click(function () {
+
+              alert($("#BorrowingBookURL").val());
+
+                $.get($("#BorrowingBookURL").val(),function (data) {
+                   if(data.BorrowingMessage==1){
+                        alert("借阅成功！")
+                   }
+                    if(data.BorrowingMessage==0){
+                        alert("您已经被禁止借书！")
+                    }
+                    if(data.BorrowingMessage==2){
+                        alert("每本书只能被借一次！")
+                    }
+
+                });
+
+            });
+        });
+
+    </script>
 </head>
 <body>
 <!--
@@ -43,6 +75,7 @@
             <img src="<%=basePath%>jsp/shop/img/ts1.jpg" />
             <h4>${i.book_author}</h4>
             <p>《${i.book_name}》</p>
+
             <!--五星评分-->
             <ul class="comment">
                 <li>★</li>
@@ -53,9 +86,22 @@
             </ul>
 
 
-            <div id="button">
-                <a href="#">借阅</a>
-            </div>
+            <c:choose>
+                <c:when test="${sessionScope.Customer!=null}">
+
+                    <div id="button" name="BorrowingBookBtn">
+                        <a >借阅${i.id}</a>
+
+                        <input hidden id="BorrowingBookURL" value="<%=basePath%>shop/BorrowingBook?book_id=${i.id} ">
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div id="button" name="NoLoginButton">
+                        <a href="<%=basePath%>jsp/shop/login/login.jsp" target="_top">借阅</a>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
             <div id="make">
             <a href="#"> 预约</a>
             </div>

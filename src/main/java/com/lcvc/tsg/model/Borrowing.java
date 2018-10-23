@@ -1,5 +1,7 @@
 package com.lcvc.tsg.model;
 
+import java.util.Date;
+
 /**
  * @ClassName Borrowing
  * @Author Anle
@@ -8,11 +10,7 @@ package com.lcvc.tsg.model;
  **/
 public class Borrowing {
     private Integer id;//id
-    private Integer customer_Id;//借阅者的id
-    private  java.util.Date borrowing_Time;//借阅的时间
-    private  java.util.Date borrowing_Return_Time;//还书的时间
-    private  boolean borrowing_Return;//是否归还
-    private Integer book_id;//书的id
+
     public Integer getId() {
         return id;
     }
@@ -21,27 +19,27 @@ public class Borrowing {
         this.id = id;
     }
 
-    public Integer getCustomer_Id() {
+    public Customer getCustomer_Id() {
         return customer_Id;
     }
 
-    public void setCustomer_Id(Integer customer_Id) {
+    public void setCustomer_Id(Customer customer_Id) {
         this.customer_Id = customer_Id;
     }
 
-    public java.util.Date getBorrowing_Time() {
+    public Date getBorrowing_Time() {
         return borrowing_Time;
     }
 
-    public void setBorrowing_Time(java.util.Date borrowing_Time) {
+    public void setBorrowing_Time(Date borrowing_Time) {
         this.borrowing_Time = borrowing_Time;
     }
 
-    public java.util.Date getBorrowing_Return_Time() {
+    public Date getBorrowing_Return_Time() {
         return borrowing_Return_Time;
     }
 
-    public void setBorrowing_Return_Time(java.util.Date borrowing_Return_Time) {
+    public void setBorrowing_Return_Time(Date borrowing_Return_Time) {
         this.borrowing_Return_Time = borrowing_Return_Time;
     }
 
@@ -53,11 +51,19 @@ public class Borrowing {
         this.borrowing_Return = borrowing_Return;
     }
 
-    public Integer getBook_id() {
+    public Book getBook_id() {
         return book_id;
     }
 
-    public void setBook_id(Integer book_id) {
+    public void setBook_id(Book book_id) {
         this.book_id = book_id;
     }
+
+    private Customer customer_Id;//借阅者的id
+    private  java.util.Date borrowing_Time;//借阅的时间
+    private  java.util.Date borrowing_Return_Time;//还书的时间
+    private  boolean borrowing_Return;//是否归还
+    private Book book_id;//书的编号
+
+
 }
