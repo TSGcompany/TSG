@@ -22,7 +22,6 @@
     <script src="<%=basePath%>jsp/shop/js/jquery.1.9.1.js"></script>
 
     <script>
-
         $(document).ready(function () {
             //=====================没登录时点击借阅按钮======================
             $("div[name='NoLoginButton']").click(function () {
@@ -32,12 +31,13 @@
 
             //====================登录之后点击借阅按钮========================
             $("div[name='BorrowingBookBtn']").click(function () {
+              var AddBorrowing= $(this).find("span").attr("name");//获取span中的name值
 
-              alert($("#BorrowingBookURL").val());
-
-                $.get($("#BorrowingBookURL").val(),function (data) {
+                $.get(AddBorrowing,function (data) {//路径，返回值
                    if(data.BorrowingMessage==1){
                         alert("借阅成功！")
+                       //跳转页面
+
                    }
                     if(data.BorrowingMessage==0){
                         alert("您已经被禁止借书！")
@@ -90,9 +90,8 @@
                 <c:when test="${sessionScope.Customer!=null}">
 
                     <div id="button" name="BorrowingBookBtn">
-                        <a >借阅${i.id}</a>
-
-                        <input hidden id="BorrowingBookURL" value="<%=basePath%>shop/BorrowingBook?book_id=${i.id} ">
+                        <span hidden name="<%=basePath%>shop/BorrowingBook?book_id=${i.id}"></span>
+                        <a>借阅</a>
                     </div>
                 </c:when>
                 <c:otherwise>
