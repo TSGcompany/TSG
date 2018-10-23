@@ -79,7 +79,7 @@
                 <td>${i.admin_nickname}</td>
                 <td>${i.admin_phone}</td>
                 <td>${i.admin_Email}</td>
-                <td><a href="<%=basePath %>admin/updateubase?id=${i.id}" class="tablelink">修改</a>
+                <td><a href="<%=basePath %>admin/goupdateubase?id=${i.id}" class="tablelink">修改</a>
                     <a href="<%=basePath %>admin/deleteAdmin?id=${i.id}" onclick="del_confirm()" class="tablelink">
                         删除</a></td>
             </tr>

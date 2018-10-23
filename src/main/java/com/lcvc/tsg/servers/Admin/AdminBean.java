@@ -47,6 +47,12 @@ public class AdminBean {
 
         return adminDao.updateubase(admin);
     }
+    //=============================== 修改管理员基本信息=============================
+
+    public int updateAdmin(Admin admin) {
+
+        return adminDao.updateAdmin(admin);
+    }
 
     //=============================== 查看管理员昵称有没有重名 ==================================
     public int AdminRename(String AdminName) {
