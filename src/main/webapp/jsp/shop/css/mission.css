@@ -150,14 +150,36 @@
 	top: 20px;
 	position: absolute;
 }
-
-/*右边框图片*/
-.maer-right img{
-	width:450px;
+.container {
+	margin: 20px auto;
+	width: 450px;
 	height: 420px;
-	float: left;
-	margin:23px -195px;
+	overflow: hidden;
+	margin-left: -180px;
+	position: relative;
+}
+.photo {
 	position: absolute;
+	animation: round 16s infinite;
+	opacity: 0;
+}
+@keyframes round {
+	25% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 0;
+	}
+}
+img:nth-child(1) {
+	animation-delay: 12s;
+}
+img:nth-child(2) {
+	animation-delay: 8s;
+}
+
+img:nth-child(3) {
+	animation-delay: 4s;
 }
 *{
 	margin:0;
@@ -260,4 +282,32 @@ ul.disc li:hover{
 	left:550px;
 	margin-top: 50px;
 
+}
+#demo a {
+	width:100%;
+	overflow:hidden;
+	font-size: 16px;
+	display:block;
+	text-decoration:none;
+	margin:2px;
+	color:#4a551c;
+	padding-left:2px;
+	text-align:left;
+}
+#demo  a:hover {
+	color:#ff6600;
+}
+#demoe a {
+	width:100%;
+	overflow:hidden;
+	font-size: 16px;
+	display:block;
+	text-decoration:none;
+	margin:2px;
+	color:#4a551c;
+	padding-left:2px;
+	text-align:left;
+}
+#demoe  a:hover {
+	color:#ff6600;
 }
