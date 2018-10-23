@@ -30,7 +30,14 @@
 .nav_2{
 	list-style: none;
 	float:right;
-	margin: 20px 30px;
+	margin: 20px 150px 0 0;
+	color: #FFFFFF;
+	size: 20px;
+}
+.nav_2{
+	list-style: none;
+	float:right;
+	margin: 20px 150px 0 0;
 	color: #FFFFFF;
 	size: 20px;
 }
@@ -47,5 +54,5 @@ a:hover{
 	list-style: none;
 	float:right;
 	position: absolute;
-	margin: 20px 0 0 1680px;
+	margin: 20px 0 0 1620px;
 }

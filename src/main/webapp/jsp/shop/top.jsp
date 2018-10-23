@@ -19,6 +19,10 @@
     <title>头部</title>
     <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/jquery.hiSlider.min.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/top.css">
+    <link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css"  media="all">
+    <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/bootstrap.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         *{
             margin: 0;
@@ -70,8 +74,16 @@
             <li class="nav_2"><a href="<%=basePath%>user/logout" target="_parent">退出</a></li>
             </c:when>
                         <c:otherwise>
-                            <li class="nav_2">您尚未登录</li>
-
+                            <div class="btn-group">
+                                <li type="button" class="btn btn-default dropdown-toggle"
+                                        data-toggle="dropdown">
+                                    您尚未登录 <span class="caret"></span>
+                                </li>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">个人信息</a></li>
+                                    <li><a href="#">退出登录</a></li>
+                                </ul>
+                            </div>
                         </c:otherwise>
             </c:choose>
             <iframe allowtransparency="true" frameborder="0" width="180" height="36" style="margin: 20px 130px 0 0; float: right;" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=3&bd=0&k=000000&f=ffffff&ltf=ffff00&htf=ff8000&q=1&e=1&a=1&c=54511&w=180&h=36&align=center"></iframe>
