@@ -65,7 +65,7 @@
             }
         }
 
-        //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
+        //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态.
         function isNumber(value) { //验证是否为数字
             if (value != "") {
                 var patrn = /^(-)?\d+(\.\d+)?$/;
@@ -223,6 +223,12 @@
                     });
                 }
             });
+            //========================当用户点击头部的图标时======== =========================
+            $("a[name='Click_Head']").click(function () {
+                location.href = "<%=basePath%>user/ToIndex";
+            });
+
+
         });
     </script>
 </head>
@@ -230,17 +236,18 @@
 <body>
 <c:choose>
     <c:when test="${sessionScope.Customer!=null}">
-        <li ><a><img src="<%=basePath%>../${sessionScope.Customer.customer_head}" style="width: 40px;height: 40px;position: absolute;margin-top: 35px;margin-left:1700px;border-radius:30px "></a></li>
+        <li><a name="Click_Head"><img src="<%=basePath%>../${sessionScope.Customer.customer_head}"
+                                      style="width: 40px;height: 40px;position: absolute;margin-top: 35px;margin-left:1600px;border-radius:30px "></a>
+        </li>
 
     </c:when>
     <c:otherwise>
 
-        <li class="nav_img"><a data-toggle="modal" data-target="#myModal"><img src="<%=basePath%>jsp/shop/img/登录.png"></a></li>
+        <li class="nav_img"><a data-toggle="modal" data-target="#myModal"><img
+                src="<%=basePath%>jsp/shop/img/登录.png"></a></li>
     </c:otherwise>
 
 </c:choose>
-
-
 
 
 <iframe src="<%=basePath%>jsp/shop/top.jsp" width="100%" height="400px" frameborder="0" name="top" scrolling="no">

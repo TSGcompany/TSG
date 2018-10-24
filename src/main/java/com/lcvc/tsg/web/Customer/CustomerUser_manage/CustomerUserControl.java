@@ -18,7 +18,7 @@ public class CustomerUserControl {
     private CustomerUserBean customerUserBean;
     @Resource
     private LoginBean loginBean;
-    //----------------------------------管理员密码修改--------------------------
+    //---------------------------------管理员密码修改--------------------------
 
     /**
      * @Author Anle

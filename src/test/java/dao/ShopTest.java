@@ -1,7 +1,10 @@
 package dao;
 
+import com.lcvc.tsg.dao.ShopDao.ShopBorrowingDao;
 import com.lcvc.tsg.dao.ShopDao.ShopIndexDao;
 import com.lcvc.tsg.model.Book;
+import com.lcvc.tsg.model.Borrowing;
+import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
@@ -17,6 +20,8 @@ import java.util.List;
 public class ShopTest extends SpringJunitTest {
     @Resource
     private ShopIndexDao shopIndexDao;
+    @Resource
+    private ShopBorrowingDao borrowingDao;
     @Test
     public void getShopIndexBook(){
         List<Book> list  =  shopIndexDao.getShopIndexBook(0);
@@ -33,5 +38,17 @@ public class ShopTest extends SpringJunitTest {
         }
 
     }
+    //=============================查看某个用户是否借阅过某本书========================
+    @Test
+    public   void  selectBorrowingforCustomer(){
+         Borrowing borrowing = new Borrowing();
+         Book book = new Book();
+         book.setBook_id("TSG304177391827");
+         borrowing.setBook_id(book);
+        Customer customer = new Customer();
+        customer.setId(20);
+        borrowing.setCustomer_Id(customer);
+    System.out.println(borrowingDao.selectBorrowingforCustomer(borrowing));
 
+    }
 }

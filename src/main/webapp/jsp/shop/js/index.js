@@ -18,12 +18,22 @@
            }
         });
  
-        //鼠标点击保持当前状态
+        //鼠标点击保持当前状态.
         $(".comment li").on("click",function(){
             $(this).attr("class","current").siblings().removeClass("current");
         });
- 
- 
+
+
+        $("div #tsg_among").mouseover(function(){
+            $(this).css("border","1px solid #D51938")
+
+        });
+        $("div #tsg_among").mouseout(function() {
+          $(this).css("border","1px solid #ccc")
+        });
+
+
+
     });
     /*分页*/
   function page(){
