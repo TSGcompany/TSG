@@ -50,6 +50,31 @@
                 });
 
             });
+            //===============================点击页码========================
+            var indexPage = ${indexPage};
+            var PageCount =${PageCount};
+            $("#last_page").click(function () {//点击上一页
+
+                if(indexPage==0||indexPage<0){
+                    location.href = "<%=basePath%>shop/getShopIndexBook?index=0";
+                }else{
+                    location.href = "<%=basePath%>shop/getShopIndexBook?index=${indexPage-1}";
+
+                }
+            });
+            $("#next_page").click(function () {//点击下一页
+                  //判断当前页是否是最后一页 如果是就让他等于最大页数
+                if(indexPage==PageCount-1){
+                    location.href = "<%=basePath%>shop/getShopIndexBook?index=${PageCount-1}";
+                }else{
+                    location.href = "<%=basePath%>shop/getShopIndexBook?index=${indexPage+1}";
+                }
+
+
+            });
+
+
+
         });
 
     </script>
@@ -118,50 +143,24 @@
     -->
 <!--分页-->
 <div class="page_container center">
-    <c:choose>
-        <c:when test="${indexPage==0} ||${indexPage<0}">
-
-            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>shop/getShopIndexBook?index=0">上一页</a></div>
-
-        </c:when>
-
-        <c:when test="${indexPage>0}">
-            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>shop/getShopIndexBook?index=${indexPage-1}">上一页</a></div>
-
-        </c:when>
-
-    </c:choose>
 
 
+    <div class="page_btn prev_page left" id="last_page" ><p>上一页</p></div>
 
     <div class="page_num_container left" id="page_num_container">
         <ul>
             <c:forEach var="i" begin="1" end="${PageCount}" step="1">
-                <li><a href="<%=basePath%>shop/getShopIndexBook?index=${i-1}">
-                <li>${i}</li>
-                </a></li>
+
+                <li><a href="<%=basePath%>/shop/getShopIndexBook?index=${i-1}"><p style="margin-top: -8px;color:#90a2bc"> ${i}</p> </a></li>
+
             </c:forEach>
         </ul>
     </div>
-    <c:choose>
-        <c:when test="${indexPage==PageCount-1}">
-            <div class="page_btn next_page left"><a href="<%=basePath%>shop/getShopIndexBook?index=${PageCount-1}">下一页</a></div>
 
-        </c:when>
-        <c:when test="${indexPage<PageCount-1}">
-            <div class="page_btn next_page left"><a href="<%=basePath%>shop/getShopIndexBook?index=${indexPage+1}">下一页</a></div>
-
-        </c:when>
-
-
-
-    </c:choose>
-
+    <div class="page_btn next_page left" id="next_page"><p>下一页</p></div>
     <div class="page_btn all_page right" >共${PageCount}页</div>
-
 </div>
-<span>当前页为${indexPage+1}</span>
-<script src="<%=basePath %>jsp/admin/js/fenye.js"></script>
+<span style="margin-left: 550px;margin-top: auto">当前页为${indexPage+1}</span>
 <script src="<%=basePath%>jsp/shop/js/jquery-1.11.0.js"></script>
 <script src="<%=basePath%>jsp/shop/js/index.js"></script>
 </body>
