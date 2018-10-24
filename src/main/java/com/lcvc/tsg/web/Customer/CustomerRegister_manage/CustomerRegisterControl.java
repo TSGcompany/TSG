@@ -23,7 +23,7 @@ import java.util.Random;
  * @Author Anle
  * @Date 2018/10/16 0016 上午 11:35
  * @Version 1.0
- * *  * ---------------------------------------这个Control只是单纯用来注册用户-----------------------------
+ * *  * ---------------------------------------这个Control只是单纯用来注册用户.-----------------------------
  **/
 @Controller
 public class CustomerRegisterControl {
