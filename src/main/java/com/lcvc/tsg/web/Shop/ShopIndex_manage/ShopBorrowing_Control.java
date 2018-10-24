@@ -39,7 +39,7 @@ public class ShopBorrowing_Control {
         System.out.println(book_id);
         //获取当前用户
         Customer customer = (Customer) session.getAttribute("Customer");
-        if(!customer.isCustomer_prohibit_Borrowing()){//bit  0是false 1是true  //如果返回是true那么他就被禁止借书
+        if(!customer.isCustomer_prohibit_Borrowing()){//bit  0是false 1是true  //如果返回是true那么他就被禁止借书.
             //这里表示可以借书
                 //创建借阅表
             Borrowing borrowing = new Borrowing();
