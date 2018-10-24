@@ -70,19 +70,25 @@
             <li class="nav_1"><a href="#">资源动态</a></li>
             <li class="nav_1"><a href="#">讲座/活动</a></li>
             <c:choose>
-                <c:when test="${sessionScope.Customer!=null}">
-                    <li class="nav_2"><a href="<%=basePath%>user/logout" target="_parent">退出</a></li>
+                <c:when test="${sessionScope.customer!=null}">
+                    <div class="btn-group">
+                        <li type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown">
+                            <a href=" "> ${sessionScope.customer.customer_name}</a><span class="caret"></span>
+                        </li>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">个人信息</a></li>
+                            <li><a href="<%=basePath%>user/logout" target="_parent">退出登录</a></li>
+                        </ul>
+                    </div>
                 </c:when>
                 <c:otherwise>
                     <div class="btn-group">
                         <li type="button" class="btn btn-default dropdown-toggle"
                             data-toggle="dropdown">
-                            您尚未登录 <span class="caret"></span>
+                            您尚未登录
                         </li>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">个人信息</a></li>
-                            <li><a href="#">退出登录</a></li>
-                        </ul>
+
                     </div>
                 </c:otherwise>
             </c:choose>

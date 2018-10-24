@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class ToShopIndex {
     @RequestMapping(value = "/shop/ToShopIndex")
-    public String ToShopIndex(HttpSession session){
+    public String ToShopIndex(){
         return "shop/index.jsp";
     }
 }
