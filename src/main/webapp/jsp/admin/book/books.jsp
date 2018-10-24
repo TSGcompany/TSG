@@ -118,10 +118,6 @@
                 <li>${i}</li>
                 </a></li>
             </c:forEach>
-
-
-
-
         </ul>
     </div>
     <c:choose>

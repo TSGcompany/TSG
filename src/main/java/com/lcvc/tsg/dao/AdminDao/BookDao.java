@@ -2,6 +2,7 @@ package com.lcvc.tsg.dao.AdminDao;
 
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Book_Type;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,7 +20,8 @@ public interface BookDao {
      * @Date 下午 1:35 2018/10/7 0007
      **/
     //=============================== 展示书（分页） ==================================
-    List<Book> BookShow(int index);
+    List<Book> BookShow(@Param(value="index")int index, @Param(value="totals")int totals);
+    //(@Param(value="customer_name")String CustomerName, @Param(value="customer_password")
     /**
      * @Author Anle
      * @Date  2018/10/7 0007

@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/middle.css" />
     <script src="<%=basePath%>jsp/shop/js/jquery.1.9.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css"/>
 
     <script>
         $(document).ready(function () {
@@ -87,7 +88,7 @@
 
 
             <c:choose>
-                <c:when test="${sessionScope.Customer!=null}">
+                <c:when test="${sessionScope.customer!=null}">
 
                     <div id="button" name="BorrowingBookBtn">
                         <span hidden name="<%=basePath%>shop/BorrowingBook?book_id=${i.id}"></span>
@@ -115,39 +116,52 @@
         时间：2018-09-20
         描述：分页
     -->
-        <div class="page_container center">
-            <div class="page_btn prev_page left">上一页</div>
-            <div class="page_num_container left" id="page_num_container">
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li>10</li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>16</li>
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li>20</li>
-                    <li>21</li>
-                </ul>
-            </div>
-            <div class="page_btn next_page left">下一页</div>
-            <div class="page_btn all_page right">共21页</div>
+<!--分页-->
+<div class="page_container center">
+    <c:choose>
+        <c:when test="${indexPage==0} ||${indexPage<0}">
+
+            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>shop/getShopIndexBook?index=0">上一页</a></div>
+
+        </c:when>
+
+        <c:when test="${indexPage>0}">
+            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>shop/getShopIndexBook?index=${indexPage-1}">上一页</a></div>
+
+        </c:when>
+
+    </c:choose>
 
 
-        </div>
 
+    <div class="page_num_container left" id="page_num_container">
+        <ul>
+            <c:forEach var="i" begin="1" end="${PageCount}" step="1">
+                <li><a href="<%=basePath%>shop/getShopIndexBook?index=${i-1}">
+                <li>${i}</li>
+                </a></li>
+            </c:forEach>
+        </ul>
+    </div>
+    <c:choose>
+        <c:when test="${indexPage==PageCount-1}">
+            <div class="page_btn next_page left"><a href="<%=basePath%>shop/getShopIndexBook?index=${PageCount-1}">下一页</a></div>
+
+        </c:when>
+        <c:when test="${indexPage<PageCount-1}">
+            <div class="page_btn next_page left"><a href="<%=basePath%>shop/getShopIndexBook?index=${indexPage+1}">下一页</a></div>
+
+        </c:when>
+
+
+
+    </c:choose>
+
+    <div class="page_btn all_page right" >共${PageCount}页</div>
+
+</div>
+<span>当前页为${indexPage+1}</span>
+<script src="<%=basePath %>jsp/admin/js/fenye.js"></script>
 <script src="<%=basePath%>jsp/shop/js/jquery-1.11.0.js"></script>
 <script src="<%=basePath%>jsp/shop/js/index.js"></script>
 </body>

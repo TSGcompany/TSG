@@ -39,7 +39,7 @@ public class CustomerLogin {
     //=======================================用户退出登陆======================================
     @RequestMapping(value = "/user/logout", method = RequestMethod.GET)
     public String logout(HttpSession session){
-        session.removeAttribute("Customer");
+        session.removeAttribute("customer");
         return "redirect:/index.jsp";
     }
 }

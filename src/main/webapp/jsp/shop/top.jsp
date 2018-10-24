@@ -77,7 +77,7 @@
                             <a href=" "> ${sessionScope.customer.customer_name}</a><span class="caret"></span>
                         </li>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">个人信息</a></li>
+                            <li><a href="<%=basePath%>user/ToIndex" target="_top">个人信息</a></li>
                             <li><a href="<%=basePath%>user/logout" target="_parent">退出登录</a></li>
                         </ul>
                     </div>

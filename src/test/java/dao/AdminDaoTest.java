@@ -68,7 +68,7 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public  void  BookShow_Test(){//展示书
-        List<Book> list = bookDao.BookShow(0);
+        List<Book> list = bookDao.BookShow(0,10);
         for (Book book:list) {
             System.out.println(book.getBook_editorsID().getAdmin_name());
 
@@ -174,7 +174,7 @@ public class AdminDaoTest extends SpringJunitTest {
 
     @Test
     public  void CCD(){
-        List<Book> bookList =bookDao.BookShow(0);
+        List<Book> bookList =bookDao.BookShow(0,10);
         List<Integer>list=new ArrayList<Integer>();
         for(int i=0;i<5;i++){
             list.add(i);

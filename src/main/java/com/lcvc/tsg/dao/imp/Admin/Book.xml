@@ -19,8 +19,8 @@
                      select="com.lcvc.tsg.dao.AdminDao.AdminDao.getAdmin"></association>
     </resultMap>
 
-    <select id="BookShow" resultMap="book" parameterType="int">
-        SELECT * FROM book order by id asc limit #{index},10
+    <select id="BookShow" resultMap="book">
+        SELECT * FROM book order by id asc limit #{index},#{totals}
     </select>
 
     <!--========================== 查看书的总数用于分页==============================-->
