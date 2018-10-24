@@ -4,7 +4,7 @@
 <mapper namespace="com.lcvc.tsg.dao.ShopDao.ShopBorrowingDao">
     <!--=============================查看某个用户是否借阅过某本书========================-->
     <select id="selectBorrowingforCustomer" resultType="int" parameterType="Borrowing">
-      SELECT COUNT(id) FROM borrowing WHERE customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id},borrowing_Return=#{borrowing_Return}
+      SELECT COUNT(id) FROM borrowing WHERE customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id} and borrowing_Return=0
     </select>
     <!--================================添加一条借阅信息=================================-->
     <insert id="addBorrowing" parameterType="Borrowing">
