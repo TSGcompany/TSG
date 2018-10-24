@@ -124,7 +124,7 @@ public class CustomerRegisterControl {
                     customerRegisterBean.Customer_register(customer);
                     map.put("RegAdd_User", 1);
                     //一切正常之后就session保存值 完成自动登录
-                session.setAttribute("Customer",loginBean.CustomerLogin(customer.getCustomer_name(),customerRegForm.getPassword()));
+                session.setAttribute("customer",loginBean.CustomerLogin(customer.getCustomer_name(),customerRegForm.getPassword()));
                 } else {
                     map.put("RegAdd_User", 3);
                 }

@@ -24,9 +24,9 @@
         <li><a href="">读者服务</a></li>
         <li><a href="">资源动态</a></li>
         <li><a href="">讲座/活动</a></li>
-        <li class="img_head"><img src="<%=basePath%>../${sessionScope.Customer.customer_head}"/></li>
+        <li class="img_head"><img src="<%=basePath%>../${sessionScope.customer.customer_head}"/></li>
 
-        <li class="nav_2"><a href="<%=basePath%>user/logout" target="_parent">退出</a></li>
+        <li class="nav_2"><a href="<%=basePath%>user/logout" target="_parent">退出${sessionScope.customer.customer_name}</a></li>
 
         <iframe allowtransparency="true" frameborder="0" width="180" height="36"
                 style="margin:-8px 105px 0 0; float: right;" scrolling="no"

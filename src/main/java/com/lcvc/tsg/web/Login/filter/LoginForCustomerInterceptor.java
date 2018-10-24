@@ -18,7 +18,7 @@ public class LoginForCustomerInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
 		boolean c = true;
 		HttpSession session = request.getSession();
-		if(session.getAttribute("Customer")!=null){//判断session中有没有值 如果 有值表示已经登录
+		if(session.getAttribute("customer")!=null){//判断session中有没有值 如果 有值表示已经登录
 			c=true;
 		}else{
 			String path = request.getContextPath();
