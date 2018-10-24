@@ -30,28 +30,22 @@
     </style>
     <script type="text/javascript">
         var sleep = 30, interval = null;
-        window.onload = function ()
-        {
-            var btn = document.getElementById ('btn');
-            btn.onclick = function ()
-            {
-                if (!interval)
-                {
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            btn.onclick = function () {
+                if (!interval) {
                     this.style.backgroundColor = 'rgb(243, 182, 182)';
                     this.disabled = "disabled";
                     this.style.cursor = "wait";
                     this.value = "重新发送 (" + sleep-- + ")";
-                    interval = setInterval (function ()
-                    {
-                        if (sleep == 0)
-                        {
-                            if (!!interval)
-                            {
-                                clearInterval (interval);
+                    interval = setInterval(function () {
+                        if (sleep == 0) {
+                            if (!!interval) {
+                                clearInterval(interval);
                                 interval = null;
                                 sleep = 30;
                                 btn.style.cursor = "pointer";
-                                btn.removeAttribute ('disabled');
+                                btn.removeAttribute('disabled');
                                 btn.value = "免费获取验证码";
                                 btn.style.backgroundColor = '';
                             }
@@ -62,14 +56,12 @@
                 }
             }
         }
-    </script>
-    <script>
-        //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
 
+        //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态.
         function isNumber(value) { //验证是否为数字
-            if(value != "") {
+            if (value != "") {
                 var patrn = /^(-)?\d+(\.\d+)?$/;
-                if(patrn.exec(value) == null || value == "") {
+                if (patrn.exec(value) == null || value == "") {
                     return false
                 } else {
                     return true
@@ -79,54 +71,157 @@
             }
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             $("#LoginBtn").click(function () {  //点击登录按钮
                 var UserPass = $("#UserPass").val();
                 var UserName = $("#UserName").val();
                 var status = false;
-
-                if (UserName.length ==0||UserName=='') {
+                if (UserName.length == 0 || UserName == '') {
                     alert("用户名不能为空");
                     status = false;
-                }else if(UserPass.length ==0||UserPass==''){
+                } else if (UserPass.length == 0 || UserPass == '') {
                     alert("密码不能为空")
                     status = false;
-                }else{
-                    status  =true;
-                    }
-
-                if (status) {
-                }
-                if ($("#check").is(':checked')) {//看看单选框有没有选中 如果选中返回true 如果没选中返回false
-                    $.post("<%=basePath%>admin/login", $("#Loginform").serialize(), function (data) {
-                        if (data.AdminLogin== 1) {
-                            location.href = "<%=basePath%>admin/ToIndex";
-                        } else {
-                            alert(data.AdminLogin);
-                        }
-
-                    });
-
                 } else {
-                    $.post("<%=basePath%>user/Userlogin", $("#Loginform").serialize(), function (data) {
-                        if (data.CustomerLogin == 1) {
-                            location.href = "<%=basePath%>user/ToIndex";
-                        } else {
-                            alert(data.CustomerLogin);
-                        }
-
-                    });
+                    status = true;
                 }
+                if (status) {
 
+                    if ($("#check").is(':checked')) {//看看单选框有没有选中 如果选中返回true 如果没选中返回false
+                        $.post("<%=basePath%>admin/login", $("#Loginform").serialize(), function (data) {
+                            if (data.AdminLogin == 1) {
+                                location.href = "<%=basePath%>admin/ToIndex";
+                            } else {
+                                alert(data.AdminLogin);
+                            }
 
+                        });
 
+                    } else {
+                        $.post("<%=basePath%>user/login", $("#Loginform").serialize(), function (data) {
+                            if (data.customerLoginMessage == 1) {
+                                location.href = "<%=basePath%>user/ToIndex";
+                            } else {
+                                alert("登陆失败用户名或者密码错误！");
+                            }
+                        });
+                    }
+                }
             });
-
         });
 
+        $(document).ready(function () {
+
+            //================验证要注册用户有没有被注册过===========================
+            $('#CustomerName').bind('input propertychange', function () {
+                var customerName = $("#CustomerName").val();
+                $.get("<%=basePath%>register/VerificationUserName?customerName=" + customerName, function (data) {
+                    if (data.registerMessage == 1) {
+                        //如果返回1表示有过
+                        $('#result').html("该用户名已经被使用！");
+                    } else {
+                        //没有过就将它设置为空
+                        $('#result').html("");
+                    }
+                });
+
+                //判断有没有使用
+
+                //    $("input[name='getVerificationCode']").removeAttr("disabled");//移除disabled
+            });
+            //====================邮箱验证===================
+            var search_str = /^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/;
+            $('#UserEmail').bind('input propertychange', function () {
+                var customerName = $("#CustomerName").val();
+                var UserEmail = $("#UserEmail").val();
+                //看邮箱正不正确并且看该用户名那里有没有值 如果正确，有值就能发送验证码
+                if (search_str.test(UserEmail) && customerName.length > 0) {
+                    $("input[name='getVerificationCode']").removeAttr("disabled");//移除disabled
+                } else {
+                    $("input[name='getVerificationCode']").attr("disabled");//添加disabled
+                }
+            });
+
+            //===================================发送验证码====================================
+            var VerificationCode;
+            $("input[name='getVerificationCode']").click(function () {
+                //获取用户邮箱
+                var UserEmail = $("#UserEmail").val();
+                $.get("<%=basePath%>register/SendVerificationCode?customerEmain=" + UserEmail, function (data) {
+                    if (data.CodeMessage == 1) {
+                        alert("发送成功，请查收！");
+                        VerificationCode = data.VerificationCode;
+                        sleep = 0;
+                        //  alert(VerificationCode);
+                    } else if (data.CodeMessage == 3) {
+                        alert("出错了！");
+                        sleep = 0;
+                    } else if (data.CodeMessage == 2) {
+                        alert("邮箱为空！");
+                        sleep = 0;
+                    }
+                    if (data.CodeMessage == 4) {
+                        alert("该邮箱不正确或者不存在，请重新输入！");
+                        sleep = 0;
+                    }
+                });
+            });
+            //===================================点击注册按钮==================================
+            $("#Register_btn").click(function () {
+                var stud = false;
+                var inputVerificationCode = $("#inputVerificationCode").val();
+                var CustomerName = $("#CustomerName").val();
+                var UserEmail = $("#UserEmail").val();
+                var Password = $("#Password").val();
+                var Repassword = $("#Repassword").val();
+                if (CustomerName.length == 0 || CustomerName == '') {
+                    alert("用户名不能为空");
+                    stud = false;
+                } else if (UserEmail.length == 0 || UserEmail == '') {
+                    alert("邮箱不能为空");
+                    stud = false;
+                } else if (inputVerificationCode.length == 0 || inputVerificationCode == '') {
+                    alert("验证码不能为空");
+                    stud = false;
+                } else if (Password.length == 0 || Password == '') {
+                    alert("密码不能为空");
+                    stud = false;
+                } else if (Repassword.length == 0 || Repassword == '') {
+                    alert("确认密码不能为空！");
+                    stud = false;
+                } else if (Repassword != Password) {
+                    alert("两次密码不一样！");
+                    stud = false;
+                } else {
+                    stud = true;
+                }
+                //========================提交数据======================================
+                if (stud) {
+                    $.post("<%=basePath%>register/AddCustomer", $("#Register_form").serialize(), function (data) {
+                        if (data.RegAdd_User == 1) {
+                            alert("注册成功！");
+                            location.href = "<%=basePath%>user/ToIndex";
+                        }
+                        if (data.RegAdd_User == 2) {
+                            alert("验证码错误！");
+                        }
+                        if (data.RegAdd_User == 3) {
+                            alert("两次密码不一致！");
+                        }
+                        if (data.RegAdd_User == 4) {
+                            alert("该用户名已经被使用！");
+                        }
+                    });
+                }
+            });
+            //========================当用户点击头部的图标时======== =========================
+            $("a[name='Click_Head']").click(function () {
+                location.href = "<%=basePath%>user/ToIndex";
+            });
 
 
+        });
     </script>
 
 </head>
@@ -155,14 +250,16 @@
                     <label>
                         名字<span class="req">*</span>
                     </label>
-                    <input type="text" required autocomplete="off" id="UserName" name="UserName" style="height: 40px"/>
+                    <input type="text" required autocomplete="off" id="UserName" name="UserName"
+                           style="height: 40px"/>
                 </div>
 
                 <div class="field-wrap">
                     <label>
                         密码<span class="req">*</span>
                     </label>
-                    <input type="password" required autocomplete="off" id="UserPass" name="UserPass" style="height: 40px"/>
+                    <input type="password" required autocomplete="off" id="UserPass" name="UserPass"
+                           style="height: 40px"/>
                 </div>
 
                 <form class="contact_form" action="#" method="post" name="contact_form">
@@ -180,48 +277,55 @@
 
         </div>
 
-
         <div id="signup">
             <h1>免费注册</h1>
 
-            <form action="/" method="post">
+            <form action="" id="Register_form" method="post">
 
                 <div class="field-wrap">
                     <label>
                         名字<span class="req">*</span>
                     </label>
-                    <input type="texe" required autocomplete="off" style="height: 40px"/>
+                    <input type="texe" required autocomplete="off" name="CustomerName" id="CustomerName"
+                           style="height: 40px"/>
+                    <i id="result" style="margin: 150px;width: 200px;color: red"></i>
                 </div>
 
                 <div class="field-wrap">
                     <label>
                         邮箱<span class="req">*</span>
                     </label>
-                    <input type="email" required autocomplete="off" style="height: 40px"/>
+                    <input type="email" required autocomplete="off" name="UserEmail" id="UserEmail"
+                           style="height: 40px"/>
                 </div>
 
                 <div class="field-wrap">
                     <label>
                         获取邮箱验证码<span class="req">*</span>
                     </label>
-                    <input type="email" required autocomplete="off" style="height: 40px"/><input class="checkCode" type="button" id="btn" value="免费获取验证码" />
+                    <input type="text" id="inputVerificationCode" name="inputVerificationCode" required
+                           autocomplete="off" style="height: 40px"/>
+                    <input class="checkCode" type="button" name="getVerificationCode" disabled id="btn"
+                           value="免费获取验证码"/>
                 </div>
 
                 <div class="field-wrap">
                     <label>
                         密码<span class="req">*</span>
                     </label>
-                    <input type="password" required autocomplete="off" style="height: 40px"/>
+                    <input type="Password" id="Password" name="Password" required autocomplete="off"
+                           style="height: 40px"/>
                 </div>
 
                 <div class="field-wrap">
                     <label>
                         确认密码<span class="req">*</span>
                     </label>
-                    <input type="password" required autocomplete="off" style="height: 40px"/>
+                    <input type="password" id="Repassword" name="Repassword" required autocomplete="off"
+                           style="height: 40px"/>
                 </div>
 
-                <button type="submit" class="button button-block"/>
+                <button type="button" id="Register_btn" class="button button-block"/>
                 注册</button>
 
             </form>
