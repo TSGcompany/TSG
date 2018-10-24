@@ -1,6 +1,4 @@
 package com.lcvc.tsg.web.Shop.ShopIndex_manage;
-
-import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Borrowing;
 import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.servers.Admin.BookBean;

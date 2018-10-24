@@ -7,7 +7,7 @@ public interface ShopBorrowingDao {
      * @Author Anle
      * @Date 下午 4:13 2018/10/23 0023
      **/
-    //=============================查看某个用户是否借阅过某本书========================
+    //=============================查看某个用户是否借阅过某本书.========================
     int selectBorrowingforCustomer(Borrowing borrowing);
     /**
      * @Author Anle

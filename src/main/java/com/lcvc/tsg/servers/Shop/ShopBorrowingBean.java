@@ -34,7 +34,7 @@ public class ShopBorrowingBean {
      * @Author Anle
      * @Date 下午 5:05 2018/10/23 0023
      **/
-    //=================================添加一条借阅信息================================
+    //=================================添加一条借阅信息.================================
     public int addBorrowing(Borrowing borrowing){
         //添加创建时间
         borrowing.setId(null);

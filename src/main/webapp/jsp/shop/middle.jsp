@@ -33,10 +33,10 @@
             $("div[name='BorrowingBookBtn']").click(function () {
               var AddBorrowing= $(this).find("span").attr("name");//获取span中的name值
 
-                $.get(AddBorrowing,function (data) {//路径，返回值
+                $.get(AddBorrowing,function (data) {//路径， 返回值
                    if(data.BorrowingMessage==1){
                         alert("借阅成功！")
-                       //跳转页面
+                       //跳转页面0
 
                    }
                     if(data.BorrowingMessage==0){
