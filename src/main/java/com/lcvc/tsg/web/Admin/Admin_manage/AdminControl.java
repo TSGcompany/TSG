@@ -66,44 +66,10 @@ public class AdminControl {
             }
         } else {
             if (adminBean.AdminRename(admin.getAdmin_nickname()) > 0) {
-                map.put("massage", "修改失败,该用户名已经被使用！");
+                map.put("massage", 2);
             } else {
                 if (adminBean.updateubase(admin) > 0) {
                     session.setAttribute("admin", adminBean.getAdmin(admin_id.getId()));
-                    map.put("massage", 1);
-
-                } else {
-                    map.put("massage", "修改失败！");
-                }
-            }
-        }
-        return map;
-    }
-    //----------------------------------跳转修改管理员基本信息--------------------------
-    @RequestMapping(value = "/admin/goupdateubase", method = RequestMethod.GET)
-    public String goupdateubase(Integer id,HttpSession session,Admin admin) {
-        Admin admin_id = (Admin) session.getAttribute("admin");
-        admin.setId(admin_id.getId());
-        return "/admin/Manag/Adminupdate.jsp";
-    }
-    //----------------------------------修改管理员基本信息--------------------------
-    @ResponseBody
-    @RequestMapping(value = "/admin/toupdateubase", method = RequestMethod.POST)
-    public Map<String, Object> toupdateubase(Admin admin, HttpSession session,Integer id) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        if (admin.getAdmin_nickname().equals(admin.getAdmin_nickname())) {
-            if (adminBean.updateAdmin(admin) > 0) {
-                session.setAttribute("admin", adminBean.getAdmin(id));
-                map.put("massage", 1);
-            } else {
-                map.put("massage", "修改失败！");
-            }
-        } else {
-            if (adminBean.AdminRename(admin.getAdmin_nickname()) > 0) {
-                map.put("massage", "修改失败,该用户名已经被使用！");
-            } else {
-                if (adminBean.updateAdmin(admin) > 0) {
-                    session.setAttribute("admin", adminBean.getAdmin(admin.getId()));
                     map.put("massage", 1);
 
                 } else {

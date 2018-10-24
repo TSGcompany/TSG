@@ -63,17 +63,18 @@ public class PersonalControl {
     }
 
     //----------------------------删除管理员----------------------
+    @ResponseBody
     @RequestMapping(value = "/admin/deleteAdmin", method = RequestMethod.GET)
-    public String deleteAdmin(Integer id, HttpServletRequest request, HttpSession session) {
+    public Map<String, Object> deleteAdmin(Integer id, HttpSession session) {
+        Map<String, Object> map = new HashMap<String, Object>();
         Admin admin = (Admin) session.getAttribute("admin");
         if (admin.getId() == id.intValue()) {
-            String message = "";
-            message = "删除失败,不能删除自己！";
-            request.getSession().setAttribute("mes", message);
+            map.put("deleteAdmin", 1);
         } else {
+            map.put("deleteAdmin", 2);
             personalBean.deleteAdmin(id);
         }
-        return "redirect:AdminShow?index=0";
+        return map;
     }
 
 }
