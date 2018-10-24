@@ -28,4 +28,5 @@ public class LoginBean {
         //加密
         return loginDao.CustomerLogin(customer_name, MyMD5.MD5(customer_password));
     }
+
 }

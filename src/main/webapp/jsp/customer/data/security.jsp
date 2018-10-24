@@ -19,13 +19,13 @@
     <script src="<%=basePath %>plugins/kindeditor-4.1.10/kindeditor-min.js"></script>
     <script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
     <script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor-all-min.js"></script>
- <script src='<%=basePath%>jsp/customer/js/jquery.min.js'></script>
+    <script src='<%=basePath%>jsp/customer/js/jquery.min.js'></script>
     <script>
 
         $(document).ready(function (){
             //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
 
-            $("#UpdatePass_button").click(function () {
+            $("#UpdatePass_button").click(function(){
                 var status = false; //默认表单验证通过
 
                 //对书名名称进行验证
@@ -87,7 +87,7 @@
             ></i></li>
             <li><label>*确认密码</label><input id="confirmpass" name="confirmpass" type="text" class="dfinput"/><i
             ></i></li>
-            <li><label>&nbsp;</label><input id="UpdatePass_button" name="UpdatePass_button" type="button" class="btn" value="添加管理员"/></li>
+            <li><label>&nbsp;</label><input id="UpdatePass_button" name="UpdatePass_button" type="button" class="btn" value="确定修改"/></li>
         </ul>
     </form>
 

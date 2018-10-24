@@ -1,5 +1,6 @@
 package com.lcvc.tsg.servers.Customer;
 
+import com.lcvc.tsg.OtherPackage.MyMD5;
 import com.lcvc.tsg.dao.CustomerDao.CustomerUserDao;
 import com.lcvc.tsg.model.Customer;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class CustomerUserBean {
      **/
     public Boolean updatePassword(Integer id, String customer_password) {
         Boolean status = false;
-        int i = customerUserDao.updatePassword(id, customer_password);
+        int i = customerUserDao.updatePassword(id, MyMD5.MD5(customer_password));
         if (i > 0) {
             status = true;
         }
@@ -32,9 +33,9 @@ public class CustomerUserBean {
     }
     //=============================== 修改基本信息=============================
 
-    public int userupdateubase(Customer customer) {
+    public int updateCustomer(Customer customer) {
 
-        return customerUserDao.userupdateubase(customer);
+        return customerUserDao.updateCustomer(customer);
     }
     //=============================== 查看用户昵称有没有重名 ==================================
     public int UserRename(String UserName) {

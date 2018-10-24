@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-        <!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
 <mapper namespace="com.lcvc.tsg.dao.CustomerDao.CustomerUserDao">
     <!--=============================== 查看用户详情==================================-->
     <select id="getCustomer" resultType="Customer" parameterType="int">
@@ -13,7 +13,7 @@
         update customer set customer_password=#{customer_password} where id=#{id}
     </update>
     <!--=============================== 修改用户基本信息==================================-->
-    <update id="userupdateubase" parameterType="Customer">
+    <update id="updateCustomer" parameterType="Customer">
         update
         customer
         <set>
@@ -21,9 +21,8 @@
             <if test="customer_phone!=null">customer_phone=#{customer_phone},</if>
             <if test="customer_Email!=null">customer_Email=#{customer_Email},</if>
             <if test="customer_nickname!=null ">customer_nickname=#{customer_nickname},</if>
-            <if test="customer_xingming!=null ">customer_xingming=#{customer_xingming},</if>
             <if test="customer_sex!=null ">customer_sex=#{customer_sex},</if>
-            <if test="customer_age!=null ">customer_age=#{customer_age},</if>
+            <if test="customer_head!=null ">customer_head=#{customer_head},</if>
             <if test="customer_password!=null ">customer_password=#{customer_password}</if>
         </set> where id=#{id}
     </update>
