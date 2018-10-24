@@ -45,6 +45,7 @@ public class ShopBorrowing_Control {
             Borrowing borrowing = new Borrowing();
             borrowing.setCustomer_Id(customer);
             borrowing.setBook_id(bookBean.getBook(book_id));
+            borrowing.setBorrowing_Return(false);
                 //判断某本书是否被该用户借阅过
             if(borrowingBean.selectBorrowingforCustomer(borrowing)==0){
                     //表示没借阅过
