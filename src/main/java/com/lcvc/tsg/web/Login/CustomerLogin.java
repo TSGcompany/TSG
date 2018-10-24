@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * @ClassName CustomerLogin
  * @Author Anle
- * @Date 2018/10/8 0008 下午 5:49.
+ * @Date 2018/10/8 0008 下午 5:49
  * @Version 1.0
  **/
 @Controller

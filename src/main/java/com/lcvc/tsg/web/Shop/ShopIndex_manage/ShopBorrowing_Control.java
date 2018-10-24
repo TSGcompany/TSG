@@ -31,7 +31,7 @@ public class ShopBorrowing_Control {
      * @Author Anle
      * @Date 下午 3:37 2018/10/23 0023
      **/
-    //======================================借阅功能====================================
+    //======================================借阅功能====================================.
     @ResponseBody
     @RequestMapping(value = "/shop/BorrowingBook", method = RequestMethod.GET)
     public Map<String, Object> BorrowingBook(HttpSession session,Integer book_id){

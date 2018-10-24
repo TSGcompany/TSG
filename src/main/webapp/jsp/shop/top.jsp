@@ -64,7 +64,7 @@
     <div class="navbar">
         <ul>
             <li class="nav_img2"><img src="<%=basePath%>jsp/shop/img/lcvclogo.png"></li>
-            <li class="nav_1"><a href="<%=basePath%>shop/ToShopIndex">首页</a></li>
+            <li class="nav_1"><a href="<%=basePath%>shop/ToShopIndex" target="_top">首页</a></li>
             <li class="nav_1"><a href="#">网上借阅</a></li>
             <li class="nav_1"><a href="#">读者服务</a></li>
             <li class="nav_1"><a href="#">资源动态</a></li>

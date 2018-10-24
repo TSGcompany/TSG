@@ -1,6 +1,10 @@
 package com.lcvc.tsg.web.Shop.ToShopIndex;
+import com.lcvc.tsg.model.Customer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
+
 /**
  * @ClassName ToShopIndex
  * @Author Anle
@@ -11,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ToShopIndex {
     @RequestMapping(value = "/shop/ToShopIndex")
-    public String ToShopIndex(){
+    public String ToShopIndex(HttpSession session){
         return "shop/index.jsp";
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Date 2018/10/15 0015 下午 11:15
  * @Version 1.0
  **/
-//----------------------------------这个页面只用来跳转到用户页面--------------------------
+//----------------------------------这个页面只用来跳转到用户页面.--------------------------
 @Controller
 public class ToCustomerIndex {
     @RequestMapping(value = "/user/ToIndex" ,method = RequestMethod.GET)

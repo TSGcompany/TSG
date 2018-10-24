@@ -36,7 +36,7 @@ public class CustomerRegisterControl {
      * @Author Anle
      * @Date 上午 11:37 2018/10/16 0016
      **/
-    //======================================看用户名有没有被使用过==================================
+    //=====================================看用户名有没有被使用过==================================
     @ResponseBody
     @RequestMapping(value = "/register/VerificationUserName", method = RequestMethod.GET)
     public Map<String, Object> VerificationUserName(String customerName) {

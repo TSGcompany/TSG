@@ -15,7 +15,7 @@ import java.util.Map;
  * @ClassName AdminLogin
  * @Author Anle
  * @Date 2018/10/8 0008 下午 5:49
- * 管理员登录功能模块
+ * 管理员登录功能模块.
  * @Version 1.0
  **/
 @Controller

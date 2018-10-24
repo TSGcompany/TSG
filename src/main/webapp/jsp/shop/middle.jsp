@@ -29,7 +29,7 @@
                 alert("请先登录！");
             });
 
-            //====================登录之后点击借阅按钮========================
+            //====================登录之后点击借阅按钮 .========================
             $("div[name='BorrowingBookBtn']").click(function () {
               var AddBorrowing= $(this).find("span").attr("name");//获取span中的name值
 
