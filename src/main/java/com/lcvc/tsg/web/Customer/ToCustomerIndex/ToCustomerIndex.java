@@ -1,8 +1,11 @@
 package com.lcvc.tsg.web.Customer.ToCustomerIndex;
 
+import com.lcvc.tsg.model.Customer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @ClassName ToCustomerIndex
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ToCustomerIndex {
     @RequestMapping(value = "/user/ToIndex" ,method = RequestMethod.GET)
     public String ToIndex() {
+
         return "customer/index.jsp";
     }
 }

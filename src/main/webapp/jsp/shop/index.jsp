@@ -236,7 +236,7 @@
 <body>
 <c:choose>
     <c:when test="${sessionScope.customer!=null}">
-        <li><a name="Click_Head"><img src="<%=basePath%>../${sessionScope.customer.customer_head}"
+        <li><a name="Click_Head"><img src="${sessionScope.customer.customer_head}"
            style="width: 40px;height: 40px;position: absolute;margin-top: 35px;margin-left:1600px;border-radius:30px "></a>
         </li>
 

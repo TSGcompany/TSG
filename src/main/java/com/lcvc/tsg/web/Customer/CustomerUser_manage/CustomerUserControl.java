@@ -31,7 +31,7 @@ public class CustomerUserControl {
     public Map<String, Object> updatePassword(String oldpass, String newpass, String confirmpass, HttpSession session) {
 
         Map<String, Object> map = new HashMap<String, Object>();
-        Customer customer = (Customer) session.getAttribute("Customer");
+        Customer customer = (Customer) session.getAttribute("customer");
         if (loginBean.CustomerLogin(customer.getCustomer_name(), oldpass) != null) {
             if (newpass.equals(confirmpass)) {
                 customerUserBean.updatePassword(customer.getId(), newpass);
@@ -44,18 +44,19 @@ public class CustomerUserControl {
         }
         return map;
     }
+
     //----------------------------------修改基本信息--------------------------
     @ResponseBody
     @RequestMapping(value = "/customer/userupdateubase", method = RequestMethod.POST)
     public Map<String, Object> userupdateubase(Customer customer, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
-        Customer customer_id = (Customer) session.getAttribute("Customer");
+        Customer customer_id = (Customer) session.getAttribute("customer");
         customer.setId(customer_id.getId());
 
 
         if (customer.getCustomer_nickname().equals(customer_id.getCustomer_nickname())) {
             if (customerUserBean.userupdateubase(customer) > 0) {
-                session.setAttribute("Customer", customerUserBean.getCustomer(customer_id.getId()));
+                session.setAttribute("customer", customerUserBean.getCustomer(customer_id.getId()));
                 map.put("massage", 1);
             } else {
                 map.put("massage", "修改失败！");
@@ -73,7 +74,6 @@ public class CustomerUserControl {
                 }
             }
         }
-        System.out.println("dddd11");
         return map;
     }
 }

@@ -5,7 +5,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 /*
  * ---------------------用户的拦截器-----------------
  * 继承 HandlerInterceptorAdapter
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpSession;
 public class LoginForCustomerInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
-		boolean c = true;
+		boolean c = false;
 		HttpSession session = request.getSession();
 		if(session.getAttribute("customer")!=null){//判断session中有没有值 如果 有值表示已经登录
 			c=true;
@@ -24,7 +23,6 @@ public class LoginForCustomerInterceptor extends HandlerInterceptorAdapter{
 			String path = request.getContextPath();
 			String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
             response.sendRedirect(basePath+"jsp/shop/login/login.jsp");
-
 		}
 		return c;
 	}

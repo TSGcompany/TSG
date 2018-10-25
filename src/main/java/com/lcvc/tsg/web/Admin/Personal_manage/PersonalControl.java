@@ -27,8 +27,6 @@ public class PersonalControl {
     @Resource
     private PersonalBean personalBean;
     @Resource
-    private AdminDao adminDao;
-    @Resource
     private AdminBean adminBean;
     //----------------------------用户管理模块的控制层----------------------
     @RequestMapping(value = "/admin/AdminShow", method = RequestMethod.GET)
@@ -84,7 +82,7 @@ public class PersonalControl {
     //----------------------------------跳转修改管理员基本信息--------------------------
     @RequestMapping(value = "/admin/goupdateubase", method = RequestMethod.GET)
     public String updateAdmin(Integer id, HttpSession session) {
-        session.setAttribute("getAdmin",adminDao.getAdmin(id));
+        session.setAttribute("getAdmin",adminBean.getAdmin(id));
         return "/admin/Manag/Adminupdate.jsp";
     }
     //----------------------------------修改管理基本信息--------------------------
@@ -116,4 +114,5 @@ public class PersonalControl {
         }
         return map;
     }
+
 }

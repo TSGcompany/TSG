@@ -74,6 +74,10 @@ public class ShopIndex_Control {
         //   System.out.println(shopIndexBean.getBookRandomName());
         return map;
     }
-
+    //====================================查看某本书详情====================================
+    @RequestMapping(value = "/shop/getBookDetails", method = RequestMethod.GET)
+    public String getBookDetails(){
+        return "";
+    }
 
 }
