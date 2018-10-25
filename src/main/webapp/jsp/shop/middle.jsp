@@ -155,8 +155,6 @@
 -->
 <!--分页-->
 <div class="page_container center">
-
-
     <div class="page_btn prev_page left" id="last_page"><p>上一页</p></div>
 
     <div class="page_num_container left" id="page_num_container">
@@ -173,7 +171,7 @@
     <div class="page_btn next_page left" id="next_page"><p>下一页</p></div>
     <div class="page_btn all_page right">共${PageCount}页</div>
 </div>
-<span style="margin-left: 550px;margin-top: auto">当前页为${indexPage+1}</span>
+<span style="width: 80px; height:30px;border: 1px solid #ccc;margin-left:580px;margin-top:9px;float: left;"><p>当前页为${indexPage+1}</p></span>
 <script src="<%=basePath%>jsp/shop/js/jquery-1.11.0.js"></script>
 <script src="<%=basePath%>jsp/shop/js/index.js"></script>
 </body>

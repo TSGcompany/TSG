@@ -73,7 +73,7 @@ public class BookControl {
     @RequestMapping(value = "/admin/getBook_TypeAll", method = RequestMethod.GET)
     public String getBook_TypeAll(HttpServletRequest request) {
         request.setAttribute("getBook_TypeAll", bookBean.getBook_TypeAll());
-        return "admin/book/Addbooks.jsp";
+        return "customer/plugins/Addbooks.jsp";
     }
 
     //=============================== 添加书籍==================================

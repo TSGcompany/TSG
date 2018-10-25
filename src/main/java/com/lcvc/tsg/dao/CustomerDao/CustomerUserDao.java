@@ -12,8 +12,8 @@ public interface CustomerUserDao {
     public int updatePassword(@Param(value = "id") Integer id, @Param(value = "customer_password") String customer_password);
     //=============================== 修改用户基本信息=============================
 
-    int userupdateubase(Customer customer);
-
+    int updateCustomer(Customer customer);
     //=============================== 查看用户昵称有没有重名 ==================================
     int UserRename(String UserName);
 }
+

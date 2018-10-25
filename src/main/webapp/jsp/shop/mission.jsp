@@ -224,7 +224,7 @@
 <!-- 文字滚动1-->
 <script>
     //文字移动速度
-    var speed=30
+    var speed=40
     var demo=document.getElementById("demo");
     var demo2=document.getElementById("demo2");
     var demo1=document.getElementById("demo1");
@@ -243,7 +243,7 @@
 
 <!-- 文字滚动2-->
 <script>
-    var speed=30
+    var speed=40
     var demoe=document.getElementById("demoe");
     var demo22=document.getElementById("demo22");
     var demo11=document.getElementById("demo11");

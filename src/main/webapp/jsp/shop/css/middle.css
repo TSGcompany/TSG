@@ -51,7 +51,7 @@ h4{
 .comment{
     font-size: 25px;
     color: orange;
-    margin: 50px 0 0 75px;
+    margin: 50px 0 0 60px;
     position: absolute;
 }
  
@@ -69,7 +69,7 @@ ul{
 	width: 90px;
 	height: 45px;
 	border: 1px solid #DCDCDC;
-	background-color:#5cd053;
+	background-color:#99E0F2;
 	position:fixed;
 	display: flex;
 	justify-content: center;
@@ -77,21 +77,25 @@ ul{
 	position:absolute;
 	border-radius: 10px;
 }
-a:hover{
-	color: #d98c1d;
+#button:hover{
+	background-color: #B3C2F9;
 }
+
 /*预约按钮*/
 #make{
 	width: 90px;
 	height: 45px;
 	border: 1px solid #DCDCDC;
-	background-color:#5cd053;
+	background-color: #99E0F2;
 	position:fixed;
 	display: flex;
 	justify-content: center;
 	margin:90px 0 0 145px;
 	position: absolute;
 	border-radius: 10px;
+}
+#make:hover{
+	background-color: #B3C2F9;
 }
 /*借阅、预约按钮字体设置*/
 a{
@@ -102,6 +106,9 @@ a{
 	text-decoration: none;
 	line-height:45px;
 	margin-left: 1px;
+}
+a:hover{
+	color: #d98c1d;
 }
 
 
@@ -141,7 +148,7 @@ a{
    	}
    .page_num_container ul li{
    	float: left;
-   	width: 30px;
+   	width: 50px;
    	border-right:1px solid #ccc ;
    	box-sizing: border-box;
    	text-align: center;
@@ -170,6 +177,9 @@ a{
    	margin-right: 10px;
 
    	}
-   	
-   	
- 
+span p{
+	 text-align: center;
+	 margin-top: 5px;
+	font-size: 16px;
+	color: #757575;
+ }

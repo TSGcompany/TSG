@@ -44,18 +44,17 @@ public class CustomerUserControl {
         }
         return map;
     }
-
     //----------------------------------修改基本信息--------------------------
     @ResponseBody
-    @RequestMapping(value = "/customer/userupdateubase", method = RequestMethod.POST)
-    public Map<String, Object> userupdateubase(Customer customer, HttpSession session) {
+    @RequestMapping(value = "/customer/updateCustomer", method = RequestMethod.POST)
+    public Map<String, Object> updateCustomer(Customer customer, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
         Customer customer_id = (Customer) session.getAttribute("customer");
         customer.setId(customer_id.getId());
 
 
         if (customer.getCustomer_nickname().equals(customer_id.getCustomer_nickname())) {
-            if (customerUserBean.userupdateubase(customer) > 0) {
+            if (customerUserBean.updateCustomer(customer) > 0) {
                 session.setAttribute("customer", customerUserBean.getCustomer(customer_id.getId()));
                 map.put("massage", 1);
             } else {
@@ -65,7 +64,7 @@ public class CustomerUserControl {
             if (customerUserBean.UserRename(customer.getCustomer_nickname()) > 0) {
                 map.put("massage", "修改失败,该用户名已经被使用！");
             } else {
-                if (customerUserBean.userupdateubase(customer) > 0) {
+                if (customerUserBean.updateCustomer(customer) > 0) {
                     session.setAttribute("customer", customerUserBean.getCustomer(customer_id.getId()));
                     map.put("massage", 1);
 
@@ -74,6 +73,7 @@ public class CustomerUserControl {
                 }
             }
         }
+        System.out.println("dddd11");
         return map;
     }
 }

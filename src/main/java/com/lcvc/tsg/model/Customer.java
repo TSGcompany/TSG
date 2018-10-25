@@ -93,6 +93,26 @@ public class Customer {
     private boolean customer_prohibit_Borrowing;//禁止借书
     private String customer_nickname;//用户昵称
 
+    public Integer getCustomer_age() {
+        return customer_age;
+    }
+
+    public void setCustomer_age(Integer customer_age) {
+        this.customer_age = customer_age;
+    }
+
+    private Integer customer_age;//年龄
+
+    public String getCustomer_xingming() {
+        return customer_xingming;
+    }
+
+    public void setCustomer_xingming(String customer_xingming) {
+        this.customer_xingming = customer_xingming;
+    }
+
+    private String customer_xingming;//姓名
+
 
 
 }
