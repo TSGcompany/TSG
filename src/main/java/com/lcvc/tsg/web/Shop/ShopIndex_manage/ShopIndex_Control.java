@@ -1,7 +1,9 @@
 package com.lcvc.tsg.web.Shop.ShopIndex_manage;
 
+import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.servers.Admin.BookBean;
 import com.lcvc.tsg.servers.Shop.ShopIndexBean;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -74,10 +76,29 @@ public class ShopIndex_Control {
         //   System.out.println(shopIndexBean.getBookRandomName());
         return map;
     }
-    //====================================查看某本书详情====================================
-    @RequestMapping(value = "/shop/getBookDetails", method = RequestMethod.GET)
-    public String getBookDetails(){
-        return "";
+    //=====================================搜索书=======================================
+    @ResponseBody
+    @RequestMapping(value = "/shop/SearchBookWhereBookType", method = RequestMethod.GET)
+    public String SearchBookWhereBookType(HttpServletRequest request, Book book){
+
+//        int c = 0;
+//        if (bookBean.BookCount() % 15 == 0) {//计算页码
+//            c = bookBean.BookCount() / 15;
+//        } else {
+//            c = (bookBean.BookCount() / 15) + 1;
+//        }
+//
+//        request.setAttribute("indexPage", 1);
+//        request.setAttribute("PageCount", c);
+//        request.setAttribute("getShopIndexBook",bookBean.BookShow(index,15));
+
+
+
+
+
+        return "shop/middle.jsp";
+
     }
+
 
 }

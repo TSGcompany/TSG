@@ -5,7 +5,11 @@
   Time: 下午 5:14
   To change this template use File | Settings | File Templates
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -47,14 +51,43 @@
                     </div>
                 </a>
                 <div class="service-bg">
-                    <a href="#">
-                        <div class="col-xs-6 service-box service-box2">
-                            <div class="service-pic">
-                                <img src="img/tb2.png" width="50%" height="50%" alt=""/>
-                            </div>
-                            <div class="service-name">借阅服务</div>
-                        </div>
-                    </a>
+
+
+                        <c:choose>
+                            <c:when test="${sessionScope.admin!=null}">
+
+
+                                <a href="<%=basePath%>admin/ToIndex" target="_top">
+                                    <div class="col-xs-6 service-box service-box2">
+                                        <div class="service-pic">
+                                            <img src="img/Admin_mesage.png" width="50%" height="50%" alt=""/>
+                                        </div>
+                                        <div class="service-name">进入后台管理</div>
+                                    </div>
+                                </a>
+
+
+                            </c:when>
+                            <c:otherwise>
+                            <a href="">
+                                <div class="col-xs-6 service-box service-box2">
+                                    <div class="service-pic">
+                                        <img src="img/tb2.png" width="50%" height="50%" alt=""/>
+                                    </div>
+                                    <div class="service-name">借阅服务</div>
+                                </div>
+                            </a>
+
+
+                            </c:otherwise>
+
+
+
+
+                        </c:choose>
+
+
+
                     <a href="">
                         <div class="col-xs-6 service-box service-box3">
                             <div class="service-pic">

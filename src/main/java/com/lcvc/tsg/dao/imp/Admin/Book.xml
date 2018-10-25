@@ -2,10 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
 <mapper namespace="com.lcvc.tsg.dao.AdminDao.BookDao">
-    <!--=============================== 搜索书（通过书名）==================================-->
-    <select id="SearchBook" parameterType="String" resultType="Book">
-        SELECT * from book where book_name like concat('%',#{searchs},'%')
-    </select>
 
     <!--========================== 展示书（分页,下面表关联的部分）==============================-->
     <resultMap id="book" type="Book">
@@ -72,5 +68,15 @@
           UPDATE  book SET book_number=#{book_number} WHERE id=#{id}
 
     </update>
+
+    <!--=============================== 搜索书（通过书名）==================================-->
+    <select id="SearchBook" parameterType="String" resultMap="book">
+        SELECT * from book where book_name like concat('%',#{searchs},'%')
+    </select>
+    <!--========================= 搜索书（通过书名并且还带类型的搜索）======================-->
+    <select id="SearchBookWhereBookType" parameterType="Book" resultMap="book">
+        SELECT * from book where book_name like concat('%',#{book_name},'%') AND book_type=#{book_type.id}
+
+    </select>
 
 </mapper>

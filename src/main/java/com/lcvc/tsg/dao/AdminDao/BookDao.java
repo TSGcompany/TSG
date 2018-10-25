@@ -14,6 +14,12 @@ public interface BookDao {
      **/
     //=============================== 搜索书 ==================================
     List<Book> SearchBook(String searchs);
+    /**
+     * @Author Anle
+     * @Date 下午 5:41 2018/10/25 0025
+     **/
+    //============================搜索书（通过书名并且还带类型的搜索）===========
+    List<Book>SearchBookWhereBookType(Book book);
 
     /**
      * @Author Anle

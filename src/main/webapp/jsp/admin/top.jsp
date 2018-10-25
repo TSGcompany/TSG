@@ -35,7 +35,7 @@
 </div>
 
 <ul class="nav">
-    <li><a href="default.html" target="rightFrame" class="selected"><img src="<%=basePath %>jsp/admin/images/ico01.png" title="书籍管理" /><h2>书籍管理</h2></a></li>
+    <li><a href="<%=basePath%>shop/ToShopIndex" target="_top" class="selected"><img src="<%=basePath %>jsp/admin/images/ico01.png" title="书籍管理" /><h2>返回首页</h2></a></li>
     <li><a href="imgtable.html" target="rightFrame"><img src="<%=basePath %>jsp/admin/images/ico02.png" title="图书查询" /><h2>图书查询</h2></a></li>
     <li><a href="imglist.html"  target="rightFrame"><img src="<%=basePath %>jsp/admin/images/ico03.png" title="模块设计" /><h2>读者挂失</h2></a></li>
     <li><a href="tools.html"  target="rightFrame"><img src="<%=basePath %>jsp/admin/images/ico04.png" title="常用工具" /><h2>书标打印</h2></a></li>

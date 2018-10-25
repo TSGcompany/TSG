@@ -21,8 +21,6 @@
     <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/mid_hot.css" />
     <script>
-
-
         $(document).ready(function () {
             setInterval("startRequest()", 10000);//10秒刷新一下书名字的内容
         });
@@ -31,11 +29,8 @@
            $.get("<%=basePath%>shop/RefreshInputValue",function (data) {
 
                $("#searchInput").attr("placeholder",data.RefreshInputValue);//更新提示文字
-
            });
-
         }
-
     </script>
 </head>
 <body>
@@ -58,7 +53,7 @@
         <img src="<%=basePath%>jsp/shop/img/rd3.png"/>
     </div>
     </a>
-
+<form>
     <div class="tsg_input">
         <select name="book_type.id" id="u_input">
             <option value="">请选择</option>
@@ -72,6 +67,7 @@
             <div id="search">搜索</div>
         </div>
     </div>
+</form>
 </div>
 
 </body>

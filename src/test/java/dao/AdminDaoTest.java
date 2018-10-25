@@ -182,5 +182,19 @@ public class AdminDaoTest extends SpringJunitTest {
         Collections.shuffle(list);
         System.out.println(list.get(0));
     }
+//==========================搜索书（通过书名并且还带类型的搜索）===================================
+    @Test
+    public void SearchBookWhereBookType_Test(){
+        Book_Type book_type = new Book_Type();
+        Book book = new Book();
+        book_type.setId(1);
+        book.setBook_name("三");
+        book.setBook_type(book_type);
+        List<Book> list=bookDao.SearchBookWhereBookType(book);
+        for (Book b:list ) {
+            System.out.println(b.getBook_name());
+            System.out.println(b.getBook_creatorID().getAdmin_name());
+        }
 
+    }
 }
