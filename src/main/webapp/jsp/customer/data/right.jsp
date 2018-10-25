@@ -117,7 +117,7 @@
                 <li class="special">
                     <span >性别:</span>
 
-                    <input type="radio" value="0" name="customer_sex" ${sessionScope.Customer.customer_sex=="" ? "checked='checked'" : ""} />
+                    <input type="radio" value="0" name="customer_sex" ${sessionScope.Customer.customer_sex=="0" ? "checked='checked'" : ""} />
                     男
 
                     <input type="radio" value="1" name="customer_sex" ${sessionScope.Customer.customer_sex=="1" ? "checked='checked'" : ""} />
