@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
 <mapper namespace="com.lcvc.tsg.dao.LoginDao.LoginDao">
-    <select id="AdminLogin" resultType="Admin" parameterType="Admin">
+    <select id="AdminLogin" resultType="Admin">
 
     select * from admin where admin_name=#{admin_name} and admin_password=#{admin_password}
 
     </select>
 
-    <select id="CustomerLogin" resultType="Customer" parameterType="Customer">
+    <select id="CustomerLogin" resultType="Customer">
     select * from customer where customer_name=#{customer_name} and customer_password=#{customer_password}
     </select>
 </mapper>

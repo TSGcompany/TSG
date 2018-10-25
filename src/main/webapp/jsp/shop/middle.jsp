@@ -18,11 +18,13 @@
 <head>
     <title>图书馆借阅系统</title>
 
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/middle.css" />
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/middle.css"/>
     <script src="<%=basePath%>jsp/shop/js/jquery.1.9.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css"/>
 
     <script>
         $(document).ready(function () {
+            var stud = true;//用于区别借阅和获取详情
             //=====================没登录时点击借阅按钮======================
             $("div[name='NoLoginButton']").click(function () {
 
@@ -31,24 +33,56 @@
 
             //====================登录之后点击借阅按钮 .========================
             $("div[name='BorrowingBookBtn']").click(function () {
-              var AddBorrowing= $(this).find("span").attr("name");//获取span中的name值
+                stud = false;
+                var AddBorrowing = $(this).find("span").attr("name");//获取span中的name值
 
-                $.get(AddBorrowing,function (data) {//路径， 返回值
-                   if(data.BorrowingMessage==1){
+                $.get(AddBorrowing, function (data) {//路径， 返回值
+                    if (data.BorrowingMessage == 1) {
                         alert("借阅成功！")
-                       //跳转页面0
+                        //跳转页面0
 
-                   }
-                    if(data.BorrowingMessage==0){
+                    }
+                    if (data.BorrowingMessage == 0) {
                         alert("您已经被禁止借书！")
                     }
-                    if(data.BorrowingMessage==2){
+                    if (data.BorrowingMessage == 2) {
                         alert("每本书只能被借一次！")
                     }
 
                 });
 
             });
+            //===============================点击页码========================
+            var indexPage = ${indexPage};
+            var PageCount =${PageCount};
+            $("#last_page").click(function () {//点击上一页
+
+                if (indexPage == 0 || indexPage < 0) {
+                    location.href = "<%=basePath%>shop/getShopIndexBook?index=0";
+                } else {
+                    location.href = "<%=basePath%>shop/getShopIndexBook?index=${indexPage-1}";
+
+                }
+            });
+            $("#next_page").click(function () {//点击下一页
+                //判断当前页是否是最后一页 如果是就让他等于最大页数
+                if (indexPage == PageCount - 1) {
+                    location.href = "<%=basePath%>shop/getShopIndexBook?index=${PageCount-1}";
+                } else {
+                    location.href = "<%=basePath%>shop/getShopIndexBook?index=${indexPage+1}";
+                }
+
+
+            });
+            //=============================查看某本书的详情========================
+            $("#getBookDetails").click(function () {
+                if (stud) {
+                    var bookid = $("#bookid").attr("name");
+                    alert(bookid);
+                }
+
+            });
+
         });
 
     </script>
@@ -67,87 +101,77 @@
 描述：上面
 -->
 
-<!--图书展示大框-->
+    <!--图书展示大框-->
     <div class="tsg_classify">
         <!--书本灰色边框 -->
         <c:forEach items="${getShopIndexBook}" var="i">
-        <div id="tsg_among">
-            <img src="<%=basePath%>jsp/shop/img/ts1.jpg" />
-            <h4>${i.book_author}</h4>
-            <p>《${i.book_name}》</p>
+            <div id="tsg_among">
+                <a href="${i.id}">
+                    <img id="getBookDetails" src="<%=basePath%>jsp/shop/img/ts1.jpg"/>
+                    <span id="bookid" name="${i.id}" hidden></span>
+                    <h4 style="margin-top: -5px">${i.book_author}</h4>
+                    <p style="margin-top: 20px">《${i.book_name}》</p>
 
-            <!--五星评分-->
-            <ul class="comment">
-                <li>★</li>
-                <li>★</li>
-                <li>★</li>
-                <li>★</li>
-                <li>★</li>
-            </ul>
+                    <!--五星评分-->
+                    <ul class="comment">
+                        <li>★</li>
+                        <li>★</li>
+                        <li>★</li>
+                        <li>★</li>
+                        <li>★</li>
+                    </ul>
 
+                </a>
+                <c:choose>
+                    <c:when test="${sessionScope.customer!=null}">
 
-            <c:choose>
-                <c:when test="${sessionScope.Customer!=null}">
+                        <div id="button" name="BorrowingBookBtn">
+                            <span hidden name="<%=basePath%>shop/BorrowingBook?book_id=${i.id}"></span>
+                            <a>借阅</a>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div id="button" name="NoLoginButton">
+                            <a href="<%=basePath%>jsp/shop/login/login.jsp" target="_top">借阅</a>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
 
-                    <div id="button" name="BorrowingBookBtn">
-                        <span hidden name="<%=basePath%>shop/BorrowingBook?book_id=${i.id}"></span>
-                        <a>借阅</a>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <div id="button" name="NoLoginButton">
-                        <a href="<%=basePath%>jsp/shop/login/login.jsp" target="_top">借阅</a>
-                    </div>
-                </c:otherwise>
-            </c:choose>
+                <div id="make">
+                    <a href="#"> 预约</a>
+                </div>
 
-            <div id="make">
-            <a href="#"> 预约</a>
             </div>
-
-        </div>
         </c:forEach>
     </div>
 </div>
 
-        <!--
-        作者：offline
-        时间：2018-09-20
-        描述：分页
-    -->
-        <div class="page_container center">
-            <div class="page_btn prev_page left">上一页</div>
-            <div class="page_num_container left" id="page_num_container">
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li>10</li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>16</li>
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li>20</li>
-                    <li>21</li>
-                </ul>
-            </div>
-            <div class="page_btn next_page left">下一页</div>
-            <div class="page_btn all_page right">共21页</div>
+<!--
+作者：offline
+时间：2018-09-20
+描述：分页
+-->
+<!--分页-->
+<div class="page_container center">
 
 
-        </div>
+    <div class="page_btn prev_page left" id="last_page"><p>上一页</p></div>
 
+    <div class="page_num_container left" id="page_num_container">
+        <ul>
+            <c:forEach var="i" begin="1" end="${PageCount}" step="1">
+
+                <li><a href="<%=basePath%>/shop/getShopIndexBook?index=${i-1}"><p
+                        style="margin-top: -8px;color:#90a2bc"> ${i}</p></a></li>
+
+            </c:forEach>
+        </ul>
+    </div>
+
+    <div class="page_btn next_page left" id="next_page"><p>下一页</p></div>
+    <div class="page_btn all_page right">共${PageCount}页</div>
+</div>
+<span style="margin-left: 550px;margin-top: auto">当前页为${indexPage+1}</span>
 <script src="<%=basePath%>jsp/shop/js/jquery-1.11.0.js"></script>
 <script src="<%=basePath%>jsp/shop/js/index.js"></script>
 </body>

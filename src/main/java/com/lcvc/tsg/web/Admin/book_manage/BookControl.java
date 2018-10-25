@@ -46,7 +46,7 @@ public class BookControl {
         }
         request.setAttribute("indexPage", index);
         request.setAttribute("PageCount", c);
-        request.setAttribute("BookShow", bookBean.BookShow(index));
+        request.setAttribute("BookShow", bookBean.BookShow(index,10));
 
         return "admin/book/books.jsp";
     }

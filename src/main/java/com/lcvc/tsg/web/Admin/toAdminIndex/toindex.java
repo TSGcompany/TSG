@@ -16,6 +16,5 @@ public class toindex {
     @RequestMapping(value = "/admin/ToIndex", method = RequestMethod.GET)
     public String ToIndex() {
     return "admin/index.jsp";
-      //  return "backstage/main.jsp";
     }
 }

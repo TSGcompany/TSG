@@ -1,5 +1,6 @@
 package com.lcvc.tsg.web.Login;
 
+import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.servers.LoginBean.LoginBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class CustomerLogin {
     public Map<String, Object> UserShow(String UserName, String UserPass, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
         if (loginBean.CustomerLogin(UserName, UserPass) != null) {//看看返回是否为空
-            session.setAttribute("Customer",loginBean.CustomerLogin(UserName,UserPass));//将Customer存到session中去
+            session.setAttribute("customer",loginBean.CustomerLogin(UserName,UserPass));//将Customer存到session中
             map.put("customerLoginMessage",1);//返回信息给
         }else{
             map.put("customerLoginMessage",2);//返回信息给页面
@@ -38,7 +39,7 @@ public class CustomerLogin {
     //=======================================用户退出登陆======================================
     @RequestMapping(value = "/user/logout", method = RequestMethod.GET)
     public String logout(HttpSession session){
-        session.removeAttribute("Customer");
+        session.removeAttribute("customer");
         return "redirect:/index.jsp";
     }
 }

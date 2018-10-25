@@ -38,7 +38,7 @@ public class ShopBorrowing_Control {
         Map<String, Object> map = new HashMap<String, Object>();
         System.out.println(book_id);
         //获取当前用户
-        Customer customer = (Customer) session.getAttribute("Customer");
+        Customer customer = (Customer) session.getAttribute("customer");
         if(!customer.isCustomer_prohibit_Borrowing()){//bit  0是false 1是true  //如果返回是true那么他就被禁止借书.
             //这里表示可以借书
                 //创建借阅表

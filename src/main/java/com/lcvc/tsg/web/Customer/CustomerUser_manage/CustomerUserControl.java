@@ -1,4 +1,5 @@
 package com.lcvc.tsg.web.Customer.CustomerUser_manage;
+
 import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.servers.LoginBean.LoginBean;
 import com.lcvc.tsg.servers.Customer.CustomerUserBean;
@@ -25,13 +26,13 @@ public class CustomerUserControl {
      * @Date 上午 9:49 2018/10/8 0008
      **/
     @ResponseBody
+
     @RequestMapping(value = "/customer/UserUpdatePassWord", method = RequestMethod.POST)
     public Map<String, Object> updatePassword(String oldpass, String newpass, String confirmpass, HttpSession session) {
 
         Map<String, Object> map = new HashMap<String, Object>();
-        Customer customer = (Customer) session.getAttribute("Customer");
+        Customer customer = (Customer) session.getAttribute("customer");
         if (loginBean.CustomerLogin(customer.getCustomer_name(), oldpass) != null) {
-
             if (newpass.equals(confirmpass)) {
                 customerUserBean.updatePassword(customer.getId(), newpass);
                 map.put("massage", 1);//返回信息给
@@ -48,14 +49,13 @@ public class CustomerUserControl {
     @RequestMapping(value = "/customer/updateCustomer", method = RequestMethod.POST)
     public Map<String, Object> updateCustomer(Customer customer, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
-        Customer customer_id = (Customer) session.getAttribute("Customer");
+        Customer customer_id = (Customer) session.getAttribute("customer");
         customer.setId(customer_id.getId());
-
 
 
         if (customer.getCustomer_nickname().equals(customer_id.getCustomer_nickname())) {
             if (customerUserBean.updateCustomer(customer) > 0) {
-                session.setAttribute("Customer", customerUserBean.getCustomer(customer_id.getId()));
+                session.setAttribute("customer", customerUserBean.getCustomer(customer_id.getId()));
                 map.put("massage", 1);
             } else {
                 map.put("massage", "修改失败！");
@@ -65,7 +65,7 @@ public class CustomerUserControl {
                 map.put("massage", "修改失败,该用户名已经被使用！");
             } else {
                 if (customerUserBean.updateCustomer(customer) > 0) {
-                    session.setAttribute("Customer", customerUserBean.getCustomer(customer_id.getId()));
+                    session.setAttribute("customer", customerUserBean.getCustomer(customer_id.getId()));
                     map.put("massage", 1);
 
                 } else {
@@ -73,6 +73,7 @@ public class CustomerUserControl {
                 }
             }
         }
+        System.out.println("dddd11");
         return map;
     }
 }

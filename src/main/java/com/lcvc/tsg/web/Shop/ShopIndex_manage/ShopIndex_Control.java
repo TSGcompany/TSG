@@ -43,8 +43,22 @@ public class ShopIndex_Control {
     //=======================================获取书（分页15个）==========================
     @RequestMapping(value = "/shop/getShopIndexBook", method = RequestMethod.GET)
     public String getShopIndexBook(HttpServletRequest request,Integer index){
-
-        request.setAttribute("getShopIndexBook",shopIndexBean.getShopIndexBook(index));
+        //分页
+        if (index < 0) {
+            index = 0;
+        }
+        int c = 0;
+        if (bookBean.BookCount() % 15 == 0) {//计算页码
+            c = bookBean.BookCount() / 15;
+        } else {
+            c = (bookBean.BookCount() / 15) + 1;
+        }
+        if (index > c) {
+            index = c;
+        }
+        request.setAttribute("indexPage", index);
+        request.setAttribute("PageCount", c);
+        request.setAttribute("getShopIndexBook",bookBean.BookShow(index,15));
         return "shop/middle.jsp";
     }
     /**
@@ -60,6 +74,10 @@ public class ShopIndex_Control {
         //   System.out.println(shopIndexBean.getBookRandomName());
         return map;
     }
-
+    //====================================查看某本书详情====================================
+    @RequestMapping(value = "/shop/getBookDetails", method = RequestMethod.GET)
+    public String getBookDetails(){
+        return "";
+    }
 
 }

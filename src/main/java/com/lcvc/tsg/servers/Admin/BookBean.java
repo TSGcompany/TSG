@@ -56,9 +56,9 @@ public class BookBean {
      * @Date 下午 5:52 2018/10/7 0007
      **/
     //=============================== 展示书（分页） ==================================
-    public    List<Book> BookShow(int index){
+    public    List<Book> BookShow(int index,int totals){
         index=index*10;//每10个分页
-        return bookDao.BookShow(index);
+        return bookDao.BookShow(index,totals);
     }
     /**
      * @Author Anle

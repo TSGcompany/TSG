@@ -9,27 +9,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<%
-    HttpSession sess = request.getSession();
-    String message = (String) sess.getAttribute("mes");
-    if (message == "") {
-%>
-<%
-} else {
-%>
-<script type="text/javascript">
-    alert("<%=message%>");
-</script>
-<%
-        sess.setAttribute("mes", "");
-    }
-%>
 <script src='<%=basePath%>jsp/admin/js/jquery.min.js'></script>
-<script language="JavaScript">
-    function del_confirm() {
-        event.returnValue = confirm("删除是不可恢复的，你确认要删除吗？");
-    }
-</script>
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -38,12 +18,34 @@
     <!-- <script type="text/javascript" src="js/jquery.js""></script>-->
     <script type="text/javascript" src="<%=basePath %>jsp/admin/js/jquery.js"></script>
     <script src='<%=basePath%>jsp/admin/js/jquery.min.js'></script>
+    <script>
 
+        $(document).ready(function() {
+            //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
+
+            //删除产品事件
+            $("a[name='deleteAdmin_buttn']").click(function () {
+                var $this = $(this);
+                var judge = window.confirm('确定要删除吗？删除后无法恢复！');//提示  点击确定就返回true
+                if (judge == true) {
+                    //获取当前点击的对象 根据点击的对象来获取对象中某一个字段
+                    $.get($(this).attr("href"), function (data) {//根据服务端传过来的值 判断是否删除成功
+                        if (data.deleteAdmin == 1) {//表示可以删除
+                            alert("删除失败无法删除自己！")
+                        } else {
+                            alert("删除成功！");
+                            $this.parent().parent().remove();
+                        }
+                    });//获取当前点击对象  获取它字段中href的值 get  方法与post方法相同
+                }
+                return false;//点击取消的的时候让跳转地址失效
+            });
+        });
+    </script>
 </head>
 
 
 <body>
-
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -51,7 +53,6 @@
         <li><a href="#">所有书籍</a></li>
     </ul>
 </div>
-
 <div class="rightinfo">
 
     <table class="tablelist">
@@ -80,7 +81,7 @@
                 <td>${i.admin_phone}</td>
                 <td>${i.admin_Email}</td>
                 <td><a href="<%=basePath %>admin/goupdateubase?id=${i.id}" class="tablelink">修改</a>
-                    <a href="<%=basePath %>admin/deleteAdmin?id=${i.id}" onclick="del_confirm()" class="tablelink">
+                    <a href="<%=basePath %>admin/deleteAdmin?id=${i.id}" id="deleteAdmin_buttn" name="deleteAdmin_buttn" class="tablelink">
                         删除</a></td>
             </tr>
         </c:forEach>
@@ -88,7 +89,6 @@
         </tbody>
     </table>
 </div>
-
 <script type="text/javascript">
     $('.tablelist tbody tr:odd').addClass('odd');
 </script>

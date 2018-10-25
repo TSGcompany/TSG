@@ -14,17 +14,16 @@
         <script src="<%=basePath %>plugins/kindeditor-4.1.10/kindeditor-min.js"></script>
         <script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
         <script src='<%=basePath%>jsp/admin/js/jquery.min.js'></script>
-        <script>
+        <script language=JavaScript>
             $(document).ready(function() {
 
                 $("#updatebase").click(function () {  //点击登录按钮
                     var admin_nickname = $("#admin_nickname").val();
                     var admin_phone = $("#admin_phone").val();
-                    var admin_head = $("#admin_head").val();
                     var admin_Email = $("#admin_Email").val();
                     var status = false;
-
                     if (admin_nickname.length == 0 || admin_nickname == '') {
+                        alert("昵称不能为空")
                         status = false;
                     } else if (admin_phone.length == 0 || admin_phone == '') {
                         alert("电话不能为空")
@@ -32,31 +31,22 @@
                     } else if (admin_Email.length == 0 || admin_Email == '') {
                         alert("邮箱不能为空")
                         status = false;
-                        } else {
-                            status = true;
-                        }
-
-                        if (status) {
-
-                            $.post("<%=basePath%>admin/updateubase", $("#baseupdateform").serialize(), function (data) {
-                                if (data.massage == 1) {
-                                    alert("修改成功");
-                                    location.href = "<%=basePath%>admin/ToIndex";
-                                } else {
-                                    alert(data.massage);
-                                    //alert("修改失败");
-                                }
-
-                            });
-
-                        } else {
-
-
-                        }
+                    } else {
+                        status = true;
+                    }
+                    if (status==true) {
+                        $.post("<%=basePath%>admin/updateubase", $("#baseupdateform").serialize(), function (data) {
+                            if(data.massage==1){
+                                alert("修改成功！");
+                                parent.location.reload();
+                            }else{
+                                alert("用户名已存在，请重新输入！");
+                            }
+                        });//获取当前点击对象  获取它字段中href的值 get  方法与post方法相同
+                    }
+                    return false;//点击取消的的时候让跳转地址失效
                 });
-
             });
-
             //当点击“清除图片路径”时，将清除图片路径信息
 
             //当点击“清除图片路径”时，将清除图片路径信息
