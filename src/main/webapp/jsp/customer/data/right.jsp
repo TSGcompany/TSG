@@ -46,7 +46,7 @@
                 if (status) {
 
                     $.post("<%=basePath%>customer/updateCustomer", $("#userupdateform").serialize(), function (data) {
-                        if (data.massage == 1) {
+                        if (data.massage == 1){
                             alert("修改成功");
 
                         } else {
