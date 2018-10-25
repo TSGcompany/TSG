@@ -49,26 +49,33 @@
 	width: 90px;
 	height: 50px;
 	border: 1px solid #DCDCDC;
-	background-color:#5cd053;
+	background-color:#99E0F2;
 	position:fixed;
     display: flex;
     justify-content: center;  
     margin: 330px 0 0 500px;
     position:absolute;
 	border-radius: 10px;
-}	
+}
+#borrow:hover{
+	background-color: #B3C2F9;
+}
+
 /*预约按钮*/
 #make{
 	width: 90px;
 	height: 50px;
 	border: 1px solid #DCDCDC;
-	background-color:#5cd053;
+	background-color:#99E0F2;
 	position:fixed;
     display: flex;
     justify-content: center;  
     margin:330px 0 0 650px;
     position: absolute;
 	border-radius: 10px;
+}
+#make:hover{
+	background-color: #B3C2F9;
 }
 /*字体设置*/
 a{

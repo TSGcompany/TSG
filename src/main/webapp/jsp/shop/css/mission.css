@@ -289,6 +289,7 @@ ul.disc li:hover{
 	font-size: 16px;
 	display:block;
 	text-decoration:none;
+	padding: 5px 0 ;
 	margin:2px;
 	color:#000000;
 	padding-left:2px;
@@ -303,6 +304,7 @@ ul.disc li:hover{
 	font-size: 16px;
 	display:block;
 	text-decoration:none;
+	padding: 5px 0 ;
 	margin:2px;
 	color:#000000;
 	padding-left:2px;
