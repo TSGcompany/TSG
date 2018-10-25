@@ -75,13 +75,15 @@
 
             });
             //=============================查看某本书的详情========================
-            $("#getBookDetails").click(function () {
-                if (stud) {
-                    var bookid = $("#bookid").attr("name");
-                    alert(bookid);
-                }
-
-            });
+//            $("#getBookDetails").click(function () {
+//                if (stud) {
+//                    var bookid = $("#bookid").attr("name");
+//
+//
+//                    alert(bookid);
+//                }
+//
+//            });
 
         });
 
@@ -106,7 +108,7 @@
         <!--书本灰色边框 -->
         <c:forEach items="${getShopIndexBook}" var="i">
             <div id="tsg_among">
-                <a href="${i.id}">
+                <a href="<%=basePath%>shop/toBookDetailsPage?book_id=${i.id}" target="_top">
                     <img id="getBookDetails" src="<%=basePath%>jsp/shop/img/ts1.jpg"/>
                     <span id="bookid" name="${i.id}" hidden></span>
                     <h4 style="margin-top: -5px">${i.book_author}</h4>

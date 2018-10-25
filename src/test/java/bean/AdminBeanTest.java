@@ -97,4 +97,9 @@ public class AdminBeanTest extends SpringJunitTest{
 //        int c = userBean.updateUserPassWord(customer);
 //        System.out.println(c);
 //    }
+
+
+
+
+
 }

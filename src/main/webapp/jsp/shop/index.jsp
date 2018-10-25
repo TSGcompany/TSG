@@ -236,9 +236,35 @@
 <body>
 <c:choose>
     <c:when test="${sessionScope.customer!=null}">
-        <li><a name="Click_Head"><img src="${sessionScope.customer.customer_head}"
-           style="width: 40px;height: 40px;position: absolute;margin-top: 35px;margin-left:1600px;border-radius:30px "></a>
-        </li>
+
+
+        <c:choose>
+            <c:when test="${sessionScope.customer.customer_head!=null}">
+
+                <li><a name="Click_Head"><img src="${sessionScope.customer.customer_head}"
+                                              style="width: 40px;height: 40px;position: absolute;margin-top: 35px;margin-left:1600px;border-radius:30px "></a>
+                </li>
+
+            </c:when>
+            <c:otherwise>
+
+                <li><a name="Click_Head"><img src="<%=basePath%>jsp/OtherFile/image/defaultHeadimage.gif"
+                                              style="width: 40px;height: 40px;position: absolute;margin-top: 35px;margin-left:1600px;border-radius:30px "></a>
+                </li>
+
+            </c:otherwise>
+
+
+
+        </c:choose>
+
+
+
+
+
+
+
+
 
     </c:when>
     <c:otherwise>

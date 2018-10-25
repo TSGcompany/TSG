@@ -5,7 +5,11 @@
   Time: 下午 5:13
   To change this template use File | Settings | File. Templates
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -24,7 +28,23 @@
         <li><a href="">读者服务</a></li>
         <li><a href="">资源动态</a></li>
         <li><a href="">讲座/活动</a></li>
-        <li class="img_head"><img src="${sessionScope.customer.customer_head}"/></li>
+        <c:choose>
+            <c:when test="${sessionScope.customer.customer_head!=null}">
+                <li class="img_head"><img src="${sessionScope.customer.customer_head}"/></li>
+
+
+            </c:when>
+
+            <c:otherwise>
+
+                <li class="img_head"><img src="<%=basePath%>jsp/OtherFile/image/defaultHeadimage.gif"/></li>
+
+            </c:otherwise>
+
+        </c:choose>
+
+
+
         <li class="nav_2"><a href="<%=basePath%>user/logout" target="_parent">退出</a></li>
 
         <iframe allowtransparency="true" frameborder="0" width="180" height="36"
