@@ -25,7 +25,6 @@ public class CustomerUserControl {
      * @Date 上午 9:49 2018/10/8 0008
      **/
     @ResponseBody
-
     @RequestMapping(value = "/customer/UserUpdatePassWord", method = RequestMethod.POST)
     public Map<String, Object> updatePassword(String oldpass, String newpass, String confirmpass, HttpSession session) {
 
@@ -51,6 +50,8 @@ public class CustomerUserControl {
         Map<String, Object> map = new HashMap<String, Object>();
         Customer customer_id = (Customer) session.getAttribute("Customer");
         customer.setId(customer_id.getId());
+
+
 
         if (customer.getCustomer_nickname().equals(customer_id.getCustomer_nickname())) {
             if (customerUserBean.updateCustomer(customer) > 0) {

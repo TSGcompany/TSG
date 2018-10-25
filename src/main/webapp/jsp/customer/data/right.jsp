@@ -1,12 +1,11 @@
 
-<!DOCTYPE html>
+
 <html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page language="java" pageEncoding="utf-8" %>
-
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -23,7 +22,8 @@
     <script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor-all-min.js"></script>
     <script src='<%=basePath%>jsp/customer/js/jquery.min.js'></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
+
             $("#updatebase").click(function () {  //点击登录按钮
                 var customer_nickname = $("#customer_nickname").val();
                 var customer_Email = $("#customer_Email").val();
@@ -33,10 +33,10 @@
                 if (customer_nickname.length == 0 || customer_nickname == '') {
                     alert("名字不能为空");
                     status = false;
-                } else if (customer_Email.length == 0 || customer_Email == '') {
+                }else if (customer_Email.length == 0 || customer_Email == '') {
                     alert("邮箱不能为空")
                     status = false;
-                }else if (customer_phone.length == 0 || customer_phone== '') {
+                }else if (customer_phone.length == 0 || customer_phone == '') {
                     alert("手机号不能为空")
                     status = false;
                 }else {
@@ -48,7 +48,7 @@
                     $.post("<%=basePath%>customer/updateCustomer", $("#userupdateform").serialize(), function (data) {
                         if (data.massage == 1) {
                             alert("修改成功");
-                            location.href = "<%=basePath%>user/ToIndex";
+
                         } else {
                             alert(data.massage);
                             //alert("修改失败");
@@ -89,56 +89,60 @@
                 });
             });
         });
+
     </script>
 </head>
 <body>
 <div class="right_time">
     <div class="formtitle"><span>个人资料</span></div>
-    <form id="userupdateform" method="post">
+    <form class="contact_form" id="userupdateform" action="#" method="post" name="contact_form">
     <div class="right_donw">
         <div class="img_head">
-           <li> <img id="customer_head1" style="margin-left: 90px" border="1"  width="100px"  height="100px" src="${sessionScope.Customer.customer_head}">
-               <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
-           </li>
+            <img id="customer_head1" src="${sessionScope.Customer.customer_head}">
+            <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
+            <input id="customer_head" name="customer_head" type="text" class="dfinput" value="${sessionScope.Customer.customer_head}" readonly="readonly" style="display:none" />
         </div>
-
         <div class="right_dom">
             <ul>
-                <li>用户名：<input id="customer_name" name="customer_name" type="text" value="${sessionScope.Customer.customer_name}" readonly ></li>
+                <li>用户名：<input name="customer_name" id="customer_name" value="${sessionScope.Customer.customer_name}" readonly/></li>
+                <li>手&nbsp;&nbsp;&nbsp;机：xxxxx</li>
+                <li>邮&nbsp;&nbsp;&nbsp;箱：xxxxx</li>
             </ul>
 
                 <li class="usually">
-                    <span>昵称: <input type="text" id="customer_nickname" name="customer_nickname" value="${sessionScope.Customer.customer_nickname}" required/></span>
-
+                    <span>昵称:</span>
+                    <input type="text" id="customer_nickname" name="customer_nickname" value="${sessionScope.Customer.customer_nickname}"  required/>
                 </li>
 
                 <li class="special">
                     <span >性别:</span>
-                    <input type="radio" name="sex" id="male" checked/>
-                    <label for="male">男</label>
-                    <input type="radio" name="sex" id="female"/>
-                    <label for="female">女</label>
 
+                    <input type="radio" value="0" name="customer_sex" ${sessionScope.Customer.customer_sex=="" ? "checked='checked'" : ""} />
+                    男
+
+                    <input type="radio" value="1" name="customer_sex" ${sessionScope.Customer.customer_sex=="1" ? "checked='checked'" : ""} />
+                    女
                 </li>
+
 
                 <li class="usually">
-                    <span>电子邮箱: <input type="email" id="customer_Email" name="customer_Email" value="${sessionScope.Customer.customer_Email}" placeholder="javin@example.com" required/></span>
-
+                    <span>电子邮箱:</span>
+                    <input type="email" id="customer_Email" name="customer_Email" placeholder="javin@example.com" value="${sessionScope.Customer.customer_Email}"  required/>
                 </li>
                 <li class="usually">
-                    <span>联系电话: <input type="text" id="customer_phone" name="customer_phone" value="${sessionScope.Customer.customer_phone}"  required/></span>
+                    <span>联系电话:</span>
+                    <input type="text" id="customer_phone" name="customer_phone" value="${sessionScope.Customer.customer_phone}" required/>
                 </li>
 
 
-                <li >
-                    <button id="updatebase" name="updatebase" class="submit" type="submit">保存修改</button>
-                </li>
+            <li >
+                <label>&nbsp;</label><input name="updatebase" id="updatebase" type="button" class="btn" value="保存修改"/>
+            </li>
 
         </div>
-
     </div>
-    </form>
 
+    </form>
 </div>
 
 </body>
