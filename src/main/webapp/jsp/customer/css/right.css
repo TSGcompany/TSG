@@ -13,11 +13,11 @@ html{
 	border-bottom:1px solid #F1F2F3;
 }
 .img_head{
-	 width: 100px;
-	 height: 100px;
-	 border: none;
-	 border-radius: 50px;
-	 margin: 20px 300px;
+	width: 100px;
+	height: 100px;
+	border: none;
+	border-radius: 50px;
+	margin: 20px 300px;
 }
 img{
 	width: 100px;
@@ -25,22 +25,22 @@ img{
 	border-radius:50px;
 }
 .right_dom{
-		 margin: -90px 430px;
-		 font-size: 20px;
+	margin: -90px 430px;
+	font-size: 20px;
 }
 ul{
 	display:block;
 	margin:0;
 	padding:0;
 	list-style:none;
-	}
+}
 li{
 	display:block;
 	margin:0;
 	padding:0;
 	list-style: none;
-	}
-	
+}
+
 /*第四单元 项目4-2 用户注册页面*/
 *:focus{outline:none;}
 .contact_form{
@@ -113,7 +113,7 @@ li{
 }
 /*Button Style*/
 button.submit{
-	background-color:#68b12f;
+	background-color:#3d96c9;
 	/*背景颜色线性渐变：由上至下从#68b12f色过渡到#50911e色*/
 	background:linear-gradient(top, #68b12f, #50911e);
 	border:1px solid #50911e;
