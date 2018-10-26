@@ -3,7 +3,6 @@ package com.lcvc.tsg.model;
 public class Customer {
     private Integer id;
     private String customer_name;//用户名字
-    private String customer_password;//用户密码
 
     public Integer getId() {
         return id;
@@ -85,6 +84,7 @@ public class Customer {
         this.customer_nickname = customer_nickname;
     }
 
+    private String customer_password;//用户密码
     private String customer_head;//头像
     private String customer_phone;//用户手机号
     private String customer_Email;//用户邮箱
@@ -92,26 +92,6 @@ public class Customer {
     private boolean customer_prohibit_Login;//禁止登陆
     private boolean customer_prohibit_Borrowing;//禁止借书
     private String customer_nickname;//用户昵称
-
-    public Integer getCustomer_age() {
-        return customer_age;
-    }
-
-    public void setCustomer_age(Integer customer_age) {
-        this.customer_age = customer_age;
-    }
-
-    private Integer customer_age;//年龄
-
-    public String getCustomer_xingming() {
-        return customer_xingming;
-    }
-
-    public void setCustomer_xingming(String customer_xingming) {
-        this.customer_xingming = customer_xingming;
-    }
-
-    private String customer_xingming;//姓名
 
 
 
