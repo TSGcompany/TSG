@@ -38,7 +38,9 @@
 		<p>书名：${getBookDetails.book_name}</p></br>
 		<p>作者：${getBookDetails.book_author}</p></br>
 		<p>可借册数：${getBookDetails.book_number}</p></br>
-		<p>评分：（已有0条评论）</p>
+		<p>评分：（已有0条评论）</p></br>
+		<p>简介：</p>
+		<div class="brief" style="width: 700px; height: 165px;font-size:16px;border: 1px solid #ccc;margin-top: 5px;text-indent:35px">愿你的青春不负梦想</div>
 	</div>
 	<!--
         作者：offline
@@ -95,8 +97,22 @@
 			</ul>
 			<!--这个div为选项卡的内容，显示不同菜单的不同内容，并且设置其中一个div为可见，其他隐藏-->
 			<div id="content">
-				<div style="display: block;"><img src="<%=basePath%>jsp/shop/img/emptyImage.png" style="width: 870px;height:800px"></div>
-				<div>评论</div>
+				<div style="display: block;">
+					<h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">目录</h2>
+
+					<!--<img src="<%=basePath%>jsp/shop/img/emptyImage.png" style="width: 870px;height:800px;position: absolute;margin-top: -90px;">-->
+				</div>
+
+				<div >
+					<img src="<%=basePath%>jsp/customer/images/ptx.jpg" style="width: 50px;height:50px;border-radius:50px;margin: 10px 10px;">
+					<h2 style="font-size: 16px;margin: -35px 70px; border-bottom: 1px dashed #CCCCCC;height: 50px">评论</h2></br></br>
+
+
+				</div>
+
+
+
+
 			</div>
 		</div>
 	</div>
@@ -124,6 +140,6 @@
 	<script src="../js/details.js"></script>
 
 
-
+</div>
 </body>
 </html>
