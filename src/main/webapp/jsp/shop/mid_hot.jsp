@@ -22,7 +22,28 @@
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/mid_hot.css" />
     <script>
         $(document).ready(function () {
+
             setInterval("startRequest()", 10000);//10秒刷新一下书名字的内容
+
+            //======================搜索=====================
+            $("#search").click(function () {//点击搜索按钮时
+                var book_name=$(this).parent().find("input").val();//当前点击的这个按钮 的父类 下面的input 值\
+                var  placeholder_var=$(this).parent().find("input").attr("placeholder");//获取默认提示框内的值
+                var book_type_id = $(this).parent().parent().find("select").val();//获取类型的id
+                if(book_name=="" || book_name.length<1){//如果用户没输入的话就将提示框的值设置为搜索的值
+                    book_name=placeholder_var;
+                }
+
+
+              $.get("<%=basePath%>shop/SearchBookWhereBookType", { book_name: book_name, book_type_id: book_type_id} );
+
+            //   alert(book_type_id);
+
+
+
+            //  var AddBorrowing = $(this).find("span").attr("name");//获取span中的name值
+
+            });
         });
         //提示框随机提示书的内容
         function startRequest() {
@@ -53,7 +74,7 @@
         <img src="<%=basePath%>jsp/shop/img/rd3.png"/>
     </div>
     </a>
-<form>
+
     <div class="tsg_input">
         <select name="book_type.id" id="u_input">
             <option value="">请选择</option>
@@ -63,11 +84,11 @@
         </select>
 
         <div id="tsg_mane">
-            <input type="text" name="search" id="searchInput" value="" placeholder="${getBookRandomName}">
+            <input  name="search" id="searchInput" value="" placeholder="${getBookRandomName}">
             <div id="search">搜索</div>
         </div>
     </div>
-</form>
+
 </div>
 
 </body>

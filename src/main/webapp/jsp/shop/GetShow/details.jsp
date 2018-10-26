@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	String path = request.getContextPath();
@@ -67,19 +68,20 @@
 	<!--最左边长条框-->
 	<div class="list">
 		<!--第一部分-->
+		<c:forEach items="${recommend_Book}" var="i">
 		<div class="book1">
 			<div class="item">
 				<div class="pic">
-					<img src="../img/ts1.jpg"  alt="">
+					<img src="${i.book_icon}" >
 				</div>
 				<div class="desc">
-					<div class="detail"><i>愿你的青春不负梦想</i>
+					<div class="detail"><i>${i.book_name}</i>
 					</div>
 				</div>
 			</div>
 		</div>
 
-
+		</c:forEach>
 
 	</div>
 
@@ -93,7 +95,7 @@
 			</ul>
 			<!--这个div为选项卡的内容，显示不同菜单的不同内容，并且设置其中一个div为可见，其他隐藏-->
 			<div id="content">
-				<div style="display: block;">目录</div>
+				<div style="display: block;"><img src="<%=basePath%>jsp/shop/img/emptyImage.png" style="width: 870px;height:800px"></div>
 				<div>评论</div>
 			</div>
 		</div>

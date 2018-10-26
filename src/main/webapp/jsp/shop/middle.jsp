@@ -24,7 +24,6 @@
 
     <script>
         $(document).ready(function () {
-            var stud = true;//用于区别借阅和获取详情
             //=====================没登录时点击借阅按钮======================
             $("div[name='NoLoginButton']").click(function () {
 
@@ -33,7 +32,7 @@
 
             //====================登录之后点击借阅按钮 .========================
             $("div[name='BorrowingBookBtn']").click(function () {
-                stud = false;
+
                 var AddBorrowing = $(this).find("span").attr("name");//获取span中的name值
 
                 $.get(AddBorrowing, function (data) {//路径， 返回值
