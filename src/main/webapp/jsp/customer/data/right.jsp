@@ -86,46 +86,46 @@
 <div class="right_time">
     <div class="formtitle"><span>个人资料</span></div>
     <form id="updateform" method="post">
-    <div class="right_donw">
-        <div class="img_head" id="image1">
-            <img src="${sessionScope.customer.customer_head}" id="customer_head1"></div>
-        <div class="right_dom">
-            <ul>
-                <li>用户名：${sessionScope.customer.customer_name}</li>
-                <li>手&nbsp;&nbsp;&nbsp;机：${sessionScope.customer.customer_phone}</li>
-                <li>邮&nbsp;&nbsp;&nbsp;箱：${sessionScope.customer.customer_Email}</li>
-            </ul>
+        <div class="right_donw">
+            <div class="img_head" id="image1">
+                <img src="${sessionScope.customer.customer_head}" id="customer_head1"></div>
+            <div class="right_dom">
+                <ul>
+                    <li>用户名：${sessionScope.customer.customer_name}</li>
+                    <li>手&nbsp;&nbsp;&nbsp;机：${sessionScope.customer.customer_phone}</li>
+                    <li>邮&nbsp;&nbsp;&nbsp;箱：${sessionScope.customer.customer_Email}</li>
+                </ul>
                 <li class="usually">
                     <span>昵称:</span>
                     <input type="text" id="customer_nickname" name="customer_nickname" required value="${sessionScope.customer.customer_nickname}"/>
                 </li>
-            <input id="customer_head" name="customer_head" type="text" class="dfinput" value="${sessionScope.customer.customer_head}" readonly="readonly" style="display:none" />
+                <input id="customer_head" name="customer_head" type="text" class="dfinput" value="${sessionScope.customer.customer_head}" readonly="readonly" style="display:none" />
 
-               <c:choose>
-                   <c:when test="${sessionScope.customer.customer_sex==true}">
+                <c:choose>
+                    <c:when test="${sessionScope.customer.customer_sex==true}">
 
-                       <li class="special">
-                           <span >性别:</span>
-                           <input type="radio" name="sex" checked/>
-                           <label for="male">男</label>
-                           <input type="radio" name="sex" />
-                           <label for="female">女</label>
+                        <li class="special">
+                            <span >性别:</span>
+                            <input type="radio" name="sex" checked/>
+                            <label for="male">男</label>
+                            <input type="radio" name="sex" />
+                            <label for="female">女</label>
 
-                       </li>
-                   </c:when>
-                   <c:otherwise>
-                       <li class="special">
-                           <span >性别:</span>
-                           <input type="radio" name="sex" id="male"/>
-                           <label for="male">男</label>
-                           <input type="radio" name="sex" id="female"  checked/>
-                           <label for="female">女</label>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="special">
+                            <span >性别:</span>
+                            <input type="radio" name="sex" id="male"/>
+                            <label for="male">男</label>
+                            <input type="radio" name="sex" id="female"  checked/>
+                            <label for="female">女</label>
 
-                       </li>
+                        </li>
 
-                   </c:otherwise>
+                    </c:otherwise>
 
-               </c:choose>
+                </c:choose>
 
 
                 <li class="usually">
@@ -141,8 +141,8 @@
                 <li >
                     <button class="submit" type="button" id="updatebase" name="updatebase">保存修改</button>
                 </li>
+            </div>
         </div>
-    </div>
     </form>
 
 </div>
