@@ -44,7 +44,8 @@ public class CustomerUserControl {
         }
         return map;
     }
-    //----------------------------------修改基本信息--------------------------
+    //----------------------------------修改基本信息---------------------------
+
     @ResponseBody
     @RequestMapping(value = "/user/updateCustomer", method = RequestMethod.POST)
     public Map<String, Object> updateCustomer(Customer customer, HttpSession session) {

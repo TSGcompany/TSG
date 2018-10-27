@@ -106,9 +106,9 @@
 
                        <li class="special">
                            <span >性别:</span>
-                           <input type="radio" name="sex" id="male" checked/>
+                           <input type="radio" name="sex" checked/>
                            <label for="male">男</label>
-                           <input type="radio" name="sex" id="female" />
+                           <input type="radio" name="sex" />
                            <label for="female">女</label>
 
                        </li>
