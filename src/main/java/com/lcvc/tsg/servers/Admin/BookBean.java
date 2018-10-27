@@ -42,6 +42,16 @@ public class BookBean {
    public List<Book>SearchBookWhereBookType(Book book){
         return bookDao.SearchBookWhereBookType(book);
     }
+
+    /**
+     * @Author Anle
+     * @Date 下午 5:37 2018/10/26 0026
+     **/
+    //================================推荐阅读的书 (前三)===========================
+    public  List<Book>Recommend_Book(int book_id){
+            //根据这本书的id获取他的类型
+        return bookDao.Recommend_Book( getBook(book_id).getBook_type().getId());
+    }
     /**
      * @Author Anle
      * @Date  2018/10/7 0007

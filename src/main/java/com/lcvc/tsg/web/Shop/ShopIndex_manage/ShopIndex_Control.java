@@ -1,6 +1,7 @@
 package com.lcvc.tsg.web.Shop.ShopIndex_manage;
 
 import com.lcvc.tsg.model.Book;
+import com.lcvc.tsg.model.Book_Type;
 import com.lcvc.tsg.servers.Admin.BookBean;
 import com.lcvc.tsg.servers.Shop.ShopIndexBean;
 import org.springframework.http.HttpRequest;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -79,24 +81,40 @@ public class ShopIndex_Control {
     //=====================================搜索书=======================================
     @ResponseBody
     @RequestMapping(value = "/shop/SearchBookWhereBookType", method = RequestMethod.GET)
-    public String SearchBookWhereBookType(HttpServletRequest request, Book book){
+    public String SearchBookWhereBookType(HttpServletRequest request,String book_name,Integer book_type_id){
+        System.out.println(book_name);
+        System.out.println(book_type_id);
 
-//        int c = 0;
-//        if (bookBean.BookCount() % 15 == 0) {//计算页码
-//            c = bookBean.BookCount() / 15;
-//        } else {
-//            c = (bookBean.BookCount() / 15) + 1;
-//        }
-//
-//        request.setAttribute("indexPage", 1);
-//        request.setAttribute("PageCount", c);
-//        request.setAttribute("getShopIndexBook",bookBean.BookShow(index,15));
+        List<Book> listbook=null;
+        if(book_type_id!=null){//判断是否根据类型来选的
+            Book book = new Book();
+            book.setBook_name(book_name);
+            Book_Type book_type = new Book_Type();
+            book_type.setId(book_type_id);
+            book.setBook_type(book_type);
+            listbook=bookBean.SearchBookWhereBookType(book);
+        }else{
+        //如果类型为空你们说明他只是单纯查某本书、
+            listbook=bookBean.SearchBook(book_name);
+        }
+
+        for (Book b:listbook ) {
+            System.out.println(b.getBook_name());
+        }
 
 
-
-
-
-        return "shop/middle.jsp";
+//        //1.先将数据提交到数据库看返回多少
+        //计算页码
+        int c = 0;
+        if (listbook.size() % 15 == 0) {//计算页码
+            c = listbook.size() / 15;
+        } else {
+            c = (listbook.size() / 15) + 1;
+        }
+        request.setAttribute("indexPage", 1);//技术有限只能写第一页
+        request.setAttribute("PageCount", c);
+        request.setAttribute("getShopIndexBook",listbook);
+           return "shop/middle.jsp";
 
     }
 

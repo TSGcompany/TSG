@@ -14,6 +14,7 @@ public interface BookDao {
      **/
     //=============================== 搜索书 ==================================
     List<Book> SearchBook(String searchs);
+
     /**
      * @Author Anle
      * @Date 下午 5:41 2018/10/25 0025
@@ -23,11 +24,18 @@ public interface BookDao {
 
     /**
      * @Author Anle
+     * @Date 下午 5:37 2018/10/26 0026
+     **/
+    //================================推荐阅读的书 (前三)===========================
+    List<Book>Recommend_Book(int bookType_id);
+
+    /**
+     * @Author Anle
      * @Date 下午 1:35 2018/10/7 0007
      **/
     //=============================== 展示书（分页） ==================================
     List<Book> BookShow(@Param(value="index")int index, @Param(value="totals")int totals);
-    //(@Param(value="customer_name")String CustomerName, @Param(value="customer_password")
+
     /**
      * @Author Anle
      * @Date  2018/10/7 0007

@@ -20,10 +20,19 @@ public class Book {
     private String book_description;// 书描述
     private Admin book_editorsID; //书的最后编辑者
     private java.util.Date book_release_Date; //书的添加时间
-/**
- * @Author Anle
- * @Date 上午 11:25 2018/10/3 0003
- **/
+    /**
+     * @Author Anle
+     * @Date 上午 11:25 2018/10/3 0003
+     **/
+    public Integer getBook_readingNumber() {
+        return book_readingNumber;
+    }
+
+    public void setBook_readingNumber(Integer book_readingNumber) {
+        this.book_readingNumber = book_readingNumber;
+    }
+
+    private Integer book_readingNumber;//借阅次数
     public Integer getId() {
         return id;
     }

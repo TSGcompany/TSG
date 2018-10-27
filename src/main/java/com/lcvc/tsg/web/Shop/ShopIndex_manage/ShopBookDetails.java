@@ -36,12 +36,10 @@ public class ShopBookDetails {
     public String getBookDetails( HttpServletRequest request){
         System.out.println(getBook_id);
         request.setAttribute("getBookDetails",bookBean.getBook(getBook_id));
+       // ==推荐书（3本 根据该类型以及借阅次数来排序）=====
+        request.setAttribute("recommend_Book",bookBean.Recommend_Book(getBook_id));
 
         return "shop/GetShow/details.jsp";
     }
-
-
-
-
 
 }

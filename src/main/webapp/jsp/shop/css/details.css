@@ -40,7 +40,7 @@
 	font-weight: bold;
 	color: #000000;
 	list-style: none;/*去掉圆点*/	
-	margin: 10px 0 0 10px;
+	margin: -5px 0 0 10px;
 	
 	
 	}
@@ -53,7 +53,7 @@
 	position:fixed;
     display: flex;
     justify-content: center;  
-    margin: 330px 0 0 500px;
+    margin: 370px 0 0 500px;
     position:absolute;
 	border-radius: 10px;
 }
@@ -70,7 +70,7 @@
 	position:fixed;
     display: flex;
     justify-content: center;  
-    margin:330px 0 0 650px;
+    margin:370px 0 0 650px;
     position: absolute;
 	border-radius: 10px;
 }
@@ -108,14 +108,15 @@ a:hover {
 }
 /*图书排行榜小框*/
 .kanle{
-	width: 300px;
+	width: 312px;
 	height: 50px;
 	border: 1px solid #DCDCDC;
-	background-color:#DCDCDC;
-	margin: 2px 0 0 5px;
+	background-color:#99BCE2;;
+	margin: 2px 0 0 3px;
 	position: absolute;
 
 }
+
 /*图书排行榜*/
 h3{
 	color: #000000;
@@ -195,15 +196,11 @@ h3{
 	position: absolute;
 }
 
-
-
-
 /*中间的大框*/
 *{margin: 0;padding: 0;list-style: none;}
 #box{margin: 1px 0 0 320px;position: absolute;}
-#box li{width: 100px;height: 45px;line-height: 40px;text-align: center;background-color: #d8d8d8;margin-right: 2px;float: left;}
-#box .active{background:#d98c1d;}
+#box li{width: 100px;height: 45px;line-height: 40px;font-size: 16px;font-weight:bolder;text-align: center;background-color: #d8d8d8;margin-right: 2px;float: left;}
+#box .active{background:#99BCE2;}
 #content{clear: both;}
-#content div{width: 875px;height: 820px;border: 1px solid #d8d8d8;display: none;}
-
+#content div{width: 875px;height: 820px;border: 1px solid #d8d8d8;display: none; }
 

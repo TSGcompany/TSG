@@ -197,4 +197,19 @@ public class AdminDaoTest extends SpringJunitTest {
         }
 
     }
+
+
+    /**
+     * @Author Anle
+     * @Date 下午 5:37 2018/10/26 0026
+     **/
+    //================================推荐阅读的书 (前三)===========================
+    @Test
+    public void Recommend_Book_Test(){
+        List<Book> listbook = bookDao.Recommend_Book(1);
+        for (Book b: listbook ) {
+            System.out.println(b.getBook_name());
+        }
+
+    }
 }
