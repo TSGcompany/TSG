@@ -78,9 +78,9 @@
         SELECT * from book where book_name like concat('%',#{book_name},'%') AND book_type=#{book_type.id}
 
     </select>
-    <!--==============================推荐阅读的书 (前三)============================ -->
+    <!--==============================推荐阅读的书 (前4)============================ -->
     <select id="Recommend_Book" parameterType="int" resultMap="book">
-    select * from book  WHERE book_type=#{bookType_id} order by book_readingNumber desc limit 0,3
+    select * from book  WHERE book_type=#{bookType_id} order by book_readingNumber desc limit 0,4
     </select>
 
 
