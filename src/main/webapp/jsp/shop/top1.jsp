@@ -20,6 +20,17 @@
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/top1.css">
     <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
     <script src="<%=basePath%>jsp/shop/js/top.js"></script>
+    <script>
+        $(document).ready(function () {
+            //当用户登录后点击头像
+            $("#customer_head_click").click(function () {
+                location.href = "<%=basePath%>user/ToIndex";
+            });
+        });
+
+
+    </script>
+
 </head>
 <body>
 <div class="key_top">
@@ -34,7 +45,7 @@
             <c:when test="${sessionScope.customer!=null}">
                 <c:choose>
                 <c:when test="${sessionScope.customer.customer_head!=null}">
-                    <li class="img_head"><img src="${sessionScope.customer.customer_head}"/></li>
+                    <li class="img_head" id="customer_head_click"><img src="${sessionScope.customer.customer_head}"/></li>
                     <li class="nav_2"><a href="<%=basePath%>user/logout" target="_parent" target="_parent">退出</a></li>
                 </c:when>
                 <c:otherwise>

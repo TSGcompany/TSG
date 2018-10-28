@@ -1,5 +1,6 @@
 package com.lcvc.tsg.servers.Admin;
 
+import com.lcvc.tsg.OtherPackage.MyMD5;
 import com.lcvc.tsg.dao.AdminDao.PersonalDao;
 import com.lcvc.tsg.model.Admin;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,7 @@ public class PersonalBean {
 
     //=============================== 添加管理员==============================
     public int AddAdmin(Admin admin) {
+        admin.setAdmin_password(MyMD5.MD5(admin.getAdmin_password()));//加密
         return personalDao.AddAdmin(admin);
 
     }

@@ -1,7 +1,10 @@
 package com.lcvc.tsg.web.Admin.book_manage;
 
+import com.lcvc.tsg.dao.CustomerDao.CustomerRegisterDao;
+import com.lcvc.tsg.dao.CustomerDao.CustomerUserDao;
 import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Book;
+import com.lcvc.tsg.model.Borrowing;
 import com.lcvc.tsg.servers.Admin.BookBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +27,10 @@ import java.util.Map;
 public class BookControl {
     @Resource
     private BookBean bookBean;
+    @Resource
+    private CustomerRegisterDao crd;//用于查看用户名是否存在
+    @Resource
+    private CustomerUserDao customerUserDao;//用于还书
 
     /**
      * @Author Anle
@@ -46,21 +53,9 @@ public class BookControl {
         }
         request.setAttribute("indexPage", index);
         request.setAttribute("PageCount", c);
-        request.setAttribute("BookShow", bookBean.BookShow(index,10));
+        request.setAttribute("BookShow", bookBean.BookShow(index, 10));
 
         return "admin/book/books.jsp";
-    }
-    //-------------------------------添加书籍------------------------------------
-
-    /**
-     * @Author Anle
-     * @Date 上午 11:43 2018/10/8 0008
-     **/
-    // @ResponseBody表示用json格式返回数据 ajax
-    @ResponseBody
-    public Map<String, Object> addBook() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        return map;
     }
 
     //=============================== 获取所有书的类型==================================
@@ -73,7 +68,7 @@ public class BookControl {
     @RequestMapping(value = "/admin/getBook_TypeAll", method = RequestMethod.GET)
     public String getBook_TypeAll(HttpServletRequest request) {
         request.setAttribute("getBook_TypeAll", bookBean.getBook_TypeAll());
-        return "customer/plugins/Addbooks.jsp";
+        return "admin/book/Addbooks.jsp";
     }
 
     //=============================== 添加书籍==================================
@@ -107,21 +102,57 @@ public class BookControl {
     // @ResponseBody表示用json格式返回数据 ajax
     @ResponseBody
     @RequestMapping(value = "/admin/Return_Book", method = RequestMethod.POST)
-    public Map<String, Object> Return_Book(String book_id) {
+    public Map<String, Object> Return_Book(String book_id, String customer_name) {
         Map<String, Object> map = new HashMap<String, Object>();
-        //1.查看要还的书是否存在
-        if (bookBean.getBook_whereBook_id(book_id) != null) {//如果返回的不是null表示该书存在于数据库中
-            //2.存在数据库中的话就获取他现有的书本数量
-            Book book = bookBean.getBook_whereBook_id(book_id);
-            //设置书的数量
-            book.setBook_number(book.getBook_number() + 1);
-            //3.还书
-            bookBean.Return_Book(book);
-            map.put("ReturnBook_message", 1);
-        } else {
+        //1.判断输入的用户名是否有错
+        if (crd.VerificationUserName(customer_name) > 0) {//如果大于0说明用户名是存在的
+            Borrowing borrowing = new Borrowing();
+            borrowing.setCustomer_Id(customerUserDao.getCustomer_whereCustomerName(customer_name));//设置用户
+            Book b = new Book();
+            b.setBook_id(book_id);
+            borrowing.setBook_id(b);
+            if(bookBean.select_borrowing_count(borrowing)>0){//判断有没有没有关于这本书的借阅记录
+                //有借阅记录
+              if(!bookBean.select_Book_isReturn(borrowing)){//判断该书是否已经还过
+                    //未还
+                    bookBean.Return_Book_Borrowing(borrowing);//设置借阅表的东西
+                  //设置书本的信息
+                  Book book = bookBean.getBook_whereBook_id(book_id);
+                  //设置书的数量
+                  book.setBook_number(book.getBook_number() + 1);
+                  //3.还书
+                  bookBean.Return_Book(book);
+                  map.put("ReturnBook_message", 1);
 
-            map.put("ReturnBook_message", "书编号输入错误！");
+              }else{
+                  //已还
+                  map.put("ReturnBook_message", "该书已经还过！");
+              }
+
+            }else{
+                //无借阅记录
+                map.put("ReturnBook_message", "书名输入错误，或者没有相关的借阅记录！");
+            }
+
+        } else {
+            //用户不存在
+            map.put("ReturnBook_message", "用户名不存在!");
         }
+
+
+//        //1.查看要还的书是否存在
+//        if (bookBean.getBook_whereBook_id(book_id) != null) {//如果返回的不是null表示该书存在于数据库中
+//            //2.存在数据库中的话就获取他现有的书本数量
+//            Book book = bookBean.getBook_whereBook_id(book_id);
+//            //设置书的数量
+//            book.setBook_number(book.getBook_number() + 1);
+//            //3.还书
+//            bookBean.Return_Book(book);
+//            map.put("ReturnBook_message", 1);
+//        } else {
+//
+//            map.put("ReturnBook_message", "书编号输入错误！");
+//        }
 
         return map;
     }

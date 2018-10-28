@@ -74,7 +74,7 @@
                     <div class="btn-group">
                         <li type="button" class="btn btn-default dropdown-toggle"
                             data-toggle="dropdown">
-                            <a href=" "> ${sessionScope.customer.customer_name}</a><span class="caret"></span>
+                            <a href=" "> ${sessionScope.customer.customer_nickname}</a><span class="caret"></span>
                         </li>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="<%=basePath%>user/ToIndex" target="_top">个人信息</a></li>
@@ -84,10 +84,10 @@
                 </c:when>
                 <c:otherwise>
                     <div class="btn-group">
-                        <li type="button" class="btn btn-default dropdown-toggle"
+                        <a href="<%=basePath%>jsp/shop/login/login.jsp" target="_top">    <li type="button" class="btn btn-default dropdown-toggle"
                             data-toggle="dropdown">
-                            您尚未登录
-                        </li>
+                          您尚未登录
+                        </li></a>
 
                     </div>
                 </c:otherwise>

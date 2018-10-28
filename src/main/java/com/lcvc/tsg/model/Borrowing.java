@@ -10,6 +10,7 @@ import java.util.Date;
  **/
 public class Borrowing {
     private Integer id;//id
+    private Customer customer_Id;//借阅者的id
 
     public Integer getId() {
         return id;
@@ -59,7 +60,6 @@ public class Borrowing {
         this.book_id = book_id;
     }
 
-    private Customer customer_Id;//借阅者的id
     private  java.util.Date borrowing_Time;//借阅的时间.
     private  java.util.Date borrowing_Return_Time;//还书的时间
     private  boolean borrowing_Return;//是否归还

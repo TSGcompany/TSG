@@ -2,6 +2,7 @@ package com.lcvc.tsg.dao.AdminDao;
 
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Book_Type;
+import com.lcvc.tsg.model.Borrowing;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -90,8 +91,32 @@ public interface BookDao {
      * @Author Anle
      * @Date 下午 4:28 2018/10/12 0012
      **/
-   //=================================== 还书 =============================================
+   //=================================== 还书(将原来的书籍数量+1)=============================================
     int Return_Book (Book book);
-
+    
+   /**
+    * @Author Anle
+    * @Date 下午 3:22 2018/10/28 0028
+    **/ 
+    //================================= 查看某本书是否已经还过 ================================
+    boolean select_Book_isReturn(Borrowing borrowing);
+    /**
+     * @Author Anle
+     * @Date 下午 4:41 2018/10/28 0028
+     **/
+    //================================= 查看有没有相关的借阅记录 ================================
+    int select_borrowing_count(Borrowing borrowing);
+    /**
+     * @Author Anle
+     * @Date 下午 4:41 2018/10/28 0028
+     **/
+    //================================= 还书(将借阅记录设置为已还) =============================
+     int  Return_Book_Borrowing(Borrowing borrowing);
+     /**
+      * @Author Anle
+      * @Date 下午 6:53 2018/10/28 0028
+      **/
+     //-================================= 查看某个用户相关的借阅记录 ============================
+      List<Borrowing> myBorrowingRecord(Integer CustomerID);
 
 }

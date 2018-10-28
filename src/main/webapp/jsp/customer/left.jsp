@@ -44,7 +44,7 @@
         </div>
         <ul class="submenuItems">
             <li><a href="<%=basePath%>jsp/customer/Book/borrwbooks.jsp" target="rightFrame">我的预约</a></li>
-            <li><a href="<%=basePath%>jsp/customer/Book/record.jsp" target="rightFrame">查看历史记录</a></li>
+            <li><a href="<%=basePath%>user/myBorrowingRecord" target="rightFrame">查看历史记录</a></li>
         </ul>
     </li>
     <li>

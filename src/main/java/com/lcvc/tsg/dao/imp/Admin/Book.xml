@@ -62,12 +62,38 @@
         SELECT  * FROM book WHERE book_id=#{book_id}
 
     </select>
-    <!--================================= 还书 ===========================================-->
+    <!--================================= 还书(将原来的书籍数量+1) ===========================================-->
     <update id="Return_Book" parameterType="Book">
 
           UPDATE  book SET book_number=#{book_number} WHERE id=#{id}
 
     </update>
+    <!--================================= 还书(将借阅记录设置为已还) ===========================================-->
+    <update id="Return_Book_Borrowing" parameterType="Borrowing">
+    UPDATE borrowing SET  borrowing_Return=#{borrowing_Return},borrowing_Return_Time=#{borrowing_Return_Time} where  customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
+    </update>
+    <!--================================= 查看某本书是否已经还过 ===========================================-->
+    <select id="select_Book_isReturn" parameterType="Borrowing" resultType="boolean">
+      select borrowing_Return from borrowing where  customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
+    </select>
+    <!--================================= 查看有没有相关的借阅记录 ===========================================-->
+    <select id="select_borrowing_count" parameterType="Borrowing" resultType="int">
+
+        select COUNT(id) from borrowing where customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
+    </select>
+        <!--========================================借阅表跟Book表关联================================-->
+    <resultMap id="borrowing" type="Borrowing">
+        <!--关联BOOK类型表-->
+        <association property="book_id" javaType="Book" column="book_id"
+                     select="com.lcvc.tsg.dao.AdminDao.BookDao.getBook_whereBook_id"></association>
+    </resultMap>
+
+    <!--================================= 查看某个用户相关的借阅记录 ===========================================-->
+    <select id="myBorrowingRecord" parameterType="int" resultMap="borrowing" >
+    SELECT  * FROM  borrowing WHERE customer_Id=#{customer_Id}
+    </select>
+
+
 
     <!--=============================== 搜索书（通过书名）==================================-->
     <select id="SearchBook" parameterType="String" resultMap="book">

@@ -69,7 +69,7 @@
 
                             </c:when>
                             <c:otherwise>
-                            <a href="">
+                            <a href="<%=basePath%>jsp/shop/login/login.jsp" target="_top">
                                 <div class="col-xs-6 service-box service-box2">
                                     <div class="service-pic">
                                         <img src="img/tb2.png" width="50%" height="50%" alt=""/>

@@ -4,6 +4,7 @@ import com.lcvc.tsg.dao.AdminDao.BookDao;
 import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Book_Type;
+import com.lcvc.tsg.model.Borrowing;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -144,10 +145,48 @@ public class BookBean {
      * @Author Anle
      * @Date 下午 4:28 2018/10/12 0012
      **/
-    //=================================== 还书 =============================================
+    //=================================== 还书(将原来的书籍数量+1) =============================================
    public int Return_Book (Book book){
 
        return bookDao.Return_Book(book);
    }
+    /**
+     * @Author Anle
+     * @Date 下午 3:22 2018/10/28 0028
+     **/
+    //================================= 查看某本书是否已经还过 ================================
+    public   boolean select_Book_isReturn(Borrowing borrowing){
+
+        return bookDao.select_Book_isReturn(borrowing);
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 4:41 2018/10/28 0028
+     **/
+    //================================= 查看有没有相关的借阅记录 ================================
+    public  int select_borrowing_count(Borrowing borrowing){
+
+        return bookDao.select_borrowing_count(borrowing);
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 4:41 2018/10/28 0028
+     **/
+    //================================= 还书(将借阅记录设置为已还) =============================
+   public int  Return_Book_Borrowing(Borrowing borrowing){
+       borrowing.setBorrowing_Return(true);//已还
+       borrowing.setBorrowing_Return_Time(new Timestamp(Calendar.getInstance().getTimeInMillis()));//设置还书时间
+       return bookDao.Return_Book_Borrowing(borrowing);
+   }
+    /**
+     * @Author Anle
+     * @Date 下午 6:53 2018/10/28 0028
+     **/
+    //-================================= 查看某个用户相关的借阅记录 ============================
+   public  List<Borrowing> myBorrowingRecord(Integer CustomerID){
+
+        return bookDao.myBorrowingRecord(CustomerID);
+    }
+
 
 }

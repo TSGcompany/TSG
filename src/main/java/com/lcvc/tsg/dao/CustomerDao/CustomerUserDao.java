@@ -4,7 +4,7 @@ import com.lcvc.tsg.model.Customer;
 import org.apache.ibatis.annotations.Param;
 
 public interface CustomerUserDao {
-    //=============================== 查看用户详情=============================
+    //=============================== 查看用户详情(通过id)=============================
 
     Customer getCustomer(int id);
 
@@ -15,5 +15,9 @@ public interface CustomerUserDao {
     int updateCustomer(Customer customer);
     //=============================== 查看用户昵称有没有重名 ==================================
     int UserRename(String UserName);
+    //================================查看用户详情(通过用户名)=============================
+    Customer getCustomer_whereCustomerName(String CustomerName);
+
 }
+
 

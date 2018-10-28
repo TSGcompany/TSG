@@ -21,7 +21,7 @@ public class LoginBean {
     //-------------------------管理员登录-----------------------
     public Admin AdminLogin(String AdminName,String AdminPassword){
         //加密
-        return loginDao.AdminLogin(AdminName,AdminPassword);
+        return loginDao.AdminLogin(AdminName,MyMD5.MD5(AdminPassword));
     }
     //-------------------------用户登录-----------------------
     public Customer CustomerLogin(String customer_name, String customer_password){

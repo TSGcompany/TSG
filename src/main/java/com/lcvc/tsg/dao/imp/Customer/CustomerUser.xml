@@ -2,10 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
 <mapper namespace="com.lcvc.tsg.dao.CustomerDao.CustomerUserDao">
-    <!--=============================== 查看用户详情==================================-->
+    <!--=============================== 查看用户详情(通过id)==================================-->
     <select id="getCustomer" resultType="Customer" parameterType="int">
 
         SELECT * FROM customer WHERE id=#{id}
+
+    </select>
+    <!--=============================== 查看用户详情(通过用户名)==================================-->
+    <select id="getCustomer_whereCustomerName" resultType="Customer" parameterType="String">
+
+        SELECT * FROM customer WHERE customer_name=#{customer_name}
 
     </select>
     <!--=============================== 修改用户密码==================================-->

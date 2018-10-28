@@ -73,17 +73,6 @@
 
 
             });
-            //=============================查看某本书的详情========================
-//            $("#getBookDetails").click(function () {
-//                if (stud) {
-//                    var bookid = $("#bookid").attr("name");
-//
-//
-//                    alert(bookid);
-//                }
-//
-//            });
-
         });
 
     </script>

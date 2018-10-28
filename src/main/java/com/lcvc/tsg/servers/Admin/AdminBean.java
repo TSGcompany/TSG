@@ -1,5 +1,6 @@
 package com.lcvc.tsg.servers.Admin;
 
+import com.lcvc.tsg.OtherPackage.MyMD5;
 import com.lcvc.tsg.dao.AdminDao.AdminDao;
 import com.lcvc.tsg.model.Admin;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,7 @@ public class AdminBean {
      **/
     public Boolean updatePassword(Integer id, String admin_password) {
         Boolean status = false;
-        int i = adminDao.updatePassword(id, admin_password);
+        int i = adminDao.updatePassword(id, MyMD5.MD5(admin_password));
         if (i > 0) {
             status = true;
         }

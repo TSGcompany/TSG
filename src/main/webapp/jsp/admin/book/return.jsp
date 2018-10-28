@@ -17,7 +17,10 @@
         $(document).ready(function () {
             var  stust=false;
             $("#Return_book_btn").click(function () {
-
+                var customer_name=$("#customer_name").val();
+                if(customer_name.length==0 || customer_name==""){
+                    stust=false;
+                }else
                 //判断输入框中有没有值
                 if($("#book_id").val()==''||$("#book_id").val().length==0){
                     alert("编号不能为空！");
@@ -58,11 +61,11 @@
     <div class="formtitle"><span>归还书籍</span></div>
     <form id="Return_Book_Form" method="post">
         <ul class="forminfo">
-
+            <li><label>*用户名字</label><input name="customer_name" id="customer_name" type="text" class="dfinput"
+                                           placeholder="请填写客户名字"/></li>
             <li><label>*归还书籍</label><input name="book_id" id="book_id" type="text" class="dfinput"
                                            placeholder="请填写书籍编号"/></li>
-
-            <li><label>&nbsp;</label><input name="" id="Return_book_btn" type="submit" class="btn" value="确认归还"/></li>
+            <li><label>&nbsp;</label><input name="" id="Return_book_btn" type="button" class="btn" value="确认归还"/></li>
         </ul>
     </form>
 </div>

@@ -6,12 +6,15 @@ import com.lcvc.tsg.dao.AdminDao.BookDao;
 import com.lcvc.tsg.dao.AdminDao.CustomerDao;
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Book_Type;
+import com.lcvc.tsg.model.Borrowing;
 import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -62,14 +65,15 @@ public class AdminDaoTest extends SpringJunitTest {
 
 
     }
+
     /**
      * @Author Anle
      * @Date 下午 1:37 2018/10/7 0007
      **/
     @Test
-    public  void  BookShow_Test(){//展示书
-        List<Book> list = bookDao.BookShow(0,10);
-        for (Book book:list) {
+    public void BookShow_Test() {//展示书
+        List<Book> list = bookDao.BookShow(0, 10);
+        for (Book book : list) {
             System.out.println(book.getBook_editorsID().getAdmin_name());
 
         }
@@ -82,31 +86,33 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     @Test
     public void getBook_Type_Test() {//获取分类
-    System.out.println(bookDao.getBook_Type(2).getBook_type_name());
+        System.out.println(bookDao.getBook_Type(2).getBook_type_name());
 
     }
+
     /**
      * @Author Anle
      * @Date 下午 5:35 2018/10/7 0007
      **/
     @Test
-    public void getAdmin_Test(){//获取用户
-    System.out.println(adminDao.getAdmin(1).getAdmin_phone());
+    public void getAdmin_Test() {//获取用户
+        System.out.println(adminDao.getAdmin(1).getAdmin_phone());
 
     }
+
     /**
      * @Author Anle
      * @Date 下午 6:00 2018/10/7 0007
      **/
     @Test
-    public  void BookCount(){//获取书的数量
-       System.out.println(bookDao.BookCount());
+    public void BookCount() {//获取书的数量
+        System.out.println(bookDao.BookCount());
 
         int c = 0;
         if (bookDao.BookCount() % 10 == 0) {//计算页码
             c = bookDao.BookCount() / 10;
         } else {
-            c = (bookDao.BookCount() /10) + 1;
+            c = (bookDao.BookCount() / 10) + 1;
         }
         System.out.println(c);
 //        SimpleDateFormat sdf=new SimpleDateFormat("mmssSSS");
@@ -115,24 +121,26 @@ public class AdminDaoTest extends SpringJunitTest {
 //        System.out.println("当前时间是："+str);
 //        System.out.println("当前时间是："+str.length());
     }
+
     /**
      * @Author Anle
      * @Date 下午 7:09 2018/10/9 0009
      **/
     @Test
-    public void getBook_TypeAll_Test(){//获取所有书类型
-        for (Book_Type type:bookDao.getBook_TypeAll()) {
+    public void getBook_TypeAll_Test() {//获取所有书类型
+        for (Book_Type type : bookDao.getBook_TypeAll()) {
             System.out.println(type.getBook_type_name());
         }
 
     }
+
     /**
      * @Author Anle
      * @Date 下午 8:10 2018/10/9 0009
      **/
     //=============================== 查看书有没有重名 ==================================
     @Test
-    public  void BookRename_Test (){
+    public void BookRename_Test() {
         System.out.println(bookDao.BookRename("西游记"));
     }
 
@@ -142,8 +150,8 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     //===============================通过id获取某本书===========================================
     @Test
-    public void  getBook(){
-       System.out.println( bookDao.getBook(3).getBook_number());
+    public void getBook() {
+        System.out.println(bookDao.getBook(3).getBook_number());
 
     }
 
@@ -153,45 +161,47 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     //===============================通过书名获取某本书===========================================
     @Test
-    public void  getBook_whereName(){
-        System.out.println( bookDao.getBook_whereBook_id("TSG292927057019").getBook_number());
+    public void getBook_whereName() {
+        System.out.println(bookDao.getBook_whereBook_id("TSG292927057019").getBook_number());
 
     }
+
     /**
      * @Author Anle
      * @Date 下午 4:29 2018/10/12 0012
      **/
     //=================================== 还书 =============================================
     @Test
-    public  void  Return_Book_Test(){
+    public void Return_Book_Test() {
 
         Book book = new Book();
         book.setId(21);
         book.setBook_number(107);
-       System.out.println( bookDao.Return_Book(book));
+        System.out.println(bookDao.Return_Book(book));
 
     }
 
     @Test
-    public  void CCD(){
-        List<Book> bookList =bookDao.BookShow(0,10);
-        List<Integer>list=new ArrayList<Integer>();
-        for(int i=0;i<5;i++){
+    public void CCD() {
+        List<Book> bookList = bookDao.BookShow(0, 10);
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < 5; i++) {
             list.add(i);
         }
         Collections.shuffle(list);
         System.out.println(list.get(0));
     }
-//==========================搜索书（通过书名并且还带类型的搜索）===================================
+
+    //==========================搜索书（通过书名并且还带类型的搜索）===================================
     @Test
-    public void SearchBookWhereBookType_Test(){
+    public void SearchBookWhereBookType_Test() {
         Book_Type book_type = new Book_Type();
         Book book = new Book();
         book_type.setId(1);
         book.setBook_name("三");
         book.setBook_type(book_type);
-        List<Book> list=bookDao.SearchBookWhereBookType(book);
-        for (Book b:list ) {
+        List<Book> list = bookDao.SearchBookWhereBookType(book);
+        for (Book b : list) {
             System.out.println(b.getBook_name());
             System.out.println(b.getBook_creatorID().getAdmin_name());
         }
@@ -205,11 +215,49 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     //================================推荐阅读的书 (前三)===========================
     @Test
-    public void Recommend_Book_Test(){
+    public void Recommend_Book_Test() {
         List<Book> listbook = bookDao.Recommend_Book(1);
-        for (Book b: listbook ) {
+        for (Book b : listbook) {
             System.out.println(b.getBook_name());
         }
 
     }
+
+
+    /*
+     * @Author Anle
+     * @Date 下午 3:22 2018/10/28 0028
+     **/
+    //================================= 查看某本书是否已经还过 ================================
+    @Test
+    public void select_Book_isReturn_Test() {
+        Borrowing borrowing = new Borrowing();
+        Customer customer = new Customer();
+        customer.setId(21);
+        Book b = new Book();
+        b.setBook_id("TSG182191931606");
+        borrowing.setCustomer_Id(customer);
+        borrowing.setBook_id(b);
+
+      System.out.println(bookDao.select_Book_isReturn(borrowing));
+     //   System.out.println(bookDao.select_borrowing_count(borrowing));
+//        borrowing.setBorrowing_Return_Time(new Timestamp(Calendar.getInstance().getTimeInMillis()));
+//        borrowing.setBorrowing_Return(true);
+//        System.out.println(bookDao.Return_Book_Borrowing(borrowing));
+    }
+
+    /**
+     * @Author Anle
+     * @Date 下午 6:53 2018/10/28 0028
+     **/
+    //-================================= 查看某个用户相关的借阅记录 ============================
+    @Test
+    public void myBorrowingRecord_Test(){
+//        for (Borrowing br: bookDao.myBorrowingRecord(21)) {
+//            System.out.println(br.getBook_id().getBook_icon());
+//        }
+    System.out.println(bookDao.myBorrowingRecord(21).get(1).getId());
+    }
+
+
 }
