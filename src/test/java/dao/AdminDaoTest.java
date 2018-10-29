@@ -194,13 +194,13 @@ public class AdminDaoTest extends SpringJunitTest {
 
     //==========================搜索书（通过书名并且还带类型的搜索）===================================
     @Test
-    public void SearchBookWhereBookType_Test() {
+    public void SearchBookWhereBookTypeAndName_Test() {
         Book_Type book_type = new Book_Type();
         Book book = new Book();
         book_type.setId(1);
         book.setBook_name("三");
         book.setBook_type(book_type);
-        List<Book> list = bookDao.SearchBookWhereBookType(book);
+        List<Book> list = bookDao.SearchBookWhereBookTypeAndName(book);
         for (Book b : list) {
             System.out.println(b.getBook_name());
             System.out.println(b.getBook_creatorID().getAdmin_name());
@@ -258,6 +258,16 @@ public class AdminDaoTest extends SpringJunitTest {
 //        }
     System.out.println(bookDao.myBorrowingRecord(21).get(1).getId());
     }
-
+    /**
+     * @Author Anle
+     * @Date 上午 9:39 2018/10/29 0029
+     **/
+    //=============================搜索书（通过类型搜索）========================
+    @Test
+    public void SearchBookWhereBookType_Test(){
+        for (Book b:bookDao.SearchBookWhereBookType(1) ) {
+            System.out.println(b.getBook_name());
+        }
+    }
 
 }

@@ -137,7 +137,7 @@
     <div class="page_btn all_page right" >共${PageCount}页</div>
 
 </div>
-<span>当前页为${indexPage+1}</span>
+<span style="width: 80px; height:30px;border: 1px solid #ccc;margin-left:590px;margin-top:10px;float: left;"><p>当前页为${indexPage+1}</p></span>
 
 <script src="<%=basePath %>jsp/admin/js/fenye.js"></script>
 </body>
