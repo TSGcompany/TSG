@@ -41,7 +41,7 @@ header,.items{
 	/*css3新增动画属性：过渡，all（默认值）指所有属性改变，整个转换过程在0.5s内完成*/
 	transition:all 0.5s;
 	/*盒阴影：向下偏移5px，模糊值为5px，颜色41a8ff*/
-	box-shadow:#41a8ff 0px 5px 5px;
+	box-shadow:#66c2f6 0px 5px 5px;
 }
 .pic{
 	margin-top:-15px;
@@ -54,7 +54,7 @@ header,.items{
 	height:100px;
 	background-color:#58A6F0;
 	transition:all 0.5s;
-	background-color:rgba(190,166,240,0.8);
+	background-color:rgba(88,166,240,0.4);
 }
 /*当鼠标悬停在该元素上时，该元素绝对定位在父元素顶部-5px的位置，并且盒阴影为模糊度15px的#AAA色*/
 .item:hover{
@@ -68,7 +68,7 @@ header,.items{
 .detail{
 	font-weight:bold;
 	font-size:20px;
-	margin-top:50px;
+	margin-top:30px;
 }
 .detail i{
 	font-size: 18px;
