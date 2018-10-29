@@ -41,7 +41,7 @@ public class CustomerControl {
         request.setAttribute("indexPage", index);
         request.setAttribute("PageCount", c);
         request.setAttribute("CustomerShow", customerBean.CustomerShow(index));
-        return "admin/user/usermanagement.jsp";
+        return "admin/customer/usermanagement.jsp";
     }
 
 
