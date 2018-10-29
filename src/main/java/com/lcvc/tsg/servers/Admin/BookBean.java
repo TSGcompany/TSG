@@ -40,10 +40,19 @@ public class BookBean {
      * @Date 下午 5:41 2018/10/25 0025
      **/
     //============================搜索书（通过书名并且还带类型的搜索）===============
-   public List<Book>SearchBookWhereBookType(Book book){
-        return bookDao.SearchBookWhereBookType(book);
+   public List<Book>SearchBookWhereBookTypeAndName(Book book){
+        return bookDao.SearchBookWhereBookTypeAndName(book);
     }
 
+    /**
+     * @Author Anle
+     * @Date 上午 9:39 2018/10/29 0029
+     **/
+    //=============================搜索书（通过类型搜索）========================
+    public  List<Book> SearchBookWhereBookType(Integer Type_id){
+
+        return bookDao.SearchBookWhereBookType(Type_id);
+    }
     /**
      * @Author Anle
      * @Date 下午 5:37 2018/10/26 0026

@@ -28,20 +28,16 @@
             //======================搜索=====================
             $("#search").click(function () {//点击搜索按钮时
                 var book_name=$(this).parent().find("input").val();//当前点击的这个按钮 的父类 下面的input 值\
-                var  placeholder_var=$(this).parent().find("input").attr("placeholder");//获取默认提示框内的值
+                var  placeholder_name=$(this).parent().find("input").attr("placeholder");//获取默认提示框内的值
                 var book_type_id = $(this).parent().parent().find("select").val();//获取类型的id
-                if(book_name=="" || book_name.length<1){//如果用户没输入的话就将提示框的值设置为搜索的值
-                    book_name=placeholder_var;
-                }
+//                if(book_name=="" || book_name.length<1){//如果用户没输入的话就将提示框的值设置为搜索的值
+//                    book_name=placeholder_var;
+//                }
+
+                $("#cc",parent.document.body).attr("src","<%=basePath%>shop/SearchBookWhereBookType?book_name="+book_name+"&book_type_id="+book_type_id+"&placeholder_name="+placeholder_name+"")
+             // $.get("<%=basePath%>shop/SearchBookWhereBookType", { book_name: book_name, book_type_id: book_type_id} );
 
 
-              $.get("<%=basePath%>shop/SearchBookWhereBookType", { book_name: book_name, book_type_id: book_type_id} );
-
-            //   alert(book_type_id);
-
-
-
-            //  var AddBorrowing = $(this).find("span").attr("name");//获取span中的name值
 
             });
         });
@@ -56,19 +52,19 @@
 </head>
 <body>
 <div class="ts_cones">
-    <a href="#">
+    <a href="">
     <div class="topit1">
         <img src="<%=basePath%>jsp/shop/img/rd1.png"/>
         <h3>热门推荐</h3>
     </div>
     </a>
-    <a href="#">
+    <a href="">
     <div class="topit2">
         <h3>图书推荐</h3>
         <img src="<%=basePath%>jsp/shop/img/rd2.png"/>
     </div>
     </a>
-    <a href="#">
+    <a href="<%=basePath%>shop/ToShopIndex" target="_top">
     <div class="topit3">
         <h3>阅读荐书</h3>
         <img src="<%=basePath%>jsp/shop/img/rd3.png"/>
