@@ -97,7 +97,7 @@
         <c:forEach items="${getShopIndexBook}" var="i">
             <div id="tsg_among">
                 <a href="<%=basePath%>shop/toBookDetailsPage?book_id=${i.id}" target="_top">
-                    <img id="getBookDetails" src="<%=basePath%>jsp/shop/img/ts1.jpg"/>
+                    <img id="getBookDetails" src="${i.book_icon}"/>
                     <span id="bookid" name="${i.id}" hidden></span>
                     <h4 style="margin-top: -5px">${i.book_author}</h4>
                     <p style="margin-top: 20px">《${i.book_name}》</p>
