@@ -97,13 +97,23 @@
 
     <!--=============================== 搜索书（通过书名）==================================-->
     <select id="SearchBook" parameterType="String" resultMap="book">
-        SELECT * from book where book_name like concat('%',#{searchs},'%')
+        SELECT * from book where book_name like concat('%',#{searchs},'%')  limit 0,15
     </select>
     <!--========================= 搜索书（通过书名并且还带类型的搜索）======================-->
-    <select id="SearchBookWhereBookType" parameterType="Book" resultMap="book">
-        SELECT * from book where book_name like concat('%',#{book_name},'%') AND book_type=#{book_type.id}
+    <select id="SearchBookWhereBookTypeAndName" parameterType="Book" resultMap="book">
+        SELECT * from book where book_name like concat('%',#{book_name},'%') AND book_type=#{book_type.id}  limit 0,15
 
     </select>
+
+    <!--=====================================搜索书(以类型分类)=================================-->
+    <select id="SearchBookWhereBookType" parameterType="int" resultMap="book">
+
+   SELECT * from book where  book_type=#{type_id}   limit 0,15
+
+
+    </select>
+
+
     <!--==============================推荐阅读的书 (前4)============================ -->
     <select id="Recommend_Book" parameterType="int" resultMap="book">
     select * from book  WHERE book_type=#{bookType_id} order by book_readingNumber desc limit 0,4

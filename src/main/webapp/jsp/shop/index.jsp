@@ -284,7 +284,7 @@
 <iframe src="<%=basePath%>shop/getBookType" width="100%" height="50px" frameborder="0" oname="mid_ht"
         scrolling="no">
 </iframe>
-<iframe src="<%=basePath%>shop/getShopIndexBook?index=0" width="100%" height="1109px" frameborder="0" name="middle"
+<iframe id="cc" src="<%=basePath%>shop/getShopIndexBook?index=0" width="100%" height="1109px" frameborder="0" name="middle"
         scrolling="no">
 </iframe>
 <iframe src="<%=basePath%>jsp/shop/foot.jsp" width="100%" height="100px" frameborder="0" name="foot" scrolling="no">

@@ -63,7 +63,7 @@ public class ShopIndex_Control {
         request.setAttribute("indexPage", index);
         request.setAttribute("PageCount", c);
         request.setAttribute("getShopIndexBook",bookBean.BookShow(index,15));
-        return "shop/middle.jsp";
+        return "/shop/middle.jsp";
     }
     /**
      * @Author Anle
@@ -79,42 +79,51 @@ public class ShopIndex_Control {
         return map;
     }
     //=====================================搜索书=======================================
-    @ResponseBody
     @RequestMapping(value = "/shop/SearchBookWhereBookType", method = RequestMethod.GET)
-    public String SearchBookWhereBookType(HttpServletRequest request,String book_name,Integer book_type_id){
-        System.out.println(book_name);
-        System.out.println(book_type_id);
+    public String SearchBookWhereBookType(HttpServletRequest request,String book_name,Integer book_type_id,String placeholder_name){
 
         List<Book> listbook=null;
-        if(book_type_id!=null){//判断是否根据类型来选的
-            Book book = new Book();
-            book.setBook_name(book_name);
-            Book_Type book_type = new Book_Type();
-            book_type.setId(book_type_id);
-            book.setBook_type(book_type);
-            listbook=bookBean.SearchBookWhereBookType(book);
+        //1 类型为空  书名为空  那么就以提示文字搜索
+        if(book_name.length()==0 && book_type_id==null){
+            listbook=bookBean.SearchBook(placeholder_name);//搜索提示框中的名字
+
         }else{
-        //如果类型为空你们说明他只是单纯查某本书、
-            listbook=bookBean.SearchBook(book_name);
+            //2 类型不为空  书名为空  以类型搜索
+            if(book_name.length()==0 && book_type_id!=null){
+                listbook=bookBean.SearchBookWhereBookType(book_type_id);
+
+            }else {
+                //3 类型为空   书名不为空  以书名搜索
+                if(book_name.length()>0 && book_type_id==null){
+                    listbook=bookBean.SearchBook(book_name);//搜索提示框中的名字
+
+                }else{
+                    //4 类型不空   书名不空   以这个类型下面的书名搜索
+                    Book book = new Book();
+                    book.setBook_name(book_name);
+                    Book_Type book_type = new Book_Type();
+                    book_type.setId(book_type_id);
+                    book.setBook_type(book_type);
+                    listbook=bookBean.SearchBookWhereBookTypeAndName(book);
+                }
+            }
         }
 
-        for (Book b:listbook ) {
-            System.out.println(b.getBook_name());
-        }
-
-
-//        //1.先将数据提交到数据库看返回多少
-        //计算页码
         int c = 0;
         if (listbook.size() % 15 == 0) {//计算页码
             c = listbook.size() / 15;
         } else {
             c = (listbook.size() / 15) + 1;
         }
-        request.setAttribute("indexPage", 1);//技术有限只能写第一页
+
+        if(listbook.size()>15){
+
+        }
+
+        request.setAttribute("indexPage", 0);//技术有限只能写第一页
         request.setAttribute("PageCount", c);
         request.setAttribute("getShopIndexBook",listbook);
-           return "shop/middle.jsp";
+           return "/shop/middle.jsp";
 
     }
 
