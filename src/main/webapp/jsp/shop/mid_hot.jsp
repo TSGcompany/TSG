@@ -19,7 +19,7 @@
 <head>
     <title>热门部分</title>
     <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/mid_hot.css" />
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/mid_hot.css"/>
     <script>
         $(document).ready(function () {
 
@@ -27,48 +27,56 @@
 
             //======================搜索=====================
             $("#search").click(function () {//点击搜索按钮时
-                var book_name=$(this).parent().find("input").val();//当前点击的这个按钮 的父类 下面的input 值\
-                var  placeholder_name=$(this).parent().find("input").attr("placeholder");//获取默认提示框内的值
+                var book_name = $(this).parent().find("input").val();//当前点击的这个按钮 的父类 下面的input 值\
+                var placeholder_name = $(this).parent().find("input").attr("placeholder");//获取默认提示框内的值
                 var book_type_id = $(this).parent().parent().find("select").val();//获取类型的id
 //                if(book_name=="" || book_name.length<1){//如果用户没输入的话就将提示框的值设置为搜索的值
 //                    book_name=placeholder_var;
 //                }
 
-                $("#cc",parent.document.body).attr("src","<%=basePath%>shop/SearchBookWhereBookType?book_name="+book_name+"&book_type_id="+book_type_id+"&placeholder_name="+placeholder_name+"")
-             // $.get("<%=basePath%>shop/SearchBookWhereBookType", { book_name: book_name, book_type_id: book_type_id} );
-
+                $("#cc", parent.document.body).attr("src", "<%=basePath%>shop/SearchBookWhereBookType?book_name=" + book_name + "&book_type_id=" + book_type_id + "&placeholder_name=" + placeholder_name + "")
+                // $.get("<%=basePath%>shop/SearchBookWhereBookType", { book_name: book_name, book_type_id: book_type_id} );
 
 
             });
+
+
+            //点击图书推荐的的时候刷新界面
+            $("#Refresh_Click").click(function () {
+
+                $("#cc", parent.document.body).attr("src", "<%=basePath%>shop/getShopIndexBook?index=0")
+            });
+
         });
+
         //提示框随机提示书的内容
         function startRequest() {
-           $.get("<%=basePath%>shop/RefreshInputValue",function (data) {
+            $.get("<%=basePath%>shop/RefreshInputValue", function (data) {
 
-               $("#searchInput").attr("placeholder",data.RefreshInputValue);//更新提示文字
-           });
+                $("#searchInput").attr("placeholder", data.RefreshInputValue);//更新提示文字
+            });
         }
     </script>
 </head>
 <body>
 <div class="ts_cones">
-    <a href="">
-    <div class="topit1">
-        <img src="<%=basePath%>jsp/shop/img/rd1.png"/>
-        <h3>热门推荐</h3>
-    </div>
+    <a>
+        <div class="topit1">
+            <img src="<%=basePath%>jsp/shop/img/rd1.png"/>
+            <h3>热门推荐</h3>
+        </div>
     </a>
-    <a href="">
-    <div class="topit2">
-        <h3>图书推荐</h3>
-        <img src="<%=basePath%>jsp/shop/img/rd2.png"/>
-    </div>
+    <a>
+        <div class="topit2">
+            <h3>图书推荐</h3>
+            <img src="<%=basePath%>jsp/shop/img/rd2.png"/>
+        </div>
     </a>
-    <a href="<%=basePath%>shop/ToShopIndex" target="_top">
-    <div class="topit3">
-        <h3>阅读荐书</h3>
-        <img src="<%=basePath%>jsp/shop/img/rd3.png"/>
-    </div>
+    <a >
+        <div class="topit3" id="Refresh_Click">
+            <h3>阅读荐书</h3>
+            <img src="<%=basePath%>jsp/shop/img/rd3.png"/>
+        </div>
     </a>
 
     <div class="tsg_input">
@@ -80,7 +88,7 @@
         </select>
 
         <div id="tsg_mane">
-            <input  name="search" id="searchInput" value="" placeholder="${getBookRandomName}">
+            <input name="search" id="searchInput" value="" placeholder="${getBookRandomName}">
             <div id="search">搜索</div>
         </div>
     </div>

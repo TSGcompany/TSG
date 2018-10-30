@@ -122,9 +122,20 @@ public interface BookDao {
 
     /**
      * @Author Anle
+     * @Date 下午 7:50 2018/10/30 0030
+     **/
+    //================================= 查看某本书是否正在被借阅并且还未归还 ========================
+     int   select_borrowingAndNotReturn(String book_id);
+
+    /**
+     * @Author Anle
      * @Date 下午 6:53 2018/10/28 0028
      **/
     //-================================= 查看某个用户相关的借阅记录 ============================
     List<Borrowing> myBorrowingRecord(Integer CustomerID);
 
+    //==============================修改书籍============================
+   int updateBook(Book book);
+   //===============================删除书籍=============================
+    int delete_book(int book_id);
 }

@@ -111,25 +111,25 @@ public class BookControl {
             Book b = new Book();
             b.setBook_id(book_id);
             borrowing.setBook_id(b);
-            if(bookBean.select_borrowing_count(borrowing)>0){//判断有没有没有关于这本书的借阅记录
+            if (bookBean.select_borrowing_count(borrowing) > 0) {//判断有没有没有关于这本书的借阅记录
                 //有借阅记录
-              if(!bookBean.select_Book_isReturn(borrowing)){//判断该书是否已经还过
+                if (!bookBean.select_Book_isReturn(borrowing)) {//判断该书是否已经还过
                     //未还
                     bookBean.Return_Book_Borrowing(borrowing);//设置借阅表的东西
-                  //设置书本的信息
-                  Book book = bookBean.getBook_whereBook_id(book_id);
-                  //设置书的数量
-                  book.setBook_number(book.getBook_number() + 1);
-                  //3.还书
-                  bookBean.Return_Book(book);
-                  map.put("ReturnBook_message", 1);
+                    //设置书本的信息
+                    Book book = bookBean.getBook_whereBook_id(book_id);
+                    //设置书的数量
+                    book.setBook_number(book.getBook_number() + 1);
+                    //3.还书
+                    bookBean.Return_Book(book);
+                    map.put("ReturnBook_message", 1);
 
-              }else{
-                  //已还
-                  map.put("ReturnBook_message", "该书已经还过！");
-              }
+                } else {
+                    //已还
+                    map.put("ReturnBook_message", "该书已经还过！");
+                }
 
-            }else{
+            } else {
                 //无借阅记录
                 map.put("ReturnBook_message", "书名输入错误，或者没有相关的借阅记录！");
             }
@@ -139,22 +139,71 @@ public class BookControl {
             map.put("ReturnBook_message", "用户名不存在!");
         }
 
+        return map;
+    }
 
-//        //1.查看要还的书是否存在
-//        if (bookBean.getBook_whereBook_id(book_id) != null) {//如果返回的不是null表示该书存在于数据库中
-//            //2.存在数据库中的话就获取他现有的书本数量
-//            Book book = bookBean.getBook_whereBook_id(book_id);
-//            //设置书的数量
-//            book.setBook_number(book.getBook_number() + 1);
-//            //3.还书
-//            bookBean.Return_Book(book);
-//            map.put("ReturnBook_message", 1);
-//        } else {
-//
-//            map.put("ReturnBook_message", "书编号输入错误！");
-//        }
+    //=========================================修改书籍(跳转到修改页面)============================================
+    @RequestMapping(value = "/admin/toUpdateBookPage", method = RequestMethod.GET)
+    public String toUpdateBookPage(Integer book_id, HttpServletRequest request) {
+        //获取书的分类
+        request.setAttribute("getBookType", bookBean.getBook_TypeAll());
+        request.setAttribute("getBook", bookBean.getBook(book_id));
+        //获取书
+        return "admin/book/UpdateBook.jsp";
+    }
+
+    //=========================================修改书籍(修改的功能)============================================
+    @ResponseBody
+    @RequestMapping(value = "/admin/toUpdateBook", method = RequestMethod.POST)
+    public Map<String, Object> toUpdateBook(Book book, HttpSession session) {
+
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (book.getBook_type().getId() < 0) {
+            map.put("massage", "添加失败！类型不能为空！");
+        } else if (book.getBook_name().length() == 0 || book.getBook_name() == null) {
+            map.put("massage", "添加失败！书名不能为空！");
+        } else if (book.getBook_author().length() == 0 || book.getBook_author() == null) {
+            map.put("massage", "添加失败！作者不能为空！");
+        } else if (book.getBook_icon().length() == 0 || book.getBook_icon() == null) {
+            map.put("massage", "添加失败！图片不能为空！");
+        } else if (book.getBook_number() == 0 || book.getBook_number() == null) {
+            map.put("massage", "添加失败！书的数量不能为空！");
+        } else if (bookBean.getBook(book.getId()).getBook_name().equals(book.getBook_name())) {
+            map.put("massage", 1);
+            Admin admin = (Admin) session.getAttribute("admin");
+            bookBean.updateBook(book, admin);
+        } else if (bookBean.BookRename(book.getBook_name()) > 0) {//验证有没有重名
+            map.put("massage", "添加失败！该书名已经被使用！");
+        } else {
+            map.put("massage", 1);
+            Admin admin = (Admin) session.getAttribute("admin");
+            bookBean.updateBook(book, admin);
+        }
+        return map;
+    }
+
+
+    //=================================删除书籍====================================
+    @ResponseBody
+    @RequestMapping(value = "/admin/deleteBook", method = RequestMethod.GET)
+    public Map<String, Object> deleteBook(Integer book_id) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        //判断该书是否已经被借阅过
+        if(bookBean.select_borrowingAndNotReturn(book_id)>0){
+        map.put("massage","该书正在白借阅无法删除!");
+        }else {
+            if( bookBean.delete_book(book_id)>0){
+                map.put("massage",1);
+                bookBean.delete_book(book_id);
+            }else {
+                map.put("massage","删除失败！");
+            }
+
+        }
 
         return map;
     }
+
 
 }

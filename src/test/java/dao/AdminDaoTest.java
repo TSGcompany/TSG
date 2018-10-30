@@ -4,10 +4,7 @@ package dao;
 import com.lcvc.tsg.dao.AdminDao.AdminDao;
 import com.lcvc.tsg.dao.AdminDao.BookDao;
 import com.lcvc.tsg.dao.AdminDao.CustomerDao;
-import com.lcvc.tsg.model.Book;
-import com.lcvc.tsg.model.Book_Type;
-import com.lcvc.tsg.model.Borrowing;
-import com.lcvc.tsg.model.Customer;
+import com.lcvc.tsg.model.*;
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
@@ -268,6 +265,38 @@ public class AdminDaoTest extends SpringJunitTest {
         for (Book b:bookDao.SearchBookWhereBookType(1) ) {
             System.out.println(b.getBook_name());
         }
+    }
+    //==============================修改书籍============================
+    @Test
+    public void updateBook_Test(){
+        Admin admin  = new Admin();
+        admin.setId(1);
+        Book_Type book_type = new Book_Type();
+        book_type.setId(1);
+        Book book = new Book();
+
+
+        book.setId(21);
+        book.setBook_name("忆江南撑大");
+        book.setBook_type(book_type);
+        book.setBook_editorsID(admin);
+        book.setBook_number(151);
+        book.setBook_icon("/TSG/upload/image/20181030/20181030184029_678.jpg");
+        book.setBook_author("曹　植");
+        System.out.println( bookDao.updateBook(book));
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 7:50 2018/10/30 0030
+     **/
+    //================================= 查看某本书是否正在被借阅并且还未归还 ========================
+    @Test
+      public   void   select_borrowingAndNotReturn(){
+        System.out.println(bookDao.select_borrowingAndNotReturn("TSG182191931606"));
+    }
+    @Test
+    public  void delete_book(){
+          bookDao.delete_book(35);
     }
 
 }

@@ -16,72 +16,79 @@
     </resultMap>
 
     <select id="BookShow" resultMap="book">
-        SELECT * FROM book order by id asc limit #{index},#{totals}
-    </select>
+    SELECT * FROM book order by id asc limit #{index},#{totals}
+</select>
 
     <!--========================== 查看书的总数用于分页==============================-->
     <select id="BookCount" resultType="int">
 
-        SELECT COUNT(id) FROM book
-    </select>
+    SELECT COUNT(id) FROM book
+</select>
 
     <!--=============================== 添加书籍 ==================================-->
     <insert id="AddBook" parameterType="Book">
-   INSERT  INTO  book(id,book_id,book_type,book_name,book_author,book_icon,book_number,book_description,book_creatorID,book_editorsID,book_release_Date)
-   VALUE (#{id},#{book_id},#{book_type.id},#{book_name},#{book_author},#{book_icon},#{book_number},#{book_description},#{book_creatorID.id},#{book_editorsID.id},#{book_release_Date})
+    INSERT  INTO  book(id,book_id,book_type,book_name,book_author,book_icon,book_number,book_description,book_creatorID,book_editorsID,book_release_Date)
+    VALUE (#{id},#{book_id},#{book_type.id},#{book_name},#{book_author},#{book_icon},#{book_number},#{book_description},#{book_creatorID.id},#{book_editorsID.id},#{book_release_Date})
 
 
-    </insert>
+</insert>
 
 
     <!--=============================== 获取单个书的类型==================================-->
     <select id="getBook_Type" resultType="Book_Type" parameterType="int">
-        SELECT * FROM  book_type  WHERE id=#{id}
-    </select>
+    SELECT * FROM  book_type  WHERE id=#{id}
+</select>
 
     <!--=============================== 获取所有书的类型==================================-->
     <select id="getBook_TypeAll" resultType="Book_Type">
 
-  SELECT  * FROM book_type
+    SELECT  * FROM book_type
 
-    </select>
+</select>
 
     <!--=============================== 查看书有没有重名 ==================================-->
     <select id="BookRename" parameterType="String" resultType="int">
-        SELECT COUNT(id) FROM book WHERE  book_name=#{BookName}
+    SELECT COUNT(id) FROM book WHERE  book_name=#{BookName}
 
-    </select>
+</select>
     <!--=============================== 通过id获取某本书 ==================================-->
-    <select id="getBook"  resultMap="book" parameterType="int">
-      SELECT  * FROM book WHERE id=#{id}
+    <select id="getBook" resultMap="book" parameterType="int">
+    SELECT  * FROM book WHERE id=#{id}
 
-    </select>
+</select>
 
     <!--=============================== 通过书编号获取某本书 ==================================-->
-    <select id="getBook_whereBook_id"  resultMap="book" parameterType="String">
-        SELECT  * FROM book WHERE book_id=#{book_id}
+    <select id="getBook_whereBook_id" resultMap="book" parameterType="String">
+    SELECT  * FROM book WHERE book_id=#{book_id}
 
-    </select>
+</select>
     <!--================================= 还书(将原来的书籍数量+1) ===========================================-->
     <update id="Return_Book" parameterType="Book">
 
-          UPDATE  book SET book_number=#{book_number} WHERE id=#{id}
+    UPDATE  book SET book_number=#{book_number} WHERE id=#{id}
 
-    </update>
+</update>
     <!--================================= 还书(将借阅记录设置为已还) ===========================================-->
     <update id="Return_Book_Borrowing" parameterType="Borrowing">
     UPDATE borrowing SET  borrowing_Return=#{borrowing_Return},borrowing_Return_Time=#{borrowing_Return_Time} where  customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
-    </update>
+</update>
     <!--================================= 查看某本书是否已经还过 ===========================================-->
     <select id="select_Book_isReturn" parameterType="Borrowing" resultType="boolean">
-      select borrowing_Return from borrowing where  customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
-    </select>
+    select borrowing_Return from borrowing where  customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
+</select>
     <!--================================= 查看有没有相关的借阅记录 ===========================================-->
     <select id="select_borrowing_count" parameterType="Borrowing" resultType="int">
 
-        select COUNT(id) from borrowing where customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
-    </select>
-        <!--========================================借阅表跟Book表关联================================-->
+    select COUNT(id) from borrowing where customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
+</select>
+    <!--================================= 查看某本书是否正在被借阅并且还未归还 ===========================================-->
+    <select id="select_borrowingAndNotReturn" parameterType="String" resultType="int">
+
+    select COUNT(id) from borrowing where  book_id=#{book_id} AND borrowing_Return='0'
+</select>
+
+
+    <!--========================================借阅表跟Book表关联================================-->
     <resultMap id="borrowing" type="Borrowing">
         <!--关联BOOK类型表-->
         <association property="book_id" javaType="Book" column="book_id"
@@ -89,35 +96,51 @@
     </resultMap>
 
     <!--================================= 查看某个用户相关的借阅记录 ===========================================-->
-    <select id="myBorrowingRecord" parameterType="int" resultMap="borrowing" >
+    <select id="myBorrowingRecord" parameterType="int" resultMap="borrowing">
     SELECT  * FROM  borrowing WHERE customer_Id=#{customer_Id}
-    </select>
-
+</select>
 
 
     <!--=============================== 搜索书（通过书名）==================================-->
     <select id="SearchBook" parameterType="String" resultMap="book">
-        SELECT * from book where book_name like concat('%',#{searchs},'%')  limit 0,15
-    </select>
+    SELECT * from book where book_name like concat('%',#{searchs},'%')  limit 0,15
+</select>
     <!--========================= 搜索书（通过书名并且还带类型的搜索）======================-->
     <select id="SearchBookWhereBookTypeAndName" parameterType="Book" resultMap="book">
-        SELECT * from book where book_name like concat('%',#{book_name},'%') AND book_type=#{book_type.id}  limit 0,15
+    SELECT * from book where book_name like concat('%',#{book_name},'%') AND book_type=#{book_type.id}  limit 0,15
 
-    </select>
+</select>
 
     <!--=====================================搜索书(以类型分类)=================================-->
     <select id="SearchBookWhereBookType" parameterType="int" resultMap="book">
 
-   SELECT * from book where  book_type=#{type_id}   limit 0,15
-
-
-    </select>
+    SELECT * from book where  book_type=#{type_id}   limit 0,15
+</select>
 
 
     <!--==============================推荐阅读的书 (前4)============================ -->
     <select id="Recommend_Book" parameterType="int" resultMap="book">
     select * from book  WHERE book_type=#{bookType_id} order by book_readingNumber desc limit 0,4
-    </select>
+</select>
 
-
+    <!--==============================修改书籍============================ -->
+    <update id="updateBook" parameterType="Book">
+        UPDATE book
+        <set>
+            <if test="book_name !=null">book_name=#{book_name},</if>
+            <if test="book_icon !=null">book_icon=#{book_icon},</if>
+            <if test="book_number!=null ">book_number=#{book_number},</if>
+            <if test="book_author !=null">book_author=#{book_author},</if>
+            <if test="book_editorsID.id !=null">book_editorsID=#{book_editorsID.id},</if>
+            <if test="book_type.id !=null">book_type=#{book_type.id},</if>
+            <if test="book_description !=null">book_description=#{book_description}</if>
+        </set>
+        <where>
+            id=#{id}
+        </where>
+    </update>
+    <!--==============================删除书籍============================ -->
+    <delete id="delete_book" parameterType="int">
+    DELETE FROM book WHERE id =#{id}
+</delete>
 </mapper>

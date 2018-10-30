@@ -189,6 +189,15 @@ public class BookBean {
    }
     /**
      * @Author Anle
+     * @Date 下午 7:50 2018/10/30 0030
+     **/
+    //================================= 查看某本书是否正在被借阅并且还未归还 ========================
+    public int   select_borrowingAndNotReturn(int bookid){
+        return bookDao.select_borrowingAndNotReturn(bookDao.getBook(bookid).getBook_id());
+    }
+
+    /**
+     * @Author Anle
      * @Date 下午 6:53 2018/10/28 0028
      **/
     //-================================= 查看某个用户相关的借阅记录 ============================
@@ -197,5 +206,17 @@ public class BookBean {
         return bookDao.myBorrowingRecord(CustomerID);
     }
 
+    //==============================修改书籍============================
+   public int updateBook(Book book,Admin admin){
 
+       book.setBook_editorsID(admin);//设置编辑者
+
+       return bookDao.updateBook(book);
+   }
+
+
+    //===============================删除书籍=============================
+    public int delete_book(int book_id){
+     return  bookDao.delete_book(book_id);
+    }
 }

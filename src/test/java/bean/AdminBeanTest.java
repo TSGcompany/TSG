@@ -99,7 +99,28 @@ public class AdminBeanTest extends SpringJunitTest{
 //    }
 
 
-
+    //==============================修改书籍============================
+    @Test
+    public void updateBook_Test(){
+       Admin admin  = new Admin();
+       admin.setId(23);
+       Book_Type book_type = new Book_Type();
+       book_type.setId(2);
+       Book book = new Book();
+        book.setId(7);
+        book.setBook_name("");
+        book.setBook_type(book_type);
+      // book.setBook_editorsID(admin);
+        book.setBook_number(303);
+        book.setBook_description("jdfkadsjfkdsajfkc");
+        book.setBook_icon("66656565dsafasdfasf");
+        book.setBook_author("Mycdasfa");
+       System.out.println( bookBean.updateBook(book,admin));
+    }
+    @Test
+    public  void delete_book(){
+        bookBean.delete_book(35);
+    }
 
 
 }
