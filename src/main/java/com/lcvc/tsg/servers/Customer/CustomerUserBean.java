@@ -42,4 +42,6 @@ public class CustomerUserBean {
 
         return customerUserDao.UserRename(UserName);
     }
+
+
 }

@@ -31,7 +31,7 @@
                 var book_id=$(this).find("p").text();//获取id
              //   alert(book_id);
 
-                $.get("<%=basePath%>shop/BorrowingBook?book_id="+book_id, function (data) {//路径， 返回值
+                $.get("<%=basePath%>user/BorrowingBook?book_id="+book_id, function (data) {//路径， 返回值
                  //   alert(data.BorrowingMessage);
                     if (data.BorrowingMessage == 1) {
                         alert("借阅成功！")

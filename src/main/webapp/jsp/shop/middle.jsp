@@ -116,7 +116,7 @@
                     <c:when test="${sessionScope.customer!=null}">
 
                         <div id="button" name="BorrowingBookBtn">
-                            <span hidden name="<%=basePath%>shop/BorrowingBook?book_id=${i.id}"></span>
+                            <span hidden name="<%=basePath%>user/BorrowingBook?book_id=${i.id}"></span>
                             <a>借阅</a>
                         </div>
                     </c:when>

@@ -29,6 +29,11 @@
         }
     </style>
     <script type="text/javascript">
+        var message='${param.prohibit_Login_msg}';
+        if(message!=''){
+            alert(message);
+        }
+
         var sleep = 30, interval = null;
         window.onload = function () {
             var btn = document.getElementById('btn');

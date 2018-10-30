@@ -2,6 +2,7 @@ package dao;
 
 
 import com.lcvc.tsg.dao.CustomerDao.CustomerRegisterDao;
+import com.lcvc.tsg.dao.CustomerDao.CustomerUserDao;
 import com.lcvc.tsg.servers.LoginBean.LoginBean;
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
@@ -19,6 +20,8 @@ public class CustomerDaoTest extends SpringJunitTest {
     private CustomerRegisterDao customerRegisterDao;
     @Resource
    private LoginBean loginBean;
+    @Resource
+    private CustomerUserDao customerUserDao;
 
     @Test
     public void  VerificationUserName_Test(){//看用户的用户名有没有被使用过
@@ -30,6 +33,11 @@ public class CustomerDaoTest extends SpringJunitTest {
 
       String c=  loginBean.CustomerLogin("anle","123").getCustomer_name();
       System.out.println(c);
+    }
+    //=============================== 判断是否被禁止登录 ==================================
+    @Test
+    public void prohibit_Login_Test (){
+      System.out.println(customerUserDao.getCustomer(21).isCustomer_prohibit_Borrowing());
     }
 
 }

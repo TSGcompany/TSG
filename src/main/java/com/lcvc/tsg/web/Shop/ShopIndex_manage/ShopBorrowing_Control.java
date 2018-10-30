@@ -33,7 +33,7 @@ public class ShopBorrowing_Control {
      **/
     //======================================借阅功能====================================.
     @ResponseBody
-    @RequestMapping(value = "/shop/BorrowingBook", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/BorrowingBook", method = RequestMethod.GET)
     public Map<String, Object> BorrowingBook(HttpSession session,Integer book_id){
         Map<String, Object> map = new HashMap<String, Object>();
         System.out.println(book_id);
