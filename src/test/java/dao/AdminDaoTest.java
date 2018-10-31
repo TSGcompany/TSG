@@ -253,7 +253,7 @@ public class AdminDaoTest extends SpringJunitTest {
 //        for (Borrowing br: bookDao.myBorrowingRecord(21)) {
 //            System.out.println(br.getBook_id().getBook_icon());
 //        }
-        System.out.println(bookDao.myBorrowingRecord(21).get(1).getId());
+        System.out.println(bookDao.myBorrowingRecord(21,0).get(1).getId());
     }
 
     /**

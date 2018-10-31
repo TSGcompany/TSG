@@ -209,9 +209,18 @@ public class BookBean {
      * @Date 下午 6:53 2018/10/28 0028
      **/
     //-================================= 查看某个用户相关的借阅记录 ============================
-   public  List<Borrowing> myBorrowingRecord(Integer CustomerID){
+    public  List<Borrowing> myBorrowingRecord(Integer CustomerID,Integer index){
+        index=index*10;
+        return bookDao.myBorrowingRecord(CustomerID,index);
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 6:53 2018/10/28 0028
+     **/
+    //-================================= 查看某个用户相关的借阅记录（总数） ============================
+    public  int myBorrowingRecordCount(Integer CustomerID){
 
-        return bookDao.myBorrowingRecord(CustomerID);
+        return bookDao.myBorrowingRecordCount(CustomerID);
     }
 
     //==============================修改书籍============================

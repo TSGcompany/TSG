@@ -133,8 +133,15 @@ public interface BookDao {
      * @Author Anle
      * @Date 下午 6:53 2018/10/28 0028
      **/
+    //-================================= 查看某个用户相关的借阅记录(个数) ============================
+    int myBorrowingRecordCount(Integer CustomerID);//个数
+
+    /**
+     * @Author Anle
+     * @Date 下午 6:53 2018/10/28 0028
+     **/
     //-================================= 查看某个用户相关的借阅记录 ============================
-    List<Borrowing> myBorrowingRecord(Integer CustomerID);
+    List<Borrowing> myBorrowingRecord(@Param(value="customer_Id")Integer Customer_ID, @Param(value="index")Integer Index);
 
     //==============================修改书籍============================
    int updateBook(Book book);

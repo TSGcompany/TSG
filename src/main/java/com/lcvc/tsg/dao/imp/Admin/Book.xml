@@ -102,9 +102,12 @@
     </resultMap>
 
     <!--================================= 查看某个用户相关的借阅记录 ===========================================-->
-    <select id="myBorrowingRecord" parameterType="int" resultMap="borrowing">
-    SELECT  * FROM  borrowing WHERE customer_Id=#{customer_Id}
+    <select id="myBorrowingRecord"  resultMap="borrowing">
+    SELECT  * FROM  borrowing WHERE customer_Id=#{customer_Id}   order by borrowing_Time desc limit #{index},10
 </select>
+    <select id="myBorrowingRecordCount"  parameterType="int" resultType="int">
+        SELECT  count(id) FROM  borrowing WHERE customer_Id=#{customer_Id}
+    </select>
 
 
     <!--=============================== 搜索书（通过书名）==================================-->

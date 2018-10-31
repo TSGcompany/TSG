@@ -85,12 +85,12 @@
     <c:choose>
         <c:when test="${indexPage==0} ||${indexPage<0}">
 
-            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>admin/BookShow?index=0">上一页</a></div>
+            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>user/myBorrowingRecord?index=0">上一页</a></div>
 
         </c:when>
 
         <c:when test="${indexPage>0}">
-            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>admin/BookShow?index=${indexPage-1}">上一页</a></div>
+            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>user/myBorrowingRecord?index=${indexPage-1}">上一页</a></div>
 
         </c:when>
 
@@ -101,7 +101,7 @@
     <div class="page_num_container left" id="page_num_container">
         <ul>
             <c:forEach var="i" begin="1" end="${PageCount}" step="1">
-                <li><a href="<%=basePath%>admin/BookShow?index=${i-1}">
+                <li><a href="<%=basePath%>user/myBorrowingRecord?index=${i-1}">
                 <li>${i}</li>
                 </a></li>
             </c:forEach>
@@ -109,11 +109,11 @@
     </div>
     <c:choose>
         <c:when test="${indexPage==PageCount-1}">
-            <div class="page_btn next_page left"><a href="<%=basePath%>admin/BookShow?index=${PageCount-1}">下一页</a></div>
+            <div class="page_btn next_page left"><a href="<%=basePath%>user/myBorrowingRecord?index=${PageCount-1}">下一页</a></div>
 
         </c:when>
         <c:when test="${indexPage<PageCount-1}">
-            <div class="page_btn next_page left"><a href="<%=basePath%>admin/BookShow?index=${indexPage+1}">下一页</a></div>
+            <div class="page_btn next_page left"><a href="<%=basePath%>user/myBorrowingRecord?index=${indexPage+1}">下一页</a></div>
 
         </c:when>
 

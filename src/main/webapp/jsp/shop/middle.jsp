@@ -39,6 +39,7 @@
                     if (data.BorrowingMessage == 1) {
                         alert("借阅成功！")
                         //跳转页面0
+                        //location.href="<%=basePath%>user/myBorrowingRecord?index=0";
 
                     }
                     if (data.BorrowingMessage == 0) {
