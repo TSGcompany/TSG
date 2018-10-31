@@ -1,0 +1,7 @@
+/*中间的大框*/
+*{margin: 0;padding: 0;list-style: none;}
+#box{margin: 1px 0 0 20px;position: absolute;}
+#box li{width: 100px;height: 45px;line-height: 40px;font-size: 14px;font-weight:bolder;text-align: center;margin-right: 2px;float: left;}
+#content{clear: both;}
+#content div{width: 875px;height: 820px;display: none; }
+

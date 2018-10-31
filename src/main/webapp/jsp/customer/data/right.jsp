@@ -85,67 +85,53 @@
 <body>
 <div class="right_time">
     <div class="formtitle"><span>个人资料</span></div>
-    <form id="updateform" method="post">
-        <div class="right_donw">
-            <div class="img_head" id="image1">
-                <img src="${sessionScope.customer.customer_head}" id="customer_head1"></div>
-            <div class="right_dom">
-                <ul>
-                    <li>用户名：${sessionScope.customer.customer_name}</li>
-                    <li>手&nbsp;&nbsp;&nbsp;机：${sessionScope.customer.customer_phone}</li>
-                    <li>邮&nbsp;&nbsp;&nbsp;箱：${sessionScope.customer.customer_Email}</li>
-                </ul>
+    <div class="right_donw">
+        <div class="img_head">
+            <img id="customer_head1" src="${sessionScope.customer.customer_head}">
+            <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
+        </div>
+        <div class="right_dom">
+            <ul>
+                <li>用户名：<input name="customer_name" id="customer_name" value="${sessionScope.customer.customer_name}" readonly/></li>
+                <li>手&nbsp;&nbsp;&nbsp;机：<input name="customer_name" value="${sessionScope.customer.customer_phone}" readonly/></li>
+                <li>邮&nbsp;&nbsp;&nbsp;箱：<input name="customer_Email" value="${sessionScope.customer.customer_Email}" readonly/></li>
+            </ul>
+            <form class="contact_form" id="userupdateform" method="post" name="contact_form">
+                <input type="text" name="customer_head" id="customer_head" class="dfinput"  value="${sessionScope.customer.customer_head}" readonly="readonly" style="display:none" />
                 <li class="usually">
                     <span>昵称:</span>
-                    <input type="text" id="customer_nickname" name="customer_nickname" required value="${sessionScope.customer.customer_nickname}"/>
+                    <input type="text" id="customer_nickname" name="customer_nickname" value="${sessionScope.customer.customer_nickname}" required/>
                 </li>
-                <input id="customer_head" name="customer_head" type="text" class="dfinput" value="${sessionScope.customer.customer_head}" readonly="readonly" style="display:none" />
+                <li class="special">
+                    <span >性别:</span>
 
-                <c:choose>
-                    <c:when test="${sessionScope.customer.customer_sex==true}">
+                    <input type="radio" name="customer_sex" id="male" value="0" <c:if test="${sessionScope.customer.customer_sex==false }"> checked="checked" </c:if>/>
+                    <label for="male">男</label>
 
-                        <li class="special">
-                            <span >性别:</span>
-                            <input type="radio" name="sex" checked/>
-                            <label for="male">男</label>
-                            <input type="radio" name="sex" />
-                            <label for="female">女</label>
-
-                        </li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="special">
-                            <span >性别:</span>
-                            <input type="radio" name="sex" id="male"/>
-                            <label for="male">男</label>
-                            <input type="radio" name="sex" id="female"  checked/>
-                            <label for="female">女</label>
-
-                        </li>
-
-                    </c:otherwise>
-
-                </c:choose>
-
+                    <input type="radio" name="customer_sex" id="female" value="1" <c:if test="${sessionScope.customer.customer_sex==true }"> checked="checked" </c:if>/>
+                    <label for="female">女</label>
+                </li>
 
                 <li class="usually">
                     <span>电子邮箱:</span>
-                    <input type="email" id="customer_Email" name="customer_Email" placeholder="javin@example.com" required value="${sessionScope.customer.customer_Email}"/>
+                    <input type="email" id="customer_Email" name="customer_Email" value="${sessionScope.customer.customer_Email}" placeholder="javin@example.com" required/>
                 </li>
                 <li class="usually">
                     <span>联系电话:</span>
-                    <input type="text" id="customer_phone" name="customer_phone" required value="${sessionScope.customer.customer_phone}"/>
+                    <input type="text" id="customer_phone" name="customer_phone" value="${sessionScope.customer.customer_phone}" required/>
                 </li>
 
 
                 <li >
-                    <button class="submit" type="button" id="updatebase" name="updatebase">保存修改</button>
+                    <button class="submit" name="updatebase" id="updatebase" type="submit">保存修改</button>
                 </li>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
+
 
 </div>
+
 
 </body>
 </html>
