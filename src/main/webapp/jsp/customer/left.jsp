@@ -16,8 +16,9 @@
     <title>右边</title>
 
     <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
-    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat'>
+   <!-- <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>-->
+
+  <link rel='stylesheet prefetch' href="<%=basePath%>jsp/customer/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 
 
