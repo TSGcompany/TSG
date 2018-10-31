@@ -21,6 +21,16 @@ public interface CustomerDao {
      **/
     // <!--=============================== 查看客户详情=========================
     Customer getCustomer(int Customer_id);
-
-
+    /**
+     * @Author Anle
+     * @Date 下午 11:37 2018/10/30 0030
+     **/
+    //=============================== 禁止(解除)用户登录===========================
+    int prohibit_Customer_Login(Customer customer);
+    /**
+     * @Author Anle
+     * @Date 下午 11:37 2018/10/30 0030
+     **/
+    //===============================禁止(解除)用户借阅===========================
+    int prohibit_Customer_Borrowing(Customer customer);
 }

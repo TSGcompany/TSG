@@ -232,12 +232,12 @@ public class AdminDaoTest extends SpringJunitTest {
         Customer customer = new Customer();
         customer.setId(21);
         Book b = new Book();
-        b.setBook_id("TSG182191931606");
+        b.setBook_id("003");
         borrowing.setCustomer_Id(customer);
         borrowing.setBook_id(b);
 
-      System.out.println(bookDao.select_Book_isReturn(borrowing));
-     //   System.out.println(bookDao.select_borrowing_count(borrowing));
+        System.out.println(bookDao.select_Book_isReturn(borrowing));
+        //   System.out.println(bookDao.select_borrowing_count(borrowing));
 //        borrowing.setBorrowing_Return_Time(new Timestamp(Calendar.getInstance().getTimeInMillis()));
 //        borrowing.setBorrowing_Return(true);
 //        System.out.println(bookDao.Return_Book_Borrowing(borrowing));
@@ -249,27 +249,29 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     //-================================= 查看某个用户相关的借阅记录 ============================
     @Test
-    public void myBorrowingRecord_Test(){
+    public void myBorrowingRecord_Test() {
 //        for (Borrowing br: bookDao.myBorrowingRecord(21)) {
 //            System.out.println(br.getBook_id().getBook_icon());
 //        }
-    System.out.println(bookDao.myBorrowingRecord(21).get(1).getId());
+        System.out.println(bookDao.myBorrowingRecord(21).get(1).getId());
     }
+
     /**
      * @Author Anle
      * @Date 上午 9:39 2018/10/29 0029
      **/
     //=============================搜索书（通过类型搜索）========================
     @Test
-    public void SearchBookWhereBookType_Test(){
-        for (Book b:bookDao.SearchBookWhereBookType(1) ) {
+    public void SearchBookWhereBookType_Test() {
+        for (Book b : bookDao.SearchBookWhereBookType(1)) {
             System.out.println(b.getBook_name());
         }
     }
+
     //==============================修改书籍============================
     @Test
-    public void updateBook_Test(){
-        Admin admin  = new Admin();
+    public void updateBook_Test() {
+        Admin admin = new Admin();
         admin.setId(1);
         Book_Type book_type = new Book_Type();
         book_type.setId(1);
@@ -283,20 +285,36 @@ public class AdminDaoTest extends SpringJunitTest {
         book.setBook_number(151);
         book.setBook_icon("/TSG/upload/image/20181030/20181030184029_678.jpg");
         book.setBook_author("曹　植");
-        System.out.println( bookDao.updateBook(book));
+        System.out.println(bookDao.updateBook(book));
     }
+
     /**
      * @Author Anle
      * @Date 下午 7:50 2018/10/30 0030
      **/
     //================================= 查看某本书是否正在被借阅并且还未归还 ========================
     @Test
-      public   void   select_borrowingAndNotReturn(){
+    public void select_borrowingAndNotReturn() {
         System.out.println(bookDao.select_borrowingAndNotReturn("TSG182191931606"));
     }
+
     @Test
-    public  void delete_book(){
-          bookDao.delete_book(35);
+    public void delete_book() {
+        bookDao.delete_book(35);
     }
 
+    /**
+     * @Author Anle
+     * @Date 下午 11:39 2018/10/30 0030
+     **/
+    //===============================禁止(解除)用户借阅===========================
+    @Test
+    public void prohibit_Customer_Borrowing_Test(){
+        Customer customer = new Customer();
+        customer.setId(21);
+        customer.setCustomer_prohibit_Borrowing(false);
+        customer.setCustomer_prohibit_Login(false);
+    //System.out.println(customerDao.prohibit_Customer_Borrowing(customer));
+        System.out.println(customerDao.prohibit_Customer_Login(customer));
+    }
 }

@@ -43,5 +43,9 @@ public class CustomerUserBean {
         return customerUserDao.UserRename(UserName);
     }
 
+    //================================查看用户详情(通过用户名)=============================
+      public   Customer getCustomer_whereCustomerName(String CustomerName){
+        return customerUserDao.getCustomer_whereCustomerName(CustomerName);
+      }
 
 }

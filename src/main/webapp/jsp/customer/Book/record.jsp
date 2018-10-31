@@ -21,6 +21,9 @@
 <head>
     <meta charset="UTF-8">
     <title>查看历史记录</title>
+
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css"/>
+    <link href="<%=basePath %>jsp/customer/css/stylee.css" rel="stylesheet" type="text/css"/>
     <link href="<%=basePath%>jsp/customer/css/record.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -41,17 +44,35 @@
         </thead>
 
         <tbody>
-    <c:forEach var="i" items="getBook_TypeAll">
+    <c:forEach var="i" items="${myBorrowingRecord}">
             <tr>
                 <td class="img_td">
-                <img src="" style="width:60px;height:60px;margin-top: 8px;margin-left: 8px;" />
+                <img src="${i.book_id.book_icon}" style="width:60px;height:60px;margin-top: 8px;margin-left: 8px;" />
                 </td>
-                <td>0</td>
-                <td>2</td>
-                <td>2</td>
+                <td>${i.book_id.book_id}</td>
+                <td>${i.book_id.book_name}</td>
+                <td><fmt:formatDate value="${i.borrowing_Time}" pattern="yyyy年MM月dd日 HH:mm"/></td>
+                <c:choose>
+                    <c:when test="${i.borrowing_Return_Time==null}">
+                        <td style="color: red">尚未归还</td>
+                    </c:when>
+                    <c:otherwise>
+                        <td><fmt:formatDate value="${i.borrowing_Return_Time}" pattern="yyyy年MM月dd日 HH:mm"/></td>
 
-                <td>6</td>
-                <td>6</td>
+                    </c:otherwise>
+                    
+                </c:choose>
+
+              <c:choose>
+                  <c:when test="${i.borrowing_Return==true}">
+                      <td style="color:green"> 已归还</td>
+                  </c:when>
+                  <c:otherwise>
+                      <td style="color: red">未归还</td>
+
+                  </c:otherwise>
+                  
+              </c:choose>
             </tr>
         </c:forEach>
         </tbody>
@@ -59,6 +80,52 @@
     </table>
 
 </div>
-</body>
 
+<div class="page_container center">
+    <c:choose>
+        <c:when test="${indexPage==0} ||${indexPage<0}">
+
+            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>admin/BookShow?index=0">上一页</a></div>
+
+        </c:when>
+
+        <c:when test="${indexPage>0}">
+            <div class="page_btn prev_page left" ><a class="page_btn prev_page left" href="<%=basePath%>admin/BookShow?index=${indexPage-1}">上一页</a></div>
+
+        </c:when>
+
+    </c:choose>
+
+
+
+    <div class="page_num_container left" id="page_num_container">
+        <ul>
+            <c:forEach var="i" begin="1" end="${PageCount}" step="1">
+                <li><a href="<%=basePath%>admin/BookShow?index=${i-1}">
+                <li>${i}</li>
+                </a></li>
+            </c:forEach>
+        </ul>
+    </div>
+    <c:choose>
+        <c:when test="${indexPage==PageCount-1}">
+            <div class="page_btn next_page left"><a href="<%=basePath%>admin/BookShow?index=${PageCount-1}">下一页</a></div>
+
+        </c:when>
+        <c:when test="${indexPage<PageCount-1}">
+            <div class="page_btn next_page left"><a href="<%=basePath%>admin/BookShow?index=${indexPage+1}">下一页</a></div>
+
+        </c:when>
+
+
+
+    </c:choose>
+
+    <div class="page_btn all_page right" >共${PageCount}页</div>
+
+</div>
+<span style="width: 80px; height:30px;border: 1px solid #ccc;margin-left:590px;margin-top:10px;float: left;"><p>当前页为${indexPage+1}</p></span>
+
+<script src="<%=basePath %>jsp/admin/js/fenye.js"></script>
+</body>
 </html>

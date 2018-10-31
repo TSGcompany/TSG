@@ -20,7 +20,7 @@ public class CustomerBean {
     private CustomerDao customerDao;
     //=============================== 查看客户（分页）==============================
     public List<Customer> CustomerShow(int index) {//展示客户
-        index = index * 10;  //按10个
+        index = index * 15;  //按10个
         return customerDao.CustomerShow(index);
     }
 
@@ -33,5 +33,22 @@ public class CustomerBean {
     public Customer getCustomer(int Customer_id){
 
         return customerDao.getCustomer(Customer_id);
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 11:37 2018/10/30 0030
+     **/
+    //=============================== 禁止(解除)用户登录===========================
+  public   int prohibit_Customer_Login(Customer customer){
+
+      return customerDao.prohibit_Customer_Login(customer);
+  }
+    /**
+     * @Author Anle
+     * @Date 下午 11:37 2018/10/30 0030
+     **/
+    //===============================禁止(解除)用户借阅===========================
+    public int prohibit_Customer_Borrowing(Customer customer){
+       return customerDao.prohibit_Customer_Borrowing(customer);
     }
 }

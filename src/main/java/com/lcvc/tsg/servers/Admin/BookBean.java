@@ -156,15 +156,23 @@ public class BookBean {
      **/
     //=================================== 还书(将原来的书籍数量+1) =============================================
    public int Return_Book (Book book){
-
        return bookDao.Return_Book(book);
    }
+   /**
+    * @Author Anle
+    * @Date 下午 8:48 2018/10/30 0030
+    **/
+   //=================================== 还书(将原来的书籍数量+1) =============================================
+   public int Borrowing_Book (Book book){
+       return bookDao.Borrowing_Book(book);
+   }
+
     /**
      * @Author Anle
      * @Date 下午 3:22 2018/10/28 0028
      **/
     //================================= 查看某本书是否已经还过 ================================
-    public   boolean select_Book_isReturn(Borrowing borrowing){
+    public   int  select_Book_isReturn(Borrowing borrowing){
 
         return bookDao.select_Book_isReturn(borrowing);
     }

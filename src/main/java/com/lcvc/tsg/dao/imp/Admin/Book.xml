@@ -68,13 +68,19 @@
     UPDATE  book SET book_number=#{book_number} WHERE id=#{id}
 
 </update>
+    <!--================================= 借书(将原来的书籍数量-1) ===========================================-->
+    <update id="Borrowing_Book" parameterType="Book">
+
+        UPDATE  book SET book_number=#{book_number} WHERE id=#{id}
+
+    </update>
     <!--================================= 还书(将借阅记录设置为已还) ===========================================-->
     <update id="Return_Book_Borrowing" parameterType="Borrowing">
     UPDATE borrowing SET  borrowing_Return=#{borrowing_Return},borrowing_Return_Time=#{borrowing_Return_Time} where  customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
 </update>
     <!--================================= 查看某本书是否已经还过 ===========================================-->
-    <select id="select_Book_isReturn" parameterType="Borrowing" resultType="boolean">
-    select borrowing_Return from borrowing where  customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id}
+    <select id="select_Book_isReturn" parameterType="Borrowing" resultType="int">
+    select  COUNT(borrowing_Return) from borrowing where  customer_Id=#{customer_Id.id} and book_id=#{book_id.book_id} and borrowing_Return='0'
 </select>
     <!--================================= 查看有没有相关的借阅记录 ===========================================-->
     <select id="select_borrowing_count" parameterType="Borrowing" resultType="int">

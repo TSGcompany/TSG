@@ -99,12 +99,14 @@ public interface BookDao {
     //=================================== 还书(将原来的书籍数量+1)=============================================
     int Return_Book(Book book);
 
+    //=================================== 借书(将原来的书籍数量-1)=============================================
+     int  Borrowing_Book(Book book);
     /**
      * @Author Anle
      * @Date 下午 3:22 2018/10/28 0028
      **/
     //================================= 查看某本书是否已经还过 ================================
-    boolean select_Book_isReturn(Borrowing borrowing);
+    int select_Book_isReturn(Borrowing borrowing);
 
     /**
      * @Author Anle

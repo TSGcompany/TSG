@@ -4,7 +4,7 @@
 <mapper namespace="com.lcvc.tsg.dao.AdminDao.CustomerDao">
     <!--=============================== 查看客户（分页）==================================-->
     <select id="CustomerShow" resultType="Customer" parameterType="int">
-        SELECT * FROM  customer  order by id asc limit #{index},10
+        SELECT * FROM  customer  order by id asc limit #{index},15
     </select>
 
     <!--=============================== 查看客户总数==================================-->
@@ -16,5 +16,14 @@
     <select id="getCustomer" parameterType="int" resultType="Customer">
         SELECT * FROM customer where id=#{id}
     </select>
+
+    <!--=============================== 禁止(解除)用户登录==================================-->
+    <update id="prohibit_Customer_Login" parameterType="Customer">
+        UPDATE  customer SET customer_prohibit_Login=#{customer_prohibit_Login} WHERE id=#{id}
+    </update>
+    <!--=============================== 禁止(解除)用户借阅==================================-->
+    <update id="prohibit_Customer_Borrowing" parameterType="Customer">
+        UPDATE  customer SET customer_prohibit_Borrowing=#{customer_prohibit_Borrowing} WHERE id=#{id}
+    </update>
 
 </mapper>

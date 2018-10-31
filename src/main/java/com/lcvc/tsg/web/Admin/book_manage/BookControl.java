@@ -1,11 +1,11 @@
 package com.lcvc.tsg.web.Admin.book_manage;
 
-import com.lcvc.tsg.dao.CustomerDao.CustomerRegisterDao;
-import com.lcvc.tsg.dao.CustomerDao.CustomerUserDao;
 import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Borrowing;
 import com.lcvc.tsg.servers.Admin.BookBean;
+import com.lcvc.tsg.servers.Customer.CustomerRegisterBean;
+import com.lcvc.tsg.servers.Customer.CustomerUserBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,9 +28,9 @@ public class BookControl {
     @Resource
     private BookBean bookBean;
     @Resource
-    private CustomerRegisterDao crd;//用于查看用户名是否存在
+    private CustomerRegisterBean crd;//用于查看用户名是否存在
     @Resource
-    private CustomerUserDao customerUserDao;//用于还书
+    private CustomerUserBean customerUserBean;//用于还书
 
     /**
      * @Author Anle
@@ -103,17 +103,19 @@ public class BookControl {
     @ResponseBody
     @RequestMapping(value = "/admin/Return_Book", method = RequestMethod.POST)
     public Map<String, Object> Return_Book(String book_id, String customer_name) {
+        System.out.println(book_id);
+
         Map<String, Object> map = new HashMap<String, Object>();
         //1.判断输入的用户名是否有错
         if (crd.VerificationUserName(customer_name) > 0) {//如果大于0说明用户名是存在的
             Borrowing borrowing = new Borrowing();
-            borrowing.setCustomer_Id(customerUserDao.getCustomer_whereCustomerName(customer_name));//设置用户
+            borrowing.setCustomer_Id(customerUserBean.getCustomer_whereCustomerName(customer_name));//设置用户
             Book b = new Book();
             b.setBook_id(book_id);
             borrowing.setBook_id(b);
             if (bookBean.select_borrowing_count(borrowing) > 0) {//判断有没有没有关于这本书的借阅记录
                 //有借阅记录
-                if (!bookBean.select_Book_isReturn(borrowing)) {//判断该书是否已经还过
+                if (bookBean.select_Book_isReturn(borrowing)>0) {//判断该书是否已经还过
                     //未还
                     bookBean.Return_Book_Borrowing(borrowing);//设置借阅表的东西
                     //设置书本的信息

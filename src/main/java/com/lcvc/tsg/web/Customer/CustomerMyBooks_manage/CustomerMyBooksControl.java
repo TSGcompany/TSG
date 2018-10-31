@@ -23,11 +23,23 @@ public class CustomerMyBooksControl {
     private BookBean bookBean;
     //=================================查看借阅记录===================================
     @RequestMapping(value = "/user/myBorrowingRecord", method = RequestMethod.GET)
-    public String myBorrowingRecord(HttpSession session,HttpServletRequest request){
+    public String myBorrowingRecord(HttpSession session,HttpServletRequest request,Integer index){
+        if (index < 0) {
+            index = 0;
+        }
+        int c = 0;
+        if (bookBean.BookCount() % 10 == 0) {//计算页码
+            c = bookBean.BookCount() / 10;
+        } else {
+            c = (bookBean.BookCount() / 10) + 1;
+        }
+        if (index > c) {
+            index = c;
+        }
     Customer customer  = (Customer) session.getAttribute("customer");
-    System.out.println(bookBean.myBorrowingRecord( customer.getId()).size());
-    request.setAttribute("myBorrowingRecord",6);
-    request.setAttribute("getBook_TypeAll", bookBean.getBook_TypeAll());
+    request.setAttribute("myBorrowingRecord",bookBean.myBorrowingRecord(customer.getId()));
+
+
     return "customer/Book/record.jsp";
     }
 

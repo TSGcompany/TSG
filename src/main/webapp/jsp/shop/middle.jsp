@@ -47,7 +47,9 @@
                     if (data.BorrowingMessage == 2) {
                         alert("每本书只能被借一次！")
                     }
-
+                    if (data.BorrowingMessage == 3) {
+                        alert("该书已经借完请联系管理员！")
+                    }
                 });
 
             });

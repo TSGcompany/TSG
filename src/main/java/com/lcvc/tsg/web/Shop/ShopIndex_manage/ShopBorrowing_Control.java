@@ -1,4 +1,5 @@
 package com.lcvc.tsg.web.Shop.ShopIndex_manage;
+import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Borrowing;
 import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.servers.Admin.BookBean;
@@ -48,13 +49,22 @@ public class ShopBorrowing_Control {
             borrowing.setBorrowing_Return(false);
                 //判断某本书是否被该用户借阅过
             if(borrowingBean.selectBorrowingforCustomer(borrowing)==0){
+                //判断该书的还有没有可借阅的
+                if(bookBean.getBook(book_id).getBook_number()==0 || bookBean.getBook(book_id).getBook_number()<0){
+                    map.put("BorrowingMessage",3);//没有可以借阅的书
+                }else {
                     //表示没借阅过
-                borrowingBean.addBorrowing(borrowing);//添加借阅
-                map.put("BorrowingMessage",1);//表示可以借阅成功
-
+                    //减少可借阅的本数
+                    Book book = bookBean.getBook(book_id);
+                    book.setBook_number(book.getBook_number() - 1);
+                    bookBean.Borrowing_Book(book);
+                    borrowingBean.addBorrowing(borrowing);//添加借阅
+                    map.put("BorrowingMessage", 1);//表示可以借阅成功
+                }
             }else{
                 map.put("BorrowingMessage",2);//表示该用户已经被借阅过这本书
             }
+
 
         }else{
             //这里表示不可以借书
