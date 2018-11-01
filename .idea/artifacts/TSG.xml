@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TSG">
+    <output-path>$PROJECT_DIR$/out/artifacts/TSG</output-path>
+    <root id="archive" name="TSG_war.war">
+      <element id="artifact" artifact-name="TSG:war exploded" />
+    </root>
+  </artifact>
+</component>
