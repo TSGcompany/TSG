@@ -36,6 +36,7 @@ public class PersonalBean {
     //=============================== 添加管理员==============================
     public int AddAdmin(Admin admin) {
         admin.setAdmin_password(MyMD5.MD5(admin.getAdmin_password()));//加密
+        admin.setAdmin_nickname(admin.getAdmin_name());
         return personalDao.AddAdmin(admin);
 
     }
