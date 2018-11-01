@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/mission.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/details.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/bookstore.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>jsp/admin/css/fenye.css"/>
     <script src="<%=basePath%>jsp/shop/js/details.js"></script>
     <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
     <script>
@@ -154,21 +155,73 @@
             <!--这个div为选项卡的内容，显示不同菜单的不同内容，并且设置其中一个div为可见，其他隐藏-->
             <div id="content">
                 <div style="display: block;">
-                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                    <h2 style="font-size: 20px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px; text-align: center">
                         目录</h2>
-
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第一回：宴桃园豪杰三结义 斩黄巾英雄首立功</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第二回：张翼德怒鞭督邮 何国舅谋诛宦竖</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第三回：议温明董卓叱丁原 馈金珠李肃说吕布</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第四回：废汉帝陈留践位 谋董贼孟德献刀</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第五回：发矫诏诸镇应曹公 破关兵三英战吕布</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第六回：焚金阙董卓行凶 匿玉玺孙坚背约</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第七回：袁绍磐河战公孙 孙坚跨江击刘表</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第八回：王司徒巧使连环计 董太师大闹凤仪亭</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第九回：除凶暴吕布助司徒 犯长安李?听贾诩</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第十回：勤王室马腾举义 报父仇曹操兴师</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第十一回：刘皇叔北海救孔融 吕温侯濮阳破曹操</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第十二回：陶恭祖三让徐州 曹孟德大战吕布</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第十三回：李?郭汜大交兵 杨奉董承双救驾</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第十四回：曹孟德移驾幸许都 吕奉先乘夜袭徐郡</h2>
+                    <h2 style="font-size: 16px;margin: 15px 10px; border-bottom: 1px dashed #CCCCCC; height: 30px">
+                        第十五回：太史慈酣斗小霸王 孙伯符大战严白虎</h2>
                     <!--<img src="<%=basePath%>jsp/shop/img/emptyImage.png" style="width: 870px;height:800px;position: absolute;margin-top: -90px;">-->
                 </div>
 
                 <div>
-                    <img src="<%=basePath%>jsp/customer/images/ptx.jpg"
+                    <img src="<%=basePath%>jsp/images/timg.jpg"
                          style="width: 50px;height:50px;border-radius:50px;margin: 10px 10px;">
                     <h2 style="font-size: 16px;margin: -35px 70px; border-bottom: 1px dashed #CCCCCC;height: 50px">
-                        评论</h2></br></br>
+                        客观说一下，我是不爱读书的人这本书下午2：00钟开始看看到3：30看了一半了，是真心好看。用举例和图画来讲很容易就懂了。</h2></br></br>
+                    <img src="<%=basePath%>jsp/images/timg(1).jpg"
+                         style="width: 50px;height:50px;border-radius:50px;margin: 10px 10px;">
+                    <h2 style="font-size: 16px;margin: -35px 70px; border-bottom: 1px dashed #CCCCCC;height: 50px">
+                        震惊。。总的来说，书本有损坏，对爱看书喜欢收藏书的人来说是一件很不爽的事情，望改正。。。。</h2></br></br>
+                    <img src="<%=basePath%>jsp/images/timg(2).jpg"
+                         style="width: 50px;height:50px;border-radius:50px;margin: 10px 10px;">
+                    <h2 style="font-size: 16px;margin: -35px 70px; border-bottom: 1px dashed #CCCCCC;height: 50px">
+                        书的内容看着一般吧呵呵😄，我们的生活方式的不同的方式不同的是的不同的地方就是说我的生活方式不同的时候我就不知道了。</h2></br></br>
+                    <img src="<%=basePath%>jsp/images/timg(3).jpg"
+                         style="width: 50px;height:50px;border-radius:50px;margin: 10px 10px;">
+                    <h2 style="font-size: 16px;margin: -35px 70px; border-bottom: 1px dashed #CCCCCC;height: 50px">
+                        最近没什么好看的书 朋友推荐了这个 看着不错 回去慢慢看</h2></br></br>
+                    <img src="<%=basePath%>jsp/images/toux.jpg"
+                         style="width: 50px;height:50px;border-radius:50px;margin: 10px 10px;">
+                    <h2 style="font-size: 16px;margin: -35px 70px; border-bottom: 1px dashed #CCCCCC;height: 50px">
+                        好好说话，情商的高低取决于你说话好听的程度</h2></br></br>
+                    <img src="<%=basePath%>jsp/images/timg(4).jpg"
+                         style="width: 50px;height:50px;border-radius:50px;margin: 10px 10px;">
+                    <h2 style="font-size: 16px;margin: -35px 70px; border-bottom: 1px dashed #CCCCCC;height: 50px">
+                        还是惊喜的，不过我不好评价，毕竟还没看呢，起初是因为班上要捐书，我刚过来，没啥子课外书</h2></br></br>
+                    <img src="<%=basePath%>jsp/images/timg(5).jpg"
+                         style="width: 50px;height:50px;border-radius:50px;margin: 10px 10px;">
+                    <h2 style="font-size: 16px;margin: -35px 70px; border-bottom: 1px dashed #CCCCCC;height: 50px">
+                        可以可以，很强势。已经读了一本，感觉还不错。继续努力</h2></br></br>
 
 
                 </div>
-
 
             </div>
         </div>

@@ -17,7 +17,6 @@
 <html>
 <head>
     <title>图书借阅系统</title>
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/top.css">
     <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/normalize.min.css">
     <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/style.css">
@@ -171,6 +170,10 @@
                     }
                     if (data.CodeMessage == 4) {
                         alert("该邮箱不正确或者不存在，请重新输入！");
+                        sleep = 0;
+                    }
+                    if (data.CodeMessage == 5) {
+                        alert("出现未知错误！");
                         sleep = 0;
                     }
                 });

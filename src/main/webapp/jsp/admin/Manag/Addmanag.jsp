@@ -43,9 +43,15 @@
                 if (name == "") {
                     status = false;
                     $("input[name='admin_password']").next().html("密码不能为空");
-                } else {
+                } else if (name!=$("input[name='r_password']").val()){
+                    $("input[name='r_password']").next().html("两次密码不一样");
+
+                }else{
                     status = true;
                 }
+
+
+
 
                 //对作者名称进行验证
                 var name = $("input[name='admin_phone']").val();
@@ -142,7 +148,9 @@
             <input id="admin_head" name="admin_head" type="text" class="dfinput" value="" readonly="readonly" style="display:none" />
             <li><label>*名字</label><input id="admin_name" name="admin_name" type="text" class="dfinput"/><i
                     ></i></li>
-            <li><label>*密码</label><input id="admin_password" name="admin_password" type="text" class="dfinput"/><i
+            <li><label>*密码</label><input id="admin_password" name="admin_password" type="password" class="dfinput"/><i
+            ></i></li>
+            <li><label>*确认密码</label><input id="r_password" name="r_password" type="password" class="dfinput"/><i
             ></i></li>
             <li><label>*电话</label><input id="admin_phone" name="admin_phone" type="text" class="dfinput"/><i
                    ></i></li>

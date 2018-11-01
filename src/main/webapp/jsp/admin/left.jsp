@@ -24,7 +24,7 @@
                 <a href="#"><i class="fa fa-dashboard"></i><span>lcvc图书借阅系统</span></a>
             </li>
             <li class="sub-menu">
-                <a href="javascript:void(0);"><i class="fa fa-cogs"></i><span>个人信息</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa-cogs"><img src="images/1.png" alt="" style="margin: 0 0 0 -10px"></i><span>个人信息</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
 
                     <li><a href="<%=basePath%>jsp/admin/admin/passupdate.jsp" target="rightFrame">修改密码</a>
@@ -34,7 +34,7 @@
                 </ul>
             </li>
             <li class="sub-menu">
-                <a href="javascript:void(0);"><i class="fa fa-table"></i><span>书籍类别管理</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa-table"><img src="images/2.png" alt="" style="margin: 0 0 -10px -10px"></i><span>书籍类别管理</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
                     <li><a href="<%=basePath%>admin/BookShow?index=0" target="rightFrame">所有书籍</a>
                     </li>
@@ -45,7 +45,7 @@
                 </ul>
             </li>
             <li class="sub-menu">
-                <a href="javascript:void(0);"><i class="fa fa fa-desktop"></i><span>管理员模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa fa-desktop"><img src="images/3.png" alt="" style="margin:0 0 0 -10px"></i><span>管理员模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
                     <li><a href="<%=basePath%>admin/AdminShow?index=0" target="rightFrame">管理员管理</a>
                     </li>
@@ -53,7 +53,7 @@
                     </li>
                 </ul>
             <li class="sub-menu">
-                <a href="javascript:void(0);"><i class="fa fa fa-user"></i><span>用户模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa fa-user"><img src="images/4.png" alt="" style="margin: 0 0 -10px -10px"></i><span>用户模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
                     <li><a href="<%=basePath%>admin/CustomerShow?index=0" target="rightFrame">用户管理</a></li>
                     <li><a href="<%=basePath%>jsp/admin/customer/user_reviews.jsp" target="rightFrame">用户评论</a></li>

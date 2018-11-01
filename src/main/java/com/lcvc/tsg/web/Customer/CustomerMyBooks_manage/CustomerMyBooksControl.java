@@ -37,8 +37,7 @@ public class CustomerMyBooksControl {
         if (index > c) {
             index = c;
         }
-//        System.out.println(bookBean.myBorrowingRecordCount(customer.getId())+"----------------------21");
-//        System.out.println(bookBean.myBorrowingRecord(customer.getId(),0).size());
+
         request.setAttribute("indexPage", index);
         request.setAttribute("PageCount", c);
         request.setAttribute("myBorrowingRecord",bookBean.myBorrowingRecord(customer.getId(),index));
@@ -46,6 +45,10 @@ public class CustomerMyBooksControl {
 
     return "customer/Book/record.jsp";
     }
+
+
+
+
 
 
 }

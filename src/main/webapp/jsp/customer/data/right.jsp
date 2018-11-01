@@ -88,7 +88,21 @@
     <form id="updateform" method="post">
         <div class="right_donw">
             <div class="img_head" id="image1">
-                <img src="${sessionScope.customer.customer_head}" id="customer_head1"></div>
+
+                <c:choose>
+                    <c:when test="${sessionScope.customer.customer_head!=null}">
+
+                    <img src="${sessionScope.customer.customer_head}" id="customer_head1"></div>
+                    </c:when>
+                    <c:otherwise>
+                      <img src="<%=basePath%>jsp/OtherFile/image/defaultHeadimage.gif"/>
+                    </c:otherwise>
+
+                </c:choose>
+
+
+
+        </div>
             <div class="right_dom">
                 <ul>
                     <li>用户名：${sessionScope.customer.customer_name}</li>

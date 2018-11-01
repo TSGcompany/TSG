@@ -83,7 +83,7 @@ public class CustomerRegisterControl {
                         //==================================================
                         System.out.println(sb.toString());
                     } else {
-                        map.put("CodeMessage", 4);
+                        map.put("CodeMessage", 5);
                         VerificationCode = null;//验证之后将值刷新
                     }
                 } else {

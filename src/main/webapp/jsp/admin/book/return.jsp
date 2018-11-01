@@ -20,6 +20,7 @@
                 var customer_name=$("#customer_name").val();
                 if(customer_name.length==0 || customer_name==""){
                     stust=false;
+                    alert("用户名不能为空");
                 }else
                 //判断输入框中有没有值
                 if($("#book_id").val()==''||$("#book_id").val().length==0){

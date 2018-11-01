@@ -19,9 +19,9 @@
     <title>头部</title>
     <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/jquery.hiSlider.min.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>jsp/shop/css/top.css">
-    <link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css"  media="all">
+    <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/layui.css"  media="all">
     <link rel="stylesheet" href="<%=basePath%>jsp/shop/css/bootstrap.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="<%=basePath%>jsp/shop/js/jquery-1.12.4.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         *{
@@ -64,19 +64,19 @@
     <div class="navbar">
         <ul>
             <li class="nav_img2"><img src="<%=basePath%>jsp/shop/img/lcvclogo.png"></li>
-            <li class="nav_1"><a href="<%=basePath%>shop/ToShopIndex" target="_top">首页</a></li>
-            <li class="nav_1"><a href="#">网上借阅</a></li>
-            <li class="nav_1"><a href="#">读者服务</a></li>
-            <li class="nav_1"><a href="#">资源动态</a></li>
-            <li class="nav_1"><a href="#">讲座/活动</a></li>
+            <li class="nav_1"><a  style="color: #f8f8f8"  href="<%=basePath%>shop/ToShopIndex" target="_top">首页</a></li>
+            <li class="nav_1"><a style="color: #f8f8f8" href="#">网上借阅</a></li>
+            <li class="nav_1"><a  style="color: #f8f8f8"  href="#">读者服务</a></li>
+            <li class="nav_1"><a style="color: #f8f8f8"  href="#">资源动态</a></li>
+            <li class="nav_1"><a  style="color: #f8f8f8"  href="#">讲座/活动</a></li>
             <c:choose>
                 <c:when test="${sessionScope.customer!=null}">
-                    <div class="btn-group">
+                    <div class="btn-group" style="color: #f8f8f8">
                         <li type="button" class="btn btn-default dropdown-toggle"
                             data-toggle="dropdown">
-                            <a href=" "> ${sessionScope.customer.customer_nickname}</a><span class="caret"></span>
+                            <a href=" " style="color: #f8f8f8"> ${sessionScope.customer.customer_nickname}</a><span class="caret"></span>
                         </li>
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu" role="menu" style="color: #f8f8f8">
                             <li><a href="<%=basePath%>user/ToIndex" target="_top">个人信息</a></li>
                             <li><a href="<%=basePath%>user/logout" target="_parent">退出登录</a></li>
                         </ul>

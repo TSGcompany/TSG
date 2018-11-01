@@ -1,4 +1,5 @@
 package com.lcvc.tsg.OtherPackage;
+
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -46,12 +47,7 @@ public class MyEmail {
         }
     }
     //调这个就可以发送邮件（地址，验证码）
-
     public int  chooseOperation(String EmailTo,String Code) {
-
             return MysendEmail("731118710@qq.com", "wjvbmiiiueypbdfi", EmailTo, "TST注册验证", "验证码为：       "+Code);
-
     }
-
-
 }

@@ -16,8 +16,9 @@
     <title>右边</title>
 
     <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
-    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat'>
+   <!-- <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>-->
+
+  <link rel='stylesheet prefetch' href="<%=basePath%>jsp/customer/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 
 
@@ -26,12 +27,12 @@
 <body>
 <ul class="accordion-menu">
     <li>
-        <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i>首页</div>
+        <div class="dropdownlink"><i class="" aria-hidden="true"></i>首页</div>
     </li>
 
     <li>
-        <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> 个人信息
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        <div class="dropdownlink"><i class="" aria-hidden="true"><img src="images/1.png" alt="" style="margin: -10px 0 0 -10px"></i> 个人信息
+            <i class="" aria-hidden="true"><img src="images/4.png" alt="" style="margin: 0px 0 0 200px"></i>
         </div>
         <ul class="submenuItems">
             <li><a href="<%=basePath%>jsp/customer/data/right.jsp" target="rightFrame">个人资料</a></li>
@@ -39,16 +40,17 @@
         </ul>
     </li>
     <li>
-        <div class="dropdownlink"><i class="fa fa-quote-left" aria-hidden="true"></i> 我的书籍
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        <div class="dropdownlink"><i class="" aria-hidden="true"><img src="images/2.png" alt="" style="margin: -10px 0 0 -10px"></i> 我的书籍
+            <i class="" aria-hidden="true"><img src="images/4.png" alt="" style="margin: 0px 0 0 200px"></i>
         </div>
         <ul class="submenuItems">
             <li><a href="<%=basePath%>jsp/customer/Book/borrwbooks.jsp" target="rightFrame">我的预约</a></li>
             <li><a href="<%=basePath%>user/myBorrowingRecord?index=0" target="rightFrame">查看历史记录</a></li>
+
         </ul>
     </li>
     <li>
-        <a href="<%=basePath%>jsp/customer/contact/Telephone.jsp" target="rightFrame"><div class="dropdownlink"><i class="fa fa-motorcycle" aria-hidden="true"></i>联系管理员
+        <a href="<%=basePath%>jsp/customer/contact/Telephone.jsp" target="rightFrame"><div class="dropdownlink"><i class="" aria-hidden="true"><img src="images/3.png" alt="" style="margin: -10px 0 0 -10px"></i>联系管理员
         </div></a>
 
     </li>

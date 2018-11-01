@@ -14,9 +14,8 @@
 </head>
 <body style="background:none;">
 <div class="ds_center">
-    <img src="<%=basePath%>jsp/shop/img/404.jpg" />
-    <div class="error_404_1"><a href="javascript:history.go(-1);" >返回上一层</a></div>
-    <div class="error_404_2"><a href="<%=basePath%>shop/ToShopIndex" target="_top">返回登录页</a></div>
+    <img  style="margin-left: 600px;margin-top: 300px" src="<%=basePath%>jsp/shop/img/400.jpg" />
+
 </div>
 </body>
 </html>
