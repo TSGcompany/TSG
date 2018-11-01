@@ -1,6 +1,4 @@
 package com.lcvc.tsg.OtherPackage;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
 
 import javax.mail.Message;
 import javax.mail.Session;
