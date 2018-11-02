@@ -34,26 +34,33 @@
             $("div[name='BorrowingBookBtn']").click(function () {
 
                 var AddBorrowing = $(this).find("span").attr("name");//获取span中的name值
-
-                $.get(AddBorrowing, function (data) {//路径， 返回值
-                    if (data.BorrowingMessage == 1) {
-                        alert("借阅成功！")
-                        //跳转页面0
-                        //location.href="<%=basePath%>user/myBorrowingRecord?index=0";
-
-                    }
-                    if (data.BorrowingMessage == 0) {
-                        alert("您已经被禁止借书！")
-                    }
-                    if (data.BorrowingMessage == 2) {
-                        alert("每本书只能被借一次！")
-                    }
-                    if (data.BorrowingMessage == 3) {
-                        alert("该书已经借完请联系管理员！")
-                    }
-                });
-
+                var customer_isLogin=${sessionScope.customer.customer_prohibit_Login};
+            //   alert(customer_isLogin);
+                if(!customer_isLogin) {//判断是不是已经被禁止登陆
+                    $.get(AddBorrowing, function (data) {//路径， 返回值
+                        if (data.BorrowingMessage == 1) {
+                            alert("借阅成功！")
+                            //跳转页面0
+                            //location.href="<%=basePath%>user/myBorrowingRecord?index=0";
+                        }
+                        if (data.BorrowingMessage == 0) {
+                            alert("您已经被禁止借书！")
+                        }
+                        if (data.BorrowingMessage == 2) {
+                            alert("每本书只能被借一次！")
+                        }
+                        if (data.BorrowingMessage == 3) {
+                            alert("该书已经借完请联系管理员！")
+                        }
+                        if (data.BorrowingMessage == 4) {
+                            alert("您已经被禁止登陆，无法借阅！")
+                        }
+                    });
+                }else {
+                    alert("您已经被禁止登陆，无法借阅！")
+                }
             });
+
             //===============================点击页码========================
             var indexPage = ${indexPage};
             var PageCount =${PageCount};

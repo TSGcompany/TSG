@@ -32,6 +32,7 @@
                 var book_id=$(this).find("p").text();//获取id
              //   alert(book_id);
 
+
                 $.get("<%=basePath%>user/BorrowingBook?book_id="+book_id, function (data) {//路径， 返回值
                  //   alert(data.BorrowingMessage);
                     if (data.BorrowingMessage == 1) {
@@ -46,6 +47,9 @@
                     }
                     if (data.BorrowingMessage == 3) {
                         alert("该书已经借完请联系管理员！")
+                    }
+                    if (data.BorrowingMessage == 4) {
+                        alert("您已经被禁止登陆，无法借阅！")
                     }
 
                 });

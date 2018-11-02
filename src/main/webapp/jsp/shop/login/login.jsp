@@ -107,8 +107,11 @@
                         $.post("<%=basePath%>user/login", $("#Loginform").serialize(), function (data) {
                             if (data.customerLoginMessage == 1) {
                                 location.href = "<%=basePath%>user/ToIndex";
-                            } else {
+                            } else if(data.customerLoginMessage == 2){
                                 alert("登陆失败用户名或者密码错误！");
+                            }
+                            if(data.customerLoginMessage == 3){
+                                alert("您已经被禁止登陆！");
                             }
                         });
                     }

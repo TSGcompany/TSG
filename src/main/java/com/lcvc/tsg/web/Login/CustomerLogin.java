@@ -29,8 +29,12 @@ public class CustomerLogin {
     public Map<String, Object> UserShow(String UserName, String UserPass, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
         if (loginBean.CustomerLogin(UserName, UserPass) != null) {//看看返回是否为空
-            session.setAttribute("customer",loginBean.CustomerLogin(UserName,UserPass));//将Customer存到session中
-            map.put("customerLoginMessage",1);//返回信息给
+            if(loginBean.CustomerLogin(UserName, UserPass).isCustomer_prohibit_Login()){
+                map.put("customerLoginMessage",3);//返回信息给
+            }else{
+                session.setAttribute("customer",loginBean.CustomerLogin(UserName,UserPass));//将Customer存到session中
+                map.put("customerLoginMessage",1);//返回信息给
+            }
         }else{
             map.put("customerLoginMessage",2);//返回信息给页面
         }
