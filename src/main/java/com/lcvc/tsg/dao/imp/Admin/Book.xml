@@ -89,7 +89,6 @@
 </select>
     <!--================================= 查看某本书是否正在被借阅并且还未归还 ===========================================-->
     <select id="select_borrowingAndNotReturn" parameterType="String" resultType="int">
-
     select COUNT(id) from borrowing where  book_id=#{book_id} AND borrowing_Return='0'
 </select>
 
@@ -105,9 +104,31 @@
     <select id="myBorrowingRecord"  resultMap="borrowing">
     SELECT  * FROM  borrowing WHERE customer_Id=#{customer_Id}   order by borrowing_Time desc limit #{index},10
 </select>
+
+    <!--================================= 查看某个用户已还相关的借阅记录 ===========================================-->
+    <select id="myBorrowingIsReturnRecord"  resultMap="borrowing">
+        SELECT  * FROM  borrowing WHERE customer_Id=#{customer_Id} AND borrowing_Return='1' order by borrowing_Time desc limit #{index},10
+    </select>
+    <!--================================= 查看某个用户未还相关的借阅记录 ===========================================-->
+    <select id="myBorrowingNotReturnRecord"  resultMap="borrowing">
+        SELECT  * FROM  borrowing WHERE customer_Id=#{customer_Id} AND borrowing_Return='0' order by borrowing_Time desc limit #{index},10
+    </select>
+
+    <!--================================= 查看某个用户相关的借阅记录（个数） ===========================================-->
     <select id="myBorrowingRecordCount"  parameterType="int" resultType="int">
         SELECT  count(id) FROM  borrowing WHERE customer_Id=#{customer_Id}
     </select>
+
+    <!--================================= 查看某个用户已还相关的借阅记录（个数） ===========================================-->
+    <select id="myBorrowingIsReturnRecordCount"  parameterType="int" resultType="int">
+        SELECT  count(id) FROM  borrowing WHERE customer_Id=#{customer_Id} AND borrowing_Return='1'
+    </select>
+    <!--================================= 查看某个用户未还相关的借阅记录（个数） ===========================================-->
+    <select id="myBorrowingNotReturnRecordCount"  parameterType="int" resultType="int">
+        SELECT  count(id) FROM  borrowing WHERE customer_Id=#{customer_Id} AND borrowing_Return='0'
+    </select>
+
+
 
 
     <!--=============================== 搜索书（通过书名）==================================-->
@@ -125,6 +146,10 @@
 
     SELECT * from book where  book_type=#{type_id}   limit 0,15
 </select>
+
+
+
+
 
 
     <!--==============================推荐阅读的书 (前4)============================ -->

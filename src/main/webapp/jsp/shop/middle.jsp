@@ -34,9 +34,8 @@
             $("div[name='BorrowingBookBtn']").click(function () {
 
                 var AddBorrowing = $(this).find("span").attr("name");//获取span中的name值
-                var customer_isLogin=${sessionScope.customer.customer_prohibit_Login};
-            //   alert(customer_isLogin);
-                if(!customer_isLogin) {//判断是不是已经被禁止登陆
+                var customer_isLogin=$("#judgeIsLogin").html();//返回的是一个字符串
+                if(customer_isLogin=="false") {//判断是不是已经被禁止登陆
                     $.get(AddBorrowing, function (data) {//路径， 返回值
                         if (data.BorrowingMessage == 1) {
                             alert("借阅成功！")
@@ -170,6 +169,7 @@
     <div class="page_btn all_page right">共${PageCount}页</div>
 </div>
 <span style="width: 80px; height:30px;border: 1px solid #ccc;margin-left:580px;margin-top:9px;float: left;"><p>当前页为${indexPage+1}</p></span>
+<span hidden id="judgeIsLogin">${customer.customer_prohibit_Login}</span>
 <script src="<%=basePath%>jsp/shop/js/jquery-1.11.0.js"></script>
 <script src="<%=basePath%>jsp/shop/js/index.js"></script>
 </body>

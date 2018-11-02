@@ -5,6 +5,7 @@ import com.lcvc.tsg.model.Admin;
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Book_Type;
 import com.lcvc.tsg.model.Borrowing;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -213,6 +214,43 @@ public class BookBean {
         index=index*10;
         return bookDao.myBorrowingRecord(CustomerID,index);
     }
+    /**
+     * @Author Anle
+     * @Date 下午 9:41 2018/11/2 0002
+     **/
+    //-================================= 查看某个用户已还相关的借阅记录 ============================
+    public List<Borrowing> myBorrowingIsReturnRecord(Integer Customer_ID, Integer Index){
+        Index=Index*10;
+        return bookDao.myBorrowingIsReturnRecord(Customer_ID,Index);
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 9:41 2018/11/2 0002
+     **/
+    //-================================= 查看某个用户已还相关的借阅记录 ============================
+    public List<Borrowing> myBorrowingNotReturnRecord(Integer Customer_ID, Integer Index){
+        Index=Index*10;
+        return bookDao.myBorrowingNotReturnRecord(Customer_ID,Index);
+    }
+    /**
+     * @Author Anle
+     * @Date 下午 6:53 2018/10/28 0028
+     **/
+    //-================================= 查看某个用户未还相关的借阅记录(个数) ============================
+   public int myBorrowingNotReturnRecordCount(Integer CustomerID){
+       return bookDao.myBorrowingNotReturnRecordCount(CustomerID);
+   }
+    /**
+     * @Author Anle
+     * @Date 下午 6:53 2018/10/28 0028
+     **/
+    //-================================= 查看某个用户已还相关的借阅记录(个数) ============================
+    public int myBorrowingIsReturnRecordCount(Integer CustomerID){
+        return bookDao.myBorrowingIsReturnRecordCount(CustomerID);
+    }
+
+
+
     /**
      * @Author Anle
      * @Date 下午 6:53 2018/10/28 0028

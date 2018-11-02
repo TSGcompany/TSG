@@ -14,7 +14,7 @@
 </head>
 <body style="background:none;">
 <div class="ds_center">
-    <img  style="margin-left: 600px;margin-top: 300px" src="<%=basePath%>jsp/shop/img/400.jpg" />
+    <img  style="margin-left: 850px;margin-top: 300px" src="<%=basePath%>jsp/shop/img/400.jpg" />
 
 </div>
 </body>

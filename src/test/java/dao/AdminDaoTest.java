@@ -253,8 +253,15 @@ public class AdminDaoTest extends SpringJunitTest {
 //        for (Borrowing br: bookDao.myBorrowingRecord(21)) {
 //            System.out.println(br.getBook_id().getBook_icon());
 //        }
-        System.out.println(bookDao.myBorrowingRecord(21,0).get(1).getId());
+        System.out.println(bookDao.myBorrowingRecord(21, 0).get(1).getId());
     }
+    //===================================查看某个用户已还相关的借阅记录=============================
+    @Test
+    public void myBorrowingIsReturnRecord(){
+    //    System.out.println(bookDao.myBorrowingNotReturnRecord(21,0).size());
+    System.out.println(bookDao.myBorrowingNotReturnRecordCount(21));
+    }
+
 
     /**
      * @Author Anle
@@ -262,6 +269,7 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     //=============================搜索书（通过类型搜索）========================
     @Test
+
     public void SearchBookWhereBookType_Test() {
         for (Book b : bookDao.SearchBookWhereBookType(1)) {
             System.out.println(b.getBook_name());
@@ -309,12 +317,12 @@ public class AdminDaoTest extends SpringJunitTest {
      **/
     //===============================禁止(解除)用户借阅===========================
     @Test
-    public void prohibit_Customer_Borrowing_Test(){
+    public void prohibit_Customer_Borrowing_Test() {
         Customer customer = new Customer();
         customer.setId(21);
         customer.setCustomer_prohibit_Borrowing(false);
         customer.setCustomer_prohibit_Login(false);
-    //System.out.println(customerDao.prohibit_Customer_Borrowing(customer));
+        //System.out.println(customerDao.prohibit_Customer_Borrowing(customer));
         System.out.println(customerDao.prohibit_Customer_Login(customer));
     }
 }
