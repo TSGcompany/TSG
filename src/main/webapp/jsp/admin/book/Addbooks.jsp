@@ -170,7 +170,7 @@
 
             <li><label>*书的数量</label><input id="book_number" name="book_number" type="text" class="dfinput"/><i
                     id="number_message"></i></li>
-            <li><label>书本评论</label>
+            <li><label>书本简介</label>
                 <textarea id="book_description" name="book_description" cols="" rows="" class="textinput"></textarea><i></i>
             </li>
             <li><label>&nbsp;</label><input id="submit_button" type="button" class="btn" value="添加书籍"/></li>
