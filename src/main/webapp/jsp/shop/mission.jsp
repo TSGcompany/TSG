@@ -144,11 +144,12 @@
     <!--右边大边框-->
     <div class="maer-right">
         <div class="container">
-            <img class='photo'  src="img/tsg.jpg" alt=""/>
-            <img class='photo'  src="img/tsg.jpg" alt=""/>
-            <img class='photo'  src="img/tsg1.jpg" alt="" />
-            <img class='photo'  src="img/tsg2.jpg" alt="" />
-            <img class='photo'  src="img/tsg3.jpg" alt="" />
+            <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg.jpg"  alt=""/>
+            <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg2.jpg" alt=""/>
+            <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg1.jpg" alt=""/>
+            <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg2.jpg" alt=""/>
+            <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg3.jpg" alt="" />
+
         </div>
         <div class="nTab">
             <div class="TabContent">
