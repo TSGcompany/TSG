@@ -145,7 +145,6 @@
     <div class="maer-right">
         <div class="container">
             <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg.jpg"  alt=""/>
-            <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg2.jpg" alt=""/>
             <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg1.jpg" alt=""/>
             <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg2.jpg" alt=""/>
             <img class='photo'  src="<%=basePath%>jsp/shop/img/tsg3.jpg" alt="" />
