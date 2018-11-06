@@ -29,46 +29,37 @@
             $("#admin_button").click(function () {
                 var status = false; //默认表单验证通过
 
-                //对书名名称进行验证
-                var name = $("input[name='admin_name']").val();
-                if (name == "") {
-                    status = false;
-                    $("input[name='admin_name']").next().html("名称不能为空");
-                } else {
-                    status = true;
-                }
-
-                //对书名名称进行验证
-                var name = $("input[name='admin_password']").val();
-                if (name == "") {
-                    status = false;
-                    $("input[name='admin_password']").next().html("密码不能为空");
-                } else if (name!=$("input[name='r_password']").val()){
-                    $("input[name='r_password']").next().html("两次密码不一样");
-
+                var admin_name = $("input[name='admin_name']").val();
+                var admin_password = $("input[name='admin_password']").val();
+                var r_password =$("input[name='r_password']").val();
+                var admin_phone = $("input[name='admin_phone']").val();
+                var admin_Email = $("input[name='admin_Email']").val();
+                if(admin_name!=""){
+                    if(admin_password!=""){
+                        if(r_password!=""){
+                            if(admin_password==r_password){
+                                if(admin_phone!=""){
+                                    if(admin_Email!=""){
+                                        status = true;
+                                    }else{
+                                        $("input[name='admin_Email']").next().html("邮箱名不能为空");
+                                    }
+                                }else{
+                                    $("input[name='admin_phone']").next().html("电话不能为空");
+                                }
+                            }else{
+                                $("input[name='r_password']").next().html("确认密码不一样！");
+                            }
+                        }else{
+                            $("input[name='r_password']").next().html("确认不能为空");
+                        }
+                    }else{
+                        $("input[name='admin_password']").next().html("密码不能为空");
+                    }
                 }else{
-                    status = true;
+                    $("input[name='admin_name']").next().html("名称不能为空");
                 }
 
-
-
-
-                //对作者名称进行验证
-                var name = $("input[name='admin_phone']").val();
-                if (name == "") {
-                    status = false;
-                    $("input[name='admin_phone']").next().html("电话不能为空");
-                } else {
-                    status = true;
-                }
-                //对作者名称进行验证
-                var name = $("input[name='admin_Email']").val();
-                if (name == "") {
-                    status = false;
-                    $("input[name='admin_Email']").next().html("邮箱名不能为空");
-                } else {
-                    status = true;
-                }
 
                 if (status == true) { //如果表单验证通过
                     $.post("<%=basePath%>admin/AddAdmin",$("#AddAdminForm").serialize(),function (data) {
