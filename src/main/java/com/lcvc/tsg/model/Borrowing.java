@@ -65,5 +65,34 @@ public class Borrowing {
     private  boolean borrowing_Return;//是否归还
     private Book book_id;//书的编号
 
+    public String getBorrowing_Save_bookNumber() {
+        return borrowing_Save_bookNumber;
+    }
+
+    public void setBorrowing_Save_bookNumber(String borrowing_Save_bookNumber) {
+        this.borrowing_Save_bookNumber = borrowing_Save_bookNumber;
+    }
+
+    private String borrowing_Save_bookNumber;
+    private  String borrowing_Save_bookicon;//保存书本图片
+
+    public String getBorrowing_Save_bookicon() {
+        return borrowing_Save_bookicon;
+    }
+
+    public void setBorrowing_Save_bookicon(String borrowing_Save_bookicon) {
+        this.borrowing_Save_bookicon = borrowing_Save_bookicon;
+    }
+
+    public String getBorrowing_Save_bookname() {
+        return borrowing_Save_bookname;
+    }
+
+    public void setBorrowing_Save_bookname(String borrowing_Save_bookname) {
+        this.borrowing_Save_bookname = borrowing_Save_bookname;
+    }
+
+    private  String borrowing_Save_bookname;//保存书本名字
+
 
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指明这个映射文件adminMapper.xml的逻辑路径-->
+<mapper namespace="com.lcvc.tsg.dao.ShopDao.ShopMyCollectionDao">
+    <!--=============================添加一个收藏===============================-->
+    <insert id="addCollection" parameterType="MyCollection">
+  INSERT  INTO collection (id,collection_bookNumber,collection_bookName,collection_bookIcon,iscollection,collection_customerId)
+   VALUE (#{id},#{collection_bookNumber},#{collection_bookName},#{collection_bookIcon},#{iscollection},#{collection_customerId.id})
+    </insert>
+    <!--========================判断某个用户收藏表中是否已经包含该书=====================-->
+    <select id="collectionCountWhereBookAndUser" resultType="int" parameterType="MyCollection">
+        SELECT  COUNT(id) FROM collection WHERE  collection_bookNumber=#{collection_bookNumber} AND collection_customerId=#{collection_customerId.id}
+    </select>
+
+
+
+
+</mapper>

@@ -3,11 +3,14 @@ package dao;
 
 import com.lcvc.tsg.dao.CustomerDao.CustomerRegisterDao;
 import com.lcvc.tsg.dao.CustomerDao.CustomerUserDao;
+import com.lcvc.tsg.model.MyCollection;
 import com.lcvc.tsg.servers.LoginBean.LoginBean;
 import com.lcvc.tsg.test.SpringJunitTest;
+import org.apache.ibatis.annotations.Param;
 import org.junit.Test;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @ClassName CustomerDaoTest
@@ -39,5 +42,12 @@ public class CustomerDaoTest extends SpringJunitTest {
     public void prohibit_Login_Test (){
       System.out.println(customerUserDao.getCustomer(21).isCustomer_prohibit_Borrowing());
     }
+    @Test
+    public void selectCollectionWhereUser(){
+   // System.out.println(customerUserDao.selectCollectionWhereUser(21,10).size());
+    System.out.println(customerUserDao.selectCollectionCount(21));
+
+    }
+
 
 }

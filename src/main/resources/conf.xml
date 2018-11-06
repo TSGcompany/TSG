@@ -10,26 +10,29 @@
         <typeAlias alias="Book" type="com.lcvc.tsg.model.Book"/>
         <typeAlias alias="Customer" type="com.lcvc.tsg.model.Customer"></typeAlias>
         <typeAlias alias="Book_Type" type="com.lcvc.tsg.model.Book_Type"></typeAlias>
-        <typeAlias  alias="Admin" type="com.lcvc.tsg.model.Admin"></typeAlias>
-        <typeAlias  alias="Borrowing" type="com.lcvc.tsg.model.Borrowing"></typeAlias>
+        <typeAlias alias="Admin" type="com.lcvc.tsg.model.Admin"></typeAlias>
+        <typeAlias alias="Borrowing" type="com.lcvc.tsg.model.Borrowing"></typeAlias>
+        <typeAlias alias="MyCollection" type="com.lcvc.tsg.model.MyCollection"></typeAlias>
 
 
     </typeAliases>
 
     <mappers>
         <!--注册adminMappe.xml文件. -->
-            <!--Admin模块-->
+        <!--Admin模块-->
         <mapper resource="com/lcvc/tsg/dao/imp/Admin/Admin.xml"/>
         <mapper resource="com/lcvc/tsg/dao/imp/Admin/Book.xml"/>
         <mapper resource="com/lcvc/tsg/dao/imp/Admin/Customer.xml"/>
         <mapper resource="com/lcvc/tsg/dao/imp/Admin/Personal.xml"/>
         <mapper resource="com/lcvc/tsg/dao/imp/Login/Login.xml"/>
-            <!--Customer模块-->
+        <!--Customer模块-->
         <mapper resource="com/lcvc/tsg/dao/imp/Customer/CustomerRegister.xml"/>
         <mapper resource="com/lcvc/tsg/dao/imp/Customer/CustomerUser.xml"/>
         <!-- Shop模块 -->
         <mapper resource="com/lcvc/tsg/dao/imp/Shop/ShopIndex.xml"/>
         <mapper resource="com/lcvc/tsg/dao/imp/Shop/ShopBorrowing.xml"/>
+        <mapper resource="com/lcvc/tsg/dao/imp/Shop/ShopMyCollection.xml"/>
+
     </mappers>
 
 

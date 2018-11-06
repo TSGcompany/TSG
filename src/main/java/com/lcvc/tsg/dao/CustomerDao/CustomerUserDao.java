@@ -1,7 +1,10 @@
 package com.lcvc.tsg.dao.CustomerDao;
 
 import com.lcvc.tsg.model.Customer;
+import com.lcvc.tsg.model.MyCollection;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CustomerUserDao {
     //=============================== 查看用户详情(通过id)=============================
@@ -20,6 +23,11 @@ public interface CustomerUserDao {
     //================================查看用户详情(通过用户名)=============================
     Customer getCustomer_whereCustomerName(String CustomerName);
 
+    //=====================================查看用户收藏=================================
+    List<MyCollection> selectCollectionWhereUser(@Param(value = "collection_customerId") Integer collection_customerId, @Param(value = "index") Integer index);
+
+    //=====================================查看用户收藏数量=================================
+   int selectCollectionCount(Integer customerid);
 }
 
 

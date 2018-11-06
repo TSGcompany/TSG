@@ -1,10 +1,12 @@
 package dao;
 
 import com.lcvc.tsg.dao.ShopDao.ShopBorrowingDao;
+import com.lcvc.tsg.dao.ShopDao.ShopMyCollectionDao;
 import com.lcvc.tsg.dao.ShopDao.ShopIndexDao;
 import com.lcvc.tsg.model.Book;
 import com.lcvc.tsg.model.Borrowing;
 import com.lcvc.tsg.model.Customer;
+import com.lcvc.tsg.model.MyCollection;
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
@@ -22,6 +24,8 @@ public class ShopTest extends SpringJunitTest {
     private ShopIndexDao shopIndexDao;
     @Resource
     private ShopBorrowingDao borrowingDao;
+    @Resource
+    private ShopMyCollectionDao shopMyCollectionDao;
     @Test
     public void getShopIndexBook(){
         List<Book> list  =  shopIndexDao.getShopIndexBook(0);
@@ -50,5 +54,30 @@ public class ShopTest extends SpringJunitTest {
         borrowing.setCustomer_Id(customer);
     System.out.println(borrowingDao.selectBorrowingforCustomer(borrowing));
 
+    }
+    //=======================添加一条收藏记录===================
+    @Test
+   public void addCollection(){
+        MyCollection collection  = new MyCollection();
+        collection.setCollection_bookIcon("cc");
+        collection.setCollection_bookName("kdfkd");
+        collection.setCollection_bookNumber("RTes");
+        collection.setIscollection(false);
+        Customer  customer = new Customer();
+        customer.setId(21);
+        collection.setCollection_customerId(customer);
+        System.out.println(shopMyCollectionDao.addCollection(collection));
+
+    }
+
+
+    @Test
+    public void collectionCountWhereBookAndUser(){
+        MyCollection myCollection = new MyCollection();
+        Customer  customer = new Customer();
+        customer.setId(21);
+        myCollection.setCollection_customerId(customer);
+        myCollection.setCollection_bookNumber("kdfkd");
+        System.out.println(shopMyCollectionDao.collectionCountWhereBookAndUser(myCollection));
     }
 }

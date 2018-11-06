@@ -1,7 +1,9 @@
 package com.lcvc.tsg.web.Customer.CustomerMyBooks_manage;
 
 import com.lcvc.tsg.model.Customer;
+import com.lcvc.tsg.model.MyCollection;
 import com.lcvc.tsg.servers.Admin.BookBean;
+import com.lcvc.tsg.servers.Customer.CustomerUserBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +12,7 @@ import javax.annotation.Resource;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @ClassName CustomerMyBooksControl
@@ -21,6 +24,8 @@ import javax.servlet.http.HttpSession;
 public class CustomerMyBooksControl {
     @Resource
     private BookBean bookBean;
+    @Resource
+    private CustomerUserBean csub;
     //=================================查看所有借阅记录===================================
     @RequestMapping(value = "/user/myBorrowingRecord", method = RequestMethod.GET)
     public String myBorrowingRecord(HttpSession session,HttpServletRequest request,Integer index){
@@ -99,5 +104,31 @@ public class CustomerMyBooksControl {
 
         return "customer/Book/recordNotReturn.jsp";
     }
+    //=================================查看所有收藏记录===================================
 
+    @RequestMapping(value = "/user/selectCollectionWhereUser", method = RequestMethod.GET)
+    public String selectCollectionWhereUser(HttpSession session,HttpServletRequest request,Integer index){
+        Customer customer  = (Customer) session.getAttribute("customer");
+        if (index < 0) {
+            index = 0;
+        }
+        int c = 0;
+        if (csub.selectCollectionCount(customer.getId())% 10 == 0) {//计算页码
+            c =csub.selectCollectionCount(customer.getId()) / 10;
+        } else {
+            c = (csub.selectCollectionCount(customer.getId())/ 10) + 1;
+        }
+        if (index > c) {
+            index = c;
+        }
+        List<MyCollection>  listColl = csub.selectCollectionWhereUser(customer.getId(),index);
+
+
+
+        request.setAttribute("indexPage", index);
+        request.setAttribute("PageCount", c);
+        request.setAttribute("selectCollectionWhereUser", csub.selectCollectionWhereUser(customer.getId(),index));
+
+        return "/customer/Book/borrwbooks.jsp";
+    }
 }

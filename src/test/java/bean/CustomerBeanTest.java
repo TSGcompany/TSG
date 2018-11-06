@@ -2,6 +2,7 @@ package bean;
 
 import com.lcvc.tsg.model.Customer;
 import com.lcvc.tsg.servers.Customer.CustomerRegisterBean;
+import com.lcvc.tsg.servers.Customer.CustomerUserBean;
 import com.lcvc.tsg.test.SpringJunitTest;
 import org.junit.Test;
 
@@ -17,7 +18,8 @@ public class CustomerBeanTest extends SpringJunitTest {
 
     @Resource
     private CustomerRegisterBean customerRegisterBean;
-
+    @Resource
+    CustomerUserBean customerUserBean;
     @Test
     public void VerificationUserName() {//用没用人使用过用户名
         System.out.println(customerRegisterBean.VerificationUserName("o1"));
@@ -32,4 +34,10 @@ public class CustomerBeanTest extends SpringJunitTest {
       System.out.println(customerRegisterBean.Customer_register(customer));
 
     }
+@Test
+    public void fdsf(){
+        customerUserBean.selectCollectionWhereUser(21,0);
+
+}
+
 }

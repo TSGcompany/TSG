@@ -202,10 +202,7 @@ public class AdminDaoTest extends SpringJunitTest {
             System.out.println(b.getBook_name());
             System.out.println(b.getBook_creatorID().getAdmin_name());
         }
-
     }
-
-
     /**
      * @Author Anle
      * @Date 下午 5:37 2018/10/26 0026

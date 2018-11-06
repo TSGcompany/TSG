@@ -28,7 +28,7 @@
             <if test="customer_Email!=null">customer_Email=#{customer_Email},</if>
             <if test="customer_nickname!=null ">customer_nickname=#{customer_nickname},</if>
             <if test="customer_sex!=null ">customer_sex=#{customer_sex},</if>
-            <if test="customer_head!=null ">customer_head=#{customer_head},</if>
+            <if test="customer_head!=null  and customer_head.length()>0">customer_head=#{customer_head},</if>
             <if test="customer_password!=null ">customer_password=#{customer_password}</if>
         </set> where id=#{id}
     </update>
@@ -37,4 +37,17 @@
         SELECT COUNT(id) FROM customer WHERE  customer_nickname=#{UserNickName}
 
     </select>
+    <!--===============================查看一个用户的收藏（分页）=====================================-->
+    <select id="selectCollectionWhereUser" resultType="MyCollection">
+
+      SELECT  * FROM collection WHERE  collection_customerId=#{collection_customerId}  limit #{index},10
+
+    </select>
+    <!--===============================查看一个用户的收藏(数量)=====================================-->
+    <select id="selectCollectionCount" resultType="int">
+
+        SELECT COUNT(id) FROM collection WHERE  collection_customerId=#{collection_customerId}
+
+    </select>
+
 </mapper>

@@ -3,9 +3,12 @@ package com.lcvc.tsg.servers.Customer;
 import com.lcvc.tsg.OtherPackage.MyMD5;
 import com.lcvc.tsg.dao.CustomerDao.CustomerUserDao;
 import com.lcvc.tsg.model.Customer;
+import com.lcvc.tsg.model.MyCollection;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class CustomerUserBean {
@@ -37,6 +40,7 @@ public class CustomerUserBean {
 
         return customerUserDao.updateCustomer(customer);
     }
+
     //=============================== 查看用户昵称有没有重名 ==================================
     public int UserRename(String UserName) {
 
@@ -44,8 +48,20 @@ public class CustomerUserBean {
     }
 
     //================================查看用户详情(通过用户名)=============================
-      public   Customer getCustomer_whereCustomerName(String CustomerName){
+    public Customer getCustomer_whereCustomerName(String CustomerName) {
         return customerUserDao.getCustomer_whereCustomerName(CustomerName);
-      }
+    }
+
+    //=====================================查看用户收藏=================================
+   public List<MyCollection> selectCollectionWhereUser( Integer collection_customerId,  Integer index){
+        index=index*10;
+        return customerUserDao.selectCollectionWhereUser(collection_customerId,index);
+   }
+
+    //=====================================查看用户收藏数量=================================
+    public int selectCollectionCount(Integer customerid){
+
+       return customerUserDao.selectCollectionCount(customerid);
+    }
 
 }

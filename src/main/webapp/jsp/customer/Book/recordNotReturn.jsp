@@ -47,10 +47,10 @@
     <c:forEach var="i" items="${myBorrowingNotReturnRecord}">
             <tr>
                 <td class="img_td">
-                <img src="${i.book_id.book_icon}" style="width:60px;height:60px;margin-top: 8px;margin-left: 8px;" />
+                <img src="${i.borrowing_Save_bookicon}" style="width:60px;height:60px;margin-top: 8px;margin-left: 8px;" />
                 </td>
-                <td>${i.book_id.book_id}</td>
-                <td>${i.book_id.book_name}</td>
+                <td>${i.borrowing_Save_bookNumber}</td>
+                <td>${i.borrowing_Save_bookname}</td>
                 <td><fmt:formatDate value="${i.borrowing_Time}" pattern="yyyy年MM月dd日 HH:mm"/></td>
                 <c:choose>
                     <c:when test="${i.borrowing_Return_Time==null}">

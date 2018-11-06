@@ -8,7 +8,7 @@
     </select>
     <!--================================添加一条借阅信息=================================-->
     <insert id="addBorrowing" parameterType="Borrowing">
-    INSERT INTO borrowing(id,customer_Id,borrowing_Time,borrowing_Return,book_id)VALUE (#{id},#{customer_Id.id},#{borrowing_Time},#{borrowing_Return},#{book_id.book_id})
+    INSERT INTO borrowing(id,customer_Id,borrowing_Time,borrowing_Return,book_id,borrowing_Save_bookname,borrowing_Save_bookicon,borrowing_Save_bookNumber)VALUE (#{id},#{customer_Id.id},#{borrowing_Time},#{borrowing_Return},#{book_id.book_id},#{borrowing_Save_bookname},#{borrowing_Save_bookicon},#{borrowing_Save_bookNumber})
 
     </insert>
 

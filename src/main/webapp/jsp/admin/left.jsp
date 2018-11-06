@@ -56,8 +56,7 @@
                 <a href="javascript:void(0);"><i class="fa fa fa-user"><img src="images/4.png" alt="" style="margin: 0 0 -10px -10px"></i><span>用户模块</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 <ul>
                     <li><a href="<%=basePath%>admin/CustomerShow?index=0" target="rightFrame">用户管理</a></li>
-                    <li><a href="<%=basePath%>jsp/admin/customer/user_reviews.jsp" target="rightFrame">用户评论</a></li>
-
+                    <li><a href="<%=basePath%>jsp/admin/customer/uer_borrowing.jsp" target="rightFrame">用户评论</a></li>
                 </ul>
 
         </ul>
