@@ -28,12 +28,14 @@
             //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
             $("#admin_button").click(function () {
                 var status = false; //默认表单验证通过
+                var  admin_head =$("#admin_head").val();
 
                 var admin_name = $("input[name='admin_name']").val();
                 var admin_password = $("input[name='admin_password']").val();
                 var r_password =$("input[name='r_password']").val();
                 var admin_phone = $("input[name='admin_phone']").val();
                 var admin_Email = $("input[name='admin_Email']").val();
+                if(admin_head!=""){
                 if(admin_name!=""){
                     if(admin_password!=""){
                         if(r_password!=""){
@@ -59,8 +61,9 @@
                 }else{
                     $("input[name='admin_name']").next().html("名称不能为空");
                 }
-
-
+                }else {
+                    $("#headmeg").html("头像不能为空！");
+                }
                 if (status == true) { //如果表单验证通过
                     $.post("<%=basePath%>admin/AddAdmin",$("#AddAdminForm").serialize(),function (data) {
                         if(data.massage == 1){
@@ -68,7 +71,7 @@
 
                         }else{
                             alert(data.massage);
-                            alert("添加失败")
+                           // alert("添加失败")
                         }
                     });
                 }
@@ -134,7 +137,7 @@
                 <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
                 <input  type="button"class="btn"  id="clearImagePath1" style="width:120px; color: #FFFFFF" value="清除选择图片路径"/>
 
-                <i></i>
+                <i id="headmeg"> </i>
             </li>
             <input id="admin_head" name="admin_head" type="text" class="dfinput" value="" readonly="readonly" style="display:none" />
             <li><label>*名字</label><input id="admin_name" name="admin_name" type="text" class="dfinput"/><i
@@ -143,9 +146,9 @@
             ></i></li>
             <li><label>*确认密码</label><input id="r_password" name="r_password" type="password" class="dfinput"/><i
             ></i></li>
-            <li><label>*电话</label><input id="admin_phone" name="admin_phone" type="text" class="dfinput"/><i
+            <li><label>*电话</label><input id="admin_phone" name="admin_phone" type="number" class="dfinput"/><i
                    ></i></li>
-            <li><label>*邮箱</label><input id="admin_Email" name="admin_Email" type="text" class="dfinput"/><i
+            <li><label>*邮箱</label><input id="admin_Email" name="admin_Email" type="email" class="dfinput"/><i
                     ></i></li>
             <li><label>&nbsp;</label><input id="admin_button" type="button" class="btn" value="添加管理员"/></li>
         </ul>
